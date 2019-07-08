@@ -6,7 +6,7 @@ go:
 env:
  global:
    # Github Pages
-   - GH_REF: github.com/Hyvi/hyvi.github.io
+   - GH_REF: github.com/Hyvi/hyvi.github.com
 
 # Specify which branches to build using a safelist
 # 分支白名单限制：只有 master 分支的提交才会触发构建
