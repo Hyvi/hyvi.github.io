@@ -23,6 +23,12 @@ date = [":filename", ":default"]
 posts = "/:year/:month/:day/:slug"
 
 [menu]
+
+  [[menu.main]]
+    name = "Pics"
+    url = "/pics/"
+    weight = 1
+
   [[menu.main]]
     name = "Tools"
     url = "/tools/"
