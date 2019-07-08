@@ -66,7 +66,7 @@ posts = "/:year/:month/:day/:slug"
     google_verification = ""
 
     description = "Elon 的个人博客" # (Meta) 描述
-    keywords = "blog, KMS, Hugo, GNU/Linux, Linux, Ubuntu, Rusty Lake: Roots, Hollow Knight, 空洞骑士" # site keywords
+    keywords = "blog, Hugo, GNU/Linux, Linux, Ubuntu, Vim" # site keywords
 
     beian = ""
     baiduAnalytics = ""
