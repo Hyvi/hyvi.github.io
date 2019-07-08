@@ -1,4 +1,4 @@
 [submodule "themes/leaveit"]
 	path = themes/leaveit
-	url = git@github.com:Hyvi/LeaveIt.git
+	url = https://github.com/Hyvi/LeaveIt.git
 	branch = master
