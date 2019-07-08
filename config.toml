@@ -82,7 +82,7 @@ autoCollapseToc = true   # Auto expand and collapse toc
 [params.gitalk] 
     owner = "Hyvi"              # Your GitHub ID
     admin = "Hyvi"      # GitHub repository owner and collaborators
-    repo = "hyvi.github.io"               # The repo to store comments
+    repo = "hyvi.github.com"               # The repo to store comments
     clientId = "e6d4916f9776f64681b8"           # Your client ID
     clientSecret = "0ecf1c39895b1e857f19b2f74b7e58982314c6da"       # Your client secret
     countSign = "条评论"
