@@ -31,7 +31,8 @@ Hugo (~~Jekyll~~)有着非常方便的迁移部署的特点，~~该站基于该�
 
 <br />
 ## TODO
-- [ ] pics页面增加相册专辑功能?  
+- [x] pics页面增加相册专辑功能?,  
+  不做，使用categories和tag方式管理图片: **Categories** are meant for broad grouping of your posts. **Tags** are meant to describe specific details of your posts.  
 - [x] 图片使用github的repo存储  
 - [ ] 加上“本站总访问量”和“本站总访客数”。 参考: [温习江湖](https://wweir.cc/)  
   
