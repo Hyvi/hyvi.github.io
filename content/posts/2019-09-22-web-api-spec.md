@@ -1,5 +1,5 @@
 ---
-title: "Web Api Spec"
+title: "Web API Spec"
 date: 2019-09-22T00:22:23+08:00
 draft: false
 tags: 
@@ -55,15 +55,15 @@ google提供跨云环境的API管理
 ### 其他
 
 * [apigility ]( www.apigility.org )  
-* [Falcon]() Python web framework   
-* [Amazon API Gateway]() traffic management, authorization and access control, monitoring and API version management  
+* [Falcon](#) Python web framework   
+* [Amazon API Gateway](#) traffic management, authorization and access control, monitoring and API version management  
 * [SPECCY](speccy.io)  a handy toolkit for OpenAPI, with a linter to enforce quality rules, documention rendering and resolution
 
 ## 公司解决方案
 
 # 结论 
 ## 一期
-API生命周期管理：API新建和显示（For Humans, For Machines）， API使用， API弃用, 版本管理， 授权与访问控制   
+API生命周期管理：API新建和显示（For Humans, For Machines），API使用，API弃用，版本管理，授权与访问控制   
 
 ### TODO LIST
 
@@ -71,7 +71,7 @@ API生命周期管理：API新建和显示（For Humans, For Machines）， API�
 API的健康状态管理： API流量、API错误率等。打通与APM之间的数据。
 ### TODO LIST
 ## 三期
-支持更多的功能： API在线编写， API不规范的提示，API调式，API MOCK，API自动测试，代码生成（SDK和sample），
+支持更多的功能： API在线编写， API不规范的提示，API调式，API MOCK，API自动测试，代码生成（SDK和sample）
 
 - Traffic Inspector   
 提供代理方式，开发者可以把数据发送到调试代理上，通过比对数据和协议内容，来定位问题。[想法来自 apiary.io](apiary.io)  
