@@ -13,6 +13,12 @@ description:
 # 简介
 向后兼容的一般目标是： 服务升级到新的minor版本或者patch后客户端不应该被破坏  
 
+# 名词解释
+## Source Compatibility 
+code that compiled against version X of an API will also compile against version Y . 
+## Binary Compatibility 
+code that compiled against version X of an API will run correctly in an environment that has version Y of the same API. 
+
 # 向后兼容性的改变
 
 - 为API服务添加一个API接口
