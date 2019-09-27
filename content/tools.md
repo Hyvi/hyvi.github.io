@@ -19,8 +19,9 @@ tags: ['vim','python']
 ### Tools
 ~~[Sublime SFTP Usage](https://wbond.net/sublime_packages/sftp/usage) 多看下手册会发现神奇的功能，比如Monitoring files功能~~
   
-~~[BetterTouchTool](http://www.google.com)两个屏幕时将窗口切换到另外一个屏幕,需要收费~~  
-[Spectacle](https://github.com/eczarny/spectacle#keyboard-shortcuts) Move and resize windows with ease  
+[BetterTouchTool](https://folivora.ai) 两个屏幕时将窗口切换到另外一个屏幕，已经购购买了Standard License，将Magic Mouse上也可以“TAP TO CLICK” ~  
+
+[Spectacle](https://github.com/eczarny/spectacle#keyboard-shortcuts) Move and resize windows with ease，经常使用到  
   
 [Python教程](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000) 罗列基础学习知识,根据目录来学习
   
@@ -30,14 +31,15 @@ tags: ['vim','python']
 
 [VIM 滚动屏幕](http://yyq123.blogspot.com/2009/02/vim_27.html) `<C-D>` 向下翻半页   `<C-E>`屏幕向上移动、光标不动  `<C-U>`向上翻半页
 
-[CatchMouse](http://macdownload.informer.com/catchmouse/download/) 双屏幕切换鼠标光标，省去大区域内移动鼠标光标    
+~~[CatchMouse](http://macdownload.informer.com/catchmouse/download/) 双屏幕切换鼠标光标，省去大区域内移动鼠标光标~~    
 
 [ProcessOn](www.processon.com) 在线作图，协作免费   
 
 [MacDown](https://macdown.uranusjr.com/) Mac下边预览边敲markdown文档的开源软件，惊喜的是可以转成HTML或PDF文件  
 
-[PDF to Word Converter   2.2](http://soft.macx.cn/soft5054.htm)  分分钟搞定pdf 转word 文件
+~~[PDF to Word Converter   2.2](http://soft.macx.cn/soft5054.htm)  分分钟搞定pdf 转word 文件~~
  
 
 ### Books
+见百度脑图各个技术点书籍收集目录下的书本  
 [Exploring ES6](http://exploringjs.com/es6.html) es6 很详细的书籍
