@@ -37,7 +37,9 @@ tags: ['vim','python']
 
 [MacDown](https://macdown.uranusjr.com/) Mac下边预览边敲markdown文档的开源软件，惊喜的是可以转成HTML或PDF文件  
 
-~~[PDF to Word Converter   2.2](http://soft.macx.cn/soft5054.htm)  分分钟搞定pdf 转word 文件~~
+~~[PDF to Word Converter   2.2](http://soft.macx.cn/soft5054.htm)  分分钟搞定pdf 转word 文件~~  
+
+[Trello](https://trello.com) 目标管理、项目管理、计划管理工具  
  
 
 ### Books
