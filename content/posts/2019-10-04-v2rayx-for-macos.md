@@ -38,6 +38,12 @@ v2ray -config=/usr/local/etc/v2ray.config.json
 ``` bash 
 brew services start v2ray-core 
 ```
+
+
+# 问题汇总 
+### Network is Unavailable
+A: 真的重启了就好了。 服务真的不稳定，一年挂机好多次。不过现在速度真的是快。   
+
 <br>
 
 <center>  ·End·  </center>
