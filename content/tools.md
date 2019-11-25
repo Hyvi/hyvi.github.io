@@ -40,6 +40,8 @@ tags: ['vim','python']
 ~~[PDF to Word Converter   2.2](http://soft.macx.cn/soft5054.htm)  分分钟搞定pdf 转word 文件~~  
 
 [Trello](https://trello.com) 目标管理、项目管理、计划管理工具  
+
+[Clouder](https://chrome.google.com/webstore/detail/clouder/fjblekdlcidmadghbofmenknaegldcic) 把图片上传到云端的存储的工具   
  
 
 ### Books
