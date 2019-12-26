@@ -10,9 +10,43 @@ featured_image:
 description: 
 ---
 # 简介 
-整个golang团队20多人，没有code review & 没有单元测试，对新人的成长很不好，同时也缺乏大家之间的技术交流和沟通。 看过[Google 代码评审规范](https://www.infoq.cn/article/QJi1Kqm4pH3UNAqNzl3l)，解决了我之前一些疑问和也让我坚定的去Code Review。  
-我想，不管多难，我们开始要做Code Review， 从哪里开始了？  
+整个golang团队20多人，没有code review ，对项目质量、对结果产出、对新人的成长，对团队交流的氛围影响大。 看过[Google 代码评审规范](https://www.infoq.cn/article/QJi1Kqm4pH3UNAqNzl3l)，解决了我之前一些疑问和也让我坚定的去Code Review。  
+当没有code review时候，要求重构，而重构价值是释放历史包袱，并没有产生任何其他价值  
 
+- 我们的提交是这样的  
+
+```golang
+3b8e45c - Slove Confilct -  2 weeks ago -
+0a39ecd - FIXS: vendor -  2 weeks ago -
+7817d14 - debug -  2 weeks ago -
+67539e2 - debug -  2 weeks ago -
+9044356 - Slove Confilct -  2 weeks ago -
+d47db91 - FIXS: ss -  2 weeks ago -
+8913c30 - Slove Confilct -  2 weeks ago -
+2d407d2 - FIXS: logger -  2 weeks ago -
+```
+
+``` golang
+b9af055 - 打印日志 -  7 weeks ago - 
+1124e92 - 打印日志 -  7 weeks ago - 
+88d0eac - 修改log -  7 weeks ago - 
+ad0b3dd - 修改日志 -  7 weeks ago - 
+4aa0740 - 答应日志 -  7 weeks ago - 
+824658a - 修改日志 -  7 weeks ago - 
+178c30c - 打印日志 -  7 weeks ago - 
+```
+> 在pull request的时候，认真review下所有的commit，该合并得合并，该修改得修改
+
+- 我们的命名是这样的  
+  这里不截图纪念了. 
+
+- 我们的代码分支和发版是这样的  
+  本地打包,更恶心的是代码不提交本地打包的.  
+
+- 我们的单元测试是这样的  
+  几乎没有  
+
+我们开始要做Code Review， 从哪里开始了？  
 # 方式
 谁要对谁在什么时候用什么方式去做什么？
 
@@ -31,8 +65,6 @@ description:
 
 ## 做什么
 阅读提交的代码并给出建议完成审核
-
-
 
 
 
