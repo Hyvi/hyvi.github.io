@@ -48,7 +48,7 @@ ad0b3dd - 修改日志 -  7 weeks ago -
 
 我们开始要做Code Review， 从哪里开始了？  
 # 方式
-谁要对谁在什么时候用什么方式去做什么？
+谁对谁在什么时候用什么方式去做什么？
 
 ## 第一个“谁”
 如果项目存在两人或者两人以上开发 
@@ -65,7 +65,7 @@ ad0b3dd - 修改日志 -  7 weeks ago -
 提交Review时的当天或者第二天须完成
 
 ## 什么方式
-依照代码审核规范， 目前缺少自己的审核规范，参考[Google 代码评审规范](https://www.infoq.cn/article/QJi1Kqm4pH3UNAqNzl3l)
+依照代码审核规范， 目前缺少自己的审核规范，参考[Google 代码评审规范](https://www.infoq.cn/article/QJi1Kqm4pH3UNAqNzl3l)，必须熟读
 
 ## 做什么
 阅读提交的代码并给出建议完成审核
