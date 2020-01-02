@@ -17,8 +17,6 @@ tags: ['vim','python']
 [我的代码](https://bitbucket.org) 所有私有代码上传到网络上
 
 ### Tools
-~~[Sublime SFTP Usage](https://wbond.net/sublime_packages/sftp/usage) 多看下手册会发现神奇的功能，比如Monitoring files功能~~
-  
 [BetterTouchTool](https://folivora.ai) 两个屏幕时将窗口切换到另外一个屏幕，已经购购买了Standard License，将Magic Mouse上也可以“TAP TO CLICK” ~  
 
 [Spectacle](https://github.com/eczarny/spectacle#keyboard-shortcuts) Move and resize windows with ease，经常使用到  
@@ -31,19 +29,24 @@ tags: ['vim','python']
 
 [VIM 滚动屏幕](http://yyq123.blogspot.com/2009/02/vim_27.html) `<C-D>` 向下翻半页   `<C-E>`屏幕向上移动、光标不动  `<C-U>`向上翻半页
 
-~~[CatchMouse](http://macdownload.informer.com/catchmouse/download/) 双屏幕切换鼠标光标，省去大区域内移动鼠标光标~~    
-
-[ProcessOn](www.processon.com) 在线作图，协作免费   
-
-[MacDown](https://macdown.uranusjr.com/) Mac下边预览边敲markdown文档的开源软件，惊喜的是可以转成HTML或PDF文件  
-
-~~[PDF to Word Converter   2.2](http://soft.macx.cn/soft5054.htm)  分分钟搞定pdf 转word 文件~~  
+[draw.io](draw.io)才是画图神器，画图看起来非常专业。  
 
 [Trello](https://trello.com) 目标管理、项目管理、计划管理工具  
 
 [Clouder](https://chrome.google.com/webstore/detail/clouder/fjblekdlcidmadghbofmenknaegldcic) 把图片上传到云端的存储的工具   
- 
 
+-----
+ 
+~~[CatchMouse](http://macdownload.informer.com/catchmouse/download/) 双屏幕切换鼠标光标，省去大区域内移动鼠标光标~~    
+
+~~[ProcessOn](www.processon.com) 在线作图，协作免费~~   
+
+~~[macDown](https://macdown.uranusjr.com/) Mac下边预览边敲markdown文档的开源软件，惊喜的是可以转成HTML或PDF文件~~  
+
+~~[PDF to Word Converter   2.2](http://soft.macx.cn/soft5054.htm)  分分钟搞定pdf 转word 文件~~  
+
+~~[Sublime SFTP Usage](https://wbond.net/sublime_packages/sftp/usage) 多看下手册会发现神奇的功能，比如Monitoring files功能~~
+  
 ### Books
 见百度脑图各个技术点书籍收集目录下的书本  
 [Exploring ES6](http://exploringjs.com/es6.html) es6 很详细的书籍
