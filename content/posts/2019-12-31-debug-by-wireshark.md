@@ -35,6 +35,11 @@ curl和wget有他们自己的实现HTTP Request的代码，并使用了自己的
 > An interactive console program than allows traffic flows to be intercepted, inspected, modified and replayed. 
 优点是可自定制化开发，命令行模式，适合code geek和键盘控
 
+### 透明代理
+重定向机制，可以将目的地为Internet上的服务器的TCP连接透明地重新路由到侦听代理服务器上。这通常采用与代理服务器相同的主机上的防火墙形式。比如Linux下的iptables\或者OSX中的pf。具体如何操作见参考中的"Mac 上使用mitmproxy对ios app进行抓包”   
+
+
+
 ###  安装和使用 
 [MitmProxy 使用教程 for MAC](http://rui0.cn/archives/498)  
 更关心[Transparent Proxying使用](https://docs.mitmproxy.org/stable/howto-transparent/#macos)  
@@ -105,11 +110,6 @@ This mechanism works for applications other than web browser as will but it depe
 - For Java programs  
 - Python scripts can be edited to dump keys as well 
 
-
-## mitmproxy 
-
-### 透明代理
-重定向机制，可以将目的地为Internet上的服务器的TCP连接透明地重新路由到侦听代理服务器上。这通常采用与代理服务器相同的主机上的防火墙形式。比如Linux下的iptables\或者OSX中的pf。具体如何操作见参考中的"Mac 上使用mitmproxy对ios app进行抓包”   
 
 # 参考
 在Trello上记录所有待办事项。   
