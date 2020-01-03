@@ -39,8 +39,53 @@ curl和wget有他们自己的实现HTTP Request的代码，并使用了自己的
 [MitmProxy 使用教程 for MAC](http://rui0.cn/archives/498)  
 更关心[Transparent Proxying使用](https://docs.mitmproxy.org/stable/howto-transparent/#macos)  
 
-### Transparent Proxying 在Mac上实践 
-参考官方文档，对mac下进行全局抓包的尝试。  
+#### Transparent Proxying 在Mac上实践 
+参考官方文档，对mac下进行全局抓包的尝试。如下：   
+
+- Enable IP forwarding.
+
+```bash 
+sudo sysctl -w net.inet.ip.forwarding=1
+```
+
+- Place the following two lines in **/etc/pf.conf**.
+
+```bash
+mitm_if = "re2"
+pass in quick proto tcp from $mitm_if to port { 80, 443 } divert-to 127.0.0.1 port 8080
+```
+
+These rules tell pf to divert all traffic from `$mitm_if` destined for port 80
+or 443 to the local mitmproxy instance running on port 8080. You should replace
+`$mitm_if` value with the interface on which your test device will appear.
+
+- Configure pf with the rules.
+
+```bash
+doas pfctl -f /etc/pf.conf
+```
+- And now enable it.
+
+```bash
+doas pfctl -e
+```
+
+- Fire up mitmproxy.
+
+You probably want a command like this:
+```bash
+mitmproxy --mode transparent --listen-host 127.0.0.1 --showhost
+```
+
+The `--mode transparent` option turns on transparent mode, and the `--showhost` argument tells
+mitmproxy to use the value of the Host header for URL display.
+
+- Finally, configure your test device.
+
+Set the test device up to use the host on which mitmproxy is running as the default gateway 
+
+#### 使用socks5的方式抓包所有的流量 TODO
+[Tracing All Network Machine Traffic Using MITMProxy for Mac OSX](https://blogs.msdn.microsoft.com/aaddevsup/2018/04/11/tracing-all-network-machine-traffic-using-mitmproxy-for-mac-osx/)  
 
 ## wireshark
 抓取网卡上的所有TCP、UDP的数据  
