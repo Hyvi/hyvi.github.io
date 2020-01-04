@@ -107,7 +107,38 @@ mitmproxy to use the value of the Host header for URL display.
 
 - Finally, configure your test device.
 
-Set the test device up to use the host on which mitmproxy is running as the default gateway 
+Set the test device up to use the host on which mitmproxy is running as the default gateway   
+   
+到此, 可以抓包en0显卡上的流量, 但是抓包不了Mac本地上的流量。   
+
+-  pf解决Mac自身流量抓包
+
+```bash 
+#The ports to redirect to proxy
+redir_ports = "{http, https}"
+
+#The address the transparent proxy is listening on
+tproxy = "127.0.0.1 port 8080"
+
+#The user the transparent proxy is running as
+tproxy_user = "nobody"
+
+#The users whose connection must be redirected.
+#
+#This cannot involve the user which runs the
+#transparent proxy as that would cause an infinite loop.
+#
+
+rdr pass proto tcp from any to any port $redir_ports -> $tproxy
+pass out route-to (lo0 127.0.0.1) proto tcp from any to any port $redir_ports user { != $tproxy_user }
+```
+转发处理nobody之外的所有用户的流量到mitmproxy上。 为了避免循环，所以以nobody用户身份来启动mitmproxy。  
+```bash
+sudo -u nobody mitmproxy --mode transparent --showhost
+```
+
+** 发现有些流量不见了 ** 
+排查发现因为wifi下启用了socks代理，导致一些流量不见了, 转发到shadowsocks socks5代理去了。  
 
 #### 使用socks5的方式抓包所有的流量 TODO
 [Tracing All Network Machine Traffic Using MITMProxy for Mac OSX](https://blogs.msdn.microsoft.com/aaddevsup/2018/04/11/tracing-all-network-machine-traffic-using-mitmproxy-for-mac-osx/)  
