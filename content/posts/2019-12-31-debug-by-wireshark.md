@@ -13,7 +13,25 @@ description:
 # 背景
 抓包分析是调式前后端协议的杀手锏，用好工具节省大量的时间去写代码优化代码。 
 
-# 利器
+# 名词解释
+**HTTP Strict transport security(HSTS)**  
+HTTP严格传输安全   
+HSTS禁止浏览器使用无效证书。  
+**Certificate Transparency**  
+为了解决CA存在的问题（故意或者恶意签发证书等），目的是提供一种开发的审计和监控系统，可以让任何域名所有者或者CA确定证书是否被错误签发或者被恶意使用，从而提供HTTPS网站的安全性。  
+[ how ct works ](https://www.certificate-transparency.org/how-ct-works)   
+
+**HTTP Public Key Pinning**  
+用来防范由「伪造或不正当的手段获得网站证书」造成中间人攻击。  
+工作原理： 通过响应头或者<meta>标签告诉浏览器当前网站的证书指纹，以及过期时间等其他信息.  
+
+> Chrome 69 版本开始移除对HPKP的支持  
+
+**OCSP Stapling**  
+OCSP(Online Certifacte Status Protocol, 在线证书状态协议)是用来检验证书合法性的在线查询服务。   
+TLS握手阶段，实时查询OCSP接口，并在获得结果前阻塞后续流程。但导致建立TLS连接时间变得更长。 而 OCSP Stapling, 是服务器主动获取OCSP查询结果并随着证书一起发给客户端，从而让客服端跳过自己去验证的过程，提高TLS握手效率  
+
+# 工具
 有fiddler, charles, wiresharks,
 
 ## fiddler
@@ -37,7 +55,6 @@ curl和wget有他们自己的实现HTTP Request的代码，并使用了自己的
 
 ### 透明代理
 重定向机制，可以将目的地为Internet上的服务器的TCP连接透明地重新路由到侦听代理服务器上。这通常采用与代理服务器相同的主机上的防火墙形式。比如Linux下的iptables\或者OSX中的pf。具体如何操作见参考中的"Mac 上使用mitmproxy对ios app进行抓包”   
-
 
 
 ###  安装和使用 
@@ -92,6 +109,9 @@ Set the test device up to use the host on which mitmproxy is running as the defa
 #### 使用socks5的方式抓包所有的流量 TODO
 [Tracing All Network Machine Traffic Using MITMProxy for Mac OSX](https://blogs.msdn.microsoft.com/aaddevsup/2018/04/11/tracing-all-network-machine-traffic-using-mitmproxy-for-mac-osx/)  
 
+### 破解https的SSL Pinning TODO
+[APP上破解https的SSL Pinning](https://crifan.github.io/app_capture_package_tool_charles/website/how_capture_app/complex_https/https_ssl_pinning/)  
+
 ## wireshark
 抓取网卡上的所有TCP、UDP的数据  
 
@@ -119,6 +139,8 @@ This mechanism works for applications other than web browser as will but it depe
 [如何使用透明代理抓HTTPS](https://www.javazhiyin.com/42166.html)  
 [Mac 上使用mitmproxy对ios app进行抓包]( https://www.zoulei.net/2018/05/25/mitmproxy_transparent_model_network_capture/) 比较详细的操作  
 [怎么让charles能代理所有的http(s)的请求呢？](https://superuser.com/questions/398977/how-can-i-run-all-http-requests-through-charles-web-debugging-proxy-including)  
+[HTTP Public Key Pinning 介绍](https://imququ.com/post/http-public-key-pinning.html)  
+[app 抓包利器](https://crifan.github.io/app_capture_package_tool_charles/website/)  
 
 <br>
 
