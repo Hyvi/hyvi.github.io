@@ -140,9 +140,12 @@ sudo -u nobody mitmproxy --mode transparent --showhost
 ** 发现有些流量不见了 ** 
 排查发现因为wifi下启用了socks代理，导致一些流量不见了, 转发到shadowsocks socks5代理去了。  
 
-#### 使用socks5的方式抓包所有的流量 TODO
+#### 使用socks5的方式抓包所有的流量 
 [Tracing All Network Machine Traffic Using MITMProxy for Mac OSX](https://blogs.msdn.microsoft.com/aaddevsup/2018/04/11/tracing-all-network-machine-traffic-using-mitmproxy-for-mac-osx/)  
 跟regular proxy一样，需要client/应用支持或者更改。比如chrome更改网络方式为代理模式。比如不能对Curl的请求抓包不了  
+同理，socks5也存在透明代理，不过实现的方式不一样, 比如tsocks
+
+>  tsocks provides transparent network access through a SOCKS version 4 or 5 proxy (usually on a firewall). tsocks intercepts the calls applications make to establish TCP connections and transparently proxies them as necessary.
 
 ### 破解https的SSL Pinning TODO
 [APP上破解https的SSL Pinning](https://crifan.github.io/app_capture_package_tool_charles/website/how_capture_app/complex_https/https_ssl_pinning/)  
