@@ -26,6 +26,7 @@ HSTS禁止浏览器使用无效证书。
 **HTTP Public Key Pinning**  
 用来防范由「伪造或不正当的手段获得网站证书」造成中间人攻击。  
 工作原理： 通过响应头或者<meta>标签告诉浏览器当前网站的证书指纹，以及过期时间等其他信息.  
+Google已经针对不验证服务器证书的APP给出了警告，这些APP将来会有被Play store拒之门外的危险,[参考](https://support.google.com/faqs/answer/6346016?hl=en)   
 
 > Chrome 69 版本开始移除对HPKP的支持  
 
