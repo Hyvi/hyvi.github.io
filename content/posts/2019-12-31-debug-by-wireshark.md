@@ -17,6 +17,8 @@ description:
 **HTTP Strict transport security(HSTS)**  
 HTTP严格传输安全   
 HSTS禁止浏览器使用无效证书。  
+  
+
 **Certificate Transparency**  
 为了解决CA存在的问题（故意或者恶意签发证书等），目的是提供一种开发的审计和监控系统，可以让任何域名所有者或者CA确定证书是否被错误签发或者被恶意使用，从而提供HTTPS网站的安全性。  
 [ how ct works ](https://www.certificate-transparency.org/how-ct-works)   
@@ -140,7 +142,7 @@ This mechanism works for applications other than web browser as will but it depe
 [Mac 上使用mitmproxy对ios app进行抓包]( https://www.zoulei.net/2018/05/25/mitmproxy_transparent_model_network_capture/) 比较详细的操作  
 [怎么让charles能代理所有的http(s)的请求呢？](https://superuser.com/questions/398977/how-can-i-run-all-http-requests-through-charles-web-debugging-proxy-including)  
 [HTTP Public Key Pinning 介绍](https://imququ.com/post/http-public-key-pinning.html)  
-[app 抓包利器](https://crifan.github.io/app_capture_package_tool_charles/website/)  
+[app 抓包利器.pdf](https://crifan.github.io/app_capture_package_tool_charles/website/)  
 
 <br>
 
