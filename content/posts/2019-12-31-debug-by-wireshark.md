@@ -53,9 +53,18 @@ curl和wget有他们自己的实现HTTP Request的代码，并使用了自己的
 
 ## mitmproxy
 原理是中间人的方式来实现, 再加个proxy, 中间人代理软件，可以用来拦截、修改、保存HTTP/HTTPS请求。  
+
 > An interactive console program than allows traffic flows to be intercepted, inspected, modified and replayed. 
 优点是可自定制化开发，命令行模式，适合code geek和键盘控
 
+- Regurlar
+- Transparent
+- Reverse Proxy
+- Upstream Proxy
+- SOCKS Proxy
+
+
+![ Modes of Operation](https://docs.mitmproxy.org/stable/schematics/proxy-modes-flowchart.png)   
 ### 透明代理
 重定向机制，可以将目的地为Internet上的服务器的TCP连接透明地重新路由到侦听代理服务器上。这通常采用与代理服务器相同的主机上的防火墙形式。比如Linux下的iptables\或者OSX中的pf。具体如何操作见参考中的"Mac 上使用mitmproxy对ios app进行抓包”   
 
@@ -76,30 +85,29 @@ sudo sysctl -w net.inet.ip.forwarding=1
 - Place the following two lines in **/etc/pf.conf**.
 
 ```bash
-mitm_if = "re2"
-pass in quick proto tcp from $mitm_if to port { 80, 443 } divert-to 127.0.0.1 port 8080
+rdr pass on en0 inet proto tcp to any port {80, 443} -> 127.0.0.1 port 8080
 ```
+This rule tells pf to redirect all traffic destined for port 80 or 443 to the local mitmproxy instance running on port 8080. You should replace `en0` with the interface on which your test device will appear.
 
-These rules tell pf to divert all traffic from `$mitm_if` destined for port 80
-or 443 to the local mitmproxy instance running on port 8080. You should replace
-`$mitm_if` value with the interface on which your test device will appear.
+> rdr rules in pf.conf above apply only to inbound traffic. They will NOT redirect traffic coming from the box running pf itself.
 
 - Configure pf with the rules.
 
 ```bash
-doas pfctl -f /etc/pf.conf
+sudo pfctl -f pf.conf
 ```
+Mac系统默认使用/etc/pf.conf， 调式完之后需要重置 
 - And now enable it.
 
 ```bash
-doas pfctl -e
+sudo pfctl -e
 ```
 
 - Fire up mitmproxy.
 
 You probably want a command like this:
 ```bash
-mitmproxy --mode transparent --listen-host 127.0.0.1 --showhost
+mitmproxy --mode transparent  --showhost
 ```
 
 The `--mode transparent` option turns on transparent mode, and the `--showhost` argument tells
@@ -107,10 +115,15 @@ mitmproxy to use the value of the Host header for URL display.
 
 - Finally, configure your test device.
 
-Set the test device up to use the host on which mitmproxy is running as the default gateway   
+Set the test device up to use the host on which mitmproxy is running as the default gateway and install the mitmproxy certificate authority on the test device   
    
 到此, 可以抓包en0显卡上的流量, 但是抓包不了Mac本地上的流量。   
+但是这并没有解决抓包APP里HTTPS的流量问题，因为出现如下错误：  
+“ warn: 192.168.2.3:56243: Client Handshake failed. The client may not trust the proxy's certificate for e.crashlytics.com.  "   
+解决办法见： "破解SSL Pinning" 
 
+
+另外上述方法也没有办法抓包本机电脑上的流量； 需要进一步设置： [Work-around to redirect traffic originating from the machine itself](https://docs.mitmproxy.org/stable/howto-transparent/)   
 -  pf解决Mac自身流量抓包
 
 ```bash 
@@ -119,7 +132,6 @@ redir_ports = "{http, https}"
 
 #The address the transparent proxy is listening on
 tproxy = "127.0.0.1 port 8080"
-
 #The user the transparent proxy is running as
 tproxy_user = "nobody"
 
