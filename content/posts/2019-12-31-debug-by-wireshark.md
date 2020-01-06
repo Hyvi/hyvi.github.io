@@ -171,7 +171,7 @@ sudo -u nobody mitmproxy --mode transparent --showhost
 
 - 通过私钥来解密, 咨询过运维，这种私钥是没办法提供的。  参考这边文档： [How to Decrypt SSL and TLS Traffic Using Wireshark](https://support.citrix.com/article/CTX116557)  
 - `适合浏览器`通过设置环境变量截取浏览器的pre_master_secret,进而实现解密HTTPS的目的。 [wireshark两种解密https方式](https://www.cnblogs.com/yurang/p/11505741.html)   
-- `也只适合浏览器，其他客户端发送出的请求无法解密?` 通过mitmproxy来获取SSLKEYLOGFILE， 参考 [Wireshark and SSL/TLS Master Secrets](https://docs.mitmproxy.org/stable/howto-wireshark-tls/) `#TODO`
+- `也只适合浏览器，其他客户端发送出的请求无法解密` 通过mitmproxy来获取SSLKEYLOGFILE， 参考 [Wireshark and SSL/TLS Master Secrets](https://docs.mitmproxy.org/stable/howto-wireshark-tls/) 
 
  This mechanism (SSLKEYLOGFILE) currently(2019) does not work for Safari, Microsoft Edge, and others since their TLS libraries (Microsoft SChannel / Apple SecureTransport) do not suppport this mechanism.   
 This mechanism works for applications other than web browser as will but it dependent on the TLS Libraries used by application. Examples of applications: 
