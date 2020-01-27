@@ -61,7 +61,8 @@ ad0b3dd - 修改日志 -  7 weeks ago -
 如果应用负责人和开发是同一个人，这时候为“小组Leader”   
 
 ### 自动Lint工具
-借助自动化完成代码最基本的审核， 比如reviewdog & golangci-linter
+借助自动化完成代码最基本的审核， 比如reviewdog & golangci-lint， 更多相关知识[Github Action-golangci-lint](https://github.com/reviewdog/action-golangci-lint)   
+
 
 
 ## 第二个“谁”
@@ -76,7 +77,14 @@ ad0b3dd - 修改日志 -  7 weeks ago -
 ## 做什么
 阅读提交的代码并给出建议完成审核
 
-### 
+# 落地
+
+## reviewdog & golangci-lint在gitlab上配置实践
+熟悉github action方式， 借鉴其优点； 在一个项目中实践，然后推广到其他项目中。
+
+- 如何做到所有项目不需要自行配置或者简单的配置（比如增加一个配置现成的文件），并且使用同一个套代码检查标准？ 
+- 目前没有非常成熟的方案，需要花费一些时间去解决现有开源方案中的问题。
+
 
 
 
