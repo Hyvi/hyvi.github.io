@@ -27,8 +27,6 @@ install:
   - hugo
 
 script:
-  on: 
-    type: push 
   - cd ./public
   - git init
   - git config user.name "Hyvi"
