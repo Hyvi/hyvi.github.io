@@ -36,7 +36,7 @@ script:
   # Github Pages
   # 只针对master分支上的push动作
   - if [ "$TRAVIS_EVENT_TYPE" != "pull_request" ]; then
-      git push --force --quiet "https://$GITHUB_TOKEN@${GH_REF}" master:master
+      git push --force --quiet "https://$GITHUB_TOKEN@${GH_REF}" master:master;
     fi
 
 # before_deploy:
