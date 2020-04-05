@@ -23,12 +23,18 @@ UMA成为一个相当复杂的多步骤协议，并且具有许多参与方和�
 
 考虑点：资源拥有者的凭据和请求方的凭据都没有被透露给资源服务器或客户端。另外，这两方也没有相互透露敏感的跟人信息。请求方只是最小限度的提供证明信息，满足资源拥有者设置的策略即可。 
 
+# 实践
+
+- Pauldron, an experimental authorization server based on OAuth 2.0 and User-Managed Access (UMA) profile of OAuth 2.0 with additional extensions 貌似是1.0版本的UMA协议.
 # 参考
 1. User-Managed Access(UMA) 2.0 Grant for OAuth 2.0 Authorization 
   https://docs.kantarainitiative.org/uma/wg/rec-oauth-uma-grant-2.0.html
 
 2. UMA 2.0 的实现
   https://kantarainitiative.org/confluence/display/uma/UMA+Implementations
+
+3. UMA Home 官网吧
+  https://kantarainitiative.org/confluence/display/uma/Home
 
 <br>
 
