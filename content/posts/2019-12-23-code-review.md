@@ -72,7 +72,11 @@ ad0b3dd - 修改日志 -  7 weeks ago -
 提交Review时的当天或者第二天须完成
 
 ## 什么方式
-依照代码审核规范， 目前缺少自己的审核规范，参考[Google 代码评审规范](https://www.infoq.cn/article/QJi1Kqm4pH3UNAqNzl3l)，必须熟读
+依照代码审核规范， 目前缺少自己的审核规范，
+类似规范参考
+
+- [Google 代码评审规范](https://www.infoq.cn/article/QJi1Kqm4pH3UNAqNzl3l)  
+- [How Thanos Would Program in Go](https://www.bwplotka.dev/2020/how-thanos-would-program-in-go/)
 
 ## 做什么
 阅读提交的代码并给出建议完成审核
