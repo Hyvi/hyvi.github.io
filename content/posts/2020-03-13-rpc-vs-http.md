@@ -21,11 +21,16 @@ rpc是远端过程调用，其调用协议通常包含传输协议和序列化�
 序列化协议包含: 如基于文本编码的 xml json，也有二进制编码的 protobuf hessian等。  
 
 
+# HTTP长连接
+在参考[2]中提到httpServer怎么处理长连接的： httpserver 创建一个goroutine，更确切的说，是为了为一个新的tcp连接去创建一个 goroutine， 详细参考文章的源码. 
+
 # 参考
 
 1. 既然有http，为什么还要RPC调用？  
   https://www.zhihu.com/question/41609070  
 
+2. Golang httpServer对KeepAlive长连接的处理方式 
+  https://blog.csdn.net/jeffrey11223/article/details/81222774
 
 <br>
 
