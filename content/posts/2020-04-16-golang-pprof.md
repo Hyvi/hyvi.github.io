@@ -60,6 +60,26 @@ this.debugMux.HandleFunc("/debug/pprof/", http.HandlerFunc(pprof.Index))
 ### goroutine
 ### block
 ### mutex
+实践web方式[Mutex profle](https://rakyll.org/mutexprofile/)
+
+里面提到的PPT在本地分析不出数据, 
+
+```golang
+for _, f := range factors(n) {
+  mu.Lock()
+  m[f]++
+  mu.Unlock()
+}
+```
+
+
+```golang
+mu.Lock()
+for _, f := range factors(n) {
+  m[f]++
+}
+mu.Unlock()
+```
 ## Trace
 
 ### Synchronization blocking profile
