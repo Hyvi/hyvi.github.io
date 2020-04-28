@@ -62,7 +62,7 @@ this.debugMux.HandleFunc("/debug/pprof/", http.HandlerFunc(pprof.Index))
 ### mutex
 实践web方式[Mutex profle](https://rakyll.org/mutexprofile/)
 
-里面提到的PPT在本地分析不出数据, 
+~~里面提到的PPT在本地分析不出数据, ~~, 因为没有用goroutine
 
 ```golang
 for _, f := range factors(n) {
