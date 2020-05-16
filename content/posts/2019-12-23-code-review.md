@@ -88,6 +88,9 @@ ad0b3dd - 修改日志 -  7 weeks ago -
 
 - 如何做到所有项目不需要自行配置或者简单的配置（比如增加一个配置现成的文件），并且使用同一个套代码检查标准？ 
 - 目前没有非常成熟的方案，需要花费一些时间去解决现有开源方案中的问题。
+    - reviewdog 结合 golangci-lint使用，修改其输出格式， https://github.com/reviewdog/reviewdog/blob/f507019cd91ba12e7397a7f0c7412a6d4cbf3af7/.reviewdog.yml#L32
+
+
 
 
 
