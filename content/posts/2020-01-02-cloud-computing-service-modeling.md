@@ -36,6 +36,34 @@ With this model, a third-party vendor provides your business with a platform upo
 ## Infrastructure-as-a-service 
 allow your business to have complete, scalable control over the management and customization of your infrastructure . 
 
+# Patterns in microservice 
+![architecture trends 2020](https://res.infoq.com/articles/architecture-trends-2020/en/resources/1Architecture-2020-Q2-1587042627643.jpg) 
+
+## EDA 
+![Service composition - anit pattern](https://miro.medium.com/max/468/1*YPhljs4qcqtN08dA54fdwA.png)
+
+- tightly coupled, because the calling service needs to know the URL payload and related detail of the service it calls 
+- a change in functionality require a coordinated effort between multiple teams 
+
+
+![Event notifications and event-driven architectures](https://miro.medium.com/max/1166/1*TtaEDXMTFpPqHj0a-7lxiw.png) 
+
+## AsyncAPI #TODO
+
+## Data Mesh #TODO
+
+## Policy as Code #TODO
+
+# Principles in Microservice
+
+1. Create an organizational model that provide independence and antonomy to teams 
+2. services are independently deployable
+3. services are independently scalable 
+4. they do not have a single point of failure - only degradation 
+5. the design employ asynchronous communication between services 
+6. no shared functionality , code or data exists in the system .
+7. Component are easy to understand and the are small services with boundary 
+
 # 思考
 接触到“AWS解决方案架构师”，负责企业客户应用在AWS的架构咨询和设计。在微服务架构设计，数据库等领域有丰富的经验。  
 是技术产品还是技术架构师呢？ 那AWS这些云产品由什么位置来规划的？  
@@ -46,6 +74,11 @@ allow your business to have complete, scalable control over the management and c
 [Futrue of Cloud Computing Architecture.pdf](https://www.sjsu.edu/people/robert.chun/courses/CS247/s4/I.pdf)  
 [Which Cloud Computing Service Model is Right for Your Business](https://www.paranet.com/blog/bid/128267/the-three-types-of-cloud-computing-service-models)  
 
+3. Software Architecture and Design InfoQ Trends Report—April 2020
+  https://www.infoq.com/articles/architecture-trends-2020/
+
+4. InfoQ 趋势报告：架构和设计领域技术演变详解 2019
+  https://www.infoq.cn/article/R7lWXd0R4VFf3E0bB*38
 <br>
 
 <center>  ·End·  </center>
