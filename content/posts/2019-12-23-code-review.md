@@ -91,6 +91,10 @@ ad0b3dd - 修改日志 -  7 weeks ago -
     - *reviewdog 结合 golangci-lint 使用，修改其输出格式, [more link][golangci-lint-fmt]*
       在[presto-pay][presto_pay]是使用golangci-lint,但是reviewdog在官网上没有golangci-lint的案例
 
+**失败**
+
+- golangci-lint自身大而全的能力，导致其功能本身不稳定，不如golint或errcheck那么纯粹 
+
 ## reviewdog & golint/errcheck/govet/... 在 gitlab 上配置实践
 
 ```yml
@@ -115,8 +119,12 @@ reviewdog:
 更多： 
 
 - reviewdog 结合各种错误检查，详细见: [reviewdog.yml](https://gitlab.com/reviewdog/reviewdog/-/blob/master/.reviewdog.yml)
-- 使用预设的errformat, 通过参数`-f=golangci-lint`，更多的errformat点击链接[go.go][go-fmt]
+- 使用预设的errformat, 例如通过参数`-f=golangci-lint`，更多的预设errformat使用 `reviewdog -list` 查看， 点击链接[ go.go ][go-fmt]
 - 在gitlab里配置参考gitlab上的工程：[reviewdog test][reviewdog-test]
+- exit code的处理 
+  -  errcheck 命令在检查到 err 时，exit code为0 （通过echo $?查看）
+  -  reviewdog默认的 exit code 为0， 当加上 -fail-on-error=true时候则会返回1（当检查到不规范的时候）
+  -  errcheck | reviewdog  根据现象是当errcheck 的 exit code 为1时，job会失败。 解决办法是 ( errcheck 2>&1 || true ) | reviewdog
 
 # 参考
 1. reviewdog
