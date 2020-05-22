@@ -88,11 +88,47 @@ ad0b3dd - 修改日志 -  7 weeks ago -
 
 - 如何做到所有项目不需要自行配置或者简单的配置（比如增加一个配置现成的文件），并且使用同一个套代码检查标准？ 
 - 目前没有非常成熟的方案，需要花费一些时间去解决现有开源方案中的问题。
-    - reviewdog 结合 golangci-lint使用，修改其输出格式， https://github.com/reviewdog/reviewdog/blob/f507019cd91ba12e7397a7f0c7412a6d4cbf3af7/.reviewdog.yml#L32
+    - *reviewdog 结合 golangci-lint 使用，修改其输出格式, [more link][golangci-lint-fmt]*
+      在[presto-pay][presto_pay]是使用golangci-lint,但是reviewdog在官网上没有golangci-lint的案例
+
+## reviewdog & golint/errcheck/govet/... 在 gitlab 上配置实践
+
+```yml
+
+reviewdog:
+  stage: review
+  image: golang:latest
+  before_script:
+    - curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b $(go env GOPATH)/bin v0.10.0
+    # - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.27.0
+    - go get -u golang.org/x/lint/golint
+    - go get -u github.com/kisielk/errcheck
+    - export GITLAB_API="https://examplegitlab.com/api/v4"  
+  script:
+    - golint ./... | reviewdog -f=golint -diff="git diff master" -reporter=gitlab-mr-discussion  -fail-on-error=true
+    - ( errcheck -asserts -ignoretests -blank $(go list ./... | grep -v /vendor/) 2>&1 || true ) | reviewdog -name=errcheck -efm="%f:%l:%c:%m" -reporter=gitlab-mr-discussion -level=warning -fail-on-error=true
+    # - ( golangci-lint run --out-format=line-number ./... 2>&1 || true ) | reviewdog -f=golangci-lint --name=golangci-lint  -diff="git diff master" -reporter=gitlab-mr-discussion -fail-on-error=true
+  only:
+    - merge_requests
+```
+
+更多： 
+
+- reviewdog 结合各种错误检查，详细见: [reviewdog.yml](https://gitlab.com/reviewdog/reviewdog/-/blob/master/.reviewdog.yml)
+- 使用预设的errformat, 通过参数`-f=golangci-lint`，更多的errformat点击链接[go.go][go-fmt]
+- 在gitlab里配置参考gitlab上的工程：[reviewdog test][reviewdog-test]
+
+# 参考
+1. reviewdog
+  https://github.com/reviewdog/reviewdog#reporter-github-pullrequest-review-comment--reportergithub-pr-review 
+
+2. golangci-lint
+  https://github.com/golangci/golangci-lint
 
 
-
-
+[go-fmt]: https://github.com/reviewdog/errorformat/blob/master/fmts/go.go
+[reviewdog-test]: https://gitlab.com/Hyvi/reviewdog-test/-/blob/gitlab-ci-test2/.gitlab-ci.yml
+[golangci-lint-fmt]: https://gitlab.com/Hyvi/reviewdog-test/-/blob/gitlab-ci-test2/.gitlab-ci.yml
 
 
 <br>
