@@ -118,11 +118,11 @@ reviewdog:
 
 更多： 
 
-- reviewdog 结合各种错误检查，详细见: [reviewdog.yml](https://gitlab.com/reviewdog/reviewdog/-/blob/master/.reviewdog.yml)
+- reviewdog 结合各种错误检查，详细见: [reviewdog.yml][reviewdog_for_go_tools]
 - 使用预设的errformat, 例如通过参数`-f=golangci-lint`，更多的预设errformat使用 `reviewdog -list` 查看， 点击链接[ go.go ][go-fmt]
 - 在gitlab里配置参考gitlab上的工程：[reviewdog test][reviewdog-test]
 - exit code的处理 
-  -  errcheck 命令在检查到 err 时，exit code为0 （通过echo $?查看）
+  -  errcheck 命令在检查到 err 时，exit code为0 （通过echo $?查看, 更多查看[Chapter 6. Exit and Exit Status][exit_and_status]）
   -  reviewdog默认的 exit code 为0， 当加上 -fail-on-error=true时候则会返回1（当检查到不规范的时候）
   -  errcheck | reviewdog  根据现象是当errcheck 的 exit code 为1时，job会失败。 解决办法是 ( errcheck 2>&1 || true ) | reviewdog
 
@@ -137,8 +137,9 @@ reviewdog:
 [go-fmt]: https://github.com/reviewdog/errorformat/blob/master/fmts/go.go
 [reviewdog-test]: https://gitlab.com/Hyvi/reviewdog-test/-/blob/gitlab-ci-test2/.gitlab-ci.yml
 [golangci-lint-fmt]: https://gitlab.com/Hyvi/reviewdog-test/-/blob/gitlab-ci-test2/.gitlab-ci.yml
-
-
+[presto_pay]: https://github.com/calmato/presto-pay/blob/master/api/user/Makefile
+[exit_and_status]: https://www.tldp.org/LDP/abs/html/exit-status.html#EXITSTATUSREF
+[reviewdog_for_go_tools]: https://gitlab.com/reviewdog/reviewdog/-/blob/master/.reviewdog.yml
 <br>
 
 <center>  ·End·  </center>
