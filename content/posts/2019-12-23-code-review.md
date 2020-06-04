@@ -135,11 +135,17 @@ reviewdog:
 
 
 [go-fmt]: https://github.com/reviewdog/errorformat/blob/master/fmts/go.go
+
 [reviewdog-test]: https://gitlab.com/Hyvi/reviewdog-test/-/blob/gitlab-ci-test2/.gitlab-ci.yml
+
 [golangci-lint-fmt]: https://gitlab.com/Hyvi/reviewdog-test/-/blob/gitlab-ci-test2/.gitlab-ci.yml
+
 [presto_pay]: https://github.com/calmato/presto-pay/blob/master/api/user/Makefile
+
 [exit_and_status]: https://www.tldp.org/LDP/abs/html/exit-status.html#EXITSTATUSREF
+
 [reviewdog_for_go_tools]: https://gitlab.com/reviewdog/reviewdog/-/blob/master/.reviewdog.yml
+
 <br>
 
 <center>  ·End·  </center>
