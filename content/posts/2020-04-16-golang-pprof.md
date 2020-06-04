@@ -155,7 +155,9 @@ real_used = used_mem - buffer - cache
 real_free = free_mem + buffer + cache
 total_mem = used_mem + free_mem
 ```
-[Docker 容器内存监控 ][memory-monitor-with-cgroup]
+[Docker 容器内存监控 ][memory-monitor-with-cgroup]   
+
+[Linux cgroup - memory子系统讲解][cgroup-memory], 非常全面的介绍的cgroup里的内存概念
 
 这里面涉及到多个内存相关概念： 
 
@@ -166,7 +168,7 @@ total_mem = used_mem + free_mem
 - page cache
     - **page**: The virtual memory is divided in pages . 
     - Page cache主要用来作为文件系统上的文件数据的缓存来用，尤其是针对当进程对文件有read/write操作的时候。[什么是page cache][cgroup-memory]
-- rss
+- rss, [内存耗用：VSS/RSS/PSS/USS 的介绍][rss]
     - anonymous and swap cache, not including tmpfs (shmem), in bytes
 - anonymous cache 
     - 先了解匿名映射： 进程使用malloc申请内存，或使用mmap(MAP_ANONYMOUS的方式)申请的内存
@@ -275,6 +277,10 @@ func (entry *Entry) write() {
 - 换 zap 库
 
 其实并没有解答为什么延迟非常高的问题。
+# TODO 
+
+[docker cgroup技术之memory](https://www.cnblogs.com/charlieroro/p/10180827.html) 
+看起来挺详细的分析文档，待细看。
 
 # 参考
 1. go tool proof 郝琳的中文说明 #TODO
@@ -335,5 +341,7 @@ func (entry *Entry) write() {
 [cgroup-memory]: https://github.com/digoal/blog/blob/master/201701/20170111_02.md
 
 [tmpfs]: https://segmentfault.com/a/1190000014737366
+
+[rss]: https://www.jianshu.com/p/3bab26d25d2e
 
 <center>  ·End·  </center>
