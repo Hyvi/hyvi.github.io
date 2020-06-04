@@ -56,6 +56,37 @@ this.debugMux.HandleFunc("/debug/pprof/", http.HandlerFunc(pprof.Index))
 
 ### cpu
 ### heap
+pprof 的top会列出5个统计数据： 
+
+- flat: 本函数占用的内存量
+- flat%: 本函数内存占使用中内存总量的百分比
+- sum%: 前面每一行flat百分比的和
+- cum： 是累计量，假如main函数调用了函数f, 函数f占用的内存量，也会记进来
+- cum%: 是累计量占总量的百分比 
+
+Memory profiling records the stack trace when a heap allocation is made
+
+Stack allocations are assumed to be free and are not tracked in the memory profile. 
+
+Memory profiling, like CPU profiling is sample based, by default memory profiling samples 1 in every 1000 allocations this rate can be changed.
+
+Because of memory profiling is samples based and because it tracks allocation not use , using memory profiling to determine your Application's overall memory usage is difficult .
+
+#### Head "不能" 定位内存泄漏
+![](https://segmentfault.com/img/remote/1460000019222668?w=1008&h=868/view)
+
+1. 该goroutine只调用了少数几次，但是消耗大量的内存
+2. 该goroutine调用次数非常多，虽然协程调用过程中消耗的内存不多，但该调用路径上，协程数量巨大，造成大量的内存消耗，并且这些goroutine由于某种原因无法退出，占用的内存不会释放。
+
+第二种情况， 就是**goroutine泄漏**， 这是通过heap无法发现的, 所以heap在定位内存泄漏这件事情上，发挥作用不大。
+
+#### goroutine泄漏怎么导致内存泄漏
+
+- 每个goroutine占用2kb内存
+- goroutine执行过程中存在一些变量，如果这些变量指向堆中的内存，GC会认为这些内存仍在使用，不会对其进行回收，这些内存无法使用，造成内存泄漏
+    a. goroutine本身的栈占用的空间
+    b. goroutine中的变量所占用的堆内存，这一部分是能通过heap profile体现出来的。
+
 ### threadcreate
 ### goroutine
 ### block
@@ -172,4 +203,7 @@ func (entry *Entry) write() {
 
 13. Diagnostics 官文 #TODO
   https://golang.org/doc/diagnostics.html
+
+14. 实战Go内存泄漏 
+  https://segmentfault.com/a/1190000019222661
 <center>  ·End·  </center>
