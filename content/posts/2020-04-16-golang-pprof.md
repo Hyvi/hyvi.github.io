@@ -56,38 +56,38 @@ this.debugMux.HandleFunc("/debug/pprof/", http.HandlerFunc(pprof.Index))
 
 ### cpu
 ### heap
-pprof 的top会列出5个统计数据： 
+pprof 的 top 会列出 5 个统计数据：
 
 - flat: 本函数占用的内存量
 - flat%: 本函数内存占使用中内存总量的百分比
-- sum%: 前面每一行flat百分比的和
-- cum： 是累计量，假如main函数调用了函数f, 函数f占用的内存量，也会记进来
-- cum%: 是累计量占总量的百分比 
+- sum%: 前面每一行 flat 百分比的和
+- cum： 是累计量，假如 main 函数调用了函数 f, 函数 f 占用的内存量，也会记进来
+- cum%: 是累计量占总量的百分比
 
 Memory profiling records the stack trace when a heap allocation is made
 
-Stack allocations are assumed to be free and are not tracked in the memory profile. 
+Stack allocations are assumed to be free and are not tracked in the memory profile.
 
 Memory profiling, like CPU profiling is sample based, by default memory profiling samples 1 in every 1000 allocations this rate can be changed.
 
 Because of memory profiling is samples based and because it tracks allocation not use , using memory profiling to determine your Application's overall memory usage is difficult .
 
-#### Head "不能" 定位内存泄漏
+#### Heap "不能" 定位内存泄漏
 ![](https://segmentfault.com/img/remote/1460000019222668?w=1008&h=868/view)
 
-1. 该goroutine只调用了少数几次，但是消耗大量的内存
-2. 该goroutine调用次数非常多，虽然协程调用过程中消耗的内存不多，但该调用路径上，协程数量巨大，造成大量的内存消耗，并且这些goroutine由于某种原因无法退出，占用的内存不会释放。
+1. 该 goroutine 只调用了少数几次，但是消耗大量的内存
+2. 该 goroutine 调用次数非常多，虽然协程调用过程中消耗的内存不多，但该调用路径上，协程数量巨大，造成大量的内存消耗，并且这些 goroutine 由于某种原因无法退出，占用的内存不会释放。
 
-第二种情况， 就是**goroutine泄漏**， 这是通过heap无法发现的, 所以heap在定位内存泄漏这件事情上，发挥作用不大。
+第二种情况， 就是**goroutine 泄漏**， 这是通过 heap 无法发现的，所以 heap 在定位内存泄漏这件事情上，发挥作用不大。
 
-#### goroutine泄漏怎么导致内存泄漏
+#### goroutine 泄漏怎么导致内存泄漏
 
-- 每个goroutine占用2kb内存
-- goroutine执行过程中存在一些变量，如果这些变量指向堆中的内存，GC会认为这些内存仍在使用，不会对其进行回收，这些内存无法使用，造成内存泄漏
-    a. goroutine本身的栈占用的空间
-    b. goroutine中的变量所占用的堆内存，这一部分是能通过heap profile体现出来的。
+- 每个 goroutine 占用 2kb 内存
+- goroutine 执行过程中存在一些变量，如果这些变量指向堆中的内存，GC 会认为这些内存仍在使用，不会对其进行回收，这些内存无法使用，造成内存泄漏
+    a. goroutine 本身的栈占用的空间
+    b. goroutine 中的变量所占用的堆内存，这一部分是能通过 heap profile 体现出来的。
 
-#### 如何定位goroutine内存泄漏
+#### 如何定位 goroutine 内存泄漏
 pprof 查看当前 heap 里谁（哪一段代码分配）占用内存比较大，
 so 正确的做法是导出两个时间点的 heap profile 信息文件，使用 --base 参数进行对比
 
@@ -132,9 +132,9 @@ buffers: 用于存放要输出到 disk 的数据的
 
 cached: 存放从 disk 上读取的数据
 
-![cached vs buffers](https://ask.qcloudimg.com/http-save/yehe-1392766/07l2k0cxm4.jpeg?imageView2/2/w/1620) 
+![cached vs buffers](https://ask.qcloudimg.com/http-save/yehe-1392766/07l2k0cxm4.jpeg?imageView2/2/w/1620)
 
-> 来自 [内存与 I/O 的交换][memory-io], 详细讲解了file-backed pages vs anonymous pages. 
+> 来自 [内存与 I/O 的交换][memory-io], 详细讲解了 file-backed pages vs anonymous pages.
 
 | 名称 | 说明 |
 |---| ---|
@@ -142,8 +142,8 @@ cached: 存放从 disk 上读取的数据
 | used_mem | 已使用的物理内存量|
 | free_mem | 空闲的物理内存量|
 | shared_mem | 共享内存量 |
-| buffer | buffer 所占的内存量, 翻译为缓冲区缓存 |
-| cache | cache 所占内存量, 翻译为页面缓存 |
+| buffer | buffer 所占的内存量，翻译为缓冲区缓存 |
+| cache | cache 所占内存量，翻译为页面缓存 |
 | real_used | 实际使用的内存量 |
 | real_free | 实际空闲的内存量 |
 | total_swap | swap 总量 |
@@ -155,27 +155,27 @@ real_used = used_mem - buffer - cache
 real_free = free_mem + buffer + cache
 total_mem = used_mem + free_mem
 ```
-[Docker 容器内存监控 ][memory-monitor-with-cgroup]   
+[Docker 容器内存监控 ][memory-monitor-with-cgroup]
 
-[Linux cgroup - memory子系统讲解][cgroup-memory], 非常全面的介绍的cgroup里的内存概念
+[Linux cgroup - memory 子系统讲解][cgroup-memory], 非常全面的介绍的 cgroup 里的内存概念
 
-这里面涉及到多个内存相关概念： 
+这里面涉及到多个内存相关概念：
 
 - tmpfs
-    - [ tmpfs 详解][tmpfs] 
+    - [ tmpfs 详解][tmpfs]
     - 临时文件系统，驻留在内存中
-    - tmpfs大小： 只有真正在tmpfs存储数据了，才会去占用。
+    - tmpfs 大小： 只有真正在 tmpfs 存储数据了，才会去占用。
 - page cache
-    - **page**: The virtual memory is divided in pages . 
-    - Page cache主要用来作为文件系统上的文件数据的缓存来用，尤其是针对当进程对文件有read/write操作的时候。[什么是page cache][cgroup-memory]
+    - **page**: The virtual memory is divided in pages .
+    - Page cache 主要用来作为文件系统上的文件数据的缓存来用，尤其是针对当进程对文件有 read/write 操作的时候。[什么是 page cache][cgroup-memory]
 - rss, [内存耗用：VSS/RSS/PSS/USS 的介绍][rss]
     - anonymous and swap cache, not including tmpfs (shmem), in bytes
-- anonymous cache 
-    - 先了解匿名映射： 进程使用malloc申请内存，或使用mmap(MAP_ANONYMOUS的方式)申请的内存
-    - 再了解文件映射： 进行使用mmap映射文件系统的文件，包括普通文件，也包括临时文件系统(tmpfs), 另外Sys v的IPC和POSIX的IPC也是。
-- swap cache 
-    - Swap机制： 当内存不够的时候，我们可以选择性的将一块磁盘、分区或者一个文件当成交换空间，将内存上一些临时用不到的数据放到交换空间上，以释放内存资源给急用的进程。
-    - Inactive（anon 匿名映射）,这部分内存能被交换出去的。 需要注意的是，内核也将共享内存作为计数统计进了Inactive（anon）中去了（是的，共享内存也可以被Swap）。
+- anonymous cache
+    - 先了解匿名映射： 进程使用 malloc 申请内存，或使用 mmap(MAP_ANONYMOUS 的方式）申请的内存
+    - 再了解文件映射： 进行使用 mmap 映射文件系统的文件，包括普通文件，也包括临时文件系统 (tmpfs), 另外 Sys v 的 IPC 和 POSIX 的 IPC 也是。
+- swap cache
+    - Swap 机制： 当内存不够的时候，我们可以选择性的将一块磁盘、分区或者一个文件当成交换空间，将内存上一些临时用不到的数据放到交换空间上，以释放内存资源给急用的进程。
+    - Inactive（anon 匿名映射）, 这部分内存能被交换出去的。 需要注意的是，内核也将共享内存作为计数统计进了 Inactive（anon）中去了（是的，共享内存也可以被 Swap）。
 ```
 active_file + inactive_file = cache - size of tmpfs
 
@@ -193,13 +193,35 @@ active_anon + inactive_anon = anonymous memory + file cache for tmpfs + swap cac
     - **anonymous**: purely in RAM
     - **file-backed**: When a memory map is file-backed, the data is loaded from disk
 
-见下表:
+见下表：
 
 ||PRIVATE|SHARED|
 |---|---|---|
 |ANONYMOUS| stack, malloc(),<br/> mmap(ANON, PRIVATE), <br/>brk()/sbrk()| mmap(ANON, SHARED)|
 |FILE-BACKED| nmap(fd, PRIVATE) <br/> binary/shared libraries | mmapn(fd, SHARED) |
 
+[采坑记 - go 服务内存暴涨][go-memory-leak] , 对 MADV_FREE 结合页表来分析，更加详细
+
+内存分配
+
+- 在 Linux 下，malloc 需要在其管理的内存不够用时，调用 brk 或 mmap 系统调用 ( syscall ) 找内核扩充其可用地址空间
+- OS 用页表来管理进程的地址空间，其中记录了页的状态、对应的物理页地址等信息，一页通常是 4kb
+- 当进程读 / 写尚未分配的页面时，会出发一个缺页中断 ( page fault ), 这时内核才会分配页面，在页表中标记为已分配，然后再恢复进程的执行。
+
+内存回收
+
+- 当 free 觉得有必要的时候，会调用 sbrk 或 munmap 缩小地址空间，这是针对一整段地址空间都空出来的情况
+- 但更多的时候只释放其中一部分内容（比如连续的 ABCDE 五个页面中只释放 C 和 D）， 并不需要（也不能）把地址空间缩小
+- free 可以通过 madvise 告诉内存”这一段我不用了"
+
+madvise
+
+-  通过 madvise(addr, length, advise) 这个系统调用，告诉内核可以如何处理从 addr 开始的 length 字节。
+-  在 Linux Kernel 4.5 之前， 只支持 MADV_DONTNEED，内核会在进程的页表中将页标记为"未分配”， 从而进程的 RSS 就会变小。
+
+go 1.12 的改进
+
+- 从 kernel 4.5 开始，Linux 支持了 MADV_FREE.
 
 ### threadcreate
 ### goroutine
@@ -277,9 +299,9 @@ func (entry *Entry) write() {
 - 换 zap 库
 
 其实并没有解答为什么延迟非常高的问题。
-# TODO 
+# TODO
 
-[docker cgroup技术之memory](https://www.cnblogs.com/charlieroro/p/10180827.html) 
+[docker cgroup 技术之 memory](https://www.cnblogs.com/charlieroro/p/10180827.html)
 看起来挺详细的分析文档，待细看。
 
 # 参考
@@ -323,7 +345,7 @@ func (entry *Entry) write() {
 13. Diagnostics 官文 #TODO
   https://golang.org/doc/diagnostics.html
 
-14. 实战Go内存泄漏 
+14. 实战 Go 内存泄漏
   https://segmentfault.com/a/1190000019222661
 
 [use-pprof-compare-memory]: https://colobu.com/2019/08/20/use-pprof-to-compare-go-memory-usage/
@@ -343,5 +365,7 @@ func (entry *Entry) write() {
 [tmpfs]: https://segmentfault.com/a/1190000014737366
 
 [rss]: https://www.jianshu.com/p/3bab26d25d2e
+
+[go-memory-leak]: https://segmentfault.com/a/1190000022472459
 
 <center>  ·End·  </center>
