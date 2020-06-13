@@ -150,6 +150,10 @@ reviewdog:
 
 ### go vet
 
+# TODO
+反复阅读代码评审规范.
+不断增加或修正 linter
+
 # 参考
 1. reviewdog
   https://github.com/reviewdog/reviewdog#reporter-github-pullrequest-review-comment--reportergithub-pr-review 
