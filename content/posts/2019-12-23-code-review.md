@@ -75,7 +75,9 @@ ad0b3dd - 修改日志 -  7 weeks ago -
 依照代码审核规范， 目前缺少自己的审核规范，
 类似规范参考
 
-- [Google 代码评审规范](https://www.infoq.cn/article/QJi1Kqm4pH3UNAqNzl3l)  
+- 代码审查规范
+  - [Google 代码评审规范](https://www.infoq.cn/article/QJi1Kqm4pH3UNAqNzl3l)  
+  - [谷歌工程实践 by jimmysong][google-golang-practice]
 - [How Thanos Would Program in Go](https://www.bwplotka.dev/2020/how-thanos-would-program-in-go/)
 
 ## 做什么
@@ -126,6 +128,28 @@ reviewdog:
   -  reviewdog默认的 exit code 为0， 当加上 -fail-on-error=true时候则会返回1（当检查到不规范的时候）
   -  errcheck | reviewdog  根据现象是当errcheck 的 exit code 为1时，job会失败。 解决办法是 ( errcheck 2>&1 || true ) | reviewdog
 
+在这个过程中，不断增加的检查机制, 并说明理由\目的
+
+[thanos](https://github.com/thanos-io/thanos) 代码规范推荐的代码 linter 工具 `go vet`, 同时也推荐 golangci-lint 
+但 golangci-lint 无法配置的原因, 将考虑一个个配置其默认的 [linter](https://golangci-lint.run/usage/linters/) , 参考Thanos 里配置的 linters
+
+- govet
+- errcheck
+- staticcheck
+- unused
+- gosimple
+- structcheck
+- varcheck
+- ineffassign
+- deadcode
+- typecheck
+
+### golint 
+
+### errcheck
+
+### go vet
+
 # 参考
 1. reviewdog
   https://github.com/reviewdog/reviewdog#reporter-github-pullrequest-review-comment--reportergithub-pr-review 
@@ -145,6 +169,8 @@ reviewdog:
 [exit_and_status]: https://www.tldp.org/LDP/abs/html/exit-status.html#EXITSTATUSREF
 
 [reviewdog_for_go_tools]: https://gitlab.com/reviewdog/reviewdog/-/blob/master/.reviewdog.yml
+
+[google-golang-practice]: https://jimmysong.io/eng-practices/
 
 <br>
 
