@@ -130,8 +130,8 @@ reviewdog:
 
 在这个过程中，不断增加的检查机制, 并说明理由\目的
 
-[thanos](https://github.com/thanos-io/thanos) 代码规范推荐的代码 linter 工具 `go vet`, 同时也推荐 golangci-lint 
-但 golangci-lint 无法配置的原因, 将考虑一个个配置其默认的 [linter](https://golangci-lint.run/usage/linters/) , 参考Thanos 里配置的 linters
+[thanos](https://github.com/thanos-io/thanos) 代码规范推荐的代码 linter 工具 `go vet`, 同时也推荐 golangci-lint, 
+但 golangci-lint 无法配置的原因, 将考虑一个个配置其默认的 [linter](https://golangci-lint.run/usage/linters/) , 建议参考Thanos 里配置的 [linters](https://www.bwplotka.dev/2020/how-thanos-would-program-in-go/#golangci-lint)
 
 - govet
 - errcheck
