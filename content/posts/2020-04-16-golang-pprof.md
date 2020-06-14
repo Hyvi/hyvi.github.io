@@ -72,6 +72,9 @@ Memory profiling, like CPU profiling is sample based, by default memory profilin
 
 Because of memory profiling is samples based and because it tracks allocation not use , using memory profiling to determine your Application's overall memory usage is difficult .
 
+
+
+
 #### Heap "不能" 定位内存泄漏
 ![](https://segmentfault.com/img/remote/1460000019222668?w=1008&h=868/view)
 
@@ -107,21 +110,68 @@ so 正确的做法是导出两个时间点的 heap profile 信息文件，使用
 - goroutine 所占用的栈空间的大小，由 runtime 按需进行分配
 - 以 64 位环境的 JVM 为例，会默认固定为每个线程分配 1M 栈空间，如果大小分配不当，会出现栈溢出的问题
 
+
+#### Go 内存原理
 然后来了解内存中的几个概念
 
-#### 分段栈
+**分段栈**
+
 早起版本中，Go 给 goroutine 分配固定的 8kb 的内存区域，当 8kb 空间不够了怎么办？
 
 GO 会在每个函数入口处插入一小段前置代码，它能够检查栈空间十分被消耗殆尽，如果用完了，会调用 morestack() 函数来扩展空间。
 
 带来的问题： 熟知的 hot split problem （热点分裂问题）
 
-#### 连续栈
+**连续栈**
 
 从 Go1.4 之后，正式使用连续机制，二倍大小空间进行复制
 
+**mem.Sys**: Sys measures the virtual address space reserved by Go runtime for the heap, stacks, and other internal data structures. 
+
+**mem.Alloc** : 已经被分配并仍在使用的字节数, the same as mem.HeapAlloc
+
+**mem.TotalAlloc**: 从开始运行到现在分配的内存总数  
+
+**mem.HeapAlloc**: 堆当前的用量, 具体如下两个
+
+- all reachable objects
+- unreachable objects that the garbage collector has not yet freed
+
+**mem.HeapSys**: 包含堆当前和已经被释放但尚未归还操作系统的用量, 以及预留的空间. 
+
+**mem.HeapIdle**: 
+
+**mem.HeapReleased**: 
+
+以上详细解释参考 [runtime#Memstats](https://golang.org/pkg/runtime/#MemStats) 
+ 
+[pprofplus](https://github.com/q191201771/pprofplus) 将内存绘制成曲线图来查看内存的变化 #TODO
+ 
+[golang 手动管理内存](https://studygolang.com/articles/610)  #TODO
+
+##### 内存使用分析方法
+[ 理解 go 语言的内存使用 ](https://mikespook.com/2014/12/理解-go-语言的内存使用/) 中三种方式
+
+- 通过 runtime 包的 ReadMemStats 函数
+    - [Memory Usage when reading large file][golang-memory-when-read-large-file] 提问者读一定大小的文件到内存，而实际上分配的内存远高于文件大小。
+- 通过 pprof 包, pprof 仅仅是获取了样本，而不是真正 的值，是非常重要的？ 
+    - [tools/techniques for tracking down "too many open files" ](https://groups.google.com/forum/#!topic/golang-nuts/Rhr758e7vo0): the memory profile shows where the things ware created, not where they 'live'. 
+- 通过 gc-trace 调式环境变量
+
+
+[Go 语言设计与实现](https://draveness.me/golang/) 详细从源码分析内存分配原理
 
 #### linux 内存结构
+VIRT: 亦虚拟内存，虚拟地址空间大小，是程序映射并可以访问的内存数量, 参考下图对虚拟内存的解释, 
+
+RES: 亦常驻内存，进程虚拟空间中已经映射到物理内存的那部分的大小。
+
+SHR: 亦共享内存，进程占用的共享内存大小，比如程序会依赖于很多外部的动态库(.so)。
+
+![](https://img.orchome.com/group1/M00/00/00/KmCudld5_zmAajUHAABd80xLId0540.png)
+
+[理解 virt res shr 之间的关系 - linux](https://www.orchome.com/298)
+
 mem: 物理内存
 
 swap: 虚拟内存，即可以把数据存在在硬盘的数据
@@ -132,9 +182,8 @@ buffers: 用于存放要输出到 disk 的数据的
 
 cached: 存放从 disk 上读取的数据
 
-![cached vs buffers](https://ask.qcloudimg.com/http-save/yehe-1392766/07l2k0cxm4.jpeg?imageView2/2/w/1620)
 
-> 来自 [内存与 I/O 的交换][memory-io], 详细讲解了 file-backed pages vs anonymous pages.
+> 点击查看图片， 来自 [内存与 I/O 的交换][memory-io], 详细讲解了 file-backed pages vs anonymous pages.
 
 | 名称 | 说明 |
 |---| ---|
@@ -304,6 +353,9 @@ func (entry *Entry) write() {
 [docker cgroup 技术之 memory](https://www.cnblogs.com/charlieroro/p/10180827.html)
 看起来挺详细的分析文档，待细看。
 
+[Go 内存泄漏？ 不是那么简单](https://colobu.com/2019/08/28/go-memory-leak-i-dont-think-so/) 
+
+
 # 参考
 1. go tool proof 郝琳的中文说明 #TODO
   https://github.com/hyper0x/go_command_tutorial/blob/master/0.12.md
@@ -367,5 +419,7 @@ func (entry *Entry) write() {
 [rss]: https://www.jianshu.com/p/3bab26d25d2e
 
 [go-memory-leak]: https://segmentfault.com/a/1190000022472459
+
+[golang-memory-when-read-large-file]: https://webcache.googleusercontent.com/search?q=cache:a6taX0NwR4cJ:https://forum.golangbridge.org/t/memory-usage-when-reading-large-files/10432+&cd=3&hl=zh-CN&ct=clnk
 
 <center>  ·End·  </center>
