@@ -145,9 +145,9 @@ GO 会在每个函数入口处插入一小段前置代码，它能够检查栈�
 
 以上详细解释参考 [runtime#Memstats](https://golang.org/pkg/runtime/#MemStats) 
  
-[pprofplus](https://github.com/q191201771/pprofplus) 将内存绘制成曲线图来查看内存的变化 #TODO
+[pprofplus](https://github.com/q191201771/pprofplus) 将内存绘制成曲线图来查看内存的变化 
  
-[golang 手动管理内存](https://studygolang.com/articles/610)  #TODO
+[golang 手动管理内存](https://studygolang.com/articles/610)  #TODO 为什么加这个链接? 
 
 ##### 内存使用分析方法
 [ 理解 go 语言的内存使用 ](https://mikespook.com/2014/12/理解-go-语言的内存使用/) 中三种方式
@@ -159,11 +159,11 @@ GO 会在每个函数入口处插入一小段前置代码，它能够检查栈�
 - 通过 gc-trace 调式环境变量
 - cgo 或者syscall 内存泄漏，怎么办？ 
     - Also CGO / syscall (eg: malloc / mmap) memory is not tracked by go. [How to analyze golang memory](https://stackoverflow.com/questions/24863164/how-to-analyze-golang-memory) 
-    - [Go语言使用cgo时的内存管理笔记](https://www.pengrl.com/p/29054/)  #TODO
+    - [Go语言使用cgo时的内存管理笔记](https://www.pengrl.com/p/29054/)  如何定位cgo内存泄漏 #TODO
     - [Golang cgo memory](https://povilasv.me/go-memory-management-part-3/)
 
 
-[Go 语言设计与实现](https://draveness.me/golang/) 详细从源码分析内存分配原理
+[Go 语言设计与实现](https://draveness.me/golang/) 详细从源码分析内存分配原理  #TODO
 
 #### linux 内存结构
 VIRT: 亦虚拟内存，虚拟地址空间大小，是程序映射并可以访问的内存数量, 参考下图对虚拟内存的解释, 
@@ -354,10 +354,15 @@ func (entry *Entry) write() {
 其实并没有解答为什么延迟非常高的问题。
 # TODO
 
-[docker cgroup 技术之 memory](https://www.cnblogs.com/charlieroro/p/10180827.html)
-看起来挺详细的分析文档，待细看。
+[docker cgroup 技术之 memory](https://www.cnblogs.com/charlieroro/p/10180827.html) 看起来挺详细的分析文档，待细看。
 
 [Go 内存泄漏？ 不是那么简单](https://colobu.com/2019/08/28/go-memory-leak-i-dont-think-so/) 
+
+[图解 Go 语言内存分配](https://www.cnblogs.com/qcrao-2018/p/10520785.html) 
+
+[Go语言使用cgo时的内存管理笔记](https://www.pengrl.com/p/29054/), 简单教你如何定位cgo导致的内存泄漏
+
+[cgo内存分析 进阶版](https://povilasv.me/go-memory-management-part-3/), 三部曲，英文.
 
 
 # 参考
