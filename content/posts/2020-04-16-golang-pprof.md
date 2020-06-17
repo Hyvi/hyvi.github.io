@@ -157,6 +157,10 @@ GO 会在每个函数入口处插入一小段前置代码，它能够检查栈�
 - 通过 pprof 包, pprof 仅仅是获取了样本，而不是真正 的值，是非常重要的？ 
     - [tools/techniques for tracking down "too many open files" ](https://groups.google.com/forum/#!topic/golang-nuts/Rhr758e7vo0): the memory profile shows where the things ware created, not where they 'live'. 
 - 通过 gc-trace 调式环境变量
+- cgo 或者syscall 内存泄漏，怎么办？ 
+    - Also CGO / syscall (eg: malloc / mmap) memory is not tracked by go. [How to analyze golang memory](https://stackoverflow.com/questions/24863164/how-to-analyze-golang-memory) 
+    - [Go语言使用cgo时的内存管理笔记](https://www.pengrl.com/p/29054/)  #TODO
+    - [Golang cgo memory](https://povilasv.me/go-memory-management-part-3/)
 
 
 [Go 语言设计与实现](https://draveness.me/golang/) 详细从源码分析内存分配原理
