@@ -89,6 +89,9 @@ ad0b3dd - 修改日志 -  7 weeks ago -
 熟悉github action方式， 借鉴其优点； 在一个项目中实践，然后推广到其他项目中。
 
 - 如何做到所有项目不需要自行配置或者简单的配置（比如增加一个配置现成的文件），并且使用同一个套代码检查标准？ 
+    - ~~制作包含reviewdog.yml的配置文件，如果做linter升级的话，更新tag为latest最新的镜像即可.~~, 已经完成了
+    - ~~在一半的项目上增加reviewdog~~
+    - 目前linter设置为golint和errcheck方式, 下一步增加golangci-lint检查代码
 - 目前没有非常成熟的方案，需要花费一些时间去解决现有开源方案中的问题。
     - *reviewdog 结合 golangci-lint 使用，修改其输出格式, [more link][golangci-lint-fmt]*
       在[presto-pay][presto_pay]是使用golangci-lint,但是reviewdog在官网上没有golangci-lint的案例
