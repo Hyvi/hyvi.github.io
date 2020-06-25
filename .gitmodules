@@ -2,3 +2,6 @@
 	path = themes/leaveit
 	url = https://github.com/Hyvi/LeaveIt.git
 	branch = master
+[submodule "themes/mogege"]
+	path = themes/mogege
+	url = https://github.com/Hyvi/mogege.git
