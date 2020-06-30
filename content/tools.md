@@ -33,9 +33,13 @@ tags: ['vim','python']
 
 [Trello](https://trello.com) 目标管理、项目管理、计划管理工具，缺点是没有本地保存，断网情况下出现内容丢失。
 
-[Clouder](https://chrome.google.com/webstore/detail/clouder/fjblekdlcidmadghbofmenknaegldcic) 把图片上传到云端的存储的工具, 公司把其他盘关闭了。
+[Clouder](https://chrome.google.com/webstore/detail/clouder/fjblekdlcidmadghbofmenknaegldcic) 把图片上传到云端的存储的工具，公司把其他盘关闭了。
 
 [Kami](https://www.kamiapp.com/) PDF and Document Annotation  看 PDF 做笔记的很好用的软件，最好的体验是用笔在上面画。
+
+[Bob](https://github.com/ripperhe/Bob) Bob 是一款 Mac 端翻译软件，翻译方式支持划词和截图翻译。放弃了 Chrome Google Traslate 插件，投奔这款软件了。
+
+[Synergy](https://github.com/symless/synergy-core) 在 Mac 编译命令运行方式，很少出现问题，在 synergyc 客户端侧结合 supervisor 使用感觉更丝滑。
 
 -----
 
