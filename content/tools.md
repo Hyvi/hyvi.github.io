@@ -7,29 +7,21 @@ tags: ['vim','python']
 ---
 
 
-### 杂七杂八
+# 杂七杂八
 [Xiaolei's Wiki](http://wiki.xiaolei.tech/) 一个值得学习的知识整理 WIKI
 [亢志军的个人网](http://robotkang.cc/) 一个用 Jekyll+Github 搭建的网站
 
-### 个人站点
+# 个人站点
 [我的电影我的书](https://movie.douban.com/mine) 记录我看过的、将要看的电影
 [我的东西](https://dongxi.douban.com/people/Hyvi/doulists) 零散记录下
 [我的代码](https://bitbucket.org) 所有私有代码上传到网络上
 
-### Tools
-[BetterTouchTool](https://folivora.ai) 两个屏幕时将窗口切换到另外一个屏幕，已经购购买了 Standard License，将 Magic Mouse 上也可以“TAP TO CLICK” ~
+# Tools
+[BetterTouchTool](https://folivora.ai) 已买了 Standard License，将 Magic Mouse 上也可以“TAP TO CLICK” 
 
 [Spectacle](https://github.com/eczarny/spectacle#keyboard-shortcuts) Move and resize windows with ease，经常使用到
 
-[Python 教程](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000) 罗列基础学习知识，根据目录来学习
-
-[.vimrc 文件](https://github.com/Hyvi/hyvi.github.com/blob/master/.vimrc) 比几年前整 vim 容易多了，最重要是的一个 mac~~（之前用 gvim)~~省了好多折腾时间
-
-[Interactive vim tutorial](http://www.openvim.com/tutorial.html) 在线学习 vim 基础命令，没事可以上去操作下，温故知新
-
-[VIM 滚动屏幕](http://yyq123.blogspot.com/2009/02/vim_27.html) `<C-D>` 向下翻半页   `<C-E>`屏幕向上移动、光标不动  `<C-U>`向上翻半页
-
-[draw.io](draw.io) 才是画图神器，画图看起来非常专业。
+[VIM](https://github.com/Hyvi/vim-plugin) 比几年前整 vim 容易多了，最重要是的一个 mac~~（之前用 gvim)~~省了好多折腾时间
 
 [Trello](https://trello.com) 目标管理、项目管理、计划管理工具，缺点是没有本地保存，断网情况下出现内容丢失。
 
@@ -37,11 +29,19 @@ tags: ['vim','python']
 
 [Kami](https://www.kamiapp.com/) PDF and Document Annotation  看 PDF 做笔记的很好用的软件，最好的体验是用笔在上面画。
 
-[Bob](https://github.com/ripperhe/Bob) Bob 是一款 Mac 端翻译软件，翻译方式支持划词和截图翻译。放弃了 Chrome Google Traslate 插件，投奔这款软件了。
+[Bob](https://github.com/ripperhe/Bob) 是一款 Mac 端翻译软件，翻译方式支持划词和截图翻译。放弃了 Chrome Google Traslate 插件，投奔这款软件了。
 
 [Synergy](https://github.com/symless/synergy-core) 在 Mac 编译命令运行方式，很少出现问题，在 synergyc 客户端侧结合 supervisor 使用感觉更丝滑。
 
+[DbVisualizer](https://www.dbvis.com/) Basic 免费版，从数据库里生成 ER 图, 目前还没发现支持非常好从 SQL 脚本生成 ER 图。
+
+[plantuml](https://plantuml.com/) 开始 PlantUML这个来画图，在 Blog 和 Confluence 都支持， 优点是文本生成图， 只需要维护文本即可。 
+
+
+那些曾经使用过的利器
 -----
+
+~~[draw.io](draw.io) 才是画图神器，画图看起来非常专业。~~ 偶尔使用
 
 ~~[CatchMouse](http://macdownload.informer.com/catchmouse/download/) 双屏幕切换鼠标光标，省去大区域内移动鼠标光标~~
 
@@ -53,6 +53,11 @@ tags: ['vim','python']
 
 ~~[Sublime SFTP Usage](https://wbond.net/sublime_packages/sftp/usage) 多看下手册会发现神奇的功能，比如 Monitoring files 功能~~
 
-### Books
+# Books
 见百度脑图各个技术点书籍收集目录下的书本
+
 [Exploring ES6](http://exploringjs.com/es6.html) es6 很详细的书籍
+
+[Interactive vim tutorial](http://www.openvim.com/tutorial.html) 在线学习 vim 基础命令，没事可以上去操作下，温故知新
+
+[Python 教程](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000) 罗列基础学习知识，根据目录来学习
