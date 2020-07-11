@@ -114,11 +114,24 @@ reviewdog:
     - go get -u github.com/kisielk/errcheck
     - export GITLAB_API="https://examplegitlab.com/api/v4"  
   script:
-    - golint ./... | reviewdog -f=golint -diff="git diff master" -reporter=gitlab-mr-discussion  -fail-on-error=true
-    - ( errcheck -asserts -ignoretests -blank $(go list ./... | grep -v /vendor/) 2>&1 || true ) | reviewdog -name=errcheck -efm="%f:%l:%c:%m" -reporter=gitlab-mr-discussion -level=warning -fail-on-error=true
-    # - ( golangci-lint run --out-format=line-number ./... 2>&1 || true ) | reviewdog -f=golangci-lint --name=golangci-lint  -diff="git diff master" -reporter=gitlab-mr-discussion -fail-on-error=true
+    - reviewdog -conf=/etc/reviewdog/reviewdog.yml  -reporter=gitlab-mr-discussion  -guess -fail-on-error=true
   only:
     - merge_requests
+```
+
+reviewdog.yml 配置如下
+
+```yml
+runner:
+  govet:
+    cmd: go vet -all ./...
+    errorformat: 
+      - "%f:%l:%c:%m"
+  errcheck:
+    cmd: errcheck  -ignoretests  -exclude /etc/reviewdog/errcheck/errcheck_excludes.txt $(go list ./... | grep -v /vendor/)
+    errorformat:
+      - "%f:%l:%c:%m"
+    level: warning
 ```
 
 更多： 
