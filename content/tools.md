@@ -39,6 +39,10 @@ tags: ['vim','python']
 
 [CordCloud + shadowsocks + Shadowrocket(for IOS)]() 科学上网, 价格不贵，速度还挺好
 
+[repl.it](repl.it) 各种语言在线的IDE. 支持VIM模式\支持自动补全
+
+[zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) 命令使用多了，这个很方便
+
 那些曾经使用过的利器
 -----
 
