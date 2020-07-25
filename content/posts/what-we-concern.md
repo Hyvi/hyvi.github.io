@@ -80,13 +80,13 @@ rectangle "标准云产品" as product {
     b -[hidden]-> c
 }
 'spec -[hidden]-> plat
-plat --> spec: 云平台提供标准的开发规范和接口
+plat --> spec: 云平台提供标准接口和开发规范
 
 product -> plat: 通过接口接入，在运营平台上自动接入
 
-spec --> dev: 指导开发
+spec --> dev: 开发规范指导云服务产品开发
 
-dev -> product: 开发人员遵循开发规范
+dev -> product: 开发人员遵循各项接口标准
 
 
 run --> product
@@ -121,12 +121,39 @@ run --> product
 ** 标准产品
 @endmindmap
 ```
+
+### [行业对标] 华润集团云计算服务平台建设思路讨论
+[Click PDF][huarun-cloud-build-thing] 来自甲骨文首席架构师 刘翔
+#### 对云计算的NIST解释
+> [NIST] 云计算是一种新的模式，基于此消费者能能够方便、按需地从网络访问到共享的可配置计算资源池（如， 网络、服务器、存储、应用程序和服务），且只需最小的管理或与服务提供方交互即可快速供应和释放这些资源。 
+
+5个重要特征（**STEAM**)
+
+- S**按需自助服务**
+- T**多租户的资源池**
+- E快速伸缩
+- A广泛的网络访问
+- M**按使用量收费的服务**
+
+4种部署类型
+
+- 公有云
+- 私有云
+- 社区云
+- 混合云
+
+3种服务模式
+
+- SaaS 
+- PaaS
+- IaaS
+
 ## 物联网平台化 - IoT
 这块知识是2020年需要成长的地方，硬件为主，赋能硬件是后续的趋势。 
 
 ### [行业对标] Google Cloud IOT
 #### 实践
-### 阿里云 IOT
+### [行业对标] 阿里云 IOT
 #### 实践
 
 ### [行业对标] EMQ X
@@ -167,4 +194,6 @@ run --> product
 <br>
 
 [back-cloud-architecture]: https://cloud.tencent.com/developer/article/1485632
+
+[huarun-cloud-build-thing]: https://www.oracle.com/technetwork/cn/community/developer-day/10-cloud-computing-platform-1863872-zhs.pdf
 <center>  ·End·  </center>
