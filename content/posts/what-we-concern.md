@@ -35,15 +35,50 @@ description:
 - 加强需求评审
 
 ## 技术模块化 
-
+? 
 
 ## 解决方案 
-明星产品   
-新无人机设备：  
+明星产品, 比如xxx
 
-- 
+新无人机设备?
+
 ## IoT
+这块知识是2020年需要成长的地方，硬件为主，赋能硬件是后续的趋势。 
 
+### 行业对标 Goodle Cloud IOT
+#### 实践
+### 阿里云 IOT
+#### 实践
+
+# EMQ X
+
+1. 关键技术
+    - 分布式
+    - 容器化
+    - 桥接
+2. 核心指标
+    - 多协议
+    - 并发量： 单服务器200万并发, 一个集群1000万并发(7个节点）
+    - 吞吐量： 单集成百万并发
+
+# 参考
+1. MQTT ESSENTIALS by HIVEMQ团队整理 https://www.hivemq.com/mqtt-essentials/ 
+    - MQTT Basic
+    - MQTT Features
+    - MQTT Specials
+2. 初识MQTT https://developer.ibm.com/zh/articles/iot-mqtt-why-good-for-iot/ 
+    - 为什么是MQTT而不是其他协议
+    - MQTT协议是怎样的
+
+3. EMQ X https://github.com/emqx/emqx
+
+4. NATS 
+    - Does NATS support MQTT? https://github.com/nats-io/nats-server/issues/812
+        - 分支开发中，预计在Q4支持
+    - 支持持久化存储 File Store / SQL Store [Persistence][nats-persistence]
+  
+
+[nats-persistence]: https://docs.nats.io/nats-streaming-server/configuring/persistence
 <br>
 
 <center>  ·End·  </center>
