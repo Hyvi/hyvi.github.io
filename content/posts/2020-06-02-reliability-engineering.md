@@ -1,5 +1,5 @@
 ---
-title: "2020 06 02 Reliability Engineering"
+title: "Reliability Engineering 可用性工程"
 date: 2020-06-02T12:08:05+08:00
 draft: false
 tags: 

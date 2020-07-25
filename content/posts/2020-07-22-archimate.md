@@ -33,8 +33,13 @@ description:
 
 5. [PlantUML 语法速查手册][plantuml-ss]
 
+6. [PlantUML 参数设置手册][plantUML_doc] 
+
 
 [plantuml-ss]: http://blog.ifjy.me/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/2016/07/16/PlantUML%E8%AF%AD%E6%B3%95%E9%80%9F%E6%9F%A5.html
+
+
+[plantUML_doc]:https://plantuml-documentation.readthedocs.io/en/latest/index.html
 <br>
 
 <center>  ·End·  </center>
