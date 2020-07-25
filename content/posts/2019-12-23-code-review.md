@@ -78,7 +78,11 @@ ad0b3dd - 修改日志 -  7 weeks ago -
 - 代码审查规范
   - [Google 代码评审规范](https://www.infoq.cn/article/QJi1Kqm4pH3UNAqNzl3l)  
   - [谷歌工程实践 by jimmysong][google-golang-practice]
-- [How Thanos Would Program in Go](https://www.bwplotka.dev/2020/how-thanos-would-program-in-go/)
+- 代码规范[golang]
+  - [How Thanos Would Program in Go](https://www.bwplotka.dev/2020/how-thanos-would-program-in-go/)
+      - 参考runutil包解决defer中error的检查问题, 相比写匿名函数更加的优雅
+      - 包 `pkg/errors` 比标准的`fmt.Errorf` + `%w`更可读
+      - 待补充
 
 ## 做什么
 阅读提交的代码并给出建议完成审核
@@ -106,12 +110,11 @@ ad0b3dd - 修改日志 -  7 weeks ago -
 
 reviewdog:
   stage: review
-  image: golang:latest
+  # 自定义镜像, 包含统一的reviewdog配置文件和需要安装的reviewdog/golangci-lint版本
+  image: golang:custom-latest
   before_script:
     - curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s -- -b $(go env GOPATH)/bin v0.10.0
-    # - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.27.0
-    - go get -u golang.org/x/lint/golint
-    - go get -u github.com/kisielk/errcheck
+    - curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.27.0
     - export GITLAB_API="https://examplegitlab.com/api/v4"  
   script:
     - reviewdog -conf=/etc/reviewdog/reviewdog.yml  -reporter=gitlab-mr-discussion  -guess -fail-on-error=true
@@ -123,14 +126,12 @@ reviewdog.yml 配置如下
 
 ```yml
 runner:
-  govet:
-    cmd: go vet -all ./...
-    errorformat: 
-      - "%f:%l:%c:%m"
-  errcheck:
-    cmd: errcheck  -ignoretests  -exclude /etc/reviewdog/errcheck/errcheck_excludes.txt $(go list ./... | grep -v /vendor/)
+  golangci:
+    cmd: golangci-lint run --config=/etc/reviewdog/golangci/golangci.yml ./...
     errorformat:
-      - "%f:%l:%c:%m"
+      - '%E%f:%l:%c: %m'
+      - '%E%f:%l: %m'
+      - '%C%.%#'
     level: warning
 ```
 
