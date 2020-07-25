@@ -35,8 +35,9 @@ tags: ['vim','python']
 
 [DbVisualizer](https://www.dbvis.com/) Basic 免费版，从数据库里生成 ER 图, 目前还没发现支持非常好从 SQL 脚本生成 ER 图。
 
-[plantuml](https://plantuml.com/) 开始 PlantUML这个来画图，在 Blog 和 Confluence 都支持， 优点是文本生成图， 只需要维护文本即可。 
+[PlantUML](https://plantuml.com/) 开始 PlantUML这个来画图，在 Blog 和 Confluence 都支持， 优点是文本生成图， 只需要维护文本即可。 
 
+[CordCloud + shadowsocks + Shadowrocket(for IOS)]() 科学上网, 价格不贵，速度还挺好
 
 那些曾经使用过的利器
 -----
