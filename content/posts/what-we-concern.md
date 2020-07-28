@@ -152,7 +152,21 @@ run --> product
 这块知识是2020年需要成长的地方，硬件为主，赋能硬件是后续的趋势。 
 
 ### [行业对标] Google Cloud IOT
+
+参考下面服务组件和数据流图: [Cloud IoT Core](https://cloud.google.com/iot/resources/cloud-iot-overview3.png?hl=zh_CN)
+
+#### 名词解释
+|  名词 | 解释 |
+| --- | --- |
+| device registry | a container of devices with shared properties |
+| device | a "Thing" in "Internet of Things"; a processing unit that is capable of connecting to the internet (directly or indirectly) and exchanging data with the cloud.|
 #### 实践
+如下内容来自[Google IoT Core 指南][google-iot-core]
+
+- Install Google Cloud SDK
+- Create registries and devices
+    - Create a device registry
+    - IAM role for Pub/Sub publishing
 ### [行业对标] 阿里云 IOT
 #### 实践
 
@@ -196,4 +210,6 @@ run --> product
 [back-cloud-architecture]: https://cloud.tencent.com/developer/article/1485632
 
 [huarun-cloud-build-thing]: https://www.oracle.com/technetwork/cn/community/developer-day/10-cloud-computing-platform-1863872-zhs.pdf
+
+[google-iot-core]: https://cloud.google.com/iot/docs/how-tos/devices?hl=zh_CN
 <center>  ·End·  </center>
