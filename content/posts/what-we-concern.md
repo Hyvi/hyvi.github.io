@@ -164,9 +164,34 @@ run --> product
 如下内容来自[Google IoT Core 指南][google-iot-core]
 
 - Install Google Cloud SDK
-- Create registries and devices
+- Create devices registries 
     - Create a device registry
     - IAM role for Pub/Sub publishing
+- Creating device key pairs
+    - First `create a pulbic/private key pair`
+    - When connecting to Cloud IoT Core, each device creates a `JSON Web Token(JWT)` signed with its private key, which Cloud IoT Core authenticate using the device's pulbic key
+        - Cloud IoT Core can verify device public key certifcates against registry-level CA certificates? 用注册的CA证书验证设备公钥证书
+        - 作用：a verified cerficate attests that a `public/private key pair` belongs to a legitimate device. 当设备生产商创建公私钥后，私钥存储在设备中，而公钥被CA签名。 
+        - 设备注册有CA证书时，那么只接受CA签名过公钥设备. 当平台需要兼容多种设备时，可以让设备添加到响应的设备注册里，不至于混乱添加，导致设备收到异常指令或者上报错误的信息。
+- Creating or editing a device
+  - 创建设备时`身份验证`可以选择公钥的格式。
+      - 公钥 (RS256 或 ES256)
+      - 公钥证书（被CA签名过的）
+
+```plantuml
+@startuml
+!include <awslib/AWSCommon>
+!include <awslib/General/Client>
+!include <awslib/Mobile/APIGateway>
+
+Client(device, drone, "")
+APIGateway(api, "IoT Broker", "")
+
+device -> api: 使用JWT认证方式\n以mqtt协议接入
+@enduml
+
+```
+
 ### [行业对标] 阿里云 IOT
 #### 实践
 
