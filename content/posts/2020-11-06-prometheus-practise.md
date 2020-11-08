@@ -14,7 +14,7 @@ description:
 刚接触, 还是很多新词汇
 
 | 名词 |解释|
-|--|--|
+|---|---|
 |Exportor|用于向Prometheus Server暴露数据采集的endpoint，Prometheus轮训这些Exporter采集并且保存数据；|
 |ServiceMonitor| a  ServiceMonitor describes the set of targets to be monitored by prometheus |
 |Prometheus Operator| 简单运行 Promethues 在 kubernetes 上，并保持 Kubenetes 本土化的配置选项|
