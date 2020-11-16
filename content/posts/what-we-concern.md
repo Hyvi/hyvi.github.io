@@ -209,9 +209,31 @@ device -> api: 使用JWT认证方式\n以mqtt协议接入
 #### 实践
 
 ## 解决方案 
-明星产品, 比如xxx
 
-新产品设备?
+### 我们关心什么需求
+
+- 性能 (Performance)
+    - MST, Maximum sustainable throughout
+    - Lantacy
+- 可伸缩性 (Scalability）
+    - Maximun number of supported concurrent connections
+    - The time to start a new broker
+- 韧性/可用性 (Resilience)
+    - The message loss count in case of a broker instance crashing 
+- 安全 (Security)
+    - only a side-aspect of security and
+measures the overhead of enabled TLS encryption on the maximum sustainable
+throughput (as percentage).
+- 可扩展性 (Extensibility)
+    - offers plug-in mechanisms 
+- 易用性 (Usability)
+
+### 选择
+EMQ X
+
+
+
+
 # 参考
 1. MQTT ESSENTIALS by HIVEMQ团队整理 https://www.hivemq.com/mqtt-essentials/ 
     - MQTT Basic
@@ -228,6 +250,9 @@ device -> api: 使用JWT认证方式\n以mqtt协议接入
         - 分支开发中，预计在Q4支持
     - 支持持久化存储 File Store / SQL Store [Persistence][nats-persistence]
   
+
+5.  Comparison of MQTT Brokers for Distributed IoT Edge Computing [[pdf]](http://www.koziolek.de/docs/Koziolek2020-ECSA-preprint.pdf)
+
 
 [nats-persistence]: https://docs.nats.io/nats-streaming-server/configuring/persistence
 <br>

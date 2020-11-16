@@ -43,6 +43,10 @@ tags: ['vim','python']
 
 [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) 命令使用多了，这个很方便
 
+[VS Code](#) 这个不多说了. 插件强大。
+
+[Draw.io]() 满足快速作图的需求。
+
 那些曾经使用过的利器
 -----
 
