@@ -59,6 +59,11 @@ bazel run //:gazelle
 - 有利于统一依赖库，统一升级，确保安全。
 - 新的技术，激活技术氛围和兴趣
 
+# FAQ 
+Q: how do you set up a CI/CD pipeline for a mono repo? When a code change to the repository triggers CI
+
+A: http://blog.shippable.com/ci/cd-of-microservices-using-mono-repos， 更多内容参考： https://github.com/korfuri/awesome-monorepo/blob/master/README.md
+
 # 参考
 [Bazel 结合 golangci-linter](https://github.com/atlassian/bazel-tools)
 
