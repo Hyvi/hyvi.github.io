@@ -194,6 +194,7 @@ device -> api: 使用JWT认证方式\n以mqtt协议接入
 
 ### [行业对标] 阿里云 IOT
 #### 实践
+*TODO*
 
 ### [行业对标] EMQ X
 
@@ -207,6 +208,41 @@ device -> api: 使用JWT认证方式\n以mqtt协议接入
     - 吞吐量： 单集成百万并发
 
 #### 实践
+*TODO*
+### [行业对标] Azure IoT
+
+**[Azure IoT reference architecture](https://docs.microsoft.com/zh-cn/azure/architecture/reference-architectures/iot)** show a recommended architecture for IoT applications on Azure using PaaS(platform-as-a-service) components
+
+![](https://docs.microsoft.com/zh-cn/azure/architecture/reference-architectures/_images/iot-refarch.svg)
+
+#### two way to process telemetry data: 
+- hot path
+    - the **hot  path** analyzes data in near-real-time, as it arrives, In the hot path, telemetry must be processed with very low latency. The hot path is typically implemented using a stream processing engine(Azure Stream Analytics or **Apache Spark**). The output may trigger an alert, or be written to a structured format that can be queried using analytical tools.
+- code path
+    - The **cold path** performs batch processing at longer intervals(hourly or daily).
+
+#### Data Storage 
+For cold path storage, Azure Blob Storage is the most cost-effective option 
+
+For warm path storage, consider using Azure Cosmos DB.
+
+
+**[Real Time Analytics on Big Data Architecure](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/real-time-analytics)** Get insights form live streaming data with ease. 
+
+![](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/media/real-time-analytics.png)
+
+**[Advanced Analytics Architecture](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data)** Transform your data into actionable insights using the best-in-class machine learning tools. This architecture allows you to combine any data at any scale, and to build and deploy custom machine learning models at scale.
+
+![](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/media/advanced-analytics-on-big-data.png)
+
+
+**[Ingesting, processing and visualizing real-time vehichle data](https://docs.microsoft.com/zh-cn/azure/architecture/example-scenario/data/realtime-analytics-vehicle-iot)** 
+![](https://docs.microsoft.com/zh-cn/azure/architecture/example-scenario/data/media/architecture-realtime-analytics-vehicle-data1.png)
+
+**[国外物联网平台初探（二） ——微软Azure IoT](https://blog.csdn.net/u011596455/article/details/77925246)** 平台定位: 连接设备、其它 M2M 资产和人员，以便在业务和操作中更好地利用数据
+
+*[点击查看图片](http://images2015.cnblogs.com/blog/43267/201609/43267-20160907162226973-62747760.png)* 
+
 
 ## 解决方案 
 
