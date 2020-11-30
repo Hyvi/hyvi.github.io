@@ -234,6 +234,7 @@ device -> api: 使用JWT认证方式\n以mqtt协议接入
 
 #### 实践
 *TODO*
+
 ### [行业对标] Azure IoT
 
 **[Azure IoT reference architecture](https://docs.microsoft.com/zh-cn/azure/architecture/reference-architectures/iot)** show a recommended architecture for IoT applications on Azure using PaaS(platform-as-a-service) components
@@ -250,6 +251,11 @@ device -> api: 使用JWT认证方式\n以mqtt协议接入
 For cold path storage, Azure Blob Storage is the most cost-effective option 
 
 For warm path storage, consider using Azure Cosmos DB.
+
+
+#### 解决方案 
+
+**[Publish and subscribe with Azure IoT Edge](https://docs.microsoft.com/zh-cn/azure/iot-edge/how-to-publish-subscribe?view=iotedge-2020-11#authorization)** Azure IoT 如何解决 Topic pub/sub 权限的问题。
 
 
 **[Real Time Analytics on Big Data Architecure](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/real-time-analytics)** Get insights form live streaming data with ease. 
