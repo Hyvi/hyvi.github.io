@@ -151,6 +151,31 @@ run --> product
 ## 物联网平台化 - IoT
 这块知识是2020年需要成长的地方，硬件为主，赋能硬件是后续的趋势。 
 
+### 架构是怎样的？ 
+
+案例/论文参考： 
+
+[Lambda architecture](https://en.wikipedia.org/wiki/Lambda_architecture) a data-processing architecture designed to handle massive quantities of data by take advantage of both batch and stream-processing methods. 
+
+[A Distributed Stream Processing based Architecture for IoT Smart Grids Monitoring .pdf](https://www.researchgate.net/publication/321639779_A_Distributed_Stream_Processing_based_Architecture_for_IoT_Smart_Grids_Monitoring)
+
+ - Cyclic Architecture
+    - Messaging Layer 
+    - Processing Layer
+    - Volatile Layer
+
+[Applying the Kappa architecture in the telco industry](https://www.oreilly.com/content/applying-the-kappa-architecture-in-the-telco-industry/) 
+
+![](https://www.oreilly.com/content/wp-content/uploads/sites/2/2019/06/figure2_kappa-architecture-51de195715f9d2417b0814c3e537c355.png)
+
+[Stream IoT data to an autonomous database using serverless functions](https://docs.oracle.com/en/solutions/iot-streaming-oci/index.html#GUID-BAE48036-286B-49CE-A6AA-5870CAD689D2)
+
+![](https://docs.oracle.com/en/solutions/iot-streaming-oci/img/oci-arch-iot-streaming.png)
+
+
+参考： [Architecture Patterns for IoT](https://medium.com/@prashunjaveri) 
+
+
 ### [行业对标] Google Cloud IOT
 
 参考下面服务组件和数据流图: [Cloud IoT Core](https://cloud.google.com/iot/resources/cloud-iot-overview3.png?hl=zh_CN)
