@@ -293,7 +293,7 @@ measures the overhead of enabled TLS encryption on the maximum sustainable
 throughput (as percentage).
 - 可扩展性 (Extensibility)
     - offers plug-in mechanisms 
-- 易用性 (Usability)
+- 易用性 (Usability)
 
 ### 选择
 EMQ X
