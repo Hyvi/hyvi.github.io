@@ -237,6 +237,30 @@ device -> api: 使用JWT认证方式\n以mqtt协议接入
 
 ### [行业对标] Azure IoT
 
+[ IoT Hub REST](https://docs.microsoft.com/en-us/rest/api/iothub/), offer programmatic access to the device, messages ,and job service , as well as the resource provider, in  IoT Hub. 
+
+[Communication with your IoT hub using the MQTT protocol ](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-mqtt-support) 如何定义与设备之间的接口
+
+
+[ IoT Hub endpoints ](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-endpoints) 
+
+- Resource Provider
+- Device identity management 
+- Device twin management 
+- Jobs management 
+- Device endpoint 
+    - send device-to-cloud messages 
+    - receive cloud-to-device messages 
+    - initiate file uploads
+    - retrieve and update device twin properties 
+    - receive direct method request 
+- Service endpoint 
+    - receive device-to-cloud messages 
+    - send cloud-to-device messages and receive delivery acknowledgements
+    - receive file notification 
+    - direct method invocation 
+    - receive operation monitoring events 
+
 **[Azure IoT reference architecture](https://docs.microsoft.com/zh-cn/azure/architecture/reference-architectures/iot)** show a recommended architecture for IoT applications on Azure using PaaS(platform-as-a-service) components
 
 ![](https://docs.microsoft.com/zh-cn/azure/architecture/reference-architectures/_images/iot-refarch.svg)
