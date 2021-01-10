@@ -1,94 +1,184 @@
-baseURL = "https://hyvi.github.io" # <head> 里面的 baseurl 信息，填你的博客地址
-title = "Elon`s Blog" # 浏览器的标题
-languageCode = "zh-cn" # 语言
-hasCJKLanguage = true # 开启可以让「字数统计」统计汉字
-theme = "mogege" # 主题 (需要自己下载)
+baseURL = "/"
+title = "Elon`s Blog"
 
-paginate = 11 # 每页的文章数
-enableEmoji = true # 支持 Emoji
-enableRobotsTXT = true # 支持 robots.txt
+enableRobotsTXT = true
 
+# Hugo allows theme composition (and inheritance). The precedence is from left to right.
+theme = ["docsy"]
 
-preserveTaxonomyNames = true
+# Will give values to .Lastmod etc.
+enableGitInfo = true
 
-[blackfriday]
-  hrefTargetBlank = true
-  nofollowLinks = true
-  noreferrerLinks = true
+# Language settings
+contentDir = "content/en"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+# Useful when translating.
+enableMissingTranslationPlaceholders = true
 
-[frontmatter]
-date = [":filename", ":default"]
+disableKinds = ["taxonomy", "taxonomyTerm"]
 
+# Highlighting config
+pygmentsCodeFences = true
+pygmentsUseClasses = false
+# Use the new Chroma Go highlighter in Hugo.
+pygmentsUseClassic = false
+#pygmentsOptions = "linenos=table"
+# See https://help.farbox.com/pygments.html
+pygmentsStyle = "tango"
+
+# Configure how URLs look like per section.
 [permalinks]
-posts = "/:year/:month/:day/:slug"
+blog = "/:section/:year/:month/:day/:slug/"
 
-[menu]
+## Configuration for BlackFriday markdown parser: https://github.com/russross/blackfriday
+[blackfriday]
+plainIDAnchors = true
+hrefTargetBlank = true
+angledQuotes = false
+latexDashes = true
 
-  [[menu.main]]
-    name = "Pics"
-    url = "/pics/"
-    weight = 1
+# Image processing configuration.
+[imaging]
+resampleFilter = "CatmullRom"
+quality = 75
+anchor = "smart"
 
-  [[menu.main]]
-    name = "Tools"
-    url = "/tools/"
-    weight = 1
+[services]
+[services.googleAnalytics]
+# Comment out the next line to disable GA tracking. Also disables the feature described in [params.ui.feedback].
+# id = "UA-00000000-0"
 
-  [[menu.main]]
-    name = "Blog"
-    url = "/posts/"
-    weight = 2
+# Language configuration
 
-  [[menu.main]]
-    name = "Categories"
-    url = "/categories/"
-    weight = 3
+[languages]
+[languages.en]
+title = "Goldydocs"
+description = "A Docsy example site"
+languageName ="English"
+# Weight used for sorting.
+weight = 1
 
-  [[menu.main]]
-    name = "Tags"
-    url = "/tags/"
-    weight = 4
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+      # See a complete list of available styles at https://xyproto.github.io/splash/docs/all.html
+      style = "tango"
+      # Uncomment if you want your chosen highlight style used for code blocks without a specified language
+      # guessSyntax = "true"
 
-  [[menu.main]]
-    name = "About"
-    url = "/about/"
-    weight = 5
+# Everything below this are Site Params
+
+# Comment out if you don't want the "print entire section" link enabled.
+[outputs]
+section = ["HTML", "print"]
 
 [params]
-    since = 2017
-    author = "Elon"                          # Author's name
-    avatar = "https://img3.doubanio.com/icon/ul38294964-4.jpg"           # Author's avatar
-    subtitle = "Just for Fun"                  # Subtitle
-    cdn_url = ""           # Base CDN URL
-    home_mode = "" # post or other
-    enableGitalk = true # gitalk 评论系统
+copyright = "The Docsy Authors"
+privacy_policy = "https://policies.google.com/privacy"
 
-    google_verification = ""
+# First one is picked as the Twitter card image if not set on page.
+# images = ["images/project-illustration.png"]
 
-    description = "Elon 的个人博客" # (Meta) 描述
-    keywords = "blog, Hugo, GNU/Linux, Linux, Ubuntu, Vim" # site keywords
+# Menu title if your navbar has a versions selector to access old versions of your site.
+# This menu appears only if you have at least one [params.versions] set.
+version_menu = "Releases"
 
-    beian = ""
-    baiduAnalytics = ""
-    googleAnalytics = "" # Google 统计 id
+# Flag used in the "version-banner" partial to decide whether to display a 
+# banner on every page indicating that this is an archived version of the docs.
+# Set this flag to "true" if you want to display the banner.
+archived_version = false
 
-    license= '本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可'
+# The version number for the version of the docs represented in this doc set.
+# Used in the "version-banner" partial to display a version number for the 
+# current doc set.
+version = "0.0"
 
-comment = true            # 是否开启评论
-toc = true                # 是否开启目录
-autoCollapseToc = true   # Auto expand and collapse toc
+# A link to latest version of the docs. Used in the "version-banner" partial to
+# point people to the main doc site.
+url_latest_version = "https://hyvi.github.io"
 
-# Gitalk 评论配置（gitalk 请参考：https://github.com/gitalk/gitalk）
-[params.gitalk] 
-    owner = "Hyvi"              # Your GitHub ID
-    admin = "Hyvi"      # GitHub repository owner and collaborators
-    repo = "hyvi.github.com"               # The repo to store comments
-    clientId = "e6d4916f9776f64681b8"           # Your client ID
-    clientSecret = "0ecf1c39895b1e857f19b2f74b7e58982314c6da"       # Your client secret
-    countSign = "条评论"
-    id= "location.pathname" # The unique id of the page.
-    labels= "gitalk" # Github issue labels. If you used to use Gitment, you can change it
-    perPage= 15 # Pagination size, with maximum 100.
-    pagerDirection= "last" # Comment sorting direction, available values are 'last' and 'first'.
-    createIssueManually= true # If it is 'false', it is auto to make a Github issue when the administrators login.
-    distractionFreeMode= false # Enable hot key (cmd|ctrl + enter) submit comment.
+# Repository configuration (URLs for in-page links to opening issues and suggesting changes)
+github_repo = "https://github.com/Hyvi/blog"
+# An optional link to a related project repo. For example, the sibling repository where your product code lives.
+github_project_repo = "https://github.com/Hyvi/blog"
+
+# Specify a value here if your content directory is not in your repo's root directory
+# github_subdir = ""
+
+# Google Custom Search Engine ID. Remove or comment out to disable search.
+# gcs_engine_id = "011737558837375720776:fsdu1nryfng"
+
+# Enable Algolia DocSearch
+algolia_docsearch = false
+
+# Enable Lunr.js offline search
+offlineSearch = false
+
+# Enable syntax highlighting and copy buttons on code blocks with Prism
+prism_syntax_highlighting = false
+
+# User interface configuration
+[params.ui]
+# Enable to show the side bar menu in its compact state.
+sidebar_menu_compact = false
+#  Set to true to disable breadcrumb navigation.
+breadcrumb_disable = false
+#  Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
+sidebar_search_disable = false
+#  Set to false if you don't want to display a logo (/assets/icons/logo.svg) in the top nav bar
+navbar_logo = true
+# Set to true to disable the About link in the site footer
+footer_about_disable = false
+
+# Adds a H2 section titled "Feedback" to the bottom of each doc. The responses are sent to Google Analytics as events.
+# This feature depends on [services.googleAnalytics] and will be disabled if "services.googleAnalytics.id" is not set.
+# If you want this feature, but occasionally need to remove the "Feedback" section from a single page,
+# add "hide_feedback: true" to the page's front matter.
+[params.ui.feedback]
+enable = true
+# The responses that the user sees after clicking "yes" (the page was helpful) or "no" (the page was not helpful).
+yes = 'Glad to hear it! Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.'
+no = 'Sorry to hear that. Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.'
+
+# Adds a reading time to the top of each doc.
+# If you want this feature, but occasionally need to remove the Reading time from a single page, 
+# add "hide_readingtime: true" to the page's front matter
+[params.ui.readingtime]
+enable = false
+
+[params.links]
+# End user relevant links. These will show up on left side of footer and in the community page if you have one.
+[[params.links.user]]
+	name = "User mailing list"
+	url = "https://example.org/mail"
+	icon = "fa fa-envelope"
+        desc = "Discussion and help from your fellow users"
+[[params.links.user]]
+	name ="Twitter"
+	url = "https://example.org/twitter"
+	icon = "fab fa-twitter"
+        desc = "Follow us on Twitter to get the latest news!"
+[[params.links.user]]
+	name = "Stack Overflow"
+	url = "https://example.org/stack"
+	icon = "fab fa-stack-overflow"
+        desc = "Practical questions and curated answers"
+# Developer relevant links. These will show up on right side of footer and in the community page if you have one.
+[[params.links.developer]]
+	name = "GitHub"
+	url = "https://github.com/google/docsy"
+	icon = "fab fa-github"
+        desc = "Development takes place here!"
+[[params.links.developer]]
+	name = "Slack"
+	url = "https://example.org/slack"
+	icon = "fab fa-slack"
+        desc = "Chat with other project developers"
+[[params.links.developer]]
+	name = "Developer mailing list"
+	url = "https://example.org/mail"
+	icon = "fa fa-envelope"
+        desc = "Discuss development issues around the project"
