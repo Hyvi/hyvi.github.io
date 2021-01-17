@@ -10,9 +10,10 @@ theme = ["docsy"]
 enableGitInfo = true
 
 # Language settings
-contentDir = "content/posts"
-defaultContentLanguage = "en"
+contentDir = "content"
+defaultContentLanguage = "zh"
 defaultContentLanguageInSubdir = false
+
 # Useful when translating.
 enableMissingTranslationPlaceholders = true
 
@@ -52,10 +53,10 @@ anchor = "smart"
 # Language configuration
 
 [languages]
-[languages.en]
+[languages.zh]
 title = "Goldydocs"
 description = "A Docsy example site"
-languageName ="English"
+languageName ="Chinese"
 # Weight used for sorting.
 weight = 1
 
