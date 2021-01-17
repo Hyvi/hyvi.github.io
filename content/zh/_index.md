@@ -1,6 +1,6 @@
 +++
-title = "Goldydocs"
-linkTitle = "Goldydocs"
+title = "Elon`s Blog"
+linkTitle = "Elon`s Blog"
 
 +++
 
@@ -11,7 +11,3 @@ linkTitle = "Goldydocs"
 	</a>
 </div>
 {{< /blocks/cover >}}
-
-
-{{< blocks/section >}}
-{{< /blocks/section >}}
