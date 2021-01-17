@@ -6,7 +6,7 @@
 
 language: node_js
 node_js:
-  - "15"
+  - "12"
 
 env:
  global:
@@ -26,7 +26,7 @@ before_install:
   # - npm install -D --save autoprefixer
   # - npm install -D --save postcss-cli
   # 安装 hugo （version: v0.80.0）
-  - wget -q -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.80.0/hugo_extended_0.80.0_Linux-64bit.deb
+  - wget -q -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.76.0/hugo_extended_0.76.0_Linux-64bit.deb
   - sudo dpkg -i hugo.deb
 
 install:
