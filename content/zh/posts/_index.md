@@ -1,5 +1,5 @@
 ---
-title: "Elon Blog"
+title: "Blog"
 linkTitle: "Blog"
 menu:
   main:
