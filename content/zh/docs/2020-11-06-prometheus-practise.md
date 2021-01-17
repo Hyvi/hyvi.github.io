@@ -7,10 +7,10 @@ categories:
 featured_image: 
 description: 
 ---
-# 背景
+## 背景
 为什么要自建 Promethues, 云服务商提供的挺好的。
 
-# 名词解释 
+## 名词解释 
 刚接触, 还是很多新词汇
 
 | 名词 |解释|
@@ -19,23 +19,23 @@ description:
 |ServiceMonitor| a  ServiceMonitor describes the set of targets to be monitored by prometheus |
 |Prometheus Operator| 简单运行 Promethues 在 kubernetes 上，并保持 Kubenetes 本土化的配置选项|
 
-# 监控指标 
+## 监控指标 
 |指标|说明|
 |---|---|
 |DCGM_FI_DEV_FB_USED | GPU 已用内存 | 
 |DCGM_FI_DEV_FB_FREE | GPU 未用内存 |
 |DCGM_FI_DEV_GPU_UTIL | GPU 使用率 |
 
-# 开始
+## 开始
 
 
 
-# 有感
+## 有感
 
 - K8s CRD 无处不在
 
 
-# 参考
+## 参考
 
 [Promethues Operator User Guide](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/user-guides/getting-started.md)
 

@@ -9,7 +9,7 @@ categories:
 featured_image: 
 description: 
 ---
-# 简介 
+## 简介 
 整个golang团队20多人，没有code review ，对项目质量、对结果产出、对新人的成长，对团队交流的氛围影响大。 看过[Google 代码评审规范](https://www.infoq.cn/article/QJi1Kqm4pH3UNAqNzl3l)，解决了我之前一些疑问和也让我坚定的去Code Review。  
 当没有code review时候，要求重构，而重构价值是释放历史包袱，并没有产生任何其他价值  
 
@@ -47,12 +47,12 @@ ad0b3dd - 修改日志 -  7 weeks ago -
   几乎没有  
 
 我们开始要做Code Review， 从哪里开始了？  
-# 方式
+## 方式
 谁对谁在什么时候用什么方式去做什么？
 
-## 第一个“谁”
+### 第一个“谁”
 
-### 代码评审员
+#### 代码评审员
 如果项目存在两人或者两人以上开发 
 
 - 如果开发提交代码，则应用项目负责人  
@@ -60,18 +60,18 @@ ad0b3dd - 修改日志 -  7 weeks ago -
 
 如果应用负责人和开发是同一个人，这时候为“小组Leader”   
 
-### 自动Lint工具
+#### 自动Lint工具
 借助自动化完成代码最基本的审核， 比如reviewdog & golangci-lint， 更多相关知识[Github Action-golangci-lint](https://github.com/reviewdog/action-golangci-lint)   
 
 
 
-## 第二个“谁”
+### 第二个“谁”
 业务开发人员对应用提交的pull request 
 
-## 什么时候
+### 什么时候
 提交Review时的当天或者第二天须完成
 
-## 什么方式
+### 什么方式
 依照代码审核规范， 目前缺少自己的审核规范，
 类似规范参考
 
@@ -84,12 +84,12 @@ ad0b3dd - 修改日志 -  7 weeks ago -
       - 包 `pkg/errors` 比标准的`fmt.Errorf` + `%w`更可读
       - 待补充
 
-## 做什么
+### 做什么
 阅读提交的代码并给出建议完成审核
 
-# 落地
+## 落地
 
-## reviewdog & golangci-lint在gitlab上配置实践
+### reviewdog & golangci-lint在gitlab上配置实践
 熟悉github action方式， 借鉴其优点； 在一个项目中实践，然后推广到其他项目中。
 
 - 如何做到所有项目不需要自行配置或者简单的配置（比如增加一个配置现成的文件），并且使用同一个套代码检查标准？ 
@@ -104,7 +104,7 @@ ad0b3dd - 修改日志 -  7 weeks ago -
 
 - golangci-lint自身大而全的能力，导致其功能本身不稳定，不如golint或errcheck那么纯粹 
 
-## reviewdog & golint/errcheck/govet/... 在 gitlab 上配置实践
+### reviewdog & golint/errcheck/govet/... 在 gitlab 上配置实践
 
 ```yml
 
@@ -161,17 +161,17 @@ runner:
 - deadcode
 - typecheck
 
-### golint 
+#### golint 
 
-### errcheck
+#### errcheck
 
-### go vet
+#### go vet
 
-# TODO
+## TODO
 反复阅读代码评审规范.
 不断增加或修正 linter
 
-# 参考
+## 参考
 1. reviewdog
   https://github.com/reviewdog/reviewdog#reporter-github-pullrequest-review-comment--reportergithub-pr-review 
 

@@ -7,7 +7,7 @@ categories:
 featured_image:
 description:
 ---
-# 背景
+## 背景
 当前碰到的问题：
 
 - 部分服务 CPU 负载比较高
@@ -28,9 +28,9 @@ golang 开发中有一些定位这些问题的套路和工具，在本文中汇�
     - 获取系统实时所有 goroutine 调用堆栈信息：具体到这个 goroutine 是在哪里启动的，以及当前在干什么
     - 获取系统实时堆内存调优辅助统计信息： 具体是在哪里分配了多少内存，以及 TOP N 分别是哪些，甚至是每个内存分配的来源图
 
-# Diagnostics
+## Diagnostics
 
-## 获取系统实时堆内存分配详情
+### 获取系统实时堆内存分配详情
 ``` golang
 // 引入 pprof
 import "net/http/pprof"
@@ -40,22 +40,22 @@ this.debugMux.HandleFunc("/debug/pprof/", http.HandlerFunc(pprof.Index))
 
 `curl -XGET "http://192.168.149.150:8080/debug/pprof/heap?debug=2"` 获取 heap 内存的详细信息，其中 8080 是你开启的 http server 的端口，debug=2 意味着需要输出详细信息
 
-## 获取系统实时所有 goroutine 调用栈信息
+### 获取系统实时所有 goroutine 调用栈信息
 通过`curl -XGET "http://192.168.149.150:8080/debug/pprof/goroutine?debug=2"`拿到的就是 goroutine 的详细信息
 
-## 获取系统实时堆内存调优辅助统计信息
+### 获取系统实时堆内存调优辅助统计信息
 `go tool pprof -inuse_space http://192.168.149.150:8080/debug/pprof/heap`，进入 pprof 交互模式后，可以通过 top, tree 等进一步查看统计信息，同时，也可以通过 png 命令，将内存信息输出成图片，以图片的形式显示内存的分配、占用情况
 
-## 获取 trace 数据
+### 获取 trace 数据
 通过：`curl -XGET "http://127.0.0.1:8080/debug/pprof/trace?seconds=30" -o 002_trace_2017_09_08.out`我们将获取一个 30 秒的 trace 数据 (trace_02.out)，通过`go tool trace 002_trace_2017_09_08.out`
 
 也是各种坑， 比如页面打开空白： [gotip tool trace xxx.out](https://github.com/golang/go/issues/25151)
 
-## Profile
+### Profile
 侧重于统计程序各 goroutine 自身的运行状况，更加适用于分析针对 cpu 密集型逻辑导致的 latency 过高问题
 
-### cpu
-### heap
+#### cpu
+#### heap
 pprof 的 top 会列出 5 个统计数据：
 
 - flat: 本函数占用的内存量
@@ -75,7 +75,7 @@ Because of memory profiling is samples based and because it tracks allocation no
 
 
 
-#### Heap "不能" 定位内存泄漏
+##### Heap "不能" 定位内存泄漏
 ![](https://segmentfault.com/img/remote/1460000019222668?w=1008&h=868/view)
 
 1. 该 goroutine 只调用了少数几次，但是消耗大量的内存
@@ -83,14 +83,14 @@ Because of memory profiling is samples based and because it tracks allocation no
 
 第二种情况， 就是**goroutine 泄漏**， 这是通过 heap 无法发现的，所以 heap 在定位内存泄漏这件事情上，发挥作用不大。
 
-#### goroutine 泄漏怎么导致内存泄漏
+##### goroutine 泄漏怎么导致内存泄漏
 
 - 每个 goroutine 占用 2kb 内存
 - goroutine 执行过程中存在一些变量，如果这些变量指向堆中的内存，GC 会认为这些内存仍在使用，不会对其进行回收，这些内存无法使用，造成内存泄漏
     a. goroutine 本身的栈占用的空间
     b. goroutine 中的变量所占用的堆内存，这一部分是能通过 heap profile 体现出来的。
 
-#### 如何定位 goroutine 内存泄漏
+##### 如何定位 goroutine 内存泄漏
 pprof 查看当前 heap 里谁（哪一段代码分配）占用内存比较大，
 so 正确的做法是导出两个时间点的 heap profile 信息文件，使用 --base 参数进行对比
 
@@ -116,7 +116,7 @@ so 正确的做法是导出两个时间点的 heap profile 信息文件，使用
 - 如果内存消费是已个相关的考虑因素的话， 当数据不稀疏或者可以转换为顺序索引时，使用amp[int]T也没问题，但是通常应该使用切片实现。
   - 扩容一个切片时，切片可能会使操作变慢，在map中这种变慢可以忽略不计。 
 
-#### Go 内存原理
+##### Go 内存原理
 然后来了解内存中的几个概念
 
 **分段栈**
@@ -154,7 +154,7 @@ GO 会在每个函数入口处插入一小段前置代码，它能够检查栈�
  
 [golang 手动管理内存](https://studygolang.com/articles/610)  #TODO 为什么加这个链接? 
 
-##### 内存使用分析方法
+###### 内存使用分析方法
 [ 理解 go 语言的内存使用 ](https://mikespook.com/2014/12/理解-go-语言的内存使用/) 中三种方式
 
 - 通过 runtime 包的 ReadMemStats 函数
@@ -170,7 +170,7 @@ GO 会在每个函数入口处插入一小段前置代码，它能够检查栈�
 
 [Go 语言设计与实现](https://draveness.me/golang/) 详细从源码分析内存分配原理  #TODO
 
-#### linux 内存结构
+##### linux 内存结构
 VIRT: 亦虚拟内存，虚拟地址空间大小，是程序映射并可以访问的内存数量, 参考下图对虚拟内存的解释, 
 
 RES: 亦常驻内存，进程虚拟空间中已经映射到物理内存的那部分的大小。
@@ -281,10 +281,10 @@ go 1.12 的改进
 
 - 从 kernel 4.5 开始，Linux 支持了 MADV_FREE.
 
-### threadcreate
-### goroutine
-### block
-### mutex
+#### threadcreate
+#### goroutine
+#### block
+#### mutex
 实践 web 方式 [Mutex profle](https://rakyll.org/mutexprofile/)
 
 ~~里面提到的 PPT 在本地分析不出数据，~~, 因为没有用 goroutine
@@ -305,9 +305,9 @@ for _, f := range factors(n) {
 }
 mu.Unlock()
 ```
-## Trace
+### Trace
 
-### Synchronization blocking profile
+#### Synchronization blocking profile
 来自 rhys Hiltner 分析。
 
 the thing that we are spending here is seconds that we're spent waiting. we have kind of the goroutine name at the top of the stack.
@@ -315,11 +315,11 @@ the thing that we are spending here is seconds that we're spent waiting. we have
 关于方框中"of"前面的的 0, 表示 "zero time was spent inside of the box of 4.43. 来自 [Profiling and Optimizing Go, 关于 Type:CPU 的图解，时间： 11:00](https://www.youtube.com/watch?v=N3PWzBeLX2M)
 
 
-### goroutines
+#### goroutines
 goroutines that were running in that propram during those few seconds that i was recoording and listed.
 
 根据 Execution time\Network wait time\Sync block time\Blocking syscall time\Sechedule wait time 的情况后，可以通过 graph 图了解 goroutine 详细情况。`参考 [10]`
-## Flame
+### Flame
 ```bash
 pprof -http "localhost:12345" 'http://127.0.0.1:53668/block?id=19105152&raw=1'
 ```
@@ -327,9 +327,9 @@ pprof -http "localhost:12345" 'http://127.0.0.1:53668/block?id=19105152&raw=1'
 
 在参考 [7] 的视频 11:43 开始实际操作使用 Flame 定位程序执行慢的问题。
 
-## Debugging
-## Runtime statistics and events
-# 实践
+### Debugging
+### Runtime statistics and events
+## 实践
 定位高延迟的服务。
 
 使用 logrus 打印日志文件，其中 Logrus 使用全局锁导致，goroutine 之间竞争写锁。
@@ -357,7 +357,7 @@ func (entry *Entry) write() {
 - 换 zap 库
 
 其实并没有解答为什么延迟非常高的问题。
-# TODO
+## TODO
 
 [docker cgroup 技术之 memory](https://www.cnblogs.com/charlieroro/p/10180827.html) 看起来挺详细的分析文档，待细看。
 
@@ -371,7 +371,7 @@ func (entry *Entry) write() {
 
 Rakyll 一系列的调优
 
-# 参考
+## 参考
 1. go tool proof 郝琳的中文说明 #TODO
   https://github.com/hyper0x/go_command_tutorial/blob/master/0.12.md
 

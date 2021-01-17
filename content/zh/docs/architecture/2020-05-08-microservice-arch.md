@@ -8,22 +8,22 @@ featured_image:
 description: 
 ---
 
-# 对标行业架构最佳实践
+## 对标行业架构最佳实践
 
 [Best practices framework for Oracle Cloud Infrastructure](https://docs.oracle.com/en/solutions/oci-best-practices/index.html#GUID-5F2D2745-934E-409A-A7BA-D0976F727845) *TODO*
 
 
 
-# 主题
+## 主题
 
-##  request_id 
+###  request_id 
 
 [Better Logging Approach For Microservices](https://medium.com/cstech/better-logging-approach-for-microservices-3cc2c45e7aaa) request_id在日志中打印，由请求方生成发起
 
 从[What is the X-REQUEST-ID http header?](#参考)说明来看，建议是client生成x-request-id.
 
 
-## RateLimiter 
+### RateLimiter 
 
 限流的基础算法
 
@@ -42,7 +42,7 @@ description:
 
 <br>
 
-# 参考
+## 参考
 
 1. What is the X-REQUEST-ID http header?
   https://stackoverflow.com/questions/25433258/what-is-the-x-request-id-http-header) 

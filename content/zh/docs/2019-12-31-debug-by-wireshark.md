@@ -10,10 +10,10 @@ featured_image:
 description: 
 ---
 
-# 背景
+## 背景
 抓包分析是调式前后端协议的杀手锏，用好工具节省大量的时间去写代码优化代码。 
 
-# 名词解释
+## 名词解释
 **HTTP Strict transport security(HSTS)**  
 HTTP严格传输安全   
 HSTS禁止浏览器使用无效证书。  
@@ -34,24 +34,24 @@ Google已经针对不验证服务器证书的APP给出了警告，这些APP将�
 OCSP(Online Certifacte Status Protocol, 在线证书状态协议)是用来检验证书合法性的在线查询服务。   
 TLS握手阶段，实时查询OCSP接口，并在获得结果前阻塞后续流程。但导致建立TLS连接时间变得更长。 而 OCSP Stapling, 是服务器主动获取OCSP查询结果并随着证书一起发给客户端，从而让客服端跳过自己去验证的过程，提高TLS握手效率  
 
-# 工具
+## 工具
 有fiddler, charles, wiresharks,
 
-## fiddler
+### fiddler
 使用中间人（man-in-middle）的方式来实现的。
 - 本地化的工具，是一个使用本地127.0.0.1:8888 的HTTP代理。 
 ~任何能够设置HTTP代理为127.0.0.1:8888的浏览器和应用程序都可以使用Fiddler~
 
-### 为什么不能代理所有的HTTP请求
+#### 为什么不能代理所有的HTTP请求
 因为在操作系统层面，没有“HTTP request”这一概念，只有TCP连接。  
 Contacting a HTTP proxy means changing the HTTP request slightly as well as contacting the proxy server instead of the host named in the URL.  
 所以这个逻辑是写在发送HTTP requests的软件代码里。  
 curl和wget有他们自己的实现HTTP Request的代码，并使用了自己的配置文件（-x选项）。两者都没有实现基于配置的逻辑，也没有使用Mac OS 系统提供的HTTP Libraries(这个库使用了代理设置）  
 
-## charles
+### charles
 原理类似fiddler，但是mac上使用的简单的工具.
 
-## mitmproxy
+### mitmproxy
 原理是中间人的方式来实现, 再加个proxy, 中间人代理软件，可以用来拦截、修改、保存HTTP/HTTPS请求。  
 
 > An interactive console program than allows traffic flows to be intercepted, inspected, modified and replayed. 
@@ -65,15 +65,15 @@ curl和wget有他们自己的实现HTTP Request的代码，并使用了自己的
 
 
 ![ Modes of Operation](https://docs.mitmproxy.org/stable/schematics/proxy-modes-flowchart.png)   
-### 透明代理
+#### 透明代理
 重定向机制，可以将目的地为Internet上的服务器的TCP连接透明地重新路由到侦听代理服务器上。这通常采用与代理服务器相同的主机上的防火墙形式。比如Linux下的iptables\或者OSX中的pf。具体如何操作见参考中的"Mac 上使用mitmproxy对ios app进行抓包”   
 
 
-###  安装和使用 
+####  安装和使用 
 [MitmProxy 使用教程 for MAC](http://rui0.cn/archives/498)  
 更关心[Transparent Proxying使用](https://docs.mitmproxy.org/stable/howto-transparent/#macos)  
 
-#### Transparent Proxying 在Mac上实践 
+##### Transparent Proxying 在Mac上实践 
 参考官方文档，对mac下进行全局抓包的尝试。如下：   
 
 - Enable IP forwarding.
@@ -127,19 +127,19 @@ Set the test device up to use the host on which mitmproxy is running as the defa
 -  pf解决Mac自身流量抓包
 
 ```bash 
-#The ports to redirect to proxy
+##The ports to redirect to proxy
 redir_ports = "{http, https}"
 
-#The address the transparent proxy is listening on
+##The address the transparent proxy is listening on
 tproxy = "127.0.0.1 port 8080"
-#The user the transparent proxy is running as
+##The user the transparent proxy is running as
 tproxy_user = "nobody"
 
-#The users whose connection must be redirected.
-#
-#This cannot involve the user which runs the
-#transparent proxy as that would cause an infinite loop.
-#
+##The users whose connection must be redirected.
+##
+##This cannot involve the user which runs the
+##transparent proxy as that would cause an infinite loop.
+##
 
 rdr pass proto tcp from any to any port $redir_ports -> $tproxy
 pass out route-to (lo0 127.0.0.1) proto tcp from any to any port $redir_ports user { != $tproxy_user }
@@ -152,20 +152,20 @@ sudo -u nobody mitmproxy --mode transparent --showhost
 ** 发现有些流量不见了 ** 
 排查发现因为wifi下启用了socks代理，导致一些流量不见了, 转发到shadowsocks socks5代理去了。  
 
-#### 使用socks5的方式抓包所有的流量 
+##### 使用socks5的方式抓包所有的流量 
 [Tracing All Network Machine Traffic Using MITMProxy for Mac OSX](https://blogs.msdn.microsoft.com/aaddevsup/2018/04/11/tracing-all-network-machine-traffic-using-mitmproxy-for-mac-osx/)  
 跟regular proxy一样，需要client/应用支持或者更改。比如chrome更改网络方式为代理模式。比如不能对Curl的请求抓包不了  
 同理，socks5也存在透明代理，不过实现的方式不一样, 比如tsocks
 
 >  tsocks provides transparent network access through a SOCKS version 4 or 5 proxy (usually on a firewall). tsocks intercepts the calls applications make to establish TCP connections and transparently proxies them as necessary.
 
-### 破解https的SSL Pinning TODO
+#### 破解https的SSL Pinning TODO
 [APP上破解https的SSL Pinning](https://crifan.github.io/app_capture_package_tool_charles/website/how_capture_app/complex_https/https_ssl_pinning/)  
 
-## wireshark
+### wireshark
 抓取网卡上的所有TCP、UDP的数据  
 
-### HTTPS的解密
+#### HTTPS的解密
 
 
 - 通过私钥来解密, 咨询过运维，这种私钥是没办法提供的。  参考这边文档： [How to Decrypt SSL and TLS Traffic Using Wireshark](https://wiki.wireshark.org/TLS)  
@@ -180,7 +180,7 @@ This mechanism works for applications other than web browser as will but it depe
 - Python scripts can be edited to dump keys as well 
 
 
-# 参考
+## 参考
 在Trello上记录所有待办事项。   
 [常用的HTTP抓包工具Fiddler之使用技巧](https://zhuanlan.zhihu.com/p/47003094)     
 [三种解密HTTPS流量的方法](https://imququ.com/post/how-to-decrypt-https.html)  

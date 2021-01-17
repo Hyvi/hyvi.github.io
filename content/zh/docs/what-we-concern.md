@@ -9,37 +9,37 @@ description:
 plantuml: true
 ---
 
-# 背景
+## 背景
 
-# 我们的问题
+## 我们的问题
 
-## 效率
+### 效率
 效率，不只是开发、测试、需求，指的是迭代上线的效率。
 
-## 业务的价值和清晰
+### 业务的价值和清晰
 做有价值的业务, 并有清晰的规划   
 
 - 缺乏严格的需求评审
 
-# 我们的改变
+## 我们的改变
 
-## 提高效率
+### 提高效率
 
 - 更改目前发版的流程， 不需要建版本，在发版完即可通知相关方。
 - 更改目前的测试方式， 推动接口测试+单元测试， 不依赖与APP测试。
 - 着力中台, 沉淀公共业务领域，提高小前台的的迭代速度
 - 引入devops, 释放developer的参与的运维工作 
 
-## 清晰的业务和价值 
+### 清晰的业务和价值 
 
 - 需求流程优化
 - 加强需求评审
 
-## 应用能力平台化
-### [行业对标] 金融生态云
+### 应用能力平台化
+#### [行业对标] 金融生态云
 内容来自： [银行生态云建设思路及架构参考][back-cloud-architecture]
 
-#### 技术路线
+##### 技术路线
 ```plantuml
 @startuml
 
@@ -122,9 +122,9 @@ run --> product
 @endmindmap
 ```
 
-### [行业对标] 华润集团云计算服务平台建设思路讨论
+#### [行业对标] 华润集团云计算服务平台建设思路讨论
 [Click PDF][huarun-cloud-build-thing] 来自甲骨文首席架构师 刘翔
-#### 对云计算的NIST解释
+##### 对云计算的NIST解释
 > [NIST] 云计算是一种新的模式，基于此消费者能能够方便、按需地从网络访问到共享的可配置计算资源池（如， 网络、服务器、存储、应用程序和服务），且只需最小的管理或与服务提供方交互即可快速供应和释放这些资源。 
 
 5个重要特征（**STEAM**)
@@ -148,10 +148,10 @@ run --> product
 - PaaS
 - IaaS
 
-## 物联网平台化 - IoT
+### 物联网平台化 - IoT
 这块知识是2020年需要成长的地方，硬件为主，赋能硬件是后续的趋势。 
 
-### 架构是怎样的？ 
+#### 架构是怎样的？ 
 
 案例/论文参考： 
 
@@ -176,16 +176,16 @@ run --> product
 参考： [Architecture Patterns for IoT](https://medium.com/@prashunjaveri) 
 
 
-### [行业对标] Google Cloud IOT
+#### [行业对标] Google Cloud IOT
 
 参考下面服务组件和数据流图: [Cloud IoT Core](https://cloud.google.com/iot/resources/cloud-iot-overview3.png?hl=zh_CN)
 
-#### 名词解释
+##### 名词解释
 |  名词 | 解释 |
 | --- | --- |
 | device registry | a container of devices with shared properties |
 | device | a "Thing" in "Internet of Things"; a processing unit that is capable of connecting to the internet (directly or indirectly) and exchanging data with the cloud.|
-#### 实践
+##### 实践
 如下内容来自[Google IoT Core 指南][google-iot-core]
 
 - Install Google Cloud SDK
@@ -217,11 +217,11 @@ device -> api: 使用JWT认证方式\n以mqtt协议接入
 
 ```
 
-### [行业对标] 阿里云 IOT
-#### 实践
+#### [行业对标] 阿里云 IOT
+##### 实践
 *TODO*
 
-### [行业对标] EMQ X
+#### [行业对标] EMQ X
 
 1. 关键技术
     - 分布式
@@ -232,10 +232,10 @@ device -> api: 使用JWT认证方式\n以mqtt协议接入
     - 并发量： 单服务器200万并发, 一个集群1000万并发(7个节点）
     - 吞吐量： 单集成百万并发
 
-#### 实践
+##### 实践
 *TODO*
 
-### [行业对标] Azure IoT
+#### [行业对标] Azure IoT
 
 [ IoT Hub REST](https://docs.microsoft.com/en-us/rest/api/iothub/), offer programmatic access to the device, messages ,and job service , as well as the resource provider, in  IoT Hub. 
 
@@ -265,19 +265,19 @@ device -> api: 使用JWT认证方式\n以mqtt协议接入
 
 ![](https://docs.microsoft.com/zh-cn/azure/architecture/reference-architectures/_images/iot-refarch.svg)
 
-#### two way to process telemetry data: 
+##### two way to process telemetry data: 
 - hot path
     - the **hot  path** analyzes data in near-real-time, as it arrives, In the hot path, telemetry must be processed with very low latency. The hot path is typically implemented using a stream processing engine(Azure Stream Analytics or **Apache Spark**). The output may trigger an alert, or be written to a structured format that can be queried using analytical tools.
 - code path
     - The **cold path** performs batch processing at longer intervals(hourly or daily).
 
-#### Data Storage 
+##### Data Storage 
 For cold path storage, Azure Blob Storage is the most cost-effective option 
 
 For warm path storage, consider using Azure Cosmos DB.
 
 
-#### 解决方案 
+##### 解决方案 
 
 **[Publish and subscribe with Azure IoT Edge](https://docs.microsoft.com/zh-cn/azure/iot-edge/how-to-publish-subscribe?view=iotedge-2020-11#authorization)** Azure IoT 如何解决 Topic pub/sub 权限的问题。
 
@@ -299,9 +299,9 @@ For warm path storage, consider using Azure Cosmos DB.
 *[点击查看图片](http://images2015.cnblogs.com/blog/43267/201609/43267-20160907162226973-62747760.png)* 
 
 
-## 解决方案 
+### 解决方案 
 
-### 我们关心什么需求
+#### 我们关心什么需求
 
 - 性能 (Performance)
     - MST, Maximum sustainable throughout
@@ -319,13 +319,13 @@ throughput (as percentage).
     - offers plug-in mechanisms 
 - 易用性 (Usability)
 
-### 选择
+#### 选择
 EMQ X
 
 
 
 
-# 参考
+## 参考
 1. MQTT ESSENTIALS by HIVEMQ团队整理 https://www.hivemq.com/mqtt-essentials/ 
     - MQTT Basic
     - MQTT Features
