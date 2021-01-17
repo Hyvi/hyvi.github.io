@@ -1,7 +1,12 @@
-language: go
+# language: go
 
-go:
-  - "1.8"  # 指定Golang 1.8
+# go:
+#   - "1.8"  # 指定Golang 1.8
+
+
+language: node_js
+node_js:
+  - "15"
 
 env:
  global:
@@ -10,9 +15,9 @@ env:
 
 # Specify which branches to build using a safelist
 # 分支白名单限制：只有 master 分支的提交才会触发构建
-branches:
-  only:
-    - master
+# branches:
+#   only:
+#     - master
 
 before_install:
   # 安装依赖
