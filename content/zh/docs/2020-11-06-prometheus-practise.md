@@ -16,8 +16,8 @@ description:
 | 名词 |解释|
 |---|---|
 |Exportor|用于向Prometheus Server暴露数据采集的endpoint，Prometheus轮训这些Exporter采集并且保存数据；|
-|ServiceMonitor| a  ServiceMonitor describes the set of targets to be monitored by prometheus |
-|Prometheus Operator| 简单运行 Promethues 在 kubernetes 上，并保持 Kubenetes 本土化的配置选项|
+|ServiceMonitor| a ServiceMonitor describes the set of targets to be monitored by prometheus. [Prometheus operator design](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/design.md)|
+|Prometheus Operator| 简单运行 Promethues 在 kubernetes 上，并保持 Kubenetes 本土化的配置选项。 Operator 与 Controller 区别在于：<br /> a Controller with the following characteristics qualify as an operator : <br /> 1. Contains workload-specific knowledge <br /> 2. Manages workload lifecycle <br /> 3. Offers a CRD|
 
 ## 监控指标 
 |指标|说明|
@@ -34,10 +34,14 @@ description:
 
 - K8s CRD 无处不在
 
+## FAQ 
+1. DCGM_FI_DEV_FB_FREE 数值和实际的内存对不上的？
 
 ## 参考
 
 [Promethues Operator User Guide](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/user-guides/getting-started.md)
+
+Controllers and Operators, https://octetz.com/docs/2019/2019-10-13-controllers-and-operators/
 
 [Promethues Book 中文 ](https://yunlzheng.gitbook.io/prometheus-book/)
 
