@@ -4,6 +4,7 @@ date: 2020-11-01T23:00:33+08:00
 draft: false
 tags: 
 categories: 
+plantuml: true
 featured_image: 
 description: 
 ---
