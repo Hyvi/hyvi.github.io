@@ -19,6 +19,17 @@ description:
 |ServiceMonitor| a ServiceMonitor describes the set of targets to be monitored by prometheus. [Prometheus operator design](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/design.md)|
 |Prometheus Operator| 简单运行 Promethues 在 kubernetes 上，并保持 Kubenetes 本土化的配置选项。 Operator 与 Controller 区别在于：<br /> a Controller with the following characteristics qualify as an operator : <br /> 1. Contains workload-specific knowledge <br /> 2. Manages workload lifecycle <br /> 3. Offers a CRD|
 
+### Operator 
+
+An Operator is an application-specific controller that extends the kubernetes API to  create , configure, and manage instances of complex stageful applications on behalf of a kubernetes user. 
+
+it builds upon the basic kubernetes resource and controller concepts but includes domain or application-specific knowledge to automate common taks.
+
+![](https://coreos.com/sites/default/files/inline-images/Overview-etcd_0.png)
+
+An  Operator is  software that encodes this domain knowledge and extends the kubernetes API through the third party resources mechanism, enabling users to create, configure, and manage applications. 
+
+
 ## 监控指标 
 |指标|说明|
 |---|---|
@@ -38,6 +49,8 @@ description:
 1. DCGM_FI_DEV_FB_FREE 数值和实际的内存对不上的？
 
 ## 参考
+
+[Introducing Operators : Putting Operational Knowledge into Software .](https://coreos.com/blog/introducing-operators.html)
 
 [Promethues Operator User Guide](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/user-guides/getting-started.md)
 
