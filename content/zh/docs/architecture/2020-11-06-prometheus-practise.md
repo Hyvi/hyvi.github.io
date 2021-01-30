@@ -32,11 +32,14 @@ An  Operator is  software that encodes this domain knowledge and extends the kub
  Operator 与 Controller 区别在于：<br /> a Controller with the following characteristics qualify as an operator : <br /> 1. Contains workload-specific knowledge <br /> 2. Manages workload lifecycle <br /> 3. Offers a CRD
 
 ## 监控指标 
+GPU Grafana 面板配置： [GPU NODES V2](https://grafana.com/grafana/dashboards/11752)
+
 |指标|说明|
 |---|---|
-|DCGM_FI_DEV_FB_USED | GPU 已用内存 | 
-|DCGM_FI_DEV_FB_FREE | GPU 未用内存 |
+|DCGM_FI_DEV_FB_USED | GPU 已用显存 | 
+|DCGM_FI_DEV_FB_FREE | GPU 未用显存 |
 |DCGM_FI_DEV_GPU_UTIL | GPU 使用率 |
+
 
 ## 开始
 
@@ -48,6 +51,8 @@ An  Operator is  software that encodes this domain knowledge and extends the kub
 
 ## FAQ 
 1. DCGM_FI_DEV_FB_FREE 数值和实际的内存对不上的？
+    - A: 使用的型号是T4系列，具体的型号是 [ecs.gn6i-c16g1.4xlarge](https://www.alibabacloud.com/help/zh/doc-detail/108496.htm?#title-n0p-6ch-ma3), GPU 显存为 16G， 系统内存为 12G。而 NVIDIA dcgm-exporter 中监控的指标 DCGM_FI_DEV_FB_USED 为 GPU 显存大小，系统的内存通过 node_memory_MemTotal_bytes、node_memory_Buffers_bytes、node_memory_Cached_bytes、node_memory_MemFree_bytes 指标（来自 [GPU NODES V2](https://grafana.com/grafana/dashboards/11752) ) 来监控.
+    - A: 当在 GPU 环境下提到内存时，须要区分下说的是 GPU 显存还是系统内存。
 
 ## 参考
 
