@@ -16,8 +16,8 @@ description:
 | 名词 |解释|
 |---|---|
 |Exportor|用于向Prometheus Server暴露数据采集的endpoint，Prometheus轮训这些Exporter采集并且保存数据；|
-|ServiceMonitor| a ServiceMonitor describes the set of targets to be monitored by prometheus. [Prometheus operator design](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/design.md)|
-|Prometheus Operator| 简单运行 Promethues 在 kubernetes 上，并保持 Kubenetes 本土化的配置选项。 Operator 与 Controller 区别在于：<br /> a Controller with the following characteristics qualify as an operator : <br /> 1. Contains workload-specific knowledge <br /> 2. Manages workload lifecycle <br /> 3. Offers a CRD|
+|ServiceMonitor| a ServiceMonitor describes the set of targets to be monitored by prometheus. |
+|Prometheus Operator| 简单运行 Promethues 在 kubernetes 上，并保持 Kubenetes 本土化的配置选项。[Prometheus operator design](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/design.md) |
 
 ### Operator 
 
@@ -29,6 +29,7 @@ it builds upon the basic kubernetes resource and controller concepts but include
 
 An  Operator is  software that encodes this domain knowledge and extends the kubernetes API through the third party resources mechanism, enabling users to create, configure, and manage applications. 
 
+ Operator 与 Controller 区别在于：<br /> a Controller with the following characteristics qualify as an operator : <br /> 1. Contains workload-specific knowledge <br /> 2. Manages workload lifecycle <br /> 3. Offers a CRD
 
 ## 监控指标 
 |指标|说明|
