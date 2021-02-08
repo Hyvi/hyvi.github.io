@@ -31,6 +31,24 @@ An  Operator is  software that encodes this domain knowledge and extends the kub
 
  Operator 与 Controller 区别在于：<br /> a Controller with the following characteristics qualify as an operator : <br /> 1. Contains workload-specific knowledge <br /> 2. Manages workload lifecycle <br /> 3. Offers a CRD
 
+### Prometheus 
+Monitoring Stacks consist of a collector, a time-series database to store metrics, and a visualization layer. 
+
+A popular open-source stack is Prometheus, used along with Grafana as the visualization tool to create rich dashboards. 
+
+![Reference Prometheus architecture.](https://developer-blogs.nvidia.com/wp-content/uploads/2020/10/reference-prometheus-architecture.png)
+
+
+### 设备插件  device-plugin
+
+[Kubernates Device Plugin](https://kubernetes.io/zh/docs/concepts/extend-kubernetes/compute-storage-net/device-plugins/) 为 Kubernetes 提供了一个设备插件框架，你可以用它来将硬件资源发布到 Kubelet。 好处有： 
+
+ - 供应商可以实现设备插件，手动部署或者 DaemonSet 来部署， 而不必定制 Kubernetes 本身的代码。目标设备可以是 GPU、高性能的 NIC、 FPGA、 InfiniBand 适配器。
+
+![GPU Telemetry using dcgm-exporter in Kubernetes](https://developer-blogs.nvidia.com/wp-content/uploads/2020/10/gpu-telemetry.png)
+
+上图说明一个问题： 通过 `device-plugin` 监控里的 `pod-resources socket`,  确定跟某一个 pod 相关联的设备信息。
+
 ## 监控指标 
 GPU Grafana 面板配置： [GPU NODES V2](https://grafana.com/grafana/dashboards/11752)
 
@@ -44,6 +62,8 @@ GPU Grafana 面板配置： [GPU NODES V2](https://grafana.com/grafana/dashboard
 
 ## 开始
 
+### 使用 dcgmproftester
+Generating a load 
 
 
 ## 有感
@@ -60,6 +80,7 @@ GPU Grafana 面板配置： [GPU NODES V2](https://grafana.com/grafana/dashboard
 
 
 ## 参考
+[Monitoring GPUs in Kubernetes with DCGM](https://developer.nvidia.com/blog/monitoring-gpus-in-kubernetes-with-dcgm/)
 
 [Introducing Operators : Putting Operational Knowledge into Software .](https://coreos.com/blog/introducing-operators.html)
 
