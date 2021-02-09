@@ -21,7 +21,7 @@ description:
 
 ### Operator 
 
-An Operator is an application-specific controller that extends the kubernetes API to  create , configure, and manage instances of complex stageful applications on behalf of a kubernetes user. 
+An Operator is an application-specific controller that extends the kubernetes API to  create , configure, and manage instances of complex stateful applications on behalf of a kubernetes user. 
 
 it builds upon the basic kubernetes resource and controller concepts but includes domain or application-specific knowledge to automate common taks.
 
