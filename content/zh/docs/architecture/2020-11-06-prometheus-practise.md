@@ -72,7 +72,7 @@ Generating a load
 
 ## FAQ 
 1. DCGM_FI_DEV_FB_FREE 数值和实际的内存对不上的？
-    - A: 使用的型号是T4系列，具体的型号是 [ecs.gn6i-c16g1.4xlarge](https://www.alibabacloud.com/help/zh/doc-detail/108496.htm?#title-n0p-6ch-ma3), GPU 显存为 16G， 系统内存为 12G。而 NVIDIA dcgm-exporter 中监控的指标 DCGM_FI_DEV_FB_USED 为 GPU 显存大小，系统的内存通过 node_memory_MemTotal_bytes、node_memory_Buffers_bytes、node_memory_Cached_bytes、node_memory_MemFree_bytes 指标（来自 [GPU NODES V2](https://grafana.com/grafana/dashboards/11752) ) 来监控.
+    - A: 使用的型号是T4系列，具体的型号是 [ecs.gn6i-c16g1.4xlarge](https://www.alibabacloud.com/help/zh/doc-detail/108496.htm?#title-n0p-6ch-ma3), GPU 显存为 16G， 系统内存为 62G。而 NVIDIA dcgm-exporter 中监控的指标 DCGM_FI_DEV_FB_USED 为 GPU 显存大小，系统的内存通过 node_memory_MemTotal_bytes、node_memory_Buffers_bytes、node_memory_Cached_bytes、node_memory_MemFree_bytes 指标（来自 [GPU NODES V2](https://grafana.com/grafana/dashboards/11752) ) 来监控.
     - A: 当在 GPU 环境下提到内存时，须要区分下说的是 GPU 显存还是系统内存。
 2. DCGM_MEM_COPY_UTILIZATION 内存利用率，[ 内存利用率对比 ][what-diff-nvidia-smi-dmon-between-nvidia-smi-for-memory-usage-metics] 
     - Utilization = time over the past sample period / global (device) memory was being read or writted * 100% 
