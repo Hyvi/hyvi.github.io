@@ -49,7 +49,7 @@ Reducing runtime coupling
 - Self-contained service
 - Improving availability: replace service with module
 - Use asynchronous messaging 
-- Improving availability: sagas
+- Improving availability: [sagas](#resilience-patterns---sagas)
 - Improving availability: move responsibility + CQRS
 
 Avoiding infrastructure coupling
@@ -61,14 +61,20 @@ Avoiding infrastructure coupling
 
 ##  模式 PATTERNS
 
+### Resilience Patterns - Sagas
+
+[ Saga distributed transactions ](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/saga/saga), a way to manage data consistency across microservices in distributed transaction scenarios。
+
 ### Resilience Patterns - Circuit Breaker 
-" used to limit the amount of requests to a service based on configured thresholds -- helping to prevent the service from being overloaded "
+" used to limit the amount of requests to a service based on configured thresholds -- helping to prevent the service from being overloaded "  --  断路器
 
 同时，通过监控多少个请求失败了，来阻止其他的请求进入到服务里
 
 CircuitBreaker 使用 sliding window 来存储和集合发生的请求。 可以选择 count-based 也可以选择 time-based。
 
-![Image via: https://docs.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker](https://www.jrebel.com/sites/rebel/files/image/2020-04/circuit%20breaker%20illustration.JPG)
+[Circuit Breakers in Go](https://github.com/rubyist/circuitbreaker) Golang语言的实现.
+
+![Image via: https://docs.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker](https://docs.microsoft.com/en-us/azure/architecture/patterns/_images/circuit-breaker-diagram.png)
 
 ### Resilience Patterns - Bulkhead
 " Isolates services and consumers via **partitions** ",  舱壁模式, 在航运领域，舱壁是船的一部分，合上舱口后可以保护船的其他部分。
@@ -118,5 +124,5 @@ What is the X-REQUEST-ID http header? https://stackoverflow.com/questions/254332
 
 Resilience4j is a fault tolerance library designed for Java8 and functional programming https://github.com/resilience4j/resilience4j
 
-
+Azure Cloud Design Patterns, used in the cloud for building reliable, scalable, secure applications  https://docs.microsoft.com/en-us/azure/architecture/patterns/index-patterns
 <center>  ·End·  </center>
