@@ -66,14 +66,25 @@ Avoiding infrastructure coupling
 
 同时，通过监控多少个请求失败了，来阻止其他的请求进入到服务里
 
+CircuitBreaker 使用 sliding window 来存储和集合发生的请求。 可以选择 count-based 也可以选择 time-based。
+
 ![Image via: https://docs.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker](https://www.jrebel.com/sites/rebel/files/image/2020-04/circuit%20breaker%20illustration.JPG)
 
 ### Resilience Patterns - Bulkhead
-" Isolates services and consumers via **partitions** "
+" Isolates services and consumers via **partitions** ",  舱壁模式, 在航运领域，舱壁是船的一部分，合上舱口后可以保护船的其他部分。
+
+- SemophoreBulkhead, work well across a variety of threading and io models. it is based on a semaphore.
+- ThreadPoolBulkhead, uses a bounded queue and a fixed thread pool.
 
 防止级联失败发生. 但对应用来说该模式增加了负担.
 
 ![image via: https://www.jrebel.com/blog/microservices-resilience-patterns](https://www.jrebel.com/sites/rebel/files/image/2020-04/image-jrebel-blog-microservices-performance-vector-7.jpg)
+
+什么时候使用：
+
+- Isolate resources used to consume a set of backend services, especially if the application can provide some level of functionality even when one of the services is not responding.
+- Isolate critical consumers from standard consumers
+- Prodect the application from cascading failures
 
 ### Request_id 
 
@@ -82,7 +93,7 @@ Avoiding infrastructure coupling
 从[What is the X-REQUEST-ID http header?](#参考)说明来看，建议是client生成x-request-id.
 
 
-### RateLimiter 
+### Resilience Patterns - RateLimiter 
 
 限流的基础算法
 
