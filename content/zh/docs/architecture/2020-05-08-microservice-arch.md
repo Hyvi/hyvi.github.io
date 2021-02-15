@@ -45,7 +45,7 @@ Minimizing design time coupling
 
 Reducing runtime coupling
 
-- [Use resilience patterns for synchronous communication](#resilience-patterns-circuit-breaker)
+- [Use resilience patterns for synchronous communication](#resilience-patterns---circuit-breaker)
 - Self-contained service
 - Improving availability: replace service with module
 - Use asynchronous messaging 
