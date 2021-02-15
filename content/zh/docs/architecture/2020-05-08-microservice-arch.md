@@ -8,15 +8,74 @@ featured_image:
 description: 
 ---
 
-## 对标行业架构最佳实践
+![image via: https://www.infoq.com/presentations/uber-microservices-distributed-tracing/](https://www.jrebel.com/sites/rebel/files/image/2020-04/sl9-1567597621813-min.jpg)
+
+## Pattern: microservice architecture
+
+"An architectural style that structures an application as a set of deployable/executable units, a.k.a. services"
+
+- Highly maintainable and testable
+- Minimal lead time (time from commit to deploy)
+- Loosely coupled
+- Independently deployable
+- Implements a business capability
+- Owned/developed/tested/deployed by a small team
+
+## 行业架构最佳实践
 
 [Best practices framework for Oracle Cloud Infrastructure](https://docs.oracle.com/en/solutions/oci-best-practices/index.html#GUID-5F2D2745-934E-409A-A7BA-D0976F727845) *TODO*
 
+## 行业架构分享
+不断更新行业的一些架构分享，进行分析总结。
+
+###  Designing loosely coupled services[Slides]
+by Chris Richardson, 介绍了几种类型 coupling 及其缺点和如何设计 loosely coupled 微服务.
+
+Runtime coupling，订单服务需要等待客户服务返回时才给出响应，减少了可用性
+
+Design time coupling，当客户服务变化时，订单服务也跟着变化。减少了开发的独立性
 
 
-## 主题
+Minimizing design time coupling
 
-###  request_id 
+- DRY 
+- Consume as little as possible
+- Icebergs: expose as little as possible
+- Using a database-per-service
+
+Reducing runtime coupling
+
+- [Use resilience patterns for synchronous communication](#resilience-patterns-circuit-breaker)
+- Self-contained service
+- Improving availability: replace service with module
+- Use asynchronous messaging 
+- Improving availability: sagas
+- Improving availability: move responsibility + CQRS
+
+Avoiding infrastructure coupling
+
+- Use private infrastructure: minimizes resource contention and blast radius
+- Use "Private" message brokers
+- Fault isolated swim lanes
+
+
+##  模式 PATTERNS
+
+### Resilience Patterns - Circuit Breaker 
+" used to limit the amount of requests to a service based on configured thresholds -- helping to prevent the service from being overloaded "
+
+同时，通过监控多少个请求失败了，来阻止其他的请求进入到服务里
+o
+![Image via: https://docs.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker](https://www.jrebel.com/sites/rebel/files/image/2020-04/circuit%20breaker%20illustration.JPG)
+
+### Resilience Patterns - Bulkhead
+" Isolates services and consumers via **partitions** "
+
+防止级联失败发生. 但对应用来说该模式增加了负担.
+
+![image via: https://www.jrebel.com/blog/microservices-resilience-patterns](https://www.jrebel.com/sites/rebel/files/image/2020-04/image-jrebel-blog-microservices-performance-vector-7.jpg)
+
+### Request_id 
 
 [Better Logging Approach For Microservices](https://medium.com/cstech/better-logging-approach-for-microservices-3cc2c45e7aaa) request_id在日志中打印，由请求方生成发起
 
@@ -44,7 +103,9 @@ description:
 
 ## 参考
 
-1. What is the X-REQUEST-ID http header?
-  https://stackoverflow.com/questions/25433258/what-is-the-x-request-id-http-header) 
+What is the X-REQUEST-ID http header? https://stackoverflow.com/questions/25433258/what-is-the-x-request-id-http-header) 
+
+Resilience4j is a fault tolerance library designed for Java8 and functional programming https://github.com/resilience4j/resilience4j
+
 
 <center>  ·End·  </center>
