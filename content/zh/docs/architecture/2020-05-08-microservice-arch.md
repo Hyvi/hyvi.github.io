@@ -65,7 +65,7 @@ Avoiding infrastructure coupling
 " used to limit the amount of requests to a service based on configured thresholds -- helping to prevent the service from being overloaded "
 
 同时，通过监控多少个请求失败了，来阻止其他的请求进入到服务里
-o
+
 ![Image via: https://docs.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker](https://www.jrebel.com/sites/rebel/files/image/2020-04/circuit%20breaker%20illustration.JPG)
 
 ### Resilience Patterns - Bulkhead
