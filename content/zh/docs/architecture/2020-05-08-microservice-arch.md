@@ -136,3 +136,6 @@ Resilience4j is a fault tolerance library designed for Java8 and functional prog
 
 Azure Cloud Design Patterns, used in the cloud for building reliable, scalable, secure applications  https://docs.microsoft.com/en-us/azure/architecture/patterns/index-patterns
 <center>  ·End·  </center>
+
+.NET Microservices: Architecture for Containerized .NET Applications （PDF 在Kami 上）https://docs.microsoft.com/en-us/dotnet/architecture/microservices/ 
+
