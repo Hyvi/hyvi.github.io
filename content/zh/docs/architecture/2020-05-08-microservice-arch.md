@@ -61,6 +61,16 @@ Avoiding infrastructure coupling
 
 ##  模式 PATTERNS
 
+### Materialized View Patterns
+Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations. this can help support efficient querying and data extraction, and improve application performance. 
+#### Context and problem
+选择存储数据的方式跟数据本身的格式、数据大小、数据完整性以及所使用的存储种类， 但是，这样带来查询的不好的影响。比如当查询数据的子集时，必须取出所有的相关的数据，比如查询一些客户的订单概览
+
+#### Solution 
+为了支持高效率的查询，通用的解决办法是，提前生成数据视图（materializes the data in a format suited to the required results set.）
+![](https://docs.microsoft.com/en-us/azure/architecture/patterns/_images/materialized-view-pattern-diagram.png)
+
+
 ### Resilience Patterns - Sagas
 
 [ Saga distributed transactions ](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/saga/saga), a way to manage data consistency across microservices in distributed transaction scenarios。
