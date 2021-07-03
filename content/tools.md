@@ -23,13 +23,9 @@ tags: ['vim','python']
 
 [VIM](https://github.com/Hyvi/vim-plugin) 比几年前整 vim 容易多了，最重要是的一个 mac~~（之前用 gvim)~~省了好多折腾时间
 
-[Trello](https://trello.com) 目标管理、项目管理、计划管理工具，缺点是没有本地保存，断网情况下出现内容丢失。
-
 [Clouder](https://chrome.google.com/webstore/detail/clouder/fjblekdlcidmadghbofmenknaegldcic) 把图片上传到云端的存储的工具，公司把其他盘关闭了。
 
-[Kami](https://www.kamiapp.com/) PDF and Document Annotation  看 PDF 做笔记的很好用的软件，最好的体验是用笔在上面画。
-
-[Bob](https://github.com/ripperhe/Bob) 是一款 Mac 端翻译软件，翻译方式支持划词和截图翻译。放弃了 Chrome Google Traslate 插件，投奔这款软件了。
+[MarginNote 3]() 满足看电子书籍的需求，做笔记非常方便，在各端同步也是刚需。
 
 [Synergy](https://github.com/symless/synergy-core) 在 Mac 编译命令运行方式，很少出现问题，在 synergyc 客户端侧结合 supervisor 使用感觉更丝滑。
 
@@ -45,10 +41,15 @@ tags: ['vim','python']
 
 [VS Code](#) 这个不多说了. 插件强大。
 
-[Draw.io]() 满足快速作图的需求。
 
 那些曾经使用过的利器
 -----
+
+~~[Trello](https://trello.com) 目标管理、项目管理、计划管理工具，缺点是没有本地保存，断网情况下出现内容丢失。~~
+
+~~[Kami](https://www.kamiapp.com/) PDF and Document Annotation  看 PDF 做笔记的很好用的软件，最好的体验是用笔在上面画。~~ 使用 MarginNote 取代了。
+
+~~[Bob](https://github.com/ripperhe/Bob) 是一款 Mac 端翻译软件，翻译方式支持划词和截图翻译。放弃了 Chrome Google Traslate 插件，投奔这款软件了。~~, 直接使用 google 查定义也很方便。
 
 ~~[draw.io](draw.io) 才是画图神器，画图看起来非常专业。~~ 偶尔使用
 
