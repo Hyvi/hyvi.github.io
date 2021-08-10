@@ -17,8 +17,9 @@ CNCF Project vs CNCF Member Project 这有什么区别？
 
 ![](https://docs.newrelic.com/44724d5e137a64a9b9f426e1bcddc445/native_otlp.svg)
 
-也可以通过 opentelemetry-collector 方式来做。
+也可以通过 opentelemetry-collector (e.g. binary, sidecar, or daemonset). 方式来做。
 
+![](https://docs.newrelic.com/2500a84a188882f4b0ecf1d270689112/native_otlp_with_collector.svg) 
 
 ### Apache DolphinScheduler
 A distributed and easy-to-extend visual workflow scheduler system, undergoing incubation at ASF.
