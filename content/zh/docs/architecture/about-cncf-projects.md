@@ -12,6 +12,13 @@ CNCF Project vs CNCF Member Project 这有什么区别？
 ## Projects
 ### OpenTelemetry
 
+#### 概念
+
+**OTLP** 
+
+OpenTelemetry protocol (OTLP)， 定义了 Open Telemetry 里 Tracing\Metrics\Logging 的 protobuf 的协议格式。 比如 [ Tracing ](https://github.com/open-telemetry/opentelemetry-proto/blob/main/opentelemetry/proto/trace/v1/trace.proto) 
+
+
 #### 实践
 [ OpenTelemetry and Newrelic 结合 ](https://docs.newrelic.com/docs/integrations/open-source-telemetry-integrations/opentelemetry/opentelemetry-quick-start/), 中间通过 opentelemetry-go 来连接。 
 
