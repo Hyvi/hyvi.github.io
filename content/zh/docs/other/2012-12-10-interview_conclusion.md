@@ -10,7 +10,9 @@ tags: ["interview"]
 
 ###10万数字，选取最大的100个数。算法度
 这个题目当时没细想，估计面试官想问排序问题，然后说了下快速排序。<br />
-其实完全没必要排序。遍历一次就可找出来最大的100数字
+其实完全没必要排序。遍历一次就可找出来最大的100数字。 
+
+类似问题： [Write a program to find 100 largest numbers out of an array of 1 billion numbers](https://stackoverflow.com/questions/19227698/write-a-program-to-find-100-largest-numbers-out-of-an-array-of-1-billion-numbers) 
 
 ### xxxx年xx月xx日 xx:xx:xx 表示当前日期
 [代码](http://codepen.io/Hyvi/pen/BheHd) 终于重写到自己感觉满意了。
