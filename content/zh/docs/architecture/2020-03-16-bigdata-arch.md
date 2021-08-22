@@ -42,7 +42,7 @@ description:
 
 [Data Lake  系列： 关于 EMRFS S3 优化的提交程序，你了解吗](https://zhuanlan.zhihu.com/p/113892824) 文章与 FileOutputCommitter 进行了比较。 
 
-同时在 [github repo s3committer](https://github.com/rdblue/s3committer) 引出了 [ multi-part upload API ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html) 
+同时在 [github repo s3committer](https://github.com/rdblue/s3committer) 引出了 [ multi-part upload API ](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html) 技术，可以用于处理大文件上传慢的问题。但是对于小文件上传问题， 是否可以就并发上传就行了呢？
 
 <br>
 
