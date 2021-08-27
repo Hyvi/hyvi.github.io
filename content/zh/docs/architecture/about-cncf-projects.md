@@ -32,15 +32,27 @@ OpenTelemetry protocol (OTLP)， 定义了 Open Telemetry 里 Tracing\Metrics\Lo
 A distributed and easy-to-extend visual workflow scheduler system, undergoing incubation at ASF.
 
 
+### MegaEase 
+开源、自主可控、低层本、高可用的 Cloud Native 平台
+
+- 服务编排和服务治理
+- 流量调度和流量管理
+- 应用服务观测性 & DevOps
+- 关键中间件运维及管理
+- 基础资源调度
+
+![](https://megaease.com/imgs/cloud.native.stack.zh.png) 
+
+![](https://megaease.com/imgs/cloud.native.arch.zh.png) 
+
+
+
 
 ## 参考
-OpenTelemetry-可观察性的新时代 https://juejin.im/post/5d3572c1e51d45776147620f
 
-CNCF 项目或者成员项目 https://landscape.cncf.io/project=member
+1. [OpenTelemetry-可观察性的新时代 ](https://juejin.im/post/5d3572c1e51d45776147620f)
 
-
-
-
+2. [CNCF 项目或者成员项目](https://landscape.cncf.io/project=member)
 
 
 
