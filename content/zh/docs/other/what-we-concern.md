@@ -181,9 +181,9 @@ run --> product
 
 [Stream IoT data to an autonomous database using serverless functions](https://docs.oracle.com/en/solutions/iot-streaming-oci/index.html#GUID-BAE48036-286B-49CE-A6AA-5870CAD689D2)
 
+Oracle IoT Streaming Arch 
+
 ![Oracle IOT 流架构](https://docs.oracle.com/en/solutions/iot-streaming-oci/img/oci-arch-iot-streaming.png)
-
-
 
 
 
@@ -194,7 +194,7 @@ run --> product
 
 2. [Tesing IOT Applications.pdf](https://www.infosys.com/it-services/validation-solutions/documents/testing-iot-applications.pdf) 
 
-
+3. Infoq: The Perfect Pair: Digital Twins and Predictive Maintenance
 
 
 #### [行业对标] Google Cloud IOT
