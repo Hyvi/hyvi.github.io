@@ -166,16 +166,35 @@ run --> product
     - Processing Layer
     - Volatile Layer
 
+
+[IoT: A web of interconnected layers](https://www.infosys.com/it-services/validation-solutions/documents/testing-iot-applications.pdf) 点击链接查看多层架构。
+
+- Device Layer 
+- Data ingestion and transformation layer 
+    - Data from the device layer is transformed through different protocols to a **standard format**. 
+- Data processing layer 
+- Application layer 
+
 [Applying the Kappa architecture in the telco industry](https://www.oreilly.com/content/applying-the-kappa-architecture-in-the-telco-industry/) 
 
 ![](https://www.oreilly.com/content/wp-content/uploads/sites/2/2019/06/figure2_kappa-architecture-51de195715f9d2417b0814c3e537c355.png)
 
 [Stream IoT data to an autonomous database using serverless functions](https://docs.oracle.com/en/solutions/iot-streaming-oci/index.html#GUID-BAE48036-286B-49CE-A6AA-5870CAD689D2)
 
-![](https://docs.oracle.com/en/solutions/iot-streaming-oci/img/oci-arch-iot-streaming.png)
+![Oracle IOT 流架构](https://docs.oracle.com/en/solutions/iot-streaming-oci/img/oci-arch-iot-streaming.png)
 
 
-参考： [Architecture Patterns for IoT](https://medium.com/@prashunjaveri) 
+
+
+
+
+参考
+
+1. [Architecture Patterns for IoT](https://medium.com/@prashunjaveri) 
+
+2. [Tesing IOT Applications.pdf](https://www.infosys.com/it-services/validation-solutions/documents/testing-iot-applications.pdf) 
+
+
 
 
 #### [行业对标] Google Cloud IOT
