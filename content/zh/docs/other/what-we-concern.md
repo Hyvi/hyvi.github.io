@@ -155,9 +155,9 @@ run --> product
 
 #### 架构是怎样的？ 
 
-案例/论文参考： 
+案例/论文参考： 
 
-[Lambda architecture](https://en.wikipedia.org/wiki/Lambda_architecture) a data-processing architecture designed to handle massive quantities of data by take advantage of both batch and stream-processing methods. 
+[Lambda architecture](https://en.wikipedia.org/wiki/Lambda_architecture) a data-processing architecture designed to handle massive quantities of data by take advantage of both batch and stream-processing methods. 
 
 [A Distributed Stream Processing based Architecture for IoT Smart Grids Monitoring .pdf](https://www.researchgate.net/publication/321639779_A_Distributed_Stream_Processing_based_Architecture_for_IoT_Smart_Grids_Monitoring)
 
@@ -167,7 +167,7 @@ run --> product
     - Volatile Layer
 
 
-[IoT: A web of interconnected layers](https://www.infosys.com/it-services/validation-solutions/documents/testing-iot-applications.pdf) 点击链接查看多层架构。
+[IoT: A web of interconnected layers.pdf](https://www.infosys.com/it-services/validation-solutions/documents/testing-iot-applications.pdf) 点击链接查看多层架构。
 
 - Device Layer 
 - Data ingestion and transformation layer 
