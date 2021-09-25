@@ -12,7 +12,7 @@ layout: docs
 ## 个人站点
 [我的电影我的书](https://movie.douban.com/mine) 记录我看过的、将要看的电影
 
-[我的东西](https://dongxi.douban.com/people/Hyvi/doulists) 零散记录下
+[我的东西](https://www.douban.com/people/Hyvi/doulists/all) 零散记录下
 
 [我的代码](https://bitbucket.org) 所有私有代码上传到网络上
 
