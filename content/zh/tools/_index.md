@@ -7,8 +7,6 @@ menu:
     pre: <i class='fas fa-tools'></i>
 layout: docs
 ---
-
-
 {{% blocks/section type="section" color="primary" %}}
 ## 杂七杂八
 [Xiaolei's Wiki](http://wiki.xiaolei.tech/) 一个值得学习的知识整理 WIKI

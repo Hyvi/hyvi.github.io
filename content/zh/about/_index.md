@@ -7,7 +7,6 @@ menu:
     pre: <i class='fas fa-info-circle'></i>
 layout: docs
 ---
-
 {{% blocks/cover title="About Me" height="auto" %}}
 ![](https://img3.doubanio.com/icon/ul38294964-4.jpg)  
 
