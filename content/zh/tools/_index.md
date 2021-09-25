@@ -8,10 +8,6 @@ menu:
 layout: docs
 ---
 {{% blocks/section type="section" color="white" %}}
-## 杂七杂八
-[Xiaolei's Wiki](http://wiki.xiaolei.tech/) 一个值得学习的知识整理 WIKI
-
-[亢志军的个人网](http://robotkang.cc/) 一个用 Jekyll+Github 搭建的网站
 
 ## 个人站点
 [我的电影我的书](https://movie.douban.com/mine) 记录我看过的、将要看的电影
@@ -46,8 +42,7 @@ layout: docs
 [VS Code](#) 这个不多说了. 插件强大，但使用很少, 比如用于 PlantUML 画图时实时预览
 
 
-那些曾经使用过的利器
------
+### 废弃的利器
 
 ~~[Synergy](https://github.com/symless/synergy-core) 在 Mac 编译命令运行方式，很少出现问题，在 synergyc 客户端侧结合 supervisor 使用感觉更丝滑。~~
 
