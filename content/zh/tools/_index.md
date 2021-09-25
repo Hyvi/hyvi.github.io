@@ -5,16 +5,21 @@ menu:
   main:
     weight: 40
     pre: <i class='fas fa-tools'></i>
+layout: docs
 ---
 
 
+{{% blocks/section type="section" color="primary" %}}
 ## 杂七杂八
 [Xiaolei's Wiki](http://wiki.xiaolei.tech/) 一个值得学习的知识整理 WIKI
+
 [亢志军的个人网](http://robotkang.cc/) 一个用 Jekyll+Github 搭建的网站
 
 ## 个人站点
 [我的电影我的书](https://movie.douban.com/mine) 记录我看过的、将要看的电影
+
 [我的东西](https://dongxi.douban.com/people/Hyvi/doulists) 零散记录下
+
 [我的代码](https://bitbucket.org) 所有私有代码上传到网络上
 
 ## Tools
@@ -72,3 +77,5 @@ menu:
 [Interactive vim tutorial](http://www.openvim.com/tutorial.html) 在线学习 vim 基础命令，没事可以上去操作下，温故知新
 
 [Python 教程](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000) 罗列基础学习知识，根据目录来学习
+
+{{% /blocks/section %}}

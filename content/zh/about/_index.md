@@ -5,20 +5,23 @@ menu:
   main:
     weight: 50
     pre: <i class='fas fa-info-circle'></i>
+layout: docs
 ---
 
 <br />
-## 关于我
+{{% blocks/cover title="About Me" height="auto" %}}
 ![](https://img3.doubanio.com/icon/ul38294964-4.jpg)  
 
 * 2011-2013 从事了三年计算机Coding工作, 接触过Nodejs, Jquery, Extjs, Java。  
 * 2014-2017.7 从事将信息系统与贸易结合做一家信息化的贸易公司。  
 * 2017.7-至今 从事Vue + webpack前端开发 + Python Tornado Web开发, 慢慢转Golang, Kubernetes, Docker等微服务开发
   
+{{% /blocks/cover %}}
 <br />
+{{% blocks/section type="section" color="primary" %}}
 ## 关于Blog
 ### 实现 
-因为这个Blog基于Github Pages与[Hugo](https://gohugo.io/) ~~Jekyll(end @2019.07.08)~~来实现.   
+因为这个Blog基于Github Pages与[Hugo](https://gohugo.io/) ~~Jekyll(end @2019.07.08)~~ 来实现.   
 [Github Inc](https://github.com/) 是一家伟大公司，所有代码放在Github上，也可以通过[hyvi.github.io](http://hyvi.github.io)来访问（国内受限）。   
 
 >截止到2015年，GitHub已经有超过九百万注册用户和2110万代码库。  
@@ -31,7 +34,9 @@ Hugo (~~Jekyll~~)有着非常方便的迁移部署的特点，~~该站基于该�
 ~~网站上照片用阿里云国内服务器加速。不是长久之计~~  
 图片存储在Github的repo里，永久保存
 
+{{% /blocks/section %}}
 <br />
+{{% blocks/section type="section" color="white" %}}
 ## TODO
 - [x] pics页面增加相册专辑功能?,  
   不做，使用categories和tag方式管理图片: **Categories** are meant for broad grouping of your posts. **Tags** are meant to describe specific details of your posts.  
@@ -41,3 +46,4 @@ Hugo (~~Jekyll~~)有着非常方便的迁移部署的特点，~~该站基于该�
 <br />
 #### 随着时间的推移，这个blog上的东西越来越多，这就是我所期望的 **积累**
   
+{{% /blocks/section %}}
