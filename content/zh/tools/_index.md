@@ -1,9 +1,10 @@
 ---
-layout: post
 title: "资源 「USEFUL LINKS」"
-description: "资料收集"
-categories: ['Other']
-tags: ['vim','python']
+linkTitle: Tools
+menu:
+  main:
+    weight: 40
+      pre: <i class='fas fa-tools'></i>
 ---
 
 

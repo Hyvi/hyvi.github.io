@@ -1,9 +1,10 @@
 ---
-layout: page
 title: "About"
-description: ""
-group: navigation
-weight: 4
+linkTitle: "About"
+menu:
+  main:
+    weight: 50
+    pre: <i class='fas fa-info-circle'></i>
 ---
 
 <br />
