@@ -4,7 +4,7 @@ linkTitle: Tools
 menu:
   main:
     weight: 40
-      pre: <i class='fas fa-tools'></i>
+    pre: <i class='fas fa-tools'></i>
 ---
 
 
