@@ -8,16 +8,16 @@ menu:
 layout: docs
 ---
 
-<br />
 {{% blocks/cover title="About Me" height="auto" %}}
 ![](https://img3.doubanio.com/icon/ul38294964-4.jpg)  
 
-* 2011-2013 从事了三年计算机Coding工作, 接触过Nodejs, Jquery, Extjs, Java。  
-* 2014-2017.7 从事将信息系统与贸易结合做一家信息化的贸易公司。  
-* 2017.7-至今 从事Vue + webpack前端开发 + Python Tornado Web开发, 慢慢转Golang, Kubernetes, Docker等微服务开发
+2011-2013 从事了三年计算机Coding工作, 接触过Nodejs, Jquery, Extjs, Java。  
+
+2014-2017.7 从事将信息系统与贸易结合做一家信息化的贸易公司。  
+
+2017.7-至今 从事Vue + webpack前端开发 + Python Tornado Web开发, 慢慢转Golang, Kubernetes, Docker等微服务开发
   
 {{% /blocks/cover %}}
-<br />
 {{% blocks/section type="section" color="primary" %}}
 ## 关于Blog
 ### 实现 
