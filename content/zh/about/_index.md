@@ -7,16 +7,19 @@ menu:
     pre: <i class='fas fa-info-circle'></i>
 layout: docs
 ---
+
 {{% blocks/cover title="About Me" height="auto" %}}
-![](https://img3.doubanio.com/icon/ul38294964-4.jpg)  
+
+![](https://img3.doubanio.com/icon/ul38294964-4.jpg)
 
 2011-2013 从事了三年计算机Coding工作, 接触过Nodejs, Jquery, Extjs, Java。  
 
 2014-2017.7 从事将信息系统与贸易结合做一家信息化的贸易公司。  
 
 2017.7-至今 从事Vue + webpack前端开发 + Python Tornado Web开发, 慢慢转Golang, Kubernetes, Docker等微服务开发
-  
+
 {{% /blocks/cover %}}
+
 {{% blocks/section type="section" color="primary" %}}
 ## 关于Blog
 ### 实现 
@@ -34,7 +37,7 @@ Hugo (~~Jekyll~~)有着非常方便的迁移部署的特点，~~该站基于该�
 图片存储在Github的repo里，永久保存
 
 {{% /blocks/section %}}
-<br />
+
 {{% blocks/section type="section" color="white" %}}
 ## TODO
 - [x] pics页面增加相册专辑功能?,  
