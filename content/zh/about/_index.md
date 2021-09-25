@@ -33,19 +33,19 @@ layout: docs
 Hugo (~~Jekyll~~)有着非常方便的迁移部署的特点，~~该站基于该技术部署在Wable美国服务器上。启用个人域名[hyvi.tk](http://hyvi.tk)，便于国内访问者.~~   
 ~~Wable服务器不准备续费了，现在不能通过hyvi.tk域名访问了~~   
 ### 图片资源
-~~网站上照片用阿里云国内服务器加速。不是长久之计~~  
+~~网站上照片用阿里云国内服务器加速，这种方式不是长久之计~~  
 图片存储在Github的repo里，永久保存
 
-{{% /blocks/section %}}
-
-{{% blocks/section type="section" color="white" %}}
 ## TODO
 - [x] pics页面增加相册专辑功能?,  
   不做，使用categories和tag方式管理图片: **Categories** are meant for broad grouping of your posts. **Tags** are meant to describe specific details of your posts.  
 - [x] 图片使用github的repo存储  
 - [ ] 加上“本站总访问量”和“本站总访客数”。 参考: [温习江湖](https://wweir.cc/)  
-  
-<br />
+
+{{% /blocks/section %}}
+
+{{% blocks/section type="section" color="white" %}}
+
 #### 随着时间的推移，这个blog上的东西越来越多，这就是我所期望的 **积累**
   
 {{% /blocks/section %}}
