@@ -36,7 +36,7 @@ Hugo (~~Jekyll~~)有着非常方便的迁移部署的特点，~~该站基于该�
 ~~网站上照片用阿里云国内服务器加速，这种方式不是长久之计~~  
 图片存储在Github的repo里，永久保存
 
-## TODO
+### TODO
 - [x] pics页面增加相册专辑功能?,  
   不做，使用categories和tag方式管理图片: **Categories** are meant for broad grouping of your posts. **Tags** are meant to describe specific details of your posts.  
 - [x] 图片使用github的repo存储  
