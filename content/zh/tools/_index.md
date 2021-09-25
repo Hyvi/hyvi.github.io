@@ -25,29 +25,31 @@ layout: docs
 
 [Spectacle](https://github.com/eczarny/spectacle#keyboard-shortcuts) Move and resize windows with ease，经常使用到
 
-[VIM](https://github.com/Hyvi/vim-plugin) 比几年前整 vim 容易多了，最重要是的一个 mac~~（之前用 gvim)~~省了好多折腾时间
+[Snipaste for Mac](https://zh.snipaste.com/) Snipaste 是一个简单但强大的截图工具，也可以让你将截图贴回到屏幕上！
+
+[Vim](https://github.com/Hyvi/vim-plugin) 比几年前整 vim 容易多了，最重要是的一个 mac~~（之前用 gvim)~~省了好多折腾时间
 
 [Clouder](https://chrome.google.com/webstore/detail/clouder/fjblekdlcidmadghbofmenknaegldcic) 把图片上传到云端的存储的工具，公司把其他盘关闭了。
 
 [MarginNote 3]() 满足看电子书籍的需求，做笔记非常方便，在各端同步也是刚需。
 
-[Synergy](https://github.com/symless/synergy-core) 在 Mac 编译命令运行方式，很少出现问题，在 synergyc 客户端侧结合 supervisor 使用感觉更丝滑。
-
 [DbVisualizer](https://www.dbvis.com/) Basic 免费版，从数据库里生成 ER 图, 目前还没发现支持非常好从 SQL 脚本生成 ER 图。
 
 [PlantUML](https://plantuml.com/) 开始 PlantUML这个来画图，在 Blog 和 Confluence 都支持， 优点是文本生成图， 只需要维护文本即可。 
 
-[CordCloud + shadowsocks + Shadowrocket(for IOS)]() 科学上网, 价格不贵，速度还挺好
+[CordCloud + Shadowsocks + Shadowrocket(for IOS)]() 科学上网, 价格不贵，速度还挺好
 
 [repl.it](repl.it) 各种语言在线的IDE. 支持VIM模式\支持自动补全
 
 [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) 命令使用多了，这个很方便
 
-[VS Code](#) 这个不多说了. 插件强大。
+[VS Code](#) 这个不多说了. 插件强大，但使用很少, 比如用于 PlantUML 画图时实时预览
 
 
 那些曾经使用过的利器
 -----
+
+~~[Synergy](https://github.com/symless/synergy-core) 在 Mac 编译命令运行方式，很少出现问题，在 synergyc 客户端侧结合 supervisor 使用感觉更丝滑。~~
 
 ~~[Trello](https://trello.com) 目标管理、项目管理、计划管理工具，缺点是没有本地保存，断网情况下出现内容丢失。~~
 
