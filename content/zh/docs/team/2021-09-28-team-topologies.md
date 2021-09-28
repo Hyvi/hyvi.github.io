@@ -86,14 +86,15 @@ Google 内部研究，影响 Team Dynamics 的因素有哪些？
 按照康威定律，团队的切分与组织的沟通模式会决定你的系统架构
 
 ## 好的 API
-好的 API 是团队间的好的沟通模式，如果没有可能造成`谷仓效应`。 怎么定义好的 API：
+好的 API 是团队间的好的沟通模式，如果没有可能造成`谷仓效应`。 怎么定义好的 API<sup>[5]</sup>：
 
 - OPENAPI 定义 API
-- 使用文档
+- 使用文档 / Wiki
 - 好的用户体验
-- 版本
-- 最佳实践和使用规范
+- 版本 and testing approach 
+- 最佳实践和原则
 - Work Info （未来的路线和 bug 修复时间）
+- Communication preferences (when/how)
 
 把其他团队当成顾客。
 
@@ -106,3 +107,5 @@ Google 内部研究，影响 Team Dynamics 的因素有哪些？
 [3] Justin Kitagawa: Platforms at Twilio: Unlocking Developer Effectiveness
 
 [4] 阿贝好威： Team Topologies - 團隊優先思考模式
+
+[5] Matthew Skelton and Manuel Pais: Are poor team interaction killing your devops transformation  
