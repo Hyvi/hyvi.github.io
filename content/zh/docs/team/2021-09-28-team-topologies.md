@@ -85,7 +85,7 @@ Google 内部研究，影响 Team Dynamics 的因素有哪些？
 ## 团队的拆分
 按照康威定律，团队的切分与组织的沟通模式会决定你的系统架构
 
-## 好的 API
+### 好的 API
 好的 API 是团队间的好的沟通模式，如果没有可能造成`谷仓效应`。 怎么定义好的 API<sup>[5]</sup>：
 
 - OPENAPI 定义 API
@@ -97,6 +97,16 @@ Google 内部研究，影响 Team Dynamics 的因素有哪些？
 - Communication preferences (when/how)
 
 把其他团队当成顾客。
+
+### 管理依赖
+Track dependencies using simple tools and remove blocking dependencies
+
+### 管理团队间交流
+Consciously design inter-team communications using team interaction mode
+
+
+### 好的文档
+Overcommunicate using just enough written documentation
 
 
 ## 参考
