@@ -15,11 +15,12 @@ description: "Conway's law、Dunbar 鄧巴係數、Team Fist Mindset、Minimal  
 | 名词                    | 解释                                                                                                                                                                                                               |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Conway's Law            | 組織內團隊組成的架構，就會直接影響你的軟體系統架構會長成什麼樣子。因為團隊架構決定溝通模式，溝通模式就會影響軟體系統架構                                                                                           |
-| Dunbar 鄧巴係數         | 团队中可以深入互相信任且 share working memory 的人数基本上大概是 5 个人左右，极限就是 15 人。而能互相信任的上限大概是 50 个人， 当超过 150 人时就已经高过了社交认知的上限，就连要记住对方的名字都难。                |
+| Dunbar 鄧巴係數         | 团队中可以深入互相信任且 share working memory 的人数基本上大概是 5 个人左右，极限就是 15 人。而能互相信任的上限大概是 50 个人， 当超过 150 人时就已经高过了社交认知的上限，就连要记住对方的名字都难。              |
 | Team Fist Mindset       | 团队优先思考模式，                                                                                                                                                                                                 |
 | Minimal  Cognitive Load | 話說我們每個人的 working memory 其實是很有限的，所以要慎選佔用我們記憶體的事物                                                                                                                                     |
 | 谷仓效应                | 各部门就像一间「小公司」，各自为政、自负盈亏，只专注在自身的营运利益，而非整个企业的利益，最终导致整个组织功能失调、企业走向衰败。                                                                                 |
 | Stream-aligned Team     | organized around the flow of work and has the ability to deliver value directly to the customer or end user. ![](https://www.scaledagileframework.com/wp-content/uploads/2021/02/Organize_Agile_Teams_F01_WEB.png) |
+| Digital platform        | A digital platform is a foundation of self-service APIs, tools, services, knowledge and support which are arranged as a compelling internal product.                                                               |
 
 
 ## Team Dynamics
@@ -108,6 +109,11 @@ Consciously design inter-team communications using team interaction mode
 ### 好的文档
 Overcommunicate using just enough written documentation
 
+## Digital platforms
+
+- Digital platforms<sup>[6]</sup> are portfolios of technical products.
+- Developing a digital platform is a strategic decision and not to be taken lightly. Besides the direct financial considerations, digital platforms also exert pressure on the relationships within your organisation.
+- Digital platforms are force multipliers（火力加乘）, so there is a fine line between developing a competitive advantage and introducing a significant productivity blocker. 
 
 ## 参考
 [1] Organizing Agile Teams and ARTs: Team Topologies at Scale Overview
@@ -119,3 +125,5 @@ Overcommunicate using just enough written documentation
 [4] 阿贝好威： Team Topologies - 團隊優先思考模式
 
 [5] Matthew Skelton and Manuel Pais: Are poor team interaction killing your devops transformation  
+
+[6] Cristóbal García García and Chris Ford: Mind the platform execution gap
