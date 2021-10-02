@@ -89,14 +89,14 @@ allow your business to have complete, scalable control over the management and c
 
 ## 参考
 
-[Futrue of Cloud Computing Architecture.pdf](https://www.sjsu.edu/people/robert.chun/courses/CS247/s4/I.pdf)  
-[Which Cloud Computing Service Model is Right for Your Business](https://www.paranet.com/blog/bid/128267/the-three-types-of-cloud-computing-service-models)  
+[1] [Futrue of Cloud Computing Architecture.pdf](https://www.sjsu.edu/people/robert.chun/courses/CS247/s4/I.pdf)  
 
-3. Software Architecture and Design InfoQ Trends Report—April 2020
-  https://www.infoq.com/articles/architecture-trends-2020/
+[2] [Which Cloud Computing Service Model is Right for Your Business](https://www.paranet.com/blog/bid/128267/the-three-types-of-cloud-computing-service-models)  
 
-4. InfoQ 趋势报告：架构和设计领域技术演变详解 2019
-  https://www.infoq.cn/article/R7lWXd0R4VFf3E0bB*38
+[3] InfoQ: Software Architecture and Design InfoQ Trends Report—April 2020
+
+[4] InfoQ 趋势报告：架构和设计领域技术演变详解 2019
+
 <br>
 
 <center>  ·End·  </center>
