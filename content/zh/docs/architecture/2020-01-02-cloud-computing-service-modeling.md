@@ -74,6 +74,18 @@ somewhat like API gateways but focus on the data aspect.
 
 ### Policy as Code #TODO
 
+### Designing for ___
+
+#### Designing for resilience
+
+#### Designing for abservability
+
+#### Designing for portability
+whether that’s for multi-cloud or hybrid-cloud. In most cases, there are no reasons for architects to design for the lowest common denominator to enable true multi-cloud portability or avoiding vendor lock-in. 
+
+#### Designing for sustainability
+This is emerging because people are realizing the software industry is responsible for a level of carbon usage comparable to the aviation industry<sup>[6]</sup>.
+
 ## Principles in Microservice
 
 1. Create an organizational model that provide independence and antonomy to teams 
@@ -105,6 +117,8 @@ somewhat like API gateways but focus on the data aspect.
 [4] InfoQ 趋势报告：架构和设计领域技术演变详解 2019
 
 [5] Zhamak Dehghani: How to Move Beyond a Monolithic Data Lake to a Distributed Data Mesh 
+
+[6] Thomas Betts, Holly Cummins: Software Architecture and Design InfoQ Trends Report -- April 2021
 
 <br>
 
