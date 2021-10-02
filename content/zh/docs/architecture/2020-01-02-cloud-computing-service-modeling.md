@@ -86,6 +86,8 @@ whether that’s for multi-cloud or hybrid-cloud. In most cases, there are no re
 #### Designing for sustainability
 This is emerging because people are realizing the software industry is responsible for a level of carbon usage comparable to the aviation industry<sup>[6]</sup>.
 
+### Dapr 
+
 ## Principles in Microservice
 
 1. Create an organizational model that provide independence and antonomy to teams 
