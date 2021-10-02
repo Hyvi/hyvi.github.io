@@ -19,7 +19,7 @@ layout: docs
 ## Tools
 [BetterTouchTool](https://folivora.ai) 已买了 Standard License，将 Magic Mouse 上也可以“TAP TO CLICK” 
 
-[Spectacle](https://github.com/eczarny/spectacle#keyboard-shortcuts) Move and resize windows with ease，经常使用到
+[Retangle](https://github.com/rxhanson/Rectangle) Move and resize windows with ease，经常使用到, 原来使用是 [Spectacle](https://github.com/eczarny/spectacle#keyboard-shortcuts) ，该项目不再维护，推荐使用 Retangle
 
 [Snipaste for Mac](https://zh.snipaste.com/) Snipaste 是一个简单但强大的截图工具，也可以让你将截图贴回到屏幕上！
 
