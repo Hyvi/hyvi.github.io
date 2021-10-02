@@ -15,9 +15,12 @@ description:
 
 ## Service Model
 常见的应该有Iaas(Host)、Paas(Build)、Saas(Consume)、Faas, 而在这边文章"Future of Cloud Computing Architectrue"里提到的Service更多类型
-![Cloud Computing Stack](https://hyvi.github.io/blog-images/20200102/Future of Cloud Computing Stack.png)
-每一种提供了不同的灵活性和控制，
-![Saas vs Paas vs Iaas Service Model](https://www.paranet.com/hs-fs/hub/107491/file-16287446-png/images/cloud_computing_service_models.png?width=1520&name=cloud_computing_service_models.png) 
+
+![Cloud Computing Stack](https://hyvi.github.io/blog-images/20200102/Future%20of%20Cloud%20Computing%20Stack.png)
+
+每一种提供了不同的灵活性和控制，如下图：
+
+![Saas vs Paas vs Iaas Service Model](https://hyvi.github.io/blog-images/20211002/5-layer-diagram.png)
 
 ### Function-as-a-service TODO
 
