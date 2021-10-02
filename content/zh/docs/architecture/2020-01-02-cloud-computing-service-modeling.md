@@ -112,7 +112,7 @@ This is emerging because people are realizing the software industry is responsib
 
 [1] [Futrue of Cloud Computing Architecture.pdf](https://www.sjsu.edu/people/robert.chun/courses/CS247/s4/I.pdf)  
 
-[2] [Which Cloud Computing Service Model is Right for Your Business](https://www.paranet.com/blog/bid/128267/the-three-types-of-cloud-computing-service-models)  
+[2] IBM: IaaS vs. PaaS vs. SaaS, Understand and compare the three most popular cloud computing service models
 
 [3] InfoQ: Software Architecture and Design InfoQ Trends Report—April 2020
 
