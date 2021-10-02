@@ -63,7 +63,14 @@ allow your business to have complete, scalable control over the management and c
 
 ### AsyncAPI #TODO
 
-### Data Mesh #TODO
+### Data Architecture 
+
+#### Data Mesh 
+> the next enterprise data platform architecture is in the convergence of Distributed Domain Driven Architecture, Self-serve Platform Design, and Product Thinking with Data<sup>[5]</sup>.
+>    --- Zhamak Dehghani
+
+#### Data Gateways 
+somewhat like API gateways but focus on the data aspect.
 
 ### Policy as Code #TODO
 
@@ -96,6 +103,8 @@ allow your business to have complete, scalable control over the management and c
 [3] InfoQ: Software Architecture and Design InfoQ Trends Report—April 2020
 
 [4] InfoQ 趋势报告：架构和设计领域技术演变详解 2019
+
+[5] Zhamak Dehghani: How to Move Beyond a Monolithic Data Lake to a Distributed Data Mesh 
 
 <br>
 
