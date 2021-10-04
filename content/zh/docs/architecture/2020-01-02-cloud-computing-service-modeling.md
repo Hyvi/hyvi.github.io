@@ -87,6 +87,28 @@ whether that’s for multi-cloud or hybrid-cloud. In most cases, there are no re
 This is emerging because people are realizing the software industry is responsible for a level of carbon usage comparable to the aviation industry<sup>[6]</sup>.
 
 ### Dapr 
+It is describing as a set of"microservice building blocks for cloud and edge" also is meant to be agnostic
+
+> Dapr is completely platform agnostic, meaning you can run your applications locally, on any Kubernetes cluster, and other hosting environments that Dapr integrates with. This enables developers to build microservice applications that can run on both the cloud and edge with no code changes,"
+
+![Dapr is a portable, event-driven, runtime for building distributed applications across cloud and edge.](https://github.com/dapr/dapr/raw/master/img/overview.png)
+
+#### Dapr building blocks
+
+- Service Invocation 
+- State management 
+- Plubish and subscribe messaging between services 
+- Event driven resource bindings 
+- Virtual actors
+- Distributed tracing between services 
+
+#### Sidecar architecture and supported infrastructures
+Dapr exposes its APIs as a sidecar architecture, either as a container or as a process, not requiring the application code to include any Dapr runtime code.
+
+![Dapr running as a side-car process](https://cloudblogs.microsoft.com/uploads/prod/2019/10/overview-sidecar.png)
+
+#### Multi-Cloud, open components (bindings, pub-sub, state) from Azure, AWS, GCP
+Dapr is completely platform agnostic, meaning you can run your applications locally, on any Kubernetes cluster, and other hosting environments that Dapr integrates with. This enables developers to build microservice applications that can run on both the cloud and edge with no code changes.
 
 ## Principles in Microservice
 
