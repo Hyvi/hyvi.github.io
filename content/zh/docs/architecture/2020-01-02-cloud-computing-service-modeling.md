@@ -99,7 +99,7 @@ It is describing as a set of"microservice building blocks for cloud and edge" al
 - State management 
 - Plubish and subscribe messaging between services 
 - Event driven resource bindings 
-- Virtual actors
+- Virtual actors --  A pattern for stateless and stateful objects that make concurrency simple with method and state encapsulation. Dapr provides many capabilities in its virtual actor runtime including concurrency, state, life-cycle management for actor activation/deactivation and timers and reminders to wake up actors<sup>[7]</sup>.
 - Distributed tracing between services 
 
 #### Sidecar architecture and supported infrastructures
@@ -143,6 +143,8 @@ Dapr is completely platform agnostic, meaning you can run your applications loca
 [5] Zhamak Dehghani: How to Move Beyond a Monolithic Data Lake to a Distributed Data Mesh 
 
 [6] Thomas Betts, Holly Cummins: Software Architecture and Design InfoQ Trends Report -- April 2021
+
+[7] Microsoft Open Source Blog: Announcing Distributed Application Runtime (Dapr), an open source project to make it easier for every developer to build microservice applications
 
 <br>
 
