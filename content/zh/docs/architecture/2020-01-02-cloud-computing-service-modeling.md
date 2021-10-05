@@ -87,6 +87,9 @@ whether that’s for multi-cloud or hybrid-cloud. In most cases, there are no re
 This is emerging because people are realizing the software industry is responsible for a level of carbon usage comparable to the aviation industry<sup>[6]</sup>.
 
 ### Dapr 
+
+{{< youtube id="eJCu6a-x9uo" title="Nark Russinovich: The Future of Cloud Natvie Applications with Open Application Model and Dapr" >}}
+
 It is describing as a set of"microservice building blocks for cloud and edge" also is meant to be agnostic
 
 > Dapr is completely platform agnostic, meaning you can run your applications locally, on any Kubernetes cluster, and other hosting environments that Dapr integrates with. This enables developers to build microservice applications that can run on both the cloud and edge with no code changes,"
