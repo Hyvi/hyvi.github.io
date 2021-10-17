@@ -27,6 +27,14 @@ Dapr 的 Building Blocks 是为了提供在分布式下一些最佳实践的场�
 ## Actor lifetime
 Actor 的创建、闲置超时、销毁。以及 reminder 对 Actor 的 lifetime 影响，而 Timer 没有影响。
 
+## Actor reentrancy
+A core tenet of the virtual actor pattern is the single-threaded nature of actor execution.
+
+```
+Actor A -> Actor A
+ActorA -> Actor B -> Actor A
+``` 
+
 ## Distribution and failover
 The Dapr actor runtime manages distribution scheme and key range settings for you. This is done by the actor Placement service. `Actor placement service` 起到重要的作用。
 
