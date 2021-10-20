@@ -32,6 +32,8 @@ description:
 [2] [gomonkey 博主简书] (https://www.jianshu.com/u/1381dc29fed9)   golang开发   
 
 [3] Gary Rennie: The Road to 2 Million Websocket Connections in Phoenix.
+
+[4] eranyanay: Going Infinite, handling 1M websockets connections in Go
 <br>
 
 <center>  ·End·  </center>
