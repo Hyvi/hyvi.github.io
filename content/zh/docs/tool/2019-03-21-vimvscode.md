@@ -30,6 +30,8 @@ To delete backward up to character 'X' type `dTX`
 
 To delete backward through character 'X' type `dFX`
 
+Aligning text with Tabular.vim `:tab \/`
+
 ### Navigation
 
 
