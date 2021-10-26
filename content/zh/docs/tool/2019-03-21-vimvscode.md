@@ -35,18 +35,17 @@ To delete backward through character 'X' type `dFX`
 
 ## 历史
 vim-go 为什么错误这么让人不知所措，比如：
+
 ```bash
 gorename: can't find package containing
-```
-```bash
+
 gometalinter: unkown linters: govet, typecheck, unsed, gosimple
-```
-```bash
+
 --enable-all/--disable-all can not be combined
-```
-``` bash
+
 quickfix 没有显示出来，并且仅仅提示 GoMetaLinter Failed
 ```
+
 解决办法有很多种，而在不断尝试过程中解决问题：
 
 + 对 vim-go 配置详细了解，比如`g:go_metalinter_enabled`和`g:go_metalinter_autosave_enabled`
