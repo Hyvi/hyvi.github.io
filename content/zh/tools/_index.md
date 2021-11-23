@@ -35,14 +35,14 @@ layout: docs
 
 [CordCloud + Shadowsocks + Shadowrocket(for IOS)]() 科学上网, 价格不贵，速度还挺好
 
-[repl.it](repl.it) 各种语言在线的IDE. 支持VIM模式\支持自动补全
-
 [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) 命令使用多了，这个很方便
 
 [VS Code](#) 这个不多说了. 插件强大，但使用很少, 比如用于 PlantUML 画图时实时预览
 
+[leetcode-cli](#) 刷题利器
 
 ### 废弃的利器
+~~ [repl.it](repl.it) 各种语言在线的IDE. 支持VIM模式\支持自动补全 ~~
 
 ~~[Synergy](https://github.com/symless/synergy-core) 在 Mac 编译命令运行方式，很少出现问题，在 synergyc 客户端侧结合 supervisor 使用感觉更丝滑。~~
 
