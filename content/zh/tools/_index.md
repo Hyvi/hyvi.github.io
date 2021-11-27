@@ -41,6 +41,10 @@ layout: docs
 
 [leetcode-cli](#) 刷题利器
 
+[transmission and watch](https://cli-ck.io/transmission-cli-user-guide/) 下載磁力文件的 CLI 工具，transmission-remote -- a remote control utility for transmission-daemon(1) and transmission(1)
+
+[cheat.sh](https://github.com/chubin/cheat.sh) the only cheat sheet you need
+
 ### 废弃的利器
 ~~ [repl.it](repl.it) 各种语言在线的IDE. 支持VIM模式\支持自动补全 ~~
 
