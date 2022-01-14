@@ -38,8 +38,8 @@ plantuml: true
 ### 应用能力平台化
 生态圈。 开放平台是生态圈的关键，把企业的服务以 Open API 的方式对外暴露，可以让更多的第三方软件提供商的软件接入到我们的平台中，从而造就一个广阔的生态圈。
 
-#### [行业对标] 金融生态云
-内容来自： [银行生态云建设思路及架构参考][back-cloud-architecture]
+#### [行业对标] 银行生态云建设思路及架构参考
+内容来自： [银行生态云建设思路及架构参考][bank-cloud-architecture]
 
 ##### 技术路线
 ```plantuml
@@ -149,6 +149,13 @@ run --> product
 - SaaS 
 - PaaS
 - IaaS
+
+#### [行业对标] 谢冲 - 华为云 IoT 生态开放架构与实践 v1.0
+**生态开放除了涉及不仅要考虑软件架构还需要考虑开放三要素**
+
+1. 开放层次
+2. 开放形式
+3. 开放平台
 
 ### 物联网平台化 - IoT
 这块知识是2020年需要成长的地方，硬件为主，赋能硬件是后续的趋势。 
@@ -307,7 +314,8 @@ For warm path storage, consider using Azure Cosmos DB.
 
 ![](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/media/real-time-analytics.png)
 
-**[Advanced Analytics Architecture](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data)** Transform your data into actionable insights using the best-in-class machine learning tools. This architecture allows you to combine any data at any scale, and to build and deploy custom machine learning models at scale.
+**[Advanced Analytics Architecture](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/advanced-analytics-on-big-data)** Transform your data into actionable insights using the best-in-class machine learning tools. 
+This architecture allows you to combine any data at any scale, and to build and deploy custom machine learning models at scale.
 
 ![](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/media/advanced-analytics-on-big-data.png)
 
@@ -319,6 +327,14 @@ For warm path storage, consider using Azure Cosmos DB.
 
 *[点击查看图片](http://images2015.cnblogs.com/blog/43267/201609/43267-20160907162226973-62747760.png)* 
 
+
+#### [行业对标] 华为云 IoT 生态开放架构与实践 v1.0 
+
+1. IoT 发展面临的挑战与破局思路: 上能助力创新，中间业务使能，下能连接万物
+
+2. 华为云 IoT 生态开放架构与实践: 开放架构和开放三要素
+
+3. 落地方案分享
 
 ### 解决方案 
 
@@ -369,7 +385,7 @@ EMQ X
 [nats-persistence]: https://docs.nats.io/nats-streaming-server/configuring/persistence
 <br>
 
-[back-cloud-architecture]: https://cloud.tencent.com/developer/article/1485632
+[bank-cloud-architecture]: https://cloud.tencent.com/developer/article/1485632
 
 [huarun-cloud-build-thing]: https://www.oracle.com/technetwork/cn/community/developer-day/10-cloud-computing-platform-1863872-zhs.pdf
 
