@@ -61,6 +61,10 @@ Avoiding infrastructure coupling
 
 ##  模式 PATTERNS
 
+### Facilitators
+Facilitators<sup>[5]</sup> are simple a new type that has access to the type you wished you had generic methods on.
+比如，如果你是 ORM framework 的设计者，想提供一些查询表格的方法。你提供了一个中间类型（Querier），这个中间类型允许你写一些 generic querying functions。
+
 ### Materialized View Patterns
 Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations. this can help support efficient querying and data extraction, and improve application performance. 
 #### Context and problem
@@ -139,3 +143,4 @@ Azure Cloud Design Patterns, used in the cloud for building reliable, scalable, 
 
 .NET Microservices: Architecture for Containerized .NET Applications （PDF 在Kami 上）https://docs.microsoft.com/en-us/dotnet/architecture/microservices/ 
 
+[5] JBD: Generics facilitators in Go
