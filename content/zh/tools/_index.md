@@ -16,6 +16,7 @@ layout: docs
 
 [我的代码](https://bitbucket.org) 所有私有代码上传到网络上
 
+[我的资源]( https://springsunday.net/ ) 电影、音乐资源
 ## Tools
 [BetterTouchTool](https://folivora.ai) 已买了 Standard License，将 Magic Mouse 上也可以“TAP TO CLICK” 
 
