@@ -45,6 +45,10 @@ layout: docs
 
 [cheat.sh](https://github.com/chubin/cheat.sh) the only cheat sheet you need
 
+[cmus](https://cmus.github.io/) 命令行下播放音乐
+
+[fig]() Fig adds IDE-style autocomplete to your existing terminal.
+
 ### 废弃的利器
 ~~ [repl.it](repl.it) 各种语言在线的IDE. 支持VIM模式\支持自动补全 ~~
 
