@@ -139,6 +139,16 @@ a -> b: getZip
 - exclusive read lock 独占读锁
 - read / write lock 读写锁
 
+## 分布式锁
+分布式环境下锁的全局唯一资源，使请求串行化，实际表现互斥锁，解决业务幂等问题。
+
+强一致性、服务本身高可用使最基本的需求，其他的比如支持自动续费，自动释放机制，高度抽象接入简单，可视化，可管理等。
+
+- 基于 Redis 缓存的分布式锁<sup>[1]</sup>
+    - 存在单点**问题**，一旦涉及到 redis 集群，就会出现重复加锁的情况。
+    - 基于超时时间无法续租**问题**，随机数(fencing token<sup>[2]</sup>)解决了锁被其他任务释放的问题，但是还是无法解决超时导致的锁释放的问题。**Redission** 采用了 `Watch dog` 模式来解决这个问题的，具体是后台开启一个线程，每隔一定的时间去检查该锁 还有多久超时，然后给这个锁进行续租。
+    - 异步主从同步**问题**
+- 基于存储层的可靠的解决方案，比如 zookeeper / ETCD
 
 ## 会话状态模式
 
@@ -146,6 +156,12 @@ a -> b: getZip
 
 当服务器会话状态也需要持久化时， 服务器会话状态和数据库会话状态之间区别是： **是否将服务器会话状态中的数据转化为表格形式。**
 
+
+## 参考
+
+[1] Somersames: [Redis 实现的分布式锁是完美的吗？](https://somersames.xyz/2020/08/03/Redis%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E6%98%AF%E5%AE%8C%E7%BE%8E%E7%9A%84%E5%90%97%EF%BC%9F/)
+
+[2] Martin Kleppmann: [How to do distributed locking](https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html)
 
 <br>
 
