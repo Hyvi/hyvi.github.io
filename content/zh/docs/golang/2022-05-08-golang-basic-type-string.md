@@ -46,4 +46,39 @@ type _string struct {
 
 - when a byte slice is converted to a string, **the underlying byte sequence of the result string is also just a deep copy of the byte slice**.
 
+
+## 延伸
+```golang
+package main
+
+import (
+	"fmt"
+)
+
+const s = "Go101.org"
+
+// len(s) is a constant expression, 
+// whereas len(s[:]) is not.
+var a byte = 1 << len(s) / 128 
+var b byte = 1 << len(s[:]) / 128
+
+func main() {
+	fmt.Println(a, b) // 4 0	
+}
+
+```
+
+为什么会出现不一样的结果，一个要点是： **the special type deduction rule in bitwise shift operator operation** 
+
+- 当位运算左元素为 **untyped value**， 并且右元素为 constant 时，运算的结果类型保持与左元素一样。
+
+- 当位运算左元素为 **untyped value**， 并且右元素为 non-constant 时，首先左元素类型转化为 assumed type (it would assume if the bitwise shift operator operation were replaced by its left operand alone)
+
+根据上面两个 rule, 上面语句变成：
+
+```golang
+var a = byte(int(1) << len(s) / 128)
+var b = byte(1) << len(s[:]) / 128
+```
+
 <center>  ·End·  </center>
