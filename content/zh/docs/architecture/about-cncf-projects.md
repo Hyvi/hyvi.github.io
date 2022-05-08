@@ -19,7 +19,7 @@ CNCF Project vs CNCF Member Project 这有什么区别？
 OpenTelemetry protocol (OTLP)， 定义了 Open Telemetry 里 Tracing\Metrics\Logging 的 protobuf 的协议格式。 比如 [ Tracing ](https://github.com/open-telemetry/opentelemetry-proto/blob/main/opentelemetry/proto/trace/v1/trace.proto) 
 
 
-#### 实践
+#### 结合 Newrelic Tracing 的实践
 [ OpenTelemetry and Newrelic 结合 ](https://docs.newrelic.com/docs/integrations/open-source-telemetry-integrations/opentelemetry/opentelemetry-quick-start/), 中间通过 opentelemetry-go 来连接。 
 
 ![](https://docs.newrelic.com/44724d5e137a64a9b9f426e1bcddc445/native_otlp.svg)
@@ -27,6 +27,12 @@ OpenTelemetry protocol (OTLP)， 定义了 Open Telemetry 里 Tracing\Metrics\Lo
 也可以通过 opentelemetry-collector (e.g. binary, sidecar, or daemonset). 方式来做。
 
 ![](https://docs.newrelic.com/2500a84a188882f4b0ecf1d270689112/native_otlp_with_collector.svg) 
+
+#### 结合 Alibaba Tracing Analysis（ARMS）的实践
+[What is Tracing Analysis](https://www.alibabacloud.com/help/en/application-real-time-monitoring-service/latest/what-is-tracing-analysis)， 从 Architecture 看是支持 Opentracing Basing SDK
+
+> Tracing Analysis is compatible with SDKs from various open source communities and supports the OpenTracing standard.
+
 
 ### Apache DolphinScheduler
 A distributed and easy-to-extend visual workflow scheduler system, undergoing incubation at ASF.
