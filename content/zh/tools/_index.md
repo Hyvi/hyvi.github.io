@@ -24,7 +24,7 @@ layout: docs
 
 [Snipaste for Mac](https://zh.snipaste.com/) Snipaste 是一个简单但强大的截图工具，也可以让你将截图贴回到屏幕上！
 
-[Vim](https://github.com/Hyvi/vim-plugin) 比几年前整 vim 容易多了，最重要是的一个 mac~~（之前用 gvim)~~省了好多折腾时间
+[Nvim](https://github.com/Hyvi/dotfiles) 比几年前整 vim 容易多了，最重要是的一个 mac~~（之前用 gvim)~~省了好多折腾时间
 
 [Clouder](https://chrome.google.com/webstore/detail/clouder/fjblekdlcidmadghbofmenknaegldcic) 把图片上传到云端的存储的工具，公司把其他盘关闭了。
 
@@ -33,6 +33,8 @@ layout: docs
 [DbVisualizer](https://www.dbvis.com/) Basic 免费版，从数据库里生成 ER 图, 目前还没发现支持非常好从 SQL 脚本生成 ER 图。
 
 [PlantUML](https://plantuml.com/) 开始 PlantUML这个来画图，在 Blog 和 Confluence 都支持， 优点是文本生成图， 只需要维护文本即可。 
+
+[Draw.io](https://app.diagrams.net/) 应付画各种软件/业务架构的图
 
 [CordCloud + Shadowsocks + Shadowrocket(for IOS)]() 科学上网, 价格不贵，速度还挺好
 

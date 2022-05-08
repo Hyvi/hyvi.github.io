@@ -81,4 +81,17 @@ var a = byte(int(1) << len(s) / 128)
 var b = byte(1) << len(s[:]) / 128
 ```
 
+为什么会有这样的 rule ？
+
+> avoid the cases that some bitwise shift operations retuan different results on different architectures but the differences will not be detected in time.
+
+举个例子
+
+```golang
+var m = uint(32)
+// The following three lines are equivalent to each other.
+var x int64 = 1 << m 
+var y = int64(1 << m)
+var z = int64(1) << m
+```
 <center>  ·End·  </center>
