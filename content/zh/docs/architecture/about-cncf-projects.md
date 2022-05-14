@@ -19,6 +19,22 @@ CNCF Project vs CNCF Member Project 这有什么区别？
 OpenTelemetry protocol (OTLP)， 定义了 Open Telemetry 里 Tracing\Metrics\Logging 的 protobuf 的协议格式。 比如 [ Tracing ](https://github.com/open-telemetry/opentelemetry-proto/blob/main/opentelemetry/proto/trace/v1/trace.proto) 
 
 
+**Propagators and Context** 
+
+Propagators: Used to serialize and deserialize specific parts of telemetry data such as span context and Baggage in Spans.
+
+Traces can extend beyond a single process. This requires context propagation, a mechanism where identifiers for a trace are sent to remote processes.
+
+
+```golang
+otel.SetTextMapPropagator(propagation.TraceContext{})
+```
+
+`TextMapPropagator` injects values into and extracts values from carries as text.
+
+**Carrier**
+A carrier is the medium used by Propagators to read values from and write values to.
+
 #### 结合 Newrelic Tracing 的实践
 [ OpenTelemetry and Newrelic 结合 ](https://docs.newrelic.com/docs/integrations/open-source-telemetry-integrations/opentelemetry/opentelemetry-quick-start/), 中间通过 opentelemetry-go 来连接。 
 
@@ -60,7 +76,7 @@ A distributed and easy-to-extend visual workflow scheduler system, undergoing in
 
 2. [CNCF 项目或者成员项目](https://landscape.cncf.io/project=member)
 
-
+3. OpenTelemetry: Propagators API
 
 <br>
 
