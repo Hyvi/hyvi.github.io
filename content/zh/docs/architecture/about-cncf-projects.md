@@ -14,12 +14,12 @@ CNCF Project vs CNCF Member Project 这有什么区别？
 
 #### 概念
 
-**OTLP** 
+##### OTLP 
 
 OpenTelemetry protocol (OTLP)， 定义了 Open Telemetry 里 Tracing\Metrics\Logging 的 protobuf 的协议格式。 比如 [ Tracing ](https://github.com/open-telemetry/opentelemetry-proto/blob/main/opentelemetry/proto/trace/v1/trace.proto) 
 
 
-**Propagators and Context** 
+##### Propagators and Context
 
 Propagators: Used to serialize and deserialize specific parts of telemetry data such as span context and Baggage in Spans.
 
@@ -32,7 +32,7 @@ otel.SetTextMapPropagator(propagation.TraceContext{})
 
 `TextMapPropagator` injects values into and extracts values from carries as text.
 
-**Carrier**
+##### Carrier
 A carrier is the medium used by Propagators to read values from and write values to.
 
 #### 结合 Newrelic Tracing 的实践
