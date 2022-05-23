@@ -49,11 +49,20 @@ LabKit is minimalist library to provide functionality for Go services at GitLab.
 
 ![](https://raw.githubusercontent.com/zeromicro/zero-doc/main/doc/images/architecture.png)
 
-## 参考3 go-micro
+## 参考3 Micro
 
 [Micro Architecture](https://micro.dev/architecture)
 
 ![](https://micro.dev/images/micro-3.0.png)
 
+Wrapppers are a form of middleware that can be used with go-micro services, They can Wrap both the Client and Server handlers
+
+- Breaker
+- endpoint
+- Monitoring
+- ratelimiter
+- service
+- trace
+- validator
 
 ## 参考4 Dapr
