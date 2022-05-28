@@ -11,8 +11,33 @@ CNCF Project vs CNCF Member Project 这有什么区别？
 
 ## Projects
 ### OpenTelemetry
+OpenTelemetry 在遇到以下无法解决的问题情况下出现了。
+
+- 应用程序被锁定在特定解决方案的仪表中
+- 针对开源软件的特定解决方案的仪表基本上是不可能的
+
+于是需要设计一个可观测的系统来解决以上问题，在设计上需要满足基本的需求<sup>[4]</sup>：
+
+- 要求：独立的仪表(instrumentation，这个翻译总觉得怪异，)、遥测和分析
+- 要求：零依赖性
+- 要求：严格的后向兼容和长期支持
+
 
 #### 概念
+
+
+##### 信号 signal
+不同类型的遥测，我们称之为**信号**，主要的信号是追踪
+
+OpenTelemetry 是一个跨领域的关注点(cross-cutting concern)
+
+![](https://raw.githubusercontent.com/rootsongjc/cloud-native-library/master/content/opentelemetry-obervability/images/f5-1.png "所有 OpenTelemetry 信号都建立在一个共享的上下文传播系统之上。其他的，非可观测性的交叉关注也可以使用上下文传播机制来通过分布式系统传输他们的数据。")
+
+
+##### Instrumentation
+仪表（在 《OpenTelemetry 可观测性的未来》这样翻译的）
+
+但是，来自谷歌：the particular instruments used in a piece of music / measuring instruments regarded collectively.
 
 ##### OTLP 
 
@@ -77,6 +102,8 @@ A distributed and easy-to-extend visual workflow scheduler system, undergoing in
 2. [CNCF 项目或者成员项目](https://landscape.cncf.io/project=member)
 
 3. OpenTelemetry: Propagators API
+
+4. Ted Young，译者 Jimmy Song: OpenTelemetry可观察性指南
 
 <br>
 
