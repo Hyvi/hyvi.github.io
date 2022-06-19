@@ -105,6 +105,8 @@ A distributed and easy-to-extend visual workflow scheduler system, undergoing in
 
 4. Ted Young，译者 Jimmy Song: OpenTelemetry可观察性指南
 
+5. Uptrace: OpenTelemetry instrumentations for Go
+
 <br>
 
 <center>  ·End·  </center>
