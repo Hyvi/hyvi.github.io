@@ -24,6 +24,41 @@ Seldon has collaborated with the NVIDIA Triton Server Project and the KServe Pro
 
 An Example for SageMaker: Amazon SageMaker Processing Video2frame Model Inference
 
+
+### Real-time Inference
+
+Real-time inference is ideal for inference workloads where you have real-time, interactive, low latency requirements.
+
+#### Use Your Own Inference Code with Hosting Services
+how Amazon SageMaker interacts with a Docker container that runs your own inference code for hosting services.
+
+How Containers Serve Requests: 
+
+Containers need to implement a web server that responds to /invocations and /ping on port 8080.
+
+How Your Container Should Respond to Inference Requests:
+
+A customer's model containers must respond to requests within 60 seconds.
+
+#### TensorRT through NVIDA Triton
+TensorRT is a C++ library for high performance inference on NVIDIA GPUs and deep learning accelerators.
+
+Tutorial: https://github.com/NVIDIA/TensorRT/blob/main/quickstart/SemanticSegmentation/tutorial-runtime.ipynb
+
+- Load TensorRT Engine
+- Run inference
+
+TensorRT to Triton: https://github.com/NVIDIA/TensorRT/tree/main/quickstart/deploy_to_triton
+
+
+### Asynchronous inference
+
+### Batch Transform
+
+### Serverless Inference
+
+Amazon SageMaker Serverless Inference is a purpose-built inference option that makes it easy for you to deploy and scale ML models. Serverless Inference is ideal for workloads which have idle periods between traffic spurts and can tolerate cold starts.
+
 ## 对标方案 - Machine Learning Platform for AI - EAS
 
 - 一健部署
