@@ -9,6 +9,17 @@ description:
 ---
 ## 概念解释
 
+**Squared loss**
+
+a popular loss function, also known as L2 Loss. 
+
+Mean square error (MSE) is the average squared loss per example over the whole dataset.
+
+**Gradient Descent**
+
+SGD(Stochastic Gradient Descent) & Mini-Batch Gradient Descent.
+
+
 **Predict Protocol**
 
 This document proposes a predict/inference API independent of any specific ML/DL framework and model server.
