@@ -31,9 +31,7 @@ Seldon has collaborated with the NVIDIA Triton Server Project and the KServe Pro
 详细见： [Predict Protocol - Version 2][2]
 
 ## 对标方案 - Run computer vision inference on large  videos 
-![](https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2021/09/29/ML-5668-Architecture.png)
 
-An Example for SageMaker: Amazon SageMaker Processing Video2frame Model Inference
 
 
 ### Real-time Inference
@@ -52,6 +50,12 @@ TensorRT to Triton: https://github.com/NVIDIA/TensorRT/tree/main/quickstart/depl
 
 
 ### Asynchronous inference
+
+![](https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2021/09/29/ML-5668-Architecture.png)
+
+An Example for SageMaker: Amazon SageMaker Processing Video2frame Model Inference [3]
+
+
 ![end-to-end flow with Asynchronous inference endpoint](https://github.com/aws/amazon-sagemaker-examples/raw/d391107c4e301582186f5bac5e4242c1dc6944f1/async-inference/images/e2e.png)
 
 #### Prerequisites
@@ -82,6 +86,8 @@ A customer's model containers must respond to requests within 60 seconds.
 
 ##### Adapting Your Own Inference Container
 https://docs.aws.amazon.com/sagemaker/latest/dg/adapt-inference-container.html
+
+详细介好了基于 sagemaker 来自定义的推理过程。 https://sagemaker-examples.readthedocs.io/en/latest/frameworks/pytorch/get_started_mnist_deploy.html 
 
 #### Create
 1. Create a model in SageMaker with CreateModel.
