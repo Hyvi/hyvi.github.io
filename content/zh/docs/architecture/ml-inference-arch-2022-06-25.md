@@ -40,17 +40,6 @@ An Example for SageMaker: Amazon SageMaker Processing Video2frame Model Inferenc
 
 Real-time inference is ideal for inference workloads where you have real-time, interactive, low latency requirements.
 
-#### Use Your Own Inference Code with Hosting Services
-how Amazon SageMaker interacts with a Docker container that runs your own inference code for hosting services.
-
-How Containers Serve Requests: 
-
-Containers need to implement a web server that responds to /invocations and /ping on port 8080.
-
-How Your Container Should Respond to Inference Requests:
-
-A customer's model containers must respond to requests within 60 seconds.
-
 #### TensorRT through NVIDA Triton
 TensorRT is a C++ library for high performance inference on NVIDIA GPUs and deep learning accelerators.
 
@@ -63,6 +52,44 @@ TensorRT to Triton: https://github.com/NVIDIA/TensorRT/tree/main/quickstart/depl
 
 
 ### Asynchronous inference
+![end-to-end flow with Asynchronous inference endpoint](https://github.com/aws/amazon-sagemaker-examples/raw/d391107c4e301582186f5bac5e4242c1dc6944f1/async-inference/images/e2e.png)
+
+#### Prerequisites
+实操方式： https://docs.aws.amazon.com/sagemaker/latest/dg/async-inference-create-endpoint-prerequisites.html
+
+1. Create an IAM role for Amazon SageMaker.
+2. Add Amazon SageMaker, Amazon S3 and Amazon SNS Permissions to your IAM Role.
+3. Upload your inference data (e.g., machine learning model, sample data) to Amazon S3.
+4. Select a prebuilt Docker inference image or create your own Inference Docker Image.
+	- Use Your Own Inference Code 
+5. Create an Amazon SNS topic (optional)
+	- Check Your S3 Bucket: https://docs.aws.amazon.com/sagemaker/latest/dg/async-inference-check-predictions.html
+
+##### Use Your Own Inference Code with Hosting Services
+https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-main.html， 
+
+how Amazon SageMaker interacts with a Docker container that runs your own inference code for hosting services.
+
+How SageMaker Loads Your Model Artifacts
+
+How Containers Serve Requests: 
+
+Containers need to implement a web server that responds to /invocations and /ping on port 8080.
+
+How Your Container Should Respond to Inference Requests:
+
+A customer's model containers must respond to requests within 60 seconds.
+
+#### Create
+1. Create a model in SageMaker with CreateModel.
+2. Create an endpoint configuration with CreateEndpointConfig.
+3. Create an HTTPS endpoint with CreateEndpoint.
+
+
+#### Prebuilt SageMaker Docker Images for Deep Learning
+https://docs.aws.amazon.com/sagemaker/latest/dg/pre-built-containers-frameworks-deep-learning.html
+
+https://aws.amazon.com/cn/blogs/machine-learning/bring-your-own-pre-trained-mxnet-or-tensorflow-models-into-amazon-sagemaker/
 
 ### Batch Transform
 
@@ -97,4 +124,5 @@ Amazon SageMaker Serverless Inference is a purpose-built inference option that m
 7. Amazon SageMaker Processing Video2frame Model Inference https://github.com/aws-samples/amazon-sagemaker-processing-video2frame-model-inference
 <br>
 
+8. https://github.com/aws/amazon-sagemaker-examples/blob/main/async-inference/Async-Inference-Walkthrough.ipynb
 <center>  ·End·  </center>
