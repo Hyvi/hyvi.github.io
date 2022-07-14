@@ -80,6 +80,9 @@ How Your Container Should Respond to Inference Requests:
 
 A customer's model containers must respond to requests within 60 seconds.
 
+##### Adapting Your Own Inference Container
+https://docs.aws.amazon.com/sagemaker/latest/dg/adapt-inference-container.html
+
 #### Create
 1. Create a model in SageMaker with CreateModel.
 2. Create an endpoint configuration with CreateEndpointConfig.
