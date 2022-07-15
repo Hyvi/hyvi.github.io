@@ -111,6 +111,11 @@ Entire process:
 - Step 5: Using the model definitions, artifacts, and the Amazon SageMaker Python SDK, a SageMaker model is created.
 - Step 6: The SageMaker model is deployed as an endpoint.
 
+TensorFlow BYOM: https://github.com/aws/amazon-sagemaker-examples/blob/main/advanced_functionality/tensorflow_iris_byom
+
+MXNet BYOM: https://github.com/aws/amazon-sagemaker-examples/tree/main/advanced_functionality/mxnet_mnist_byom
+
+Pytorch: https://github.com/aws/amazon-sagemaker-examples/tree/main/advanced_functionality/pytorch_bring_your_own_gan
 
 ### Batch Transform
 
