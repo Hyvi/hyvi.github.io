@@ -98,7 +98,19 @@ https://docs.aws.amazon.com/sagemaker/latest/dg/adapt-inference-container.html
 #### Prebuilt SageMaker Docker Images for Deep Learning
 https://docs.aws.amazon.com/sagemaker/latest/dg/pre-built-containers-frameworks-deep-learning.html
 
+![](https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2018/08/02/pre-trained-models-sagemaker-1.gif)
+
 https://aws.amazon.com/cn/blogs/machine-learning/bring-your-own-pre-trained-mxnet-or-tensorflow-models-into-amazon-sagemaker/
+
+Entire process:
+
+- Step 1: Model definitions are written in a framework of choice.
+- Step 2: The model is trained in that framework.
+- Step 3: The model is exported and model artifacts that can be understood by Amazon SageMaker are created.
+- Step 4: Model artifacts are uploaded to an Amazon S3 bucket.
+- Step 5: Using the model definitions, artifacts, and the Amazon SageMaker Python SDK, a SageMaker model is created.
+- Step 6: The SageMaker model is deployed as an endpoint.
+
 
 ### Batch Transform
 
