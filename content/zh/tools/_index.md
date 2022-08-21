@@ -7,7 +7,9 @@ menu:
     pre: <i class='fas fa-tools'></i>
 layout: docs
 ---
-{{% blocks/section type="section" color="white" %}}
+
+## 前言
+折腾过很多的工具，但是没有做好分类。
 
 ## 个人站点
 [我的电影我的书](https://movie.douban.com/mine) 记录我看过的、将要看的电影
@@ -17,47 +19,83 @@ layout: docs
 [我的代码](https://bitbucket.org) 所有私有代码上传到网络上
 
 [我的资源]( https://springsunday.net/ ) 电影、音乐资源
-## Tools
-[BetterTouchTool](https://folivora.ai) 已买了 Standard License，将 Magic Mouse 上也可以“TAP TO CLICK” 
+## 硬件工具
+### 电脑及配件
+- **Macbook Pro 2018** 
+### 手机
 
-[Retangle](https://github.com/rxhanson/Rectangle) Move and resize windows with ease，经常使用到, 原来使用是 [Spectacle](https://github.com/eczarny/spectacle#keyboard-shortcuts) ，该项目不再维护，推荐使用 Retangle
+- **Iphone X**
+- **Iphone 6 Plus** 用于另外一个手机号，短信/电话转发到 Iphone X 里
 
-[Snipaste for Mac](https://zh.snipaste.com/) Snipaste 是一个简单但强大的截图工具，也可以让你将截图贴回到屏幕上！
+### 耳机音箱
+- **Jabra Elite 65** 用于跑步、开会
+- **有线耳机** 
 
-[Nvim](https://github.com/Hyvi/dotfiles) 比几年前整 vim 容易多了，最重要是的一个 mac~~（之前用 gvim)~~省了好多折腾时间
+### 存储设备
 
-[Clouder](https://chrome.google.com/webstore/detail/clouder/fjblekdlcidmadghbofmenknaegldcic) 把图片上传到云端的存储的工具，公司把其他盘关闭了。
+### 相机及配件
 
-[MarginNote 3]() 满足看电子书籍的需求，做笔记非常方便，在各端同步也是刚需。
+## 软件工具
 
-[DbVisualizer](https://www.dbvis.com/) Basic 免费版，从数据库里生成 ER 图, 目前还没发现支持非常好从 SQL 脚本生成 ER 图。
 
-[PlantUML](https://plantuml.com/) 开始 PlantUML这个来画图，在 Blog 和 Confluence 都支持， 优点是文本生成图， 只需要维护文本即可。 
+### 🔧 实用工具
+- **[BetterTouchTool](https://folivora.ai)**  已买了 Standard License，将 Magic Mouse 上也可以“TAP TO CLICK”
 
-[Draw.io](https://app.diagrams.net/) 应付画各种软件/业务架构的图
+- **[Retangle](https://github.com/rxhanson/Rectangle)**  Move and resize windows with ease，经常使用到
 
-[CordCloud + Shadowsocks + Shadowrocket(for IOS)]() 科学上网, 价格不贵，速度还挺好
+- **[Snipaste for Mac](https://zh.snipaste.com/)**  Snipaste 是一个简单但强大的截图工具，也可以让你将截图贴回到屏幕上！
 
-[zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) 命令使用多了，这个很方便
+- **[Clouder](https://chrome.google.com/webstore/detail/clouder/fjblekdlcidmadghbofmenknaegldcic)**  把图片上传到云端的存储的工具，公司把其他盘关闭了。
 
-[VS Code](#) 这个不多说了. 插件强大，但使用很少, 比如用于 PlantUML 画图时实时预览
+- **[fig]()**  Fig adds IDE-style autocomplete to your existing terminal.
 
-[leetcode-cli](#) 刷题利器
+- **[zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)**  命令使用多了，这个很方便
 
-[transmission and watch](https://cli-ck.io/transmission-cli-user-guide/) 下載磁力文件的 CLI 工具，transmission-remote -- a remote control utility for transmission-daemon(1) and transmission(1)
+### 💻 开发工具
+- **[Nvim](https://github.com/Hyvi/dotfiles)**  比几年前整 vim 容易多了，最重要是的一个 mac~~（之前用 gvim)~~省了好多折腾时间
 
-[cheat.sh](https://github.com/chubin/cheat.sh) the only cheat sheet you need
+- **[DbVisualizer](https://www.dbvis.com/)**  Basic 免费版，从数据库里生成 ER 图，目前还没发现支持非常好从 SQL 脚本生成 ER 图。
 
-[cmus](https://cmus.github.io/) 命令行下播放音乐
+- **[PlantUML](https://plantuml.com/)**  PlantUML 比较适合简单的画图，在 Blog 和 Confluence 都支持， 优点是文本生成图， 只需要维护文本即可。
 
-[fig]() Fig adds IDE-style autocomplete to your existing terminal.
+- **[Draw.io](https://app.diagrams.net/)**  应付画各种简单、复杂软件/业务架构图
 
-### 废弃的利器
-~~ [repl.it](repl.it) 各种语言在线的IDE. 支持VIM模式\支持自动补全 ~~
+- **[VS Code](#)**  这个不多说了。插件强大，但使用很少，比如用于 PlantUML 画图时实时预览
+
+### 🌍 网络工具
+- **[CordCloud + ClashX + Shadowrocket]()** 科学上网，价格不贵，速度还挺好
+
+- **[transmission and watch](https://cli-ck.io/transmission-cli-user-guide/)**  下載磁力文件的 CLI 工具
+
+### 📧 信息管理
+- **[leetcode-cli](#)**  刷题利器
+
+- **[MarginNote 3]()**  满足看电子书籍的需求，做笔记非常方便，在各端同步也是刚需。
+
+- **[cheat.sh](https://github.com/chubin/cheat.sh)**  the only cheat sheet you need
+
+### 🎵 影音娱乐
+- **[cmus](https://cmus.github.io/)**  命令行下播放音乐
+
+### 📁 文件管理
+
+### 📷 图片处理
+
+### ☎️  通讯社交
+
+### 🔐 安全工具
+- **[1Password]()** 在手机/电脑端同步所有的密码
+
+### 📝 记录工具
+- **[Trello](https://trello.com)** 目标管理、项目管理、计划管理工具，缺点是没有本地保存，断网情况下出现内容丢失, 看看怎么同步到 iCal 上
+
+### 📱 手机 APP
+
+## 废弃的利器
+~~ [repl.it](repl.it) 各种语言在线的 IDE. 支持 VIM 模式、支持自动补全 ~~
 
 ~~[Synergy](https://github.com/symless/synergy-core) 在 Mac 编译命令运行方式，很少出现问题，在 synergyc 客户端侧结合 supervisor 使用感觉更丝滑。~~
 
-~~[Trello](https://trello.com) 目标管理、项目管理、计划管理工具，缺点是没有本地保存，断网情况下出现内容丢失。~~
 
 ~~[Kami](https://www.kamiapp.com/) PDF and Document Annotation  看 PDF 做笔记的很好用的软件，最好的体验是用笔在上面画。~~ 使用 MarginNote 取代了。
 
