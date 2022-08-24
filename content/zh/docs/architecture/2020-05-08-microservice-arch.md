@@ -61,25 +61,48 @@ Avoiding infrastructure coupling
 
 ##  模式 PATTERNS
 
-### Facilitators
-Facilitators<sup>[5]</sup> are simple a new type that has access to the type you wished you had generic methods on.
-比如，如果你是 ORM framework 的设计者，想提供一些查询表格的方法。你提供了一个中间类型（Querier），这个中间类型允许你写一些 generic querying functions。
+### Data Management
+#### Database per Microservice
 
-### Materialized View Patterns
+#### CQRS
+
+#### Event Sourcing
+
+#### Materialized View Patterns
 Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations. this can help support efficient querying and data extraction, and improve application performance. 
-#### Context and problem
+##### Context and problem
 选择存储数据的方式跟数据本身的格式、数据大小、数据完整性以及所使用的存储种类， 但是，这样带来查询的不好的影响。比如当查询数据的子集时，必须取出所有的相关的数据，比如查询一些客户的订单概览
 
-#### Solution 
+##### Solution 
 为了支持高效率的查询，通用的解决办法是，提前生成数据视图（materializes the data in a format suited to the required results set.）
 ![](https://docs.microsoft.com/en-us/azure/architecture/patterns/_images/materialized-view-pattern-diagram.png)
 
+### Messaging
 
-### Resilience Patterns - Sagas
+### Design and Implementation
+#### BFF
+
+#### API GateWay
+
+#### Strangler
+
+#### Consumer-Driven Contract Tracing
+
+#### Externalized Configuration 
+
+#### Facilitators
+Facilitators<sup>[5]</sup> are simple a new type that has access to the type you wished you had generic methods on.
+比如，如果你是 ORM framework 的设计者，想提供一些查询表格的方法。你提供了一个中间类型（Querier），这个中间类型允许你写一些 generic querying functions。
+
+
+#### Resilience Patterns - Sagas
 
 [ Saga distributed transactions ](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/saga/saga), a way to manage data consistency across microservices in distributed transaction scenarios。
 
-### Resilience Patterns - Circuit Breaker 
+1. Choreography
+2. Orchestration.
+
+#### Resilience Patterns - Circuit Breaker 
 " used to limit the amount of requests to a service based on configured thresholds -- helping to prevent the service from being overloaded "  --  断路器
 
 同时，通过监控多少个请求失败了，来阻止其他的请求进入到服务里
@@ -90,7 +113,7 @@ CircuitBreaker 使用 sliding window 来存储和集合发生的请求。 可以
 
 ![Image via: https://docs.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker](https://docs.microsoft.com/en-us/azure/architecture/patterns/_images/circuit-breaker-diagram.png)
 
-### Resilience Patterns - Bulkhead
+#### Resilience Patterns - Bulkhead
 " Isolates services and consumers via **partitions** ",  舱壁模式, 在航运领域，舱壁是船的一部分，合上舱口后可以保护船的其他部分。
 
 - SemophoreBulkhead, work well across a variety of threading and io models. it is based on a semaphore.
@@ -106,14 +129,14 @@ CircuitBreaker 使用 sliding window 来存储和集合发生的请求。 可以
 - Isolate critical consumers from standard consumers
 - Prodect the application from cascading failures
 
-### Request_id 
+#### Request_id 
 
 [Better Logging Approach For Microservices](https://medium.com/cstech/better-logging-approach-for-microservices-3cc2c45e7aaa) request_id在日志中打印，由请求方生成发起
 
 从[What is the X-REQUEST-ID http header?](#参考)说明来看，建议是client生成x-request-id.
 
 
-### Resilience Patterns - RateLimiter 
+#### Resilience Patterns - RateLimiter 
 
 限流的基础算法
 
