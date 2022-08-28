@@ -52,13 +52,18 @@ The Dapr actor runtime provides a simple **turn-based access mode** for accessin
 
 ##  Practise dapr
 
-### Create eks cluster 
+### Create eks cluster  
 ```bash 
 eksctl create cluster --name my-cluster-dapr --region us-east-1
 ```
 fargate 模式下不支持  persistent storage， 只能 EFS 来处理。这里还是 EBS 来支持后续持久化的存储。
 
 ### Redis Create 
+注意 helm 的版本不能太高，？
+```bash
+curl -L https://git.io/get_helm.sh | bash -s -- --version v3.8.2
+```
+
 ```bash 
 ** Please be patient while the chart is being deployed **
 
@@ -87,6 +92,20 @@ curl a1fd08af3d469457f9557491ce3b638b-1692000705.us-east-1.elb.amazonaws.com/por
 
 ### Create zipkin 
 依然是通过 LoadBalancer 来暴露外网访问，教程里是通过 ClusterIP + port-forward 的方式，对于在 EKS 等 Cloud 的环境下是不行的。
+
+
+### Delete Cluster
+[Deleting an Amazon EKS cluster](https://docs.aws.amazon.com/eks/latest/userguide/delete-cluster.html) 
+
+```bash 
+kubectl get svc --all-namespaces
+
+" Delete any services that have an associated EXTERNAL-IP value.
+kubectl delete svc service-name
+
+" Delete the cluster
+eksctl delete cluster --name prod
+```
 
 ## 参考
 
