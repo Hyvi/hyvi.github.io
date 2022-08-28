@@ -49,6 +49,42 @@ The Dapr actor runtime provides a simple **turn-based access mode** for accessin
 
 为了使用 actors, state store 必须支持 multi-item transactions. 
 
+
+##  Practise dapr
+
+### Create eks cluster 
+```bash 
+eksctl create cluster --name my-cluster-dapr --region us-east-1
+```
+fargate 模式下不支持  persistent storage， 只能 EFS 来处理。这里还是 EBS 来支持后续持久化的存储。
+
+### Redis Create 
+```bash 
+** Please be patient while the chart is being deployed **
+
+Redis&reg; can be accessed on the following DNS names from within your cluster:
+
+    redis-master.default.svc.cluster.local for read/write operations (port 6379)
+    redis-replicas.default.svc.cluster.local for read-only operations (port 6379)
+
+To get your password run:
+
+    export REDIS_PASSWORD=$(kubectl get secret --namespace default redis -o jsonpath="{.data.redis-password}" | base64 -d)
+```
+### Create nodeapp App 
+
+```bash
+kubectl  get  svc nodeapp
+NAME      TYPE           CLUSTER-IP      EXTERNAL-IP                                                               PORT(S)        AGE
+nodeapp   LoadBalancer   10.100.121.57   a1fd08af3d469457f9557491ce3b638b-1692000705.us-east-1.elb.amazonaws.com   80:30683/TCP   8m26s
+
+```
+检查下 Security Group 的策略和端口转发是正确？ 最后验证我们的服务
+
+```bash 
+curl a1fd08af3d469457f9557491ce3b638b-1692000705.us-east-1.elb.amazonaws.com/ports
+```
+
 ## 参考
 
 [1] 张善友：面向.NET开发人员的 Dapr- actors 构建块
