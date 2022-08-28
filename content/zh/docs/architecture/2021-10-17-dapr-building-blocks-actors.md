@@ -85,6 +85,9 @@ nodeapp   LoadBalancer   10.100.121.57   a1fd08af3d469457f9557491ce3b638b-169200
 curl a1fd08af3d469457f9557491ce3b638b-1692000705.us-east-1.elb.amazonaws.com/ports
 ```
 
+### Create zipkin 
+依然是通过 LoadBalancer 来暴露外网访问，教程里是通过 ClusterIP + port-forward 的方式，对于在 EKS 等 Cloud 的环境下是不行的。
+
 ## 参考
 
 [1] 张善友：面向.NET开发人员的 Dapr- actors 构建块

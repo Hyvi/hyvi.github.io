@@ -104,6 +104,7 @@ It is describing as a set of"microservice building blocks for cloud and edge" al
 - Event driven resource bindings 
 - Virtual actors --  A pattern for stateless and stateful objects that make concurrency simple with method and state encapsulation. Dapr provides many capabilities in its virtual actor runtime including concurrency, state, life-cycle management for actor activation/deactivation and timers and reminders to wake up actors<sup>[7]</sup>.
 - Distributed tracing between services 
+- Resillency 
 
 #### Sidecar architecture and supported infrastructures
 Dapr exposes its APIs as a sidecar architecture, either as a container or as a process, not requiring the application code to include any Dapr runtime code.
@@ -112,6 +113,18 @@ Dapr exposes its APIs as a sidecar architecture, either as a container or as a p
 
 #### Multi-Cloud, open components (bindings, pub-sub, state) from Azure, AWS, GCP
 Dapr is completely platform agnostic, meaning you can run your applications locally, on any Kubernetes cluster, and other hosting environments that Dapr integrates with. This enables developers to build microservice applications that can run on both the cloud and edge with no code changes.
+#### Dapr 和 Service-Mesh 的区别
+![service-mesh vs dapr](https://docs.dapr.io/images/service-mesh.png)
+
+共同点： 
+
+- 基于 mTLS 加密的服务到服务的安全通信
+- 服务到服务的度量指标收集
+- 服务度到服务的分布式跟踪
+- 故障重试恢复能力
+
+Dapr 以开发者为中心，提供了通过了名称进行服务发现和调用的方式。Dapr 还提供了其他应用级的构建块，如状态管理、发布/订阅、参与者等
+
 
 ## Principles in Microservice
 
