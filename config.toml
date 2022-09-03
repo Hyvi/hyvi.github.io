@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://hyvi.github.io"
 title = "Elon`s Blog"
 
 enableRobotsTXT = true
