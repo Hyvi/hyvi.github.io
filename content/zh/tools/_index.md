@@ -93,7 +93,7 @@ layout: docs
 ### 📱 手机 APP
 
 ## 废弃的利器
-~~ [repl.it](repl.it) 各种语言在线的 IDE. 支持 VIM 模式、支持自动补全 ~~
+~~[repl.it](repl.it) 各种语言在线的 IDE. 支持 VIM 模式、支持自动补全~~
 
 ~~[Synergy](https://github.com/symless/synergy-core) 在 Mac 编译命令运行方式，很少出现问题，在 synergyc 客户端侧结合 supervisor 使用感觉更丝滑。~~
 
@@ -123,4 +123,3 @@ layout: docs
 
 [Python 教程](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000) 罗列基础学习知识，根据目录来学习
 
-{{% /blocks/section %}}
