@@ -1,5 +1,5 @@
 ---
-title: "Bigdata Arch"
+title: "Big Data Arch"
 date: 2020-03-16T23:45:29+08:00
 draft: false
 tags: 
@@ -38,7 +38,25 @@ description:
 - 数据使用记录
 - 数据开放平台
 
-## 存储读取/写入
+### Uber Freight Carrier Metrics With Near-Real-Time Analytics
+![Uber Final System Design](https://hyvi.github.io/blog-images/20220903/uber-freight-carrier-system-design.png)
+
+目录
+1. Introduction 
+2. How We Did It
+    - Backend Requirement
+    - Potential Solution Considered 
+    - Final System Design
+    - Data Schema
+    - Flink stateful Stream Process 
+    - Hybrid Pinot Table
+    - Golang GRPC Service
+3. Impact
+4. Conclusion
+
+
+##  通用方案
+### 存储读取/写入
 
 [Data Lake  系列： 关于 EMRFS S3 优化的提交程序，你了解吗](https://zhuanlan.zhihu.com/p/113892824) 文章与 FileOutputCommitter 进行了比较。 
 
