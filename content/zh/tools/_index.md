@@ -87,7 +87,8 @@ layout: docs
 - **[1Password]()** 在手机/电脑端同步所有的密码
 
 ### 📝 记录工具
-- **[Trello](https://trello.com)** 目标管理、项目管理、计划管理工具，缺点是没有本地保存，断网情况下出现内容丢失, 看看怎么同步到 iCal 上
+- ~~**[Trello](https://trello.com)** 目标管理、项目管理、计划管理工具，缺点是没有本地保存，断网情况下出现内容丢失.~~
+- **[Notion](https://notion.so)** 种草了 Notion 新工具，取代了 Trello，更好用, 但是日历没办法同步到 iCal 里，需要自己创建
 
 ### 📱 手机 APP
 
