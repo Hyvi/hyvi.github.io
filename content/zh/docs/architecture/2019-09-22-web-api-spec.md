@@ -68,6 +68,14 @@ Luca Maraschi: API Butler for the Enterprise at Your Commands
 
 ![Kong-Slack-API-Governance](https://hyvi.github.io/blog-images/20220903/kong-slack.png)
 
+##### Insomnia 
+类似于 postman，可以通过插件与 Kong Dev Portal 结合。
+
+##### Kong Dev Portal & Workspace
+在线编辑没有版本管理，管理了 Application 和 Service。
+> provides a single source of truth for all developers to locate, access, and consume services
+
+https://konghq.com/blog/api-gateway-governance
 
 #### 其他
 
