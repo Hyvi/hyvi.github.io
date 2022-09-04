@@ -40,7 +40,7 @@ the most widely used integration platform
 
 总结： 其中代码生成、持续的代码生成、API转换都是非常需要的功能。  
 
-####  [Apigee ](cloud.google.com/apigee)  
+####  [Apigee ](https://cloud.google.com/apigee)  
 google提供跨云环境的API管理
 
 * Web API Design 
@@ -51,13 +51,26 @@ google提供跨云环境的API管理
 总结： 基本上满足文章开头的三个问题。  
 
 #### Kong 
-介绍很少  
+相结合的方案
+
+Luca Maraschi: API Butler for the Enterprise at Your Commands
+
+- How to set up Ops to seamlessly integrate with Slack
+- How to create an API based on a pre-defined template within Slack
+- How easy an API registration in Kong can be done via Slack
+- How to bring command, pipeline and services together seamlessly
+- Allow for transparent and analytic feedback loops within Slack
+- How to discover APIs in an easy and immediate way
+
+![Kong-Slack-API-Governance](https://hyvi.github.io/blog-images/20220903/kong-slack.png)
+
+
 #### 其他
 
 * [apigility ]( www.apigility.org )  
 * [Falcon](#) Python web framework   
 * [Amazon API Gateway](#) traffic management, authorization and access control, monitoring and API version management  
-* [SPECCY](speccy.io)  a handy toolkit for OpenAPI, with a linter to enforce quality rules, documention rendering and resolution
+* [SPECCY](https://speccy.io)  a handy toolkit for OpenAPI, with a linter to enforce quality rules, documention rendering and resolution
 
 ### 公司解决方案
 
