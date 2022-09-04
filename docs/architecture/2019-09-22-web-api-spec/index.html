@@ -23,15 +23,15 @@ APIMATIC  instant SDK, Code Samples, Test Cases Continuous Code Generation API T
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://hyvi.github.io/docs/architecture/2019-09-22-web-api-spec/"><meta property="article:section" content="docs">
 <meta property="article:published_time" content="2019-09-22T00:22:23+08:00">
-<meta property="article:modified_time" content="2022-09-04T03:20:29-07:00"><meta property="og:site_name" content="Elon`s Blog">
+<meta property="article:modified_time" content="2022-09-04T06:34:02-07:00"><meta property="og:site_name" content="Elon`s Blog">
 <meta itemprop=name content="Web API Spec管理平台">
 <meta itemprop=description content="背景 后台服务对外最重要的是提供API接口，上百上千的接口，怎么保持一种规范/约束，才能让接口在创建、更新、废弃生命周期中是有据可循的呢？
  接口的创建是按照什么规范? 接口的更新是对业务方无影响或者影响非常小的？ 接口的废弃是怎样的方式？  调研 业界解决方案 apiary  Support API Blueprint\Swagger API   DNA for your API &mdash; powerful, open sourced and developer-friendly. The ease of Markdown combined with the power of automated mock server , tests, validations, proxies, and code samples in your language bindings
   Server Mock Documentation Traffic Inpspector  MuleSoft the most widely used integration platform
 总结： 有接口管理、实时使用数据指标、流量突变告警、
 APIMATIC  instant SDK, Code Samples, Test Cases Continuous Code Generation API Transformer  总结： 其中代码生成、持续的代码生成、API转换都是非常需要的功能。"><meta itemprop=datePublished content="2019-09-22T00:22:23+08:00">
-<meta itemprop=dateModified content="2022-09-04T03:20:29-07:00">
-<meta itemprop=wordCount content="276">
+<meta itemprop=dateModified content="2022-09-04T06:34:02-07:00">
+<meta itemprop=wordCount content="308">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Web API Spec管理平台">
 <meta name=twitter:description content="背景 后台服务对外最重要的是提供API接口，上百上千的接口，怎么保持一种规范/约束，才能让接口在创建、更新、废弃生命周期中是有据可循的呢？
@@ -64,7 +64,7 @@ APIMATIC  instant SDK, Code Samples, Test Cases Continuous Code Generation API T
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; 站内搜索…" aria-label=站内搜索… autocomplete=off data-offline-search-index-json-src=/offline-search-index.a4068e4d052f42b90bfcbd976b7fdf20.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; 站内搜索…" aria-label=站内搜索… autocomplete=off data-offline-search-index-json-src=/offline-search-index.162ddd56e30b021e2da4f41d2115d234.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -74,7 +74,7 @@ APIMATIC  instant SDK, Code Samples, Test Cases Continuous Code Generation API T
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; 站内搜索…" aria-label=站内搜索… autocomplete=off data-offline-search-index-json-src=/offline-search-index.a4068e4d052f42b90bfcbd976b7fdf20.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; 站内搜索…" aria-label=站内搜索… autocomplete=off data-offline-search-index-json-src=/offline-search-index.162ddd56e30b021e2da4f41d2115d234.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -468,6 +468,14 @@ APIMATIC  instant SDK, Code Samples, Test Cases Continuous Code Generation API T
 <li>How to discover APIs in an easy and immediate way</li>
 </ul>
 <p><img src=https://hyvi.github.io/blog-images/20220903/kong-slack.png alt=Kong-Slack-API-Governance></p>
+<h5 id=insomnia>Insomnia</h5>
+<p>类似于 postman，可以通过插件与 Kong Dev Portal 结合。</p>
+<h5 id=kong-dev-portal--workspace>Kong Dev Portal & Workspace</h5>
+<p>在线编辑没有版本管理，管理了 Application 和 Service。</p>
+<blockquote>
+<p>provides a single source of truth for all developers to locate, access, and consume services</p>
+</blockquote>
+<p><a href=https://konghq.com/blog/api-gateway-governance>https://konghq.com/blog/api-gateway-governance</a></p>
 <h4 id=其他>其他</h4>
 <ul>
 <li><a href=www.apigility.org>apigility </a></li>
@@ -501,7 +509,7 @@ APIMATIC  instant SDK, Code Samples, Test Cases Continuous Code Generation API T
 <div class="text-muted mt-5 pt-3 border-top">
 最后修改
 September 4, 2022
-: <a href=https://github.com/Hyvi/blog/commit/b070cbcc752718241e26e4084b8f78c5c995db16>add drupal kong api publisher (b070cbc)</a>
+: <a href=https://github.com/Hyvi/blog/commit/9f91bcb0dcb24c8c5f89086bc996eead8ca7cfc3>add kong api governance (9f91bcb)</a>
 </div>
 </div>
 </main>
