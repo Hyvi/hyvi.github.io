@@ -53,8 +53,12 @@ google提供跨云环境的API管理
 #### Kong 
 相结合的方案
 
-Luca Maraschi: API Butler for the Enterprise at Your Commands
+#####  drupal kong api publisher
+https://git.drupalcode.org/project/kong_api_publisher/-/tree/1.0.x
 
+#####  kong slack api Governance
+Luca Maraschi: API Butler for the Enterprise at Your Commands
+ 
 - How to set up Ops to seamlessly integrate with Slack
 - How to create an API based on a pre-defined template within Slack
 - How easy an API registration in Kong can be done via Slack
