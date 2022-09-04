@@ -23,15 +23,15 @@ APIMATIC  instant SDK, Code Samples, Test Cases Continuous Code Generation API T
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://hyvi.github.io/docs/architecture/2019-09-22-web-api-spec/"><meta property="article:section" content="docs">
 <meta property="article:published_time" content="2019-09-22T00:22:23+08:00">
-<meta property="article:modified_time" content="2021-08-14T22:36:12+08:00"><meta property="og:site_name" content="Elon`s Blog">
+<meta property="article:modified_time" content="2022-09-04T03:18:14-07:00"><meta property="og:site_name" content="Elon`s Blog">
 <meta itemprop=name content="Web API Spec管理平台">
 <meta itemprop=description content="背景 后台服务对外最重要的是提供API接口，上百上千的接口，怎么保持一种规范/约束，才能让接口在创建、更新、废弃生命周期中是有据可循的呢？
  接口的创建是按照什么规范? 接口的更新是对业务方无影响或者影响非常小的？ 接口的废弃是怎样的方式？  调研 业界解决方案 apiary  Support API Blueprint\Swagger API   DNA for your API &mdash; powerful, open sourced and developer-friendly. The ease of Markdown combined with the power of automated mock server , tests, validations, proxies, and code samples in your language bindings
   Server Mock Documentation Traffic Inpspector  MuleSoft the most widely used integration platform
 总结： 有接口管理、实时使用数据指标、流量突变告警、
 APIMATIC  instant SDK, Code Samples, Test Cases Continuous Code Generation API Transformer  总结： 其中代码生成、持续的代码生成、API转换都是非常需要的功能。"><meta itemprop=datePublished content="2019-09-22T00:22:23+08:00">
-<meta itemprop=dateModified content="2021-08-14T22:36:12+08:00">
-<meta itemprop=wordCount content="195">
+<meta itemprop=dateModified content="2022-09-04T03:18:14-07:00">
+<meta itemprop=wordCount content="267">
 <meta itemprop=keywords content><meta name=twitter:card content="summary">
 <meta name=twitter:title content="Web API Spec管理平台">
 <meta name=twitter:description content="背景 后台服务对外最重要的是提供API接口，上百上千的接口，怎么保持一种规范/约束，才能让接口在创建、更新、废弃生命周期中是有据可循的呢？
@@ -64,7 +64,7 @@ APIMATIC  instant SDK, Code Samples, Test Cases Continuous Code Generation API T
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; 站内搜索…" aria-label=站内搜索… autocomplete=off data-offline-search-index-json-src=/offline-search-index.2d2f20daa6aad5ae0d2e50d523d834d9.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; 站内搜索…" aria-label=站内搜索… autocomplete=off data-offline-search-index-json-src=/offline-search-index.19c914c40bc642be5c4191cc29fc989e.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -74,7 +74,7 @@ APIMATIC  instant SDK, Code Samples, Test Cases Continuous Code Generation API T
 <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
 <div id=td-sidebar-menu class=td-sidebar__inner>
 <form class="td-sidebar__search d-flex align-items-center">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; 站内搜索…" aria-label=站内搜索… autocomplete=off data-offline-search-index-json-src=/offline-search-index.2d2f20daa6aad5ae0d2e50d523d834d9.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; 站内搜索…" aria-label=站内搜索… autocomplete=off data-offline-search-index-json-src=/offline-search-index.19c914c40bc642be5c4191cc29fc989e.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
 </button>
 </form>
@@ -444,7 +444,7 @@ APIMATIC  instant SDK, Code Samples, Test Cases Continuous Code Generation API T
 <li>API Transformer</li>
 </ul>
 <p>总结： 其中代码生成、持续的代码生成、API转换都是非常需要的功能。</p>
-<h4 id=apigee-cloudgooglecomapigee><a href=cloud.google.com/apigee>Apigee </a></h4>
+<h4 id=apigee-httpscloudgooglecomapigee><a href=https://cloud.google.com/apigee>Apigee </a></h4>
 <p>google提供跨云环境的API管理</p>
 <ul>
 <li>Web API Design</li>
@@ -454,13 +454,23 @@ APIMATIC  instant SDK, Code Samples, Test Cases Continuous Code Generation API T
 </ul>
 <p>总结： 基本上满足文章开头的三个问题。</p>
 <h4 id=kong>Kong</h4>
-<p>介绍很少</p>
+<p>相结合的方案</p>
+<p>Luca Maraschi: API Butler for the Enterprise at Your Commands</p>
+<ul>
+<li>How to set up Ops to seamlessly integrate with Slack</li>
+<li>How to create an API based on a pre-defined template within Slack</li>
+<li>How easy an API registration in Kong can be done via Slack</li>
+<li>How to bring command, pipeline and services together seamlessly</li>
+<li>Allow for transparent and analytic feedback loops within Slack</li>
+<li>How to discover APIs in an easy and immediate way</li>
+</ul>
+<p><img src=https://hyvi.github.io/blog-images/20220903/kong-slack.png alt=Kong-Slack-API-Governance></p>
 <h4 id=其他>其他</h4>
 <ul>
 <li><a href=www.apigility.org>apigility </a></li>
 <li><a href=#>Falcon</a> Python web framework</li>
 <li><a href=#>Amazon API Gateway</a> traffic management, authorization and access control, monitoring and API version management</li>
-<li><a href=speccy.io>SPECCY</a> a handy toolkit for OpenAPI, with a linter to enforce quality rules, documention rendering and resolution</li>
+<li><a href=https://speccy.io>SPECCY</a> a handy toolkit for OpenAPI, with a linter to enforce quality rules, documention rendering and resolution</li>
 </ul>
 <h3 id=公司解决方案>公司解决方案</h3>
 <h2 id=结论>结论</h2>
@@ -487,8 +497,8 @@ APIMATIC  instant SDK, Code Samples, Test Cases Continuous Code Generation API T
 <center> ·End· </center>
 <div class="text-muted mt-5 pt-3 border-top">
 最后修改
-August 14, 2021
-: <a href=https://github.com/Hyvi/blog/commit/933e0bdb8297da3194a555177677da230525dbd5>add team\tool (933e0bd)</a>
+September 4, 2022
+: <a href=https://github.com/Hyvi/blog/commit/ee7400cb955ce456ff51d0a012205edaf19bdc5b>add kong slack (ee7400c)</a>
 </div>
 </div>
 </main>
