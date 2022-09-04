@@ -1,0 +1,79 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Elon`s Blog – 架构</title><link>https://hyvi.github.io/tags/%E6%9E%B6%E6%9E%84/</link><description>Recent content in 架构 on Elon`s Blog</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 26 May 2022 16:09:34 +0800</lastBuildDate><atom:link href="https://hyvi.github.io/tags/%E6%9E%B6%E6%9E%84/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: 云原生模式 CLOUD NATIVE PATTERNS</title><link>https://hyvi.github.io/docs/architecture/2022-05-26-cloud-native-pattern/</link><pubDate>Thu, 26 May 2022 16:09:34 +0800</pubDate><guid>https://hyvi.github.io/docs/architecture/2022-05-26-cloud-native-pattern/</guid><description>
+&lt;p>随着底层基础设施的云原生的流行，对上层应用的开发模式带来了变化：&lt;/p>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/ContainerSolutions/cloud-native-patterns/master/assets/images/Screenshot%202020-01-06%20at%2014.07.47.png" alt="">&lt;/p>
+&lt;h2 id="refs">Refs&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Cloud Native Pattern: &lt;a href="https://github.com/ContainerSolutions/cloud-native-patterns">https://github.com/ContainerSolutions/cloud-native-patterns&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Cornelia Davis: Cloud Native Patterns_ Designing change-tolerant software.pdf&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Pini Reznik, Jamie Dobson &amp;amp; Michelle Gienow: cloud-native-transformation-practical-patterns-for-innovation
+&lt;br>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;center> ·End· &lt;/center></description></item><item><title>Docs: 如何构建基础库</title><link>https://hyvi.github.io/docs/team/2022-05-22-go-library-build/</link><pubDate>Sun, 22 May 2022 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/team/2022-05-22-go-library-build/</guid><description>
+&lt;h2 id="简介">简介&lt;/h2>
+&lt;p>提供一个库，沉淀共性的功能点。&lt;/p>
+&lt;p>是Library，而不是 Framework。&lt;/p>
+&lt;p>有哪些内容呢？&lt;/p>
+&lt;h2 id="参考1-gitlab-labkit">参考1 Gitlab Labkit&lt;/h2>
+&lt;p>LabKit is minimalist library to provide functionality for Go services at GitLab.&lt;/p>
+&lt;ul>
+&lt;li>Correlation&lt;/li>
+&lt;li>&lt;strong>Loggging&lt;/strong>&lt;/li>
+&lt;li>Masking&lt;/li>
+&lt;li>&lt;strong>Metrics&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>Monitoring&lt;/strong>&lt;/li>
+&lt;li>FIPS&lt;/li>
+&lt;li>&lt;strong>Tracing&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>ErrorTracking&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h2 id="参考2-go-zero">参考2 go-zero&lt;/h2>
+&lt;ul>
+&lt;li>鉴权&lt;/li>
+&lt;li>加解密&lt;/li>
+&lt;li>日志记录&lt;/li>
+&lt;li>异常捕获&lt;/li>
+&lt;li>监控报警&lt;/li>
+&lt;li>数据统计&lt;/li>
+&lt;li>并发控制&lt;/li>
+&lt;li>链路追踪&lt;/li>
+&lt;li>超时控制&lt;/li>
+&lt;li>自动熔断&lt;/li>
+&lt;li>自动降载&lt;/li>
+&lt;li>缓存控制&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://raw.githubusercontent.com/zeromicro/zero-doc/main/doc/images/architecture.png" alt="">&lt;/p>
+&lt;h2 id="参考3-micro">参考3 Micro&lt;/h2>
+&lt;p>&lt;a href="https://micro.dev/architecture">Micro Architecture&lt;/a>&lt;/p>
+&lt;p>&lt;img src="https://micro.dev/images/micro-3.0.png" alt="">&lt;/p>
+&lt;p>Wrapppers are a form of middleware that can be used with go-micro services, They can Wrap both the Client and Server handlers&lt;/p>
+&lt;ul>
+&lt;li>Breaker&lt;/li>
+&lt;li>endpoint&lt;/li>
+&lt;li>Monitoring&lt;/li>
+&lt;li>ratelimiter&lt;/li>
+&lt;li>service&lt;/li>
+&lt;li>trace&lt;/li>
+&lt;li>validator&lt;/li>
+&lt;/ul>
+&lt;h2 id="参考4-dapr">参考4 Dapr&lt;/h2></description></item><item><title>Docs: 迁移线上服务方案</title><link>https://hyvi.github.io/docs/architecture/2019-09-16-upgrade-online-service/</link><pubDate>Mon, 16 Sep 2019 16:09:34 +0800</pubDate><guid>https://hyvi.github.io/docs/architecture/2019-09-16-upgrade-online-service/</guid><description>
+&lt;h2 id="背景">背景&lt;/h2>
+&lt;p>迁移服务器或者服务升级的事情时，需要对使用方来说是无感知的&lt;br>
+那怎么做到新旧代码或者新旧服务的平稳过渡呢？ 根据不同的情况具体的方案也是不一样的。&lt;/p>
+&lt;h2 id="调研">调研&lt;/h2>
+&lt;p>对各大公司进行做服务升级或者迁移的方案学习。吸取有用的方案。&lt;/p>
+&lt;h3 id="模拟客户端的请求前端做灰度上线">模拟客户端的请求，前端做灰度上线&lt;/h3>
+&lt;p>部署新旧服务， 完成AB测试， 灰度上线&lt;br>
+数据库数据怎么解决的？&lt;/p>
+&lt;h2 id="可行的方案">可行的方案&lt;/h2>
+&lt;p>结合目前的我们的基础设施，可执行的方案。&lt;/p>
+&lt;h2 id="最佳实践">最佳实践&lt;/h2>
+&lt;p>最后，我们的最佳实践是什么，我们实践后的总结&lt;/p>
+&lt;h2 id="参考">参考&lt;/h2>
+&lt;p>&lt;a href="https://hyvi.github.io">记一次从Rails直Golang的接口迁移&lt;/a>
+&lt;br>&lt;/p>
+&lt;center> ·End· &lt;/center></description></item></channel></rss>

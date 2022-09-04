@@ -1,0 +1,35 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Elon`s Blog – API</title><link>https://hyvi.github.io/tags/api/</link><description>Recent content in API on Elon`s Blog</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 25 Sep 2019 22:56:31 +0800</lastBuildDate><atom:link href="https://hyvi.github.io/tags/api/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: API 兼容性设计</title><link>https://hyvi.github.io/docs/architecture/2019-09-25-api-compatibility/</link><pubDate>Wed, 25 Sep 2019 22:56:31 +0800</pubDate><guid>https://hyvi.github.io/docs/architecture/2019-09-25-api-compatibility/</guid><description>
+&lt;h2 id="简介">简介&lt;/h2>
+&lt;p>向后兼容的一般目标是： 服务升级到新的minor版本或者patch后客户端不应该被破坏&lt;/p>
+&lt;h2 id="名词解释">名词解释&lt;/h2>
+&lt;h3 id="source-compatibility">Source Compatibility&lt;/h3>
+&lt;p>code that compiled against version X of an API will also compile against version Y .&lt;/p>
+&lt;h3 id="binary-compatibility">Binary Compatibility&lt;/h3>
+&lt;p>code that compiled against version X of an API will run correctly in an environment that has version Y of the same API.&lt;/p>
+&lt;h2 id="向后兼容性的改变">向后兼容性的改变&lt;/h2>
+&lt;ul>
+&lt;li>为API服务添加一个API接口&lt;/li>
+&lt;li>为API接口添加一个方法&lt;/li>
+&lt;li>为方法添加一个HTTP绑定&lt;/li>
+&lt;li>为请求消息添加一个字段&lt;/li>
+&lt;li>为响应消息添加一个字段&lt;/li>
+&lt;li>为枚举类型添加一个值&lt;/li>
+&lt;li>添加output-only的资源字段&lt;/li>
+&lt;/ul>
+&lt;h2 id="不向后兼容的更改">不向后兼容的更改&lt;/h2>
+&lt;ul>
+&lt;li>删除或重命名一个服务，字段或者枚举值&lt;/li>
+&lt;li>更改HTTP绑定&lt;/li>
+&lt;li>更改某个字段类型&lt;/li>
+&lt;li>更改资源名称格式&lt;/li>
+&lt;li>修改已有请求的可见性&lt;/li>
+&lt;li>在HTTP定义中改变URL格式&lt;/li>
+&lt;li>在资源消息中添加读/写字段&lt;/li>
+&lt;/ul>
+&lt;h2 id="参考">参考&lt;/h2>
+&lt;p>&lt;a href="https://segmentfault.com/a/1190000009157548#articleHeader14"> Google API 设计指南 - 兼容性 &lt;/a>&lt;br>
+&lt;a href="https://developers.google.com/youtube/compatibility_guidelines"> Backward Compatibility Guidelines &lt;/a>&lt;br>
+&lt;a href="https://google-cloud.gitbook.io/api-design-guide/"> API Gesign Guide &lt;/a> Google针对网络API的通用设计指南&lt;br>
+&lt;a href="https://github.com/kijiproject/wiki/wiki/API-Compatibility-v2"> API Compatibility v2&lt;/a>&lt;/p>
+&lt;br>
+&lt;center> ·End· &lt;/center></description></item></channel></rss>

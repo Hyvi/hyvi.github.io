@@ -1,0 +1,86 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Elon`s Blog – javascript</title><link>https://hyvi.github.io/tags/javascript/</link><description>Recent content in javascript on Elon`s Blog</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://hyvi.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: javascript Number --- 再次结识</title><link>https://hyvi.github.io/docs/javascript/2013-01-28-javascript_number_nan/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/javascript/2013-01-28-javascript_number_nan/</guid><description>
+&lt;p>javascript类型划为两大类：原始类型（甭管这样的翻译是否规范，英文为primitive type) 和 对象类型。原始类型又划为四大类：数值、字符串、布尔值，还有两个特殊的类型：null 和 undefined 。
+废话少说，直接进入主题：&lt;em>javascript number的几点&lt;/em>&lt;/p>
+&lt;ol>
+&lt;li>与其他语言相比，javascript number不同点&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>JavaScript does not make a distinction between integer values
+and floating-point values. All numbers in JavaScript are represented as floating-&amp;gt;point values.&lt;/p>
+&lt;/blockquote>
+&lt;ol start="2">
+&lt;li>javascript number表达的数值是有限的，于是就有overflow, underflow。&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>Arithmetic in JavaScript does not raise errors in cases of overflow, underflow, or division by zero.
+(-)Infinity when overflow, (-)0 when underflow
+Division by zero is not an error in JavaScript: it simply returns infinity or negative
+infinity.&lt;/p>
+&lt;/blockquote>
+&lt;ol start="3">
+&lt;li>javascript number 中特殊的NaN&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>There is one exception, however: zero divided by zero does not have a well-defined value, and the result of this operation is the special not-a-number value, printed as NaN. NaN also arises if you attempt to&lt;/p>
+&lt;ul>
+&lt;li>divide infinity by infinity&lt;/li>
+&lt;li>take the square root of a negative number&lt;/li>
+&lt;li>use arithmetic operators with non-numeric operands that
+cannot be converted to numbers&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;pre>&lt;code>
+Infinity // A read/write variable initialized to Infinity.
+Number.POSITIVE_INFINITY // Same value, read-only.
+1/0 // This is also the same value.
+Number.MAX_VALUE + 1 // This also evaluates to Infinity.
+Number.NEGATIVE_INFINITY // These expressions are negative infinity.
+-Infinity
+-1/0
+-Number.MAX_VALUE - 1
+NaN // A read/write variable initialized to NaN.
+Number.NaN // A read-only property holding the same value.
+0/0 // Evaluates to NaN.
+Number.MIN_VALUE/2 // Underflow: evaluates to 0
+-Number.MIN_VALUE/2 // Negative zero
+-1/Infinity // Also negative 0
+-0
+&lt;/code>&lt;/pre>
+&lt;ol start="4">
+&lt;li>javascript NaN != NaN&lt;/li>
+&lt;/ol>
+&lt;blockquote>
+&lt;p>The not-a-number value has one unusual feature in JavaScript: it does not compare equal to any other value, including itself. This means that you can’t write x == NaN to determine whether the value of a variable xis NaN. Instead, you should write x != x. That expression will be true if, and only if, x is NaN. The function isNaN()is similar. It returns trueif its argument is NaN, or if that argument is a non-numeric value such as a string or an object. The related function isFinite()returns trueif its argument is a number other than NaN, Infinity, or -Infinity.&lt;/p>
+&lt;/blockquote>
+&lt;ol start="5">
+&lt;li>
+&lt;p>.3-.2 == .1 &amp;amp; .2-.1 == .1&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>-0 === 0&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;pre>&lt;code>
+var zero = 0; // Regular zero
+var negz = -0; // Negative zero
+zero === negz // => true: zero and negative zero are equal
+1/zero === 1/negz // => false: infinity and -infinity are not equal
+&lt;/code>&lt;/pre>
+&lt;p>这算是对之前文章http://hyvi.sinaapp.com/2012/10/09/javascript-nan/ 做了个补充。
+twitter上的代码：&lt;/p>
+&lt;pre>&lt;code>
+[0,7,5,10,4,15,2,13,4,16,4,10,1].map(function(a){return this[a];},typeof("")+typeof(0)+NaN+"d.").join("")
+&lt;/code>&lt;/pre></description></item><item><title>Docs: nodejs</title><link>https://hyvi.github.io/docs/javascript/2012-11-21-nodejs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/javascript/2012-11-21-nodejs/</guid><description>
+&lt;h2 id="done">DONE&lt;/h2>
+&lt;ol>
+&lt;li>用c++写node本地插件，&lt;a href="https://github.com/joyent/node/tree/master/test/addons/hello-world">hello-world&lt;/a>. 编译构建使用&lt;a href="https://github.com/TooTallNate/node-gyp">node-gyp&lt;/a>
+其中对c++代码不太熟悉，好难懂的样子，回头学习下&lt;em>TODO&lt;/em>&lt;/li>
+&lt;li>性能测试，群里聊到Siege， brenchmark.js， ab(apache benchmark)&lt;/li>
+&lt;li>&lt;a href="https://speakerdeck.com/hunvreus/api-plus-static-clients">API + Static Clients&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>对cors技术解决方案&lt;/li>
+&lt;li>对session实现的技术方案&lt;/li>
+&lt;/ul>
+&lt;h2 id="todo">TODO&lt;/h2>
+&lt;p>&lt;a href="http://weibo.com/1880082254/z5KR7zF4t?type=repost">CMD vs AMD&lt;/a> 理解CommonJS与RequireJS&lt;/p></description></item></channel></rss>

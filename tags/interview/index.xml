@@ -1,0 +1,69 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Elon`s Blog – interview</title><link>https://hyvi.github.io/tags/interview/</link><description>Recent content in interview on Elon`s Blog</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://hyvi.github.io/tags/interview/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: INTERVIEW CONCLUSION</title><link>https://hyvi.github.io/docs/other/2012-12-10-interview_conclusion/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/other/2012-12-10-interview_conclusion/</guid><description>
+&lt;h3 id="10万数字选取最大的100个数算法度">10万数字，选取最大的100个数。算法度&lt;/h3>
+&lt;p>这个题目当时没细想，估计面试官想问排序问题，然后说了下快速排序。&lt;br />
+其实完全没必要排序。遍历一次就可找出来最大的100数字。&lt;/p>
+&lt;p>类似问题： &lt;a href="https://stackoverflow.com/questions/19227698/write-a-program-to-find-100-largest-numbers-out-of-an-array-of-1-billion-numbers">Write a program to find 100 largest numbers out of an array of 1 billion numbers&lt;/a>&lt;/p>
+&lt;h3 id="xxxx年xx月xx日-xxxxxx-表示当前日期">xxxx年xx月xx日 xx:xx:xx 表示当前日期&lt;/h3>
+&lt;p>&lt;a href="http://codepen.io/Hyvi/pen/BheHd">代码&lt;/a> 终于重写到自己感觉满意了。&lt;/p>
+&lt;h3 id="给定个返回json的url有哪些方法获取数据然后显示在其他域的页面上">给定个返回json的url，有哪些方法获取数据然后显示在其他域的页面上&lt;/h3>
+&lt;ul>
+&lt;li>如果提供jsonp的调用,页面中调用jsonp方式&lt;/li>
+&lt;li>后端代理的方式。&lt;/li>
+&lt;li>Cross-domain Request(cors)&lt;/li>
+&lt;li>还有其他的方式吗？ Tell me!!!&lt;/li>
+&lt;/ul>
+&lt;h2 id="算法时间复杂度与空间复杂度的计算">算法时间复杂度与空间复杂度的计算&lt;/h2>
+&lt;p>&lt;strong>时间频度&lt;/strong>&lt;/p>
+&lt;p>一个算法所花费的时间与代码语句执行的次数成正比。我们把一个算法中的语句执行次数称为时间频度，记作 T(n)&lt;/p>
+&lt;p>&lt;strong>渐进时间复杂度&lt;/strong>&lt;/p>
+&lt;p>在时间频度 T(n) 中，n 表示着问题的规模，当 n 不断变化时， T(n) 也会不断地随之变化。那么，如果我们想知道 T(n) 随着 n 变化时会呈现什么样的规律，那么就需要引入时间复杂度的概念。&lt;/p>
+&lt;p>如果存在某个函数 f(n)， 使得当 n 趋于无穷大时，T(n)/f(n)的极限值是不为零的常数，那么 f(n) 是 T(n) 同数量级的函数，记作 T(n) = O(f(n))，称 O(f(n)) 为算法的渐进时间复杂度，简称为时间的复杂度。&lt;/p>
+&lt;p>常见的时间复杂度有： O(1) 常数型； O(log&lt;sub>n&lt;/sub>) 对数型；O(n) 线性型；O(nlog&lt;sub>n&lt;/sub>) 线性对数型；O(n&lt;sup>2&lt;/sup>) 平方型；O(n&lt;sup>3&lt;/sup>) 立方型；O(n&lt;sup>k&lt;/sup>) k次方型；O(2&lt;sup>n&lt;/sup>) 指数型。&lt;/p>
+&lt;p>更多时间复杂度实例&lt;sup>[1]&lt;/sup>&lt;/p>
+&lt;h2 id="参考">参考&lt;/h2>
+&lt;p>[1] 程序新视界: &lt;a href="https://cloud.tencent.com/developer/article/1769988">LeetCode0：学习算法必备知识：时间复杂度与空间复杂度的计算&lt;/a>&lt;/p></description></item><item><title>Docs: Python 面试Problems</title><link>https://hyvi.github.io/docs/python/2017-09-06-python-problems/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/python/2017-09-06-python-problems/</guid><description>
+&lt;p>&lt;a href="http://codingpy.com/article/essential-python-interview-questions/">Python面试必须要看的15个问题&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>到底什么是Python? //考察语言特性&lt;/li>
+&lt;li>补充缺失的代码&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">print_directory_contents&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">sPath&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&amp;#34;
+&lt;/span>&lt;span style="color:#4e9a06"> 这个函数接受文件夹的名称作为输入参数，
+&lt;/span>&lt;span style="color:#4e9a06"> 返回该文件夹中文件的路径，
+&lt;/span>&lt;span style="color:#4e9a06"> 以及其包含文件夹中文件的路径。
+&lt;/span>&lt;span style="color:#4e9a06">
+&lt;/span>&lt;span style="color:#4e9a06"> &amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># 补充代码&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>你如何管理不同版本的代码？&lt;/li>
+&lt;li>下面代码会输出什么：&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">f&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#000">l&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000;font-weight:bold">[]):&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#204a87">range&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">x&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#000">l&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">append&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87">print&lt;/span> &lt;span style="color:#000">l&lt;/span>
+&lt;span style="color:#000">f&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">f&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">,[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">])&lt;/span>
+&lt;span style="color:#000">f&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>这两个参数是什么意思：*args，**kwargs？我们为什么要使用它们？&lt;/li>
+&lt;li>下面这些是什么意思：@classmethod, @staticmethod, @property？&lt;/li>
+&lt;li>递归和生成器（generator）的使用&lt;/li>
+&lt;li>简要描述Python的垃圾回收机制（garbage collection）。&lt;/li>
+&lt;li>将下面的函数按照执行效率高低排序。它们都接受由0至1之间的数字构成的列表作为输入。这个列表可以很长。一个输入列表的示例如下：[random.random() for i in range(100000)]。你如何证明自己的答案是正确的。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">
+&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">f1&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">lIn&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#000">l1&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">sorted&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">lIn&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">l2&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">l1&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">i&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0.5&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">l2&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">f2&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">lIn&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#000">l1&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">lIn&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">i&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0.5&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000">l2&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">sorted&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">l1&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">l2&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">f3&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">lIn&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#000">l1&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">i&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">lIn&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000">l2&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#204a87">sorted&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">l1&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">for&lt;/span> &lt;span style="color:#000">i&lt;/span> &lt;span style="color:#204a87;font-weight:bold">in&lt;/span> &lt;span style="color:#000">l1&lt;/span> &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">i&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0.5&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0.5&lt;/span>&lt;span style="color:#000;font-weight:bold">)]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

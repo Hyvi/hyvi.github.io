@@ -1,0 +1,648 @@
+<!doctype html><html lang=zh class=no-js>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=generator content="Hugo 0.91.2"><meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel="shortcut icon" href=/favicons/favicon.ico>
+<link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180>
+<link rel=icon type=image/png href=/favicons/favicon-16x16.png sizes=16x16>
+<link rel=icon type=image/png href=/favicons/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/favicons/android-36x36.png sizes=36x36>
+<link rel=icon type=image/png href=/favicons/android-48x48.png sizes=48x48>
+<link rel=icon type=image/png href=/favicons/android-72x72.png sizes=72x72>
+<link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96>
+<link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144>
+<link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192>
+<title>OAM 详解 | Elon`s Blog</title>
+<meta name=description content="Elon blog site"><meta property="og:title" content="OAM 详解">
+<meta property="og:description" content="名词解释 Actor Pattern (Actor 模型） 来自 Dapr 项目中的一个 concept. Dapr 项目也实现了 OAM 规范, Dapr 为未来 APP 开发方式。
+ Dapr is a progamming model and not an application mdoel, so it operates in a lower abstraction. OAM is intended to solve the problem of modeling an application and all dependencies.
+Dapr will not model the application&rsquo;s architecture.
+ 它是一个并行计算的数学模型，最初为由大量独立的微处理器组成的高并行计算机所开发。Actor 模型的理念非常简单： 天下万物皆为 Actor。 Actor 之间通过发送消息来通信， 消息的传递是异步的。每个 Actor 是完全独立的，同时执行它们的操作。
+当一个 actor 接收到消息后，它能做如下三件事情中一件：
+ Create more actors Send messages to other actors Designates what to do with the next message  更多点击链接：10 分钟了解 Actor 模型，这本书也提到《七周七并发模型》，下载了电子版放在 MarginNote 3 里来细读。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hyvi.github.io/docs/k8s/2020-01-05-oam/"><meta property="article:section" content="docs">
+<meta property="article:published_time" content="2020-01-05T16:31:55+08:00">
+<meta property="article:modified_time" content="2021-10-17T16:12:05+08:00"><meta property="og:site_name" content="Elon`s Blog">
+<meta itemprop=name content="OAM 详解">
+<meta itemprop=description content="名词解释 Actor Pattern (Actor 模型） 来自 Dapr 项目中的一个 concept. Dapr 项目也实现了 OAM 规范, Dapr 为未来 APP 开发方式。
+ Dapr is a progamming model and not an application mdoel, so it operates in a lower abstraction. OAM is intended to solve the problem of modeling an application and all dependencies.
+Dapr will not model the application&rsquo;s architecture.
+ 它是一个并行计算的数学模型，最初为由大量独立的微处理器组成的高并行计算机所开发。Actor 模型的理念非常简单： 天下万物皆为 Actor。 Actor 之间通过发送消息来通信， 消息的传递是异步的。每个 Actor 是完全独立的，同时执行它们的操作。
+当一个 actor 接收到消息后，它能做如下三件事情中一件：
+ Create more actors Send messages to other actors Designates what to do with the next message  更多点击链接：10 分钟了解 Actor 模型，这本书也提到《七周七并发模型》，下载了电子版放在 MarginNote 3 里来细读。"><meta itemprop=datePublished content="2020-01-05T16:31:55+08:00">
+<meta itemprop=dateModified content="2021-10-17T16:12:05+08:00">
+<meta itemprop=wordCount content="895">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="OAM 详解">
+<meta name=twitter:description content="名词解释 Actor Pattern (Actor 模型） 来自 Dapr 项目中的一个 concept. Dapr 项目也实现了 OAM 规范, Dapr 为未来 APP 开发方式。
+ Dapr is a progamming model and not an application mdoel, so it operates in a lower abstraction. OAM is intended to solve the problem of modeling an application and all dependencies.
+Dapr will not model the application&rsquo;s architecture.
+ 它是一个并行计算的数学模型，最初为由大量独立的微处理器组成的高并行计算机所开发。Actor 模型的理念非常简单： 天下万物皆为 Actor。 Actor 之间通过发送消息来通信， 消息的传递是异步的。每个 Actor 是完全独立的，同时执行它们的操作。
+当一个 actor 接收到消息后，它能做如下三件事情中一件：
+ Create more actors Send messages to other actors Designates what to do with the next message  更多点击链接：10 分钟了解 Actor 模型，这本书也提到《七周七并发模型》，下载了电子版放在 MarginNote 3 里来细读。">
+<link rel=preload href=/scss/main.min.f37c3fb6f746e6bc4c5eba11e2f176c897da8bb403ddc2aaac1d527737818c66.css as=style>
+<link href=/scss/main.min.f37c3fb6f746e6bc4c5eba11e2f176c897da8bb403ddc2aaac1d527737818c66.css rel=stylesheet integrity>
+<script src=https://code.jquery.com/jquery-3.5.1.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
+<script src=https://unpkg.com/lunr@2.3.8/lunr.min.js integrity=sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY crossorigin=anonymous></script>
+</head>
+<body class=td-page>
+<header>
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+<a class=navbar-brand href=/>
+<span class=navbar-logo><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class="text-uppercase font-weight-bold">Elon`s Blog</span>
+</a>
+<div class="td-navbar-nav-scroll ml-md-auto" id=main_navbar>
+<ul class="navbar-nav mt-2 mt-lg-0">
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link active" href=/docs/><i class="fas fa-blog"></i><span class=active>Blog</span></a>
+</li>
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class=nav-link href=/tools/><i class="fas fa-tools"></i><span>Tools</span></a>
+</li>
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class=nav-link href=/about/><i class="fas fa-info-circle"></i><span>About</span></a>
+</li>
+</ul>
+</div>
+<div class="navbar-nav d-none d-lg-block">
+<input type=search class="form-control td-search-input" placeholder="&#xf002; 站内搜索…" aria-label=站内搜索… autocomplete=off data-offline-search-index-json-src=/offline-search-index.00e61123811a5a3bc69ffdeb949fb9a2.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+</div>
+</nav>
+</header>
+<div class="container-fluid td-outer">
+<div class=td-main>
+<div class="row flex-xl-nowrap">
+<aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+<div id=td-sidebar-menu class=td-sidebar__inner>
+<form class="td-sidebar__search d-flex align-items-center">
+<input type=search class="form-control td-search-input" placeholder="&#xf002; 站内搜索…" aria-label=站内搜索… autocomplete=off data-offline-search-index-json-src=/offline-search-index.00e61123811a5a3bc69ffdeb949fb9a2.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type=button data-toggle=collapse data-target=#td-section-nav aria-controls=td-docs-nav aria-expanded=false aria-label="Toggle section navigation">
+</button>
+</form>
+<nav class="collapse td-sidebar-nav" id=td-section-nav>
+<ul class="td-sidebar-nav__section pr-md-3 ul-0">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docs-li>
+<a href=/docs/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id=m-docs><span>Blog</span></a>
+<ul class=ul-1>
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsarchitecture-li>
+<a href=/docs/architecture/ title="Archtecture & Design" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsarchitecture><span>Archtectrue & Design</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitectureml-inference-arch-2022-06-25-li>
+<a href=/docs/architecture/ml-inference-arch-2022-06-25/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitectureml-inference-arch-2022-06-25><span>模型推理架构</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitecture2022-05-26-cloud-native-pattern-li>
+<a href=/docs/architecture/2022-05-26-cloud-native-pattern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitecture2022-05-26-cloud-native-pattern><span>云原生模式 CLOUD NATIVE PATTERNS</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitecture2020-12-02-mq-li>
+<a href=/docs/architecture/2020-12-02-mq/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitecture2020-12-02-mq><span>消息队列 资料汇总</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitecture2020-11-06-prometheus-practise-li>
+<a href=/docs/architecture/2020-11-06-prometheus-practise/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitecture2020-11-06-prometheus-practise><span>Prometheus Practise</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitecture2020-11-1-notes-for-patterns-of-enterprise-application-li>
+<a href=/docs/architecture/2020-11-1-notes-for-patterns-of-enterprise-application/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitecture2020-11-1-notes-for-patterns-of-enterprise-application><span>Notes for Patterns of Enterprise Application</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitecture2020-09-01-gpu-li>
+<a href=/docs/architecture/2020-09-01-gpu/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitecture2020-09-01-gpu><span>GPU 那些事儿</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitecture2020-07-22-archimate-li>
+<a href=/docs/architecture/2020-07-22-archimate/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitecture2020-07-22-archimate><span>PlantUML + Archimate 记录</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitecture2020-06-02-reliability-engineering-li>
+<a href=/docs/architecture/2020-06-02-reliability-engineering/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitecture2020-06-02-reliability-engineering><span>Reliability Engineering 可用性工程</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitectureabout-cncf-projects-li>
+<a href=/docs/architecture/about-cncf-projects/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitectureabout-cncf-projects><span>About Cncf Projects</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitecture2020-05-08-microservice-arch-li>
+<a href=/docs/architecture/2020-05-08-microservice-arch/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitecture2020-05-08-microservice-arch><span>Microservice Arch 点点滴滴</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitecture2020-03-16-bigdata-arch-li>
+<a href=/docs/architecture/2020-03-16-bigdata-arch/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitecture2020-03-16-bigdata-arch><span>Big Data Arch</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitecture2020-03-13-rpc-vs-http-li>
+<a href=/docs/architecture/2020-03-13-rpc-vs-http/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitecture2020-03-13-rpc-vs-http><span>RPC vs Http</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitecture2020-02-10-gcp-study-li>
+<a href=/docs/architecture/2020-02-10-gcp-study/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitecture2020-02-10-gcp-study><span>GCP Study</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitecture2020-02-04-support-rate-limiting-li>
+<a href=/docs/architecture/2020-02-04-support-rate-limiting/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitecture2020-02-04-support-rate-limiting><span>限流的那些事</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitecture2020-01-31-traffic-shifting-li>
+<a href=/docs/architecture/2020-01-31-traffic-shifting/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitecture2020-01-31-traffic-shifting><span>微服务架构下Deloyment最佳方式探讨</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitecture2020-01-02-cloud-computing-service-modeling-li>
+<a href=/docs/architecture/2020-01-02-cloud-computing-service-modeling/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitecture2020-01-02-cloud-computing-service-modeling><span>Cloud Computing Service Modeling</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitecture2019-11-30-aws-iam-li>
+<a href=/docs/architecture/2019-11-30-aws-iam/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitecture2019-11-30-aws-iam><span>控制资源的访问权限</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitecture2019-10-27-apm-li>
+<a href=/docs/architecture/2019-10-27-apm/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitecture2019-10-27-apm><span>APM资料整理</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitecture2019-10-04-api-trend-li>
+<a href=/docs/architecture/2019-10-04-api-trend/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitecture2019-10-04-api-trend><span>API Trend 现状</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitecture2019-09-25-api-compatibility-li>
+<a href=/docs/architecture/2019-09-25-api-compatibility/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitecture2019-09-25-api-compatibility><span>API 兼容性设计</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitecture2019-09-22-web-api-spec-li>
+<a href=/docs/architecture/2019-09-22-web-api-spec/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitecture2019-09-22-web-api-spec><span>Web API Spec管理平台</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsarchitecture2019-09-16-upgrade-online-service-li>
+<a href=/docs/architecture/2019-09-16-upgrade-online-service/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsarchitecture2019-09-16-upgrade-online-service><span>迁移线上服务方案</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id=m-docsk8s-li>
+<a href=/docs/k8s/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsk8s><span>Kubernetes</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsk8s2020-04-09-k8s-request-vs-limit-li>
+<a href=/docs/k8s/2020-04-09-k8s-request-vs-limit/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsk8s2020-04-09-k8s-request-vs-limit><span>K8S Request vs Limit</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id=m-docsk8s2020-01-05-oam-li>
+<a href=/docs/k8s/2020-01-05-oam/ class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id=m-docsk8s2020-01-05-oam><span class=td-sidebar-nav-active-item>OAM 详解</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsk8s2018-08-13-daily-0813-k8s-li>
+<a href=/docs/k8s/2018-08-13-daily-0813-k8s/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsk8s2018-08-13-daily-0813-k8s><span>Kubernates Cluster Architecture</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsgolang-li>
+<a href=/docs/golang/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsgolang><span>Golang</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgolang2022-05-08-golang-basic-type-string-li>
+<a href=/docs/golang/2022-05-08-golang-basic-type-string/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgolang2022-05-08-golang-basic-type-string><span>About Golang String</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgolang2020-11-1-monorepo-for-golang-with-bazel-li>
+<a href=/docs/golang/2020-11-1-monorepo-for-golang-with-bazel/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgolang2020-11-1-monorepo-for-golang-with-bazel><span>Monorepo for Golang With Bazel</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgolang2020-04-16-golang-pprof-li>
+<a href=/docs/golang/2020-04-16-golang-pprof/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgolang2020-04-16-golang-pprof><span>Golang Pprof 使用梳理</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgolang2020-04-14-gorm-li>
+<a href=/docs/golang/2020-04-14-gorm/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgolang2020-04-14-gorm><span>Gorm</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgolang2020-02-15-zen-of-go-li>
+<a href=/docs/golang/2020-02-15-zen-of-go/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgolang2020-02-15-zen-of-go><span>Golang语言之禅</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgolang2019-12-23-code-review-li>
+<a href=/docs/golang/2019-12-23-code-review/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgolang2019-12-23-code-review><span>Code Review 开始</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgolang2019-09-17-gomonkey-test-li>
+<a href=/docs/golang/2019-09-17-gomonkey-test/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgolang2019-09-17-gomonkey-test><span>Gomonkey Test</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsgolang2018-01-31-daily-0131-li>
+<a href=/docs/golang/2018-01-31-daily-0131/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsgolang2018-01-31-daily-0131><span>Daily 0131 Golang 杂乱</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docspython-li>
+<a href=/docs/python/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docspython><span>Python</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docspython2017-09-06-python-problems-li>
+<a href=/docs/python/2017-09-06-python-problems/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docspython2017-09-06-python-problems><span>Python 面试Problems</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsjavascript-li>
+<a href=/docs/javascript/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsjavascript><span>Javascript</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsjavascript2013-01-28-javascript_number_nan-li>
+<a href=/docs/javascript/2013-01-28-javascript_number_nan/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsjavascript2013-01-28-javascript_number_nan><span> javascript Number --- 再次结识</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsjavascript2012-11-21-nodejs-li>
+<a href=/docs/javascript/2012-11-21-nodejs/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsjavascript2012-11-21-nodejs><span>nodejs</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsteam-li>
+<a href=/docs/team/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsteam><span>Team</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsteam2022-05-22-go-library-build-li>
+<a href=/docs/team/2022-05-22-go-library-build/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsteam2022-05-22-go-library-build><span>如何构建基础库</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsteam2021-10-13-building-team-li>
+<a href=/docs/team/2021-10-13-building-team/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsteam2021-10-13-building-team><span>团队建设</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsteam2020-01-06-git-flow-li>
+<a href=/docs/team/2020-01-06-git-flow/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsteam2020-01-06-git-flow><span>基于Git Flow规范分支和发版问题</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsteam2019-11-15-jira-qa-li>
+<a href=/docs/team/2019-11-15-jira-qa/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsteam2019-11-15-jira-qa><span>Scrum & Jira 使用问题记录</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsteam2019-09-14-team-manager-decision-li>
+<a href=/docs/team/2019-09-14-team-manager-decision/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsteam2019-09-14-team-manager-decision><span>《卓有成效的管理者》之决策</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsteam2019-09-12-team-manager-contribute-li>
+<a href=/docs/team/2019-09-12-team-manager-contribute/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsteam2019-09-12-team-manager-contribute><span>《卓有成效的管理者》之我能贡献什么</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsteam2021-09-28-team-topologies-li>
+<a href=/docs/team/2021-09-28-team-topologies/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsteam2021-09-28-team-topologies><span>Team Topologies 团队拓扑</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docstool-li>
+<a href=/docs/tool/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docstool><span>Tools</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docstool2020-11-14-customize-icon-for-plantuml-li>
+<a href=/docs/tool/2020-11-14-customize-icon-for-plantuml/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docstool2020-11-14-customize-icon-for-plantuml><span>Customize Icon for Plantuml</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docstool2019-12-31-debug-by-wireshark-li>
+<a href=/docs/tool/2019-12-31-debug-by-wireshark/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docstool2019-12-31-debug-by-wireshark><span>抓包工具分析之完全攻略</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docstool2019-10-04-v2rayx-for-macos-li>
+<a href=/docs/tool/2019-10-04-v2rayx-for-macos/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docstool2019-10-04-v2rayx-for-macos><span>SS 全军覆没，v2ray for Macos</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docstool2013-08-13-xshell_vim_encoding-li>
+<a href=/docs/tool/2013-08-13-xshell_vim_encoding/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docstool2013-08-13-xshell_vim_encoding><span>fencview.vim + xshell + vim + 各种中文编码问题</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docstool2019-03-21-vimvscode-li>
+<a href=/docs/tool/2019-03-21-vimvscode/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docstool2019-03-21-vimvscode><span>VIM 转 VSCODE</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docstool2019-07-08-blog-based-hugo-li>
+<a href=/docs/tool/2019-07-08-blog-based-hugo/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docstool2019-07-08-blog-based-hugo><span>从Jekyll到hugo, 迁移Github Pages</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsdaily-li>
+<a href=/docs/daily/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsdaily><span>Daily 杂乱记录</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2021-10-10-subnet-li>
+<a href=/docs/daily/2021-10-10-subnet/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2021-10-10-subnet><span>子网掩码</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2020-04-06-sts-li>
+<a href=/docs/daily/2020-04-06-sts/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2020-04-06-sts><span>OAuth 2.0 Token Exchange协议解读</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2020-02-29-oidc-li>
+<a href=/docs/daily/2020-02-29-oidc/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2020-02-29-oidc><span>OIDC（OPENID CONNECT）身份认证授权</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2019-10-09-iowait-li>
+<a href=/docs/daily/2019-10-09-iowait/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2019-10-09-iowait><span>Io wait 告警问题</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2018-02-02-daily-0201-li>
+<a href=/docs/daily/2018-02-02-daily-0201/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2018-02-02-daily-0201><span>Daily 0201</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2018-03-21-daily-0321-li>
+<a href=/docs/daily/2018-03-21-daily-0321/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2018-03-21-daily-0321><span>Daily 0321</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2018-05-03-daily-0503-li>
+<a href=/docs/daily/2018-05-03-daily-0503/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2018-05-03-daily-0503><span>Daily 0503</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2018-06-07-daily-0607-li>
+<a href=/docs/daily/2018-06-07-daily-0607/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2018-06-07-daily-0607><span>Daily 0607</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2018-06-12-daily-0612-li>
+<a href=/docs/daily/2018-06-12-daily-0612/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2018-06-12-daily-0612><span>Daily 0612</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2018-08-13-daily-0813-li>
+<a href=/docs/daily/2018-08-13-daily-0813/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2018-08-13-daily-0813><span>Daily 0813</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2018-08-21-daily-0821-chrome-app-li>
+<a href=/docs/daily/2018-08-21-daily-0821-chrome-app/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2018-08-21-daily-0821-chrome-app><span>Daily 0821 chrome app/extension</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-10-09-daily-1009-li>
+<a href=/docs/daily/2017-10-09-daily-1009/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-10-09-daily-1009><span>Daily 10/09</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-10-16-daily-1015-li>
+<a href=/docs/daily/2017-10-16-daily-1015/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-10-16-daily-1015><span>Daily 10/15 配置https</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-10-16-daily-1016-li>
+<a href=/docs/daily/2017-10-16-daily-1016/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-10-16-daily-1016><span>Daily 10/16</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-10-18-daily-1018-li>
+<a href=/docs/daily/2017-10-18-daily-1018/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-10-18-daily-1018><span>Daily 10/18</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-10-19-daily-1019--li>
+<a href=/docs/daily/2017-10-19-daily-1019-/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-10-19-daily-1019-><span>Daily 10/19 三个月</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-10-24-daily-1024-li>
+<a href=/docs/daily/2017-10-24-daily-1024/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-10-24-daily-1024><span>Daily 10/24</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-10-30-daily-1031-li>
+<a href=/docs/daily/2017-10-30-daily-1031/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-10-30-daily-1031><span>Daily 10/30</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2018-10-18-daily-1018-vim-go-ycm-li>
+<a href=/docs/daily/2018-10-18-daily-1018-vim-go-ycm/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2018-10-18-daily-1018-vim-go-ycm><span>Daily 1018 vim go + Ycm</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-11-08-daily-1108-li>
+<a href=/docs/daily/2017-11-08-daily-1108/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-11-08-daily-1108><span>Daily 11.08 Docker安装</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-11-03-daily-1103-li>
+<a href=/docs/daily/2017-11-03-daily-1103/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-11-03-daily-1103><span>Daily 11/03</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-11-06-daily-1104-li>
+<a href=/docs/daily/2017-11-06-daily-1104/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-11-06-daily-1104><span>Daily 1104</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-11-10-daily-1110-li>
+<a href=/docs/daily/2017-11-10-daily-1110/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-11-10-daily-1110><span>Daily 1110 DOCKER部署实践总结</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-11-15-daily-1116-li>
+<a href=/docs/daily/2017-11-15-daily-1116/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-11-15-daily-1116><span>Daily 1116</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-11-27-daily-1127-li>
+<a href=/docs/daily/2017-11-27-daily-1127/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-11-27-daily-1127><span>Daily 1127 MYSQL </span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-12-08-daily-1208-li>
+<a href=/docs/daily/2017-12-08-daily-1208/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-12-08-daily-1208><span>Daily 1208</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-12-15-daily-1215-li>
+<a href=/docs/daily/2017-12-15-daily-1215/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-12-15-daily-1215><span>Daily 1215</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-12-29-daily-1229-li>
+<a href=/docs/daily/2017-12-29-daily-1229/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-12-29-daily-1229><span>Daily 1229</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2021-11-01-positive-discipline-li>
+<a href=/docs/daily/2021-11-01-positive-discipline/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2021-11-01-positive-discipline><span>Daily 2021/11/01 Postive Discipline</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2022-01-13-daily-li>
+<a href=/docs/daily/2022-01-13-daily/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2022-01-13-daily><span>Daily 2022/01/13</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-05-31-daily-5-30-li>
+<a href=/docs/daily/2017-05-31-daily-5-30/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-05-31-daily-5-30><span>Daily 5/31</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-06-01-daily-li>
+<a href=/docs/daily/2017-06-01-daily/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-06-01-daily><span>Daily 6/1</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-06-03-daily-63-li>
+<a href=/docs/daily/2017-06-03-daily-63/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-06-03-daily-63><span>Daily 6/3</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-09-11-daily-911-li>
+<a href=/docs/daily/2017-09-11-daily-911/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-09-11-daily-911><span>Daily 9/11</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-09-12-daily-912-li>
+<a href=/docs/daily/2017-09-12-daily-912/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-09-12-daily-912><span>Daily 9/12</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-09-13-daily-913-li>
+<a href=/docs/daily/2017-09-13-daily-913/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-09-13-daily-913><span>Daily 9/13</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-09-14-daily-914-li>
+<a href=/docs/daily/2017-09-14-daily-914/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-09-14-daily-914><span>Daily 9/14</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-09-18-daily-918-li>
+<a href=/docs/daily/2017-09-18-daily-918/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-09-18-daily-918><span>Daily 9/18</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-09-21-daily-918-li>
+<a href=/docs/daily/2017-09-21-daily-918/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-09-21-daily-918><span>Daily 9/21</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-09-22-daily-922-li>
+<a href=/docs/daily/2017-09-22-daily-922/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-09-22-daily-922><span>Daily 9/22</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-09-25-daily-925-vpn-li>
+<a href=/docs/daily/2017-09-25-daily-925-vpn/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-09-25-daily-925-vpn><span>Daily 9/25 #vpn</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-09-27-daily-927-li>
+<a href=/docs/daily/2017-09-27-daily-927/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-09-27-daily-927><span>Daily 9/27 Git 相关知识点</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-09-05-daily-95-li>
+<a href=/docs/daily/2017-09-05-daily-95/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-09-05-daily-95><span>Daily 9/5</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-09-05-daily-96-li>
+<a href=/docs/daily/2017-09-05-daily-96/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-09-05-daily-96><span>Daily 9/6</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-09-08-daily-98-li>
+<a href=/docs/daily/2017-09-08-daily-98/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-09-08-daily-98><span>Daily 9/8</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsdaily2017-09-29-daily-929-li>
+<a href=/docs/daily/2017-09-29-daily-929/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsdaily2017-09-29-daily-929><span>又是一年最长假-国庆 Daily 9/29</span></a>
+</li>
+</ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id=m-docsother-li>
+<a href=/docs/other/ class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id=m-docsother><span>Others</span></a>
+<ul class="ul-2 foldable">
+<li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsothercommunication-with-leader-li>
+<a href=/docs/other/communication-with-leader/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsothercommunication-with-leader><span>年底的沟通记录</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsotherwhat-we-concern-li>
+<a href=/docs/other/what-we-concern/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsotherwhat-we-concern><span>What We Concern</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsother2017-04-06-dongwan-beach-camp-li>
+<a href=/docs/other/2017-04-06-dongwan-beach-camp/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsother2017-04-06-dongwan-beach-camp><span>4.2最美东湾露营-那些年我们在一起</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsother2012-12-10-interview_conclusion-li>
+<a href=/docs/other/2012-12-10-interview_conclusion/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsother2012-12-10-interview_conclusion><span>INTERVIEW CONCLUSION</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsother2017-03-31-dragon-back-li>
+<a href=/docs/other/2017-03-31-dragon-back/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsother2017-03-31-dragon-back><span>港岛径第八段-土地灣-龙脊-大浪灣</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id=m-docsother2017-03-15--li>
+<a href=/docs/other/2017-03-15-/ class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id=m-docsother2017-03-15-><span>黄牛山 .麦理浩径第四段五段 狮子山 笔架山</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+<aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+<a href=https://github.com/Hyvi/blog/edit/master/content/zh/docs/k8s/2020-01-05-OAM.md target=_blank><i class="fa fa-edit fa-fw"></i> 编辑此页</a>
+<a href="https://github.com/Hyvi/blog/new/master/content/zh/docs/k8s/2020-01-05-OAM.md?filename=change-me.md&value=---%0Atitle%3A+%22Long+Page+Title%22%0AlinkTitle%3A+%22Short+Nav+Title%22%0Aweight%3A+100%0Adescription%3A+%3E-%0A+++++Page+description+for+heading+and+indexes.%0A---%0A%0A%23%23+Heading%0A%0AEdit+this+template+to+create+your+new+page.%0A%0A%2A+Give+it+a+good+name%2C+ending+in+%60.md%60+-+e.g.+%60getting-started.md%60%0A%2A+Edit+the+%22front+matter%22+section+at+the+top+of+the+page+%28weight+controls+how+its+ordered+amongst+other+pages+in+the+same+directory%3B+lowest+number+first%29.%0A%2A+Add+a+good+commit+message+at+the+bottom+of+the+page+%28%3C80+characters%3B+use+the+extended+description+field+for+more+detail%29.%0A%2A+Create+a+new+branch+so+you+can+preview+your+new+file+and+request+a+review+via+Pull+Request.%0A" target=_blank><i class="fa fa-edit fa-fw"></i> 添加子页面</a>
+<a href="https://github.com/Hyvi/blog/issues/new?title=OAM%20%e8%af%a6%e8%a7%a3" target=_blank><i class="fab fa-github fa-fw"></i> 提交文档问题</a>
+<a href=https://github.com/Hyvi/blog/issues/new target=_blank><i class="fas fa-tasks fa-fw"></i> 提交项目问题</a>
+<a id=print href=https://hyvi.github.io/docs/k8s/_print/><i class="fa fa-print fa-fw"></i> 整节打印</a>
+</div>
+<div class=td-toc><nav id=TableOfContents>
+<ul>
+<li><a href=#名词解释>名词解释</a></li>
+<li><a href=#背景>背景</a>
+<ul>
+<li><a href=#interactions-between-infra-operators-and-application-operators>Interactions between Infra Operators and Application Operators</a></li>
+<li><a href=#interactions-between-application-operators-and-application-developers>Interactions between Application Operators and Application Developers</a></li>
+</ul>
+</li>
+<li><a href=#oam>OAM</a>
+<ul>
+<li><a href=#traits>Traits</a></li>
+<li><a href=#component>Component</a></li>
+<li><a href=#applicationconfiguration>ApplicationConfiguration</a></li>
+<li><a href=#scopes>Scopes</a></li>
+</ul>
+</li>
+<li><a href=#rudr-实践>Rudr 实践</a>
+<ul>
+<li><a href=#安装-minikube-deprecated>安装 minikube (deprecated)</a></li>
+<li><a href=#在-vultr-上安装-microk8s>在 vultr 上安装 microk8s</a></li>
+</ul>
+</li>
+<li><a href=#oam-的未来>OAM 的未来</a></li>
+<li><a href=#参考>参考</a></li>
+</ul>
+</nav></div>
+<div class="taxonomy taxonomy-terms-cloud taxo-categories">
+<h5 class=taxonomy-title>Categories</h5>
+<ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://hyvi.github.io/categories/daily/ data-taxonomy-term=daily><span class=taxonomy-label>Daily</span><span class=taxonomy-count>28</span></a></li>
+<li><a class=taxonomy-term href=https://hyvi.github.io/categories/life/ data-taxonomy-term=life><span class=taxonomy-label>Life</span><span class=taxonomy-count>5</span></a></li>
+<li><a class=taxonomy-term href=https://hyvi.github.io/categories/tech/ data-taxonomy-term=tech><span class=taxonomy-label>Tech</span><span class=taxonomy-count>17</span></a></li>
+</ul>
+</div>
+<div class="taxonomy taxonomy-terms-cloud taxo-tags">
+<h5 class=taxonomy-title>Tags</h5>
+<ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://hyvi.github.io/tags/api/ data-taxonomy-term=api><span class=taxonomy-label>API</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=https://hyvi.github.io/tags/blockchain/ data-taxonomy-term=blockchain><span class=taxonomy-label>blockchain</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=https://hyvi.github.io/tags/interview/ data-taxonomy-term=interview><span class=taxonomy-label>interview</span><span class=taxonomy-count>2</span></a></li>
+<li><a class=taxonomy-term href=https://hyvi.github.io/tags/javascript/ data-taxonomy-term=javascript><span class=taxonomy-label>javascript</span><span class=taxonomy-count>2</span></a></li>
+<li><a class=taxonomy-term href=https://hyvi.github.io/tags/linux/ data-taxonomy-term=linux><span class=taxonomy-label>linux</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=https://hyvi.github.io/tags/mysql/ data-taxonomy-term=mysql><span class=taxonomy-label>MYSQL</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=https://hyvi.github.io/tags/nodejs/ data-taxonomy-term=nodejs><span class=taxonomy-label>nodejs</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=https://hyvi.github.io/tags/python/ data-taxonomy-term=python><span class=taxonomy-label>python</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=https://hyvi.github.io/tags/vim/ data-taxonomy-term=vim><span class=taxonomy-label>vim</span><span class=taxonomy-count>2</span></a></li>
+<li><a class=taxonomy-term href=https://hyvi.github.io/tags/xshell/ data-taxonomy-term=xshell><span class=taxonomy-label>xshell</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=https://hyvi.github.io/tags/%E5%BE%92%E6%AD%A5/ data-taxonomy-term=%E5%BE%92%E6%AD%A5><span class=taxonomy-label>徒步</span><span class=taxonomy-count>3</span></a></li>
+<li><a class=taxonomy-term href=https://hyvi.github.io/tags/%E6%97%A5%E8%AE%B0/ data-taxonomy-term=%E6%97%A5%E8%AE%B0><span class=taxonomy-label>日记</span><span class=taxonomy-count>33</span></a></li>
+<li><a class=taxonomy-term href=https://hyvi.github.io/tags/%E6%9E%B6%E6%9E%84/ data-taxonomy-term=%E6%9E%B6%E6%9E%84><span class=taxonomy-label>架构</span><span class=taxonomy-count>3</span></a></li>
+<li><a class=taxonomy-term href=https://hyvi.github.io/tags/%E6%B8%AF%E5%B2%9B%E5%BE%84/ data-taxonomy-term=%E6%B8%AF%E5%B2%9B%E5%BE%84><span class=taxonomy-label>港岛径</span><span class=taxonomy-count>1</span></a></li>
+<li><a class=taxonomy-term href=https://hyvi.github.io/tags/%E7%AE%A1%E7%90%86/ data-taxonomy-term=%E7%AE%A1%E7%90%86><span class=taxonomy-label>管理</span><span class=taxonomy-count>3</span></a></li>
+<li><a class=taxonomy-term href=https://hyvi.github.io/tags/%E9%A6%99%E6%B8%AF/ data-taxonomy-term=%E9%A6%99%E6%B8%AF><span class=taxonomy-label>香港</span><span class=taxonomy-count>3</span></a></li>
+<li><a class=taxonomy-term href=https://hyvi.github.io/tags/%E9%BA%A6%E7%90%86%E6%B5%A9%E5%BE%84/ data-taxonomy-term=%E9%BA%A6%E7%90%86%E6%B5%A9%E5%BE%84><span class=taxonomy-label>麦理浩径</span><span class=taxonomy-count>1</span></a></li>
+</ul>
+</div>
+</aside>
+<main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main>
+<nav aria-label=breadcrumb class="d-none d-md-block d-print-none">
+<ol class="breadcrumb spb-1">
+<li class=breadcrumb-item>
+<a href=https://hyvi.github.io/docs/>Blog</a>
+</li>
+<li class=breadcrumb-item>
+<a href=https://hyvi.github.io/docs/k8s/>Kubernetes</a>
+</li>
+<li class="breadcrumb-item active" aria-current=page>
+<a href=https://hyvi.github.io/docs/k8s/2020-01-05-oam/>OAM 详解</a>
+</li>
+</ol>
+</nav>
+<div class=td-content>
+<h1>OAM 详解</h1>
+<header class=article-meta>
+<div class="taxonomy taxonomy-terms-article taxo-categories">
+<h5 class=taxonomy-title>Categories:</h5>
+<ul class=taxonomy-terms>
+<li><a class=taxonomy-term href=https://hyvi.github.io/categories/tech/ data-taxonomy-term=tech><span class=taxonomy-label>Tech</span></a></li>
+</ul>
+</div>
+</header>
+<h2 id=名词解释>名词解释</h2>
+<p><strong>Actor Pattern (Actor 模型）</strong>
+来自 Dapr 项目中的一个 concept. <del>Dapr 项目也实现了 OAM 规范</del>, Dapr 为未来 APP 开发方式。</p>
+<blockquote>
+<p>Dapr is a progamming model and not an application mdoel, so it operates in a lower abstraction. OAM is intended to solve the problem of modeling an application and all dependencies.</p>
+<p>Dapr will not model the application&rsquo;s architecture.</p>
+</blockquote>
+<p>它是一个并行计算的数学模型，最初为由大量独立的微处理器组成的高并行计算机所开发。Actor 模型的理念非常简单： 天下万物皆为 Actor。 Actor 之间通过发送消息来通信， 消息的传递是异步的。每个 Actor 是完全独立的，同时执行它们的操作。</p>
+<p>当一个 actor 接收到消息后，它能做如下三件事情中一件：</p>
+<ul>
+<li>Create more actors</li>
+<li>Send messages to other actors</li>
+<li>Designates what to do with the next message</li>
+</ul>
+<p>更多点击链接：<a href=https://www.brianstorti.com/the-actor-model/>10 分钟了解 Actor 模型</a>，这本书也提到《七周七并发模型》，下载了电子版放在 MarginNote 3 里来细读。</p>
+<p>Dapr 里实现了 Virtual Actor pattern<sup>[2]</sup>,</p>
+<blockquote>
+<p>The Dapr actor runtime provides a simple turn-based Access model for accessing actor methods</p>
+</blockquote>
+<h2 id=背景>背景</h2>
+<p><strong>Application Developers</strong> &ndash; 编写程序实现业务价值，大部分不清楚 k8s 等其他基础设施。</p>
+<p><strong>Application Operators</strong> &ndash; 熟知集群的能力、稳定性、性能，以服务 Developers， 帮助 developer 配置、部署、操作应用（eg, updating, scaling, recovery)。 他们应该被称为 PaaS engineers。</p>
+<p><strong>Infra Operators</strong> &ndash; 服务 application operators, 应该被称为 IaaS 工程师。</p>
+<p>OAM 的出现，解决了三者之间的合作问题 (Problems of Cooperation), 存在哪些常见的问题呢？</p>
+<h3 id=interactions-between-infra-operators-and-application-operators>Interactions between Infra Operators and Application Operators</h3>
+<p>Application operator discover and manage capability that could potentially be in conflict with each other .</p>
+<ul>
+<li>DisCovery the spec of new capability is difficult</li>
+<li>Confirming the existence of specific capability in a particular cluster is difficult</li>
+<li>Conflicts in capability could be troublesome
+<ul>
+<li>Orthogonal</li>
+<li>Composable</li>
+<li>Conflicting</li>
+</ul>
+</li>
+</ul>
+<h4 id=oams-traits>OAM&rsquo;s Traits</h4>
+<p>In OAM, &ldquo;Traits&rdquo; are how we create capabilities with <strong>discorverability</strong> and <strong>manageability</strong>.
+大部分的 traits 为 infra operator 来定义并实现的。</p>
+<p>需要注意的是，Traits 并不等同于 K8s 插件， 一个集群有多个网络相关的 Traits， 比如“dynamic QoS trait”, “brandwidth control trait” 和 &ldquo;traffic mirror trait&rdquo;, 这些都是通过 CNI Plugin 来提供的。</p>
+<h3 id=interactions-between-application-operators-and-application-developers>Interactions between Application Operators and Application Developers</h3>
+<p>Developers' Voices Should be Heard</p>
+<ul>
+<li>several parameters for an application,</li>
+<li>Cannot be scaled</li>
+<li>Is a batch job, not a long running service</li>
+<li>Requires highest level security, etc</li>
+</ul>
+<h4 id=oams-component>OAM&rsquo;s Component</h4>
+<p>In OAM, we try to logically decouple K8s API objects, so developers can fill in their own intentions, and still be able to convey information to operatiors in structured manner.</p>
+<h4 id=the-applicationconfiguration>The ApplicationConfiguration</h4>
+<p>ApplicationConfiguration 实例化应用，牵涉到 Component&rsquo;s 名称和所应用到 Traits</p>
+<p>合作流程的方式 ：</p>
+<ol>
+<li>基础平台提供不同的 workload Type</li>
+<li>开发者选择 workload type 定义 component.yaml</li>
+<li>Application operator 执行 <code>kubectl apply -f component.yaml</code> 安装这个 component</li>
+<li>Application operator 定义 ApplicationConfiguration 实例化这个应用。</li>
+<li>最后，Application Operator 执行 <code>kubectl apply -f app-config.yaml</code> 触发整个应用的部署。</li>
+</ol>
+<h2 id=oam>OAM</h2>
+<p>A specification for describing applications as well as its operational capabilities,</p>
+<p>In OAM, an Application is made from three core concepts,</p>
+<ol>
+<li>The first is the Components, which might a collection of microservices, a database and a cloud load balancer</li>
+<li>the second concept is a collection of Traits which describe the operational characteristics of the application such as capabilities like auto-scaling and ingress.</li>
+<li>Finally, to transform these descriptions into a concrete application, operators use a configuration file to assemble components with corresponding traits to form a specific instance of an application.</li>
+</ol>
+<p><img src=https://github.com/oam-dev/spec/raw/master/assets/how-it-works.png alt></p>
+<h3 id=traits>Traits</h3>
+<p>represents a piece of add-on functionality that attaches to a component instance,
+such as traffic routing rules(including load balancing policy, network ingress routing, circuit breaking, rate limiting) , auto-scaling policies, upgrade strageies, and more .</p>
+<p><img src=https://github.com/oam-dev/rudr/raw/master/docs/media/traitcomic.PNG alt="traits schematic comic"></p>
+<h3 id=component>Component</h3>
+<p><img src=https://res.infoq.com/articles/oam-alibaba/en/resources/1The-Open-Application-Model-from-Alibaba-s-Perspective-1-1576678834717.jpg alt=Components></p>
+<p>三部分组成：</p>
+<ul>
+<li>Workload 描述：怎么运行这个组件 (component)</li>
+<li>Component 描述： 运行的是什么东西</li>
+<li>一组可重写的参数。</li>
+</ul>
+<h4 id=workload-type-内置类型>Workload Type 内置类型</h4>
+<p>如何选择内置的 workload type，根据三个方面来决定（如下）， 当然也可以扩展类型。</p>
+<ul>
+<li>Does this component expose service endpoint or not ?</li>
+<li>Is this component relicable or not</li>
+<li>Is this component long-runtime or one-time ( is daemonized or not )</li>
+</ul>
+<p><img src=https://res.infoq.com/articles/oam-alibaba/en/resources/1The-Open-Application-Model-from-Alibaba-s-Perspective-2-1576678834385.jpg alt="workload type"></p>
+<h4 id=overwritable-parameter>Overwritable parameter</h4>
+<p>to operators, which part of my app definition is overridable</p>
+<h3 id=applicationconfiguration>ApplicationConfiguration</h3>
+<p>Application Configuration 的一个简单例子如下：</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yml data-lang=yml><span style=color:#204a87;font-weight:700>apiVersion</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>core.oam.dev/v1alpha1</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>kind</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>ApplicationConfiguration</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>metadata</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>name</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>my-awesome-app</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline></span><span style=color:#204a87;font-weight:700>spec</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>  </span><span style=color:#204a87;font-weight:700>components</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>    </span>- <span style=color:#204a87;font-weight:700>componentName</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>nginx</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>      </span><span style=color:#204a87;font-weight:700>instanceName</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>web-front-end</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>      </span><span style=color:#204a87;font-weight:700>parameterValues</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span>- <span style=color:#204a87;font-weight:700>name</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>connections</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>          </span><span style=color:#204a87;font-weight:700>value</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>4096</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>      </span><span style=color:#204a87;font-weight:700>traits</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span>- <span style=color:#204a87;font-weight:700>name</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>auto-scaler</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>          </span><span style=color:#204a87;font-weight:700>properties</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span><span style=color:#204a87;font-weight:700>minimum</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>3</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span><span style=color:#204a87;font-weight:700>maximum</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#0000cf;font-weight:700>10</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>        </span>- <span style=color:#204a87;font-weight:700>name</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#000>security-policy</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>          </span><span style=color:#204a87;font-weight:700>properties</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline>
+</span><span style=color:#f8f8f8;text-decoration:underline>            </span><span style=color:#204a87;font-weight:700>allowPrivilegeEscalation</span><span style=color:#000;font-weight:700>:</span><span style=color:#f8f8f8;text-decoration:underline> </span><span style=color:#204a87;font-weight:700>false</span><span style=color:#f8f8f8;text-decoration:underline>
+</span></code></pre></div><p>其中</p>
+<ul>
+<li>parameterValues &ndash; Operator 使用这个字段来复写<code>connections</code>的值为 4096</li>
+<li>Trait <code>auto-scaler</code> &ndash; operator apply autoscaler trait (e.g. HPA) to the component.</li>
+<li>Trait <code>security-policy</code> &ndash; operator 应用安全策略规则到 component</li>
+</ul>
+<p>Note: operator 可以增加更多的 traits 到列表， 比如可以增加&rsquo;Canary Deployment Trait' 使应用更新符合 canary rollout strategy.</p>
+<h3 id=scopes>Scopes</h3>
+<p>Application scopes are used to logically group components together by providing application boundaries that represent common group behaviors and/or dependencies.</p>
+<p><img src=https://raw.githubusercontent.com/oam-dev/rudr/master/docs/media/appscopecomic.PNG alt="why scopes"></p>
+<p><a href=https://github.com/oam-dev/rudr/blob/master/docs/concepts/scopes.md>rudr scopes</a></p>
+<h2 id=rudr-实践>Rudr 实践</h2>
+<p>缺国外云上的 k8s 环境，用于实践。
+根据 <a href=https://github.com/oam-dev/rudr/tree/master/docs>rudr doc</a> 实践</p>
+<ul>
+<li>helm 的使用</li>
+<li>rudr 目前的情况</li>
+<li>developer: 如何 Writing a Trait
+<a href=https://github.com/oam-dev/rudr/blob/master/docs/developer/writing_a_trait.md>https://github.com/oam-dev/rudr/blob/master/docs/developer/writing_a_trait.md</a></li>
+<li>developer: how to implement your own workload type: support openfaas && prometheums as first extended workload.
+<a href=https://github.com/oam-dev/rudr/pull/481>https://github.com/oam-dev/rudr/pull/481</a></li>
+</ul>
+<h3 id=安装-minikube-deprecated>安装 minikube (deprecated)</h3>
+<p><a href=https://minikube.sigs.k8s.io/docs/start/>minikube start</a>
+下载 minikube.iso 文件速度太慢了，5kb/s</p>
+<pre tabindex=0><code>minikube-v1.6.0.iso: 19.92 MiB / 150.93 MiB 13.20% 9.44 KiB p/s ETA 3h56
+</code></pre><p>放弃了。
+使用 vultr 上 2c4m 机器来跑</p>
+<h3 id=在-vultr-上安装-microk8s>在 vultr 上安装 microk8s</h3>
+<p>之前没有使用过 microk8s。也可以使用远程使用公司的电脑。</p>
+<h4 id=创建-ubuntu-1804-系统使用-microk8s使用-helm3-安装-rudr>创建 ubuntu 18.04 系统，使用 microk8s，使用 helm3 安装 rudr</h4>
+<p>参考 <a href=https://github.com/oam-dev/rudr/blob/master/docs/setup/install.md>Installing rudr</a>。</p>
+<p><strong>helm3</strong>
+Github Homepage: <a href=https://github.com/helm/helm>https://github.com/helm/helm</a>
+Helm is a tool for managing Charts. Charts are packages of pre-configured kubernetes resources. Think of it like apt/yum/homebrew for Kubernetes.</p>
+<p>Charts can be stored on disk, or fetched from remote chart repositories(like Debian or RedHat packages)</p>
+<p><strong>microk8s</strong>
+Homepage: <a href=https://github.com/ubuntu/microk8s>https://github.com/ubuntu/microk8s</a>
+The smallest, fastest Kubernetes.
+Single-package fully conformant lightweight kubernetes
+Perfect for:</p>
+<ul>
+<li>Developer workstations</li>
+<li>IoT</li>
+<li>Edge</li>
+<li>CI/CD</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>snap install microk8s --classic
+
+microk8s.enable helm3
+
+git clone https://github.com/oam-dev/rudr.git
+
+microk8s.helm3 install rudr ./rudr/charts/rudr --wait
+
+</code></pre></div><h4 id=installing-implementations-for-traits>Installing Implementations for Traits</h4>
+<p>Ingress，Manual Scaler, autoscaler
+比如 Ingress，那么从 Helm3 hub 中选择 Ingress 的实现即可。
+同样， autoscaler 选择一种实现 并部署即可。</p>
+<h4 id=deploy-a-sample-rudr-application-using-the-tutorial>Deploy a sample Rudr application using the tutorial</h4>
+<p>教程： <a href=https://github.com/oam-dev/rudr/blob/master/docs/tutorials/deploy_and_update.md>Tutorial: Deploy, inspect, and update a Rudr application and its components</a></p>
+<p>比较简单的完成。
+心得： 如果 Traits 比较丰富并且能轻松获取到使用文档的话，对于 Application Operator 来说，是非常方便的对 Application 的加上增强或者限制的功能。</p>
+<h2 id=oam-的未来>OAM 的未来</h2>
+<p>working with the community on OAM spec as well as K8s implementation</p>
+<h2 id=参考>参考</h2>
+<p>[1] Phil Bernstein Sergey Bykov Alan Geller Gabriel Kliot Jorgen Thelin: Orleans: Distributed Virtual Actors for Programmability and Scalability</p>
+<p>[2] Dapr: Actors overview: Overview of the actors building block</p>
+<p>[3] The Open Application Model from Alibaba&rsquo;s Perspective <a href=https://www.infoq.com/articles/oam-alibaba/>https://www.infoq.com/articles/oam-alibaba/</a></p>
+<p>[4] 开放应用模型 OAM <a href=https://www.jianshu.com/p/da9bf3357247>https://www.jianshu.com/p/da9bf3357247</a></p>
+<p>[5] A Kubernetes implementation of the Open Application Model specification <a href=https://github.com/oam-dev/rudr>https://github.com/oam-dev/rudr</a></p>
+<p>[6] Automating Event-Based Continuous Delivery on Kubernetes with <a href=cd-on-k8s-with-keptn>keptn</a>, The keptn project provides a clear separation of concerns, allowing developer, DevOps and site reliability engineers to update delivery pipelines, 这个更加细，包括 SLO 指标、包括 blue\green deploy</p>
+<br>
+<center> ·End· </center>
+<div class="text-muted mt-5 pt-3 border-top">
+最后修改
+October 17, 2021
+: <a href=https://github.com/Hyvi/blog/commit/3024334d09e92043a4761f80548bd0a97aef39da>feat: more understand actor by dapr actors (3024334)</a>
+</div>
+</div>
+</main>
+</div>
+</div>
+<footer class="bg-dark py-5 row d-print-none">
+<div class="container-fluid mx-sm-5">
+<div class=row>
+<div class="col-6 col-sm-4 text-xs-center order-sm-2">
+</div>
+<div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+</div>
+<div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+<small class=text-white>&copy; 2022 Elon All Rights Reserved</small>
+<small class=ml-1><a href=https://policies.google.com/privacy target=_blank rel=noopener>隐私政策</a></small>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js integrity=sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF crossorigin=anonymous></script>
+<script src=/js/main.min.3b172c13b62c2bea8b1c9d2599cddc8cf89718a92d792c680871c81ba43d8c85.js integrity="sha256-OxcsE7YsK+qLHJ0lmc3cjPiXGKkteSxoCHHIG6Q9jIU=" crossorigin=anonymous></script>
+</body>
+</html>

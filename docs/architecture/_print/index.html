@@ -1,0 +1,1896 @@
+<!doctype html><html lang=zh class=no-js>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=generator content="Hugo 0.91.2"><link rel=canonical type=text/html href=https://hyvi.github.io/docs/architecture/>
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel="shortcut icon" href=/favicons/favicon.ico>
+<link rel=apple-touch-icon href=/favicons/apple-touch-icon-180x180.png sizes=180x180>
+<link rel=icon type=image/png href=/favicons/favicon-16x16.png sizes=16x16>
+<link rel=icon type=image/png href=/favicons/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/favicons/android-36x36.png sizes=36x36>
+<link rel=icon type=image/png href=/favicons/android-48x48.png sizes=48x48>
+<link rel=icon type=image/png href=/favicons/android-72x72.png sizes=72x72>
+<link rel=icon type=image/png href=/favicons/android-96x96.png sizes=96x96>
+<link rel=icon type=image/png href=/favicons/android-144x144.png sizes=144x144>
+<link rel=icon type=image/png href=/favicons/android-192x192.png sizes=192x192>
+<title>Archtecture & Design | Elon`s Blog</title>
+<meta name=description content="Elon blog site"><meta property="og:title" content="Archtecture & Design">
+<meta property="og:description" content="用于梳理 架构与设计 相关的笔记，包括 Enterprise Architecture、Scalability/Performance、Design、Microservice、Service Mesh、Patterns、Security。
+">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hyvi.github.io/docs/architecture/"><meta property="og:site_name" content="Elon`s Blog">
+<meta itemprop=name content="Archtecture & Design">
+<meta itemprop=description content="用于梳理 架构与设计 相关的笔记，包括 Enterprise Architecture、Scalability/Performance、Design、Microservice、Service Mesh、Patterns、Security。
+"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Archtecture & Design">
+<meta name=twitter:description content="用于梳理 架构与设计 相关的笔记，包括 Enterprise Architecture、Scalability/Performance、Design、Microservice、Service Mesh、Patterns、Security。
+">
+<link rel=preload href=/scss/main.min.f37c3fb6f746e6bc4c5eba11e2f176c897da8bb403ddc2aaac1d527737818c66.css as=style>
+<link href=/scss/main.min.f37c3fb6f746e6bc4c5eba11e2f176c897da8bb403ddc2aaac1d527737818c66.css rel=stylesheet integrity>
+<script src=https://code.jquery.com/jquery-3.5.1.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
+<script src=https://unpkg.com/lunr@2.3.8/lunr.min.js integrity=sha384-vRQ9bDyE0Wnu+lMfm57BlYLO0/XauFuKpVsZPs7KEDwYKktWi5+Kz3MP8++DFlRY crossorigin=anonymous></script>
+</head>
+<body class=td-section>
+<header>
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+<a class=navbar-brand href=/>
+<span class=navbar-logo><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class="text-uppercase font-weight-bold">Elon`s Blog</span>
+</a>
+<div class="td-navbar-nav-scroll ml-md-auto" id=main_navbar>
+<ul class="navbar-nav mt-2 mt-lg-0">
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class="nav-link active" href=/docs/><i class="fas fa-blog"></i><span class=active>Blog</span></a>
+</li>
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class=nav-link href=/tools/><i class="fas fa-tools"></i><span>Tools</span></a>
+</li>
+<li class="nav-item mr-4 mb-2 mb-lg-0">
+<a class=nav-link href=/about/><i class="fas fa-info-circle"></i><span>About</span></a>
+</li>
+</ul>
+</div>
+<div class="navbar-nav d-none d-lg-block">
+<input type=search class="form-control td-search-input" placeholder="&#xf002; 站内搜索…" aria-label=站内搜索… autocomplete=off data-offline-search-index-json-src=/offline-search-index.00e61123811a5a3bc69ffdeb949fb9a2.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+</div>
+</nav>
+</header>
+<div class="container-fluid td-outer">
+<div class=td-main>
+<div class="row flex-xl-nowrap">
+<div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+</div>
+<div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+</div>
+<main class="col-12 col-md-9 col-xl-8 pl-md-5" role=main>
+<div class=td-content>
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+这是本节的多页打印视图。
+<a href=# onclick="return print(),!1">点击此处打印</a>.
+</p><p>
+<a href=/docs/architecture/>返回本页常规视图</a>.
+</p>
+</div>
+<h1 class=title>Archtecture & Design</h1>
+<div class=lead>用于梳理 架构与设计 相关的笔记，包括 Enterprise Architecture、Scalability/Performance、Design、Microservice、Service Mesh、Patterns、Security。</div>
+<ul>
+<li>1: <a href=#pg-6433575aa1c6fb30c18580fd6c71e12c>模型推理架构</a></li>
+<li>2: <a href=#pg-4af503f1dd9472ac40469957fbffbfbb>云原生模式 CLOUD NATIVE PATTERNS</a></li>
+<li>3: <a href=#pg-1fd5d390a78e6d939888fef762f950f8>消息队列 资料汇总</a></li>
+<li>4: <a href=#pg-fac9fad46e4b466f84d47455c4d1fb59>Prometheus Practise</a></li>
+<li>5: <a href=#pg-668bdfc812447c5db1593be1d6716ec6>Notes for Patterns of Enterprise Application</a></li>
+<li>6: <a href=#pg-f56f85602f1c6d43b4eb2e67085e6fd8>GPU 那些事儿</a></li>
+<li>7: <a href=#pg-2d72ba724658ec96a2ca935bd5c05ec1>PlantUML + Archimate 记录</a></li>
+<li>8: <a href=#pg-e15158a326a1352554ba42fb66497f05>Reliability Engineering 可用性工程</a></li>
+<li>9: <a href=#pg-bf8ead2470cf57a8b5a58116a2b2600e>About Cncf Projects</a></li>
+<li>10: <a href=#pg-7aa640ebf687822b9a6f33bb0a4c11a2>Microservice Arch 点点滴滴</a></li>
+<li>11: <a href=#pg-2100c1911c9bb54654a9c137ab8c0dfa>Big Data Arch</a></li>
+<li>12: <a href=#pg-e5642f043cdf7d0f1ee9aebaedfc53db>RPC vs Http</a></li>
+<li>13: <a href=#pg-8838bdb6c8ad83f16e730d71b934e97a>GCP Study</a></li>
+<li>14: <a href=#pg-bdde9cbfd9f8eeac0cd39a3b3b3d14fb>限流的那些事</a></li>
+<li>15: <a href=#pg-10107dc58f8047d96fa3f1b7f95bb88e>微服务架构下Deloyment最佳方式探讨</a></li>
+<li>16: <a href=#pg-b4073f3719895d9f503707326b40ca07>Cloud Computing Service Modeling</a></li>
+<li>17: <a href=#pg-47077e68da976692ff337a00dcb67e20>控制资源的访问权限</a></li>
+<li>18: <a href=#pg-7c70474ebd4af8181781d9e1091fabc7>APM资料整理</a></li>
+<li>19: <a href=#pg-f25771a1b9a619a9f87799d92a815e2a>API Trend 现状</a></li>
+<li>20: <a href=#pg-20b4d397434e7dd72c0f3ae6fd7e12da>API 兼容性设计</a></li>
+<li>21: <a href=#pg-b3dd446295c046b0254b164fdf051efc>Web API Spec管理平台</a></li>
+<li>22: <a href=#pg-e0db42a0d9b10d2a3a014e76ddeeccd1>迁移线上服务方案</a></li>
+</ul>
+<div class=content>
+</div>
+</div>
+<div class=td-content>
+<h1 id=pg-6433575aa1c6fb30c18580fd6c71e12c>1 - 模型推理架构</h1>
+<h2 id=概念解释>概念解释</h2>
+<p><strong>Squared loss</strong></p>
+<p>a popular loss function, also known as L2 Loss.</p>
+<p>Mean square error (MSE) is the average squared loss per example over the whole dataset.</p>
+<p><strong>Gradient Descent</strong></p>
+<p>SGD(Stochastic Gradient Descent) & Mini-Batch Gradient Descent.</p>
+<p><strong>Predict Protocol</strong></p>
+<p>This document proposes a predict/inference API independent of any specific ML/DL framework and model server.</p>
+<p>This protocol is endorsed by NVIDIA Triton Inference Server, TensorFlow Serving, and ONNX Runtime Server.</p>
+<p>Seldon has collaborated with the NVIDIA Triton Server Project and the KServe Project to create a new ML inference protocol. The core idea behind this joint effort is that this new protocol will become the standard inference protocol and will be used across multiple inference services.</p>
+<p>详细见： [Predict Protocol - Version 2][2]</p>
+<h2 id=对标方案---run-computer-vision-inference-on-large--videos>对标方案 - Run computer vision inference on large videos</h2>
+<h3 id=real-time-inference>Real-time Inference</h3>
+<p>Real-time inference is ideal for inference workloads where you have real-time, interactive, low latency requirements.</p>
+<h4 id=tensorrt-through-nvida-triton>TensorRT through NVIDA Triton</h4>
+<p>TensorRT is a C++ library for high performance inference on NVIDIA GPUs and deep learning accelerators.</p>
+<p>Tutorial: <a href=https://github.com/NVIDIA/TensorRT/blob/main/quickstart/SemanticSegmentation/tutorial-runtime.ipynb>https://github.com/NVIDIA/TensorRT/blob/main/quickstart/SemanticSegmentation/tutorial-runtime.ipynb</a></p>
+<ul>
+<li>Load TensorRT Engine</li>
+<li>Run inference</li>
+</ul>
+<p>TensorRT to Triton: <a href=https://github.com/NVIDIA/TensorRT/tree/main/quickstart/deploy_to_triton>https://github.com/NVIDIA/TensorRT/tree/main/quickstart/deploy_to_triton</a></p>
+<h3 id=asynchronous-inference>Asynchronous inference</h3>
+<p><img src=https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2021/09/29/ML-5668-Architecture.png alt></p>
+<p>An Example for SageMaker: Amazon SageMaker Processing Video2frame Model Inference [3]</p>
+<p><img src=https://github.com/aws/amazon-sagemaker-examples/raw/d391107c4e301582186f5bac5e4242c1dc6944f1/async-inference/images/e2e.png alt="end-to-end flow with Asynchronous inference endpoint"></p>
+<h4 id=prerequisites>Prerequisites</h4>
+<p>实操方式： <a href=https://docs.aws.amazon.com/sagemaker/latest/dg/async-inference-create-endpoint-prerequisites.html>https://docs.aws.amazon.com/sagemaker/latest/dg/async-inference-create-endpoint-prerequisites.html</a></p>
+<ol>
+<li>Create an IAM role for Amazon SageMaker.</li>
+<li>Add Amazon SageMaker, Amazon S3 and Amazon SNS Permissions to your IAM Role.</li>
+<li>Upload your inference data (e.g., machine learning model, sample data) to Amazon S3.</li>
+<li>Select a prebuilt Docker inference image or create your own Inference Docker Image.
+<ul>
+<li>Use Your Own Inference Code</li>
+</ul>
+</li>
+<li>Create an Amazon SNS topic (optional)
+<ul>
+<li>Check Your S3 Bucket: <a href=https://docs.aws.amazon.com/sagemaker/latest/dg/async-inference-check-predictions.html>https://docs.aws.amazon.com/sagemaker/latest/dg/async-inference-check-predictions.html</a></li>
+</ul>
+</li>
+</ol>
+<h5 id=use-your-own-inference-code-with-hosting-services>Use Your Own Inference Code with Hosting Services</h5>
+<p><a href=https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-main.html>https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-main.html</a>，</p>
+<p>how Amazon SageMaker interacts with a Docker container that runs your own inference code for hosting services.</p>
+<p>How SageMaker Loads Your Model Artifacts</p>
+<p>How Containers Serve Requests:</p>
+<p>Containers need to implement a web server that responds to /invocations and /ping on port 8080.</p>
+<p>How Your Container Should Respond to Inference Requests:</p>
+<p>A customer&rsquo;s model containers must respond to requests within 60 seconds.</p>
+<h5 id=adapting-your-own-inference-container>Adapting Your Own Inference Container</h5>
+<p><a href=https://docs.aws.amazon.com/sagemaker/latest/dg/adapt-inference-container.html>https://docs.aws.amazon.com/sagemaker/latest/dg/adapt-inference-container.html</a></p>
+<p>详细介好了基于 sagemaker 来自定义的推理过程。 <a href=https://sagemaker-examples.readthedocs.io/en/latest/frameworks/pytorch/get_started_mnist_deploy.html>https://sagemaker-examples.readthedocs.io/en/latest/frameworks/pytorch/get_started_mnist_deploy.html</a></p>
+<h4 id=create>Create</h4>
+<ol>
+<li>Create a model in SageMaker with CreateModel.</li>
+<li>Create an endpoint configuration with CreateEndpointConfig.</li>
+<li>Create an HTTPS endpoint with CreateEndpoint.</li>
+</ol>
+<h4 id=prebuilt-sagemaker-docker-images-for-deep-learning>Prebuilt SageMaker Docker Images for Deep Learning</h4>
+<p><a href=https://docs.aws.amazon.com/sagemaker/latest/dg/pre-built-containers-frameworks-deep-learning.html>https://docs.aws.amazon.com/sagemaker/latest/dg/pre-built-containers-frameworks-deep-learning.html</a></p>
+<p><img src=https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2018/08/02/pre-trained-models-sagemaker-1.gif alt></p>
+<p><a href=https://aws.amazon.com/cn/blogs/machine-learning/bring-your-own-pre-trained-mxnet-or-tensorflow-models-into-amazon-sagemaker/>https://aws.amazon.com/cn/blogs/machine-learning/bring-your-own-pre-trained-mxnet-or-tensorflow-models-into-amazon-sagemaker/</a></p>
+<p>Entire process:</p>
+<ul>
+<li>Step 1: Model definitions are written in a framework of choice.</li>
+<li>Step 2: The model is trained in that framework.</li>
+<li>Step 3: The model is exported and model artifacts that can be understood by Amazon SageMaker are created.</li>
+<li>Step 4: Model artifacts are uploaded to an Amazon S3 bucket.</li>
+<li>Step 5: Using the model definitions, artifacts, and the Amazon SageMaker Python SDK, a SageMaker model is created.</li>
+<li>Step 6: The SageMaker model is deployed as an endpoint.</li>
+</ul>
+<p>TensorFlow BYOM: <a href=https://github.com/aws/amazon-sagemaker-examples/blob/main/advanced_functionality/tensorflow_iris_byom>https://github.com/aws/amazon-sagemaker-examples/blob/main/advanced_functionality/tensorflow_iris_byom</a></p>
+<p>MXNet BYOM: <a href=https://github.com/aws/amazon-sagemaker-examples/tree/main/advanced_functionality/mxnet_mnist_byom>https://github.com/aws/amazon-sagemaker-examples/tree/main/advanced_functionality/mxnet_mnist_byom</a></p>
+<p>Pytorch: <a href=https://github.com/aws/amazon-sagemaker-examples/tree/main/advanced_functionality/pytorch_bring_your_own_gan>https://github.com/aws/amazon-sagemaker-examples/tree/main/advanced_functionality/pytorch_bring_your_own_gan</a></p>
+<h3 id=batch-transform>Batch Transform</h3>
+<h3 id=serverless-inference>Serverless Inference</h3>
+<p>Amazon SageMaker Serverless Inference is a purpose-built inference option that makes it easy for you to deploy and scale ML models. Serverless Inference is ideal for workloads which have idle periods between traffic spurts and can tolerate cold starts.</p>
+<h2 id=对标方案---machine-learning-platform-for-ai---eas>对标方案 - Machine Learning Platform for AI - EAS</h2>
+<ul>
+<li>一健部署</li>
+<li>高性能</li>
+<li>蓝绿部署</li>
+<li>弹性扩缩</li>
+<li>编译优化</li>
+</ul>
+<h2 id=参考>参考</h2>
+<ol>
+<li>
+<p><a href=https://github.com/kserve/kserve/issues/892>https://github.com/kserve/kserve/issues/892</a></p>
+</li>
+<li>
+<p><a href=https://github.com/kserve/kserve/blob/master/docs/predict-api/v2/required_api.md#httprest>https://github.com/kserve/kserve/blob/master/docs/predict-api/v2/required_api.md#httprest</a></p>
+</li>
+<li>
+<p><a href=https://aws.amazon.com/cn/blogs/machine-learning/run-computer-vision-inference-on-large-videos-with-amazon-sagemaker-asynchronous-endpoints/>https://aws.amazon.com/cn/blogs/machine-learning/run-computer-vision-inference-on-large-videos-with-amazon-sagemaker-asynchronous-endpoints/</a></p>
+</li>
+<li>
+<p><a href=https://aws.amazon.com/cn/blogs/machine-learning/how-deepmap-optimizes-their-video-inference-workflow-with-amazon-sagemaker-processing/>https://aws.amazon.com/cn/blogs/machine-learning/how-deepmap-optimizes-their-video-inference-workflow-with-amazon-sagemaker-processing/</a></p>
+</li>
+<li>
+<p><a href=https://www.alibabacloud.com/help/zh/machine-learning-platform-for-ai/latest/architecture>https://www.alibabacloud.com/help/zh/machine-learning-platform-for-ai/latest/architecture</a></p>
+</li>
+<li>
+<p>Kubeflow: <a href=https://github.com/kubeflow>https://github.com/kubeflow</a></p>
+</li>
+<li>
+<p>Amazon SageMaker Processing Video2frame Model Inference <a href=https://github.com/aws-samples/amazon-sagemaker-processing-video2frame-model-inference>https://github.com/aws-samples/amazon-sagemaker-processing-video2frame-model-inference</a>
+<br></p>
+</li>
+<li>
+<p><a href=https://github.com/aws/amazon-sagemaker-examples/blob/main/async-inference/Async-Inference-Walkthrough.ipynb>https://github.com/aws/amazon-sagemaker-examples/blob/main/async-inference/Async-Inference-Walkthrough.ipynb</a></p>
+</li>
+</ol>
+<center> ·End· </center>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-4af503f1dd9472ac40469957fbffbfbb>2 - 云原生模式 CLOUD NATIVE PATTERNS</h1>
+<p>随着底层基础设施的云原生的流行，对上层应用的开发模式带来了变化：</p>
+<p><img src=https://raw.githubusercontent.com/ContainerSolutions/cloud-native-patterns/master/assets/images/Screenshot%202020-01-06%20at%2014.07.47.png alt></p>
+<h2 id=refs>Refs</h2>
+<ol>
+<li>
+<p>Cloud Native Pattern: <a href=https://github.com/ContainerSolutions/cloud-native-patterns>https://github.com/ContainerSolutions/cloud-native-patterns</a></p>
+</li>
+<li>
+<p>Cornelia Davis: Cloud Native Patterns_ Designing change-tolerant software.pdf</p>
+</li>
+<li>
+<p>Pini Reznik, Jamie Dobson & Michelle Gienow: cloud-native-transformation-practical-patterns-for-innovation
+<br></p>
+</li>
+</ol>
+<center> ·End· </center>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-1fd5d390a78e6d939888fef762f950f8>3 - 消息队列 资料汇总</h1>
+<p>汇总收集到的关于 MQ 方面的资料，包括 RabbitMQ、Kafka、Pulsar等</p>
+<h2 id=基础概念>基础概念</h2>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>简单原型</td>
+<td>生产者往消息队列中扔消息，消费者从消息队列取消息，一次取一个。缺点是局域网内最大消费速度是2000QPS</td>
+</tr>
+<tr>
+<td>批量处理消息</td>
+<td>每次可以取多条消息处理</td>
+</tr>
+<tr>
+<td>多个 Consumer 处理消息 - Push 模式</td>
+<td>push模式很难适应消费速率不同的消费者，因为消息发送速率是由broker决定的。push模式的目标是尽可能以最快速度传递消息，但是这样很容易造成consumer来不及处理消息，典型的表现就是拒绝服务以及网络拥塞。中心节点需要监听Consumer 的 ACK 消息用于判断消息是否处理成功，并处理当前的消息。 <br> <img src=https://pjmike-1253796536.cos.ap-beijing.myqcloud.com/p2p_queue.png alt></td>
+</tr>
+<tr>
+<td>多个 Consumer 处理消息 - Pull 模式</td>
+<td>而pull模式则可以根据consumer的消费能力以适当的速率消费消息。 这种模式好处，消费者不需要返回 ACK 信息，因为当消费者申请消费下一条消息可以认为上一条领取的消息已经处理完，也不需要处理超时的问题，Consumer 愿意处理到啥时候就到啥时候。<br> 如何保证多个 consumer 处理的消息不会重复了？</td>
+</tr>
+<tr>
+<td>多个消息队列 - Pull 模式</td>
+<td>kafka模式 <br><a href="https://img-blog.csdn.net/20180815151605738?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTIxNDIyNDc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">点击查看图片</a></td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>详细查看： <a href="https://mp.weixin.qq.com/s?__biz=MzA4MzEzNjA0NA==&mid=222594584&idx=1&sn=d64e5f5768ce48bd0bee1824b30fb1e3&scene=0#rd">流式计算 - kafka(1)</a></p>
+<h2 id=案例分析>案例分析</h2>
+<h3 id=知乎千万级高性能长连接网关揭秘httpswwwinfoqcnarticleuxru4hr_mlmx3q84mb9m><a href=https://www.infoq.cn/article/UXrU4hr_mlMX3q84MB9M>知乎千万级高性能长连接网关揭秘</a></h3>
+<ul>
+<li>我们怎么设计通信协议
+<ul>
+<li>业务解耦
+<ul>
+<li>基于经典的发布订阅模式</li>
+<li>传输的消息是纯二进制数据，网关也无需关心业务方的具体协议规范和序列化方式。</li>
+</ul>
+</li>
+<li>权限设计
+<ul>
+<li>基于回调的鉴权</li>
+<li>Topic 模板变量</li>
+</ul>
+</li>
+<li>消息可靠性保证
+<ol>
+<li>回执和重传</li>
+<li>基于消息队列的接收和发送方式</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>我们怎么设计系统架构</li>
+<li>我们如何构建长连接网关
+<ul>
+<li>接入层
+<ul>
+<li>负载均衡
+<ul>
+<li>为什么不用IP Hash： 分布不均匀和不能准确的标识客户端。</li>
+<li>基于七层负载均衡，使用 Nginx 的 Preread机制。实现基于客户端的唯一标识来进行一致性 Hash</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>订阅</li>
+<li>发布</li>
+<li>会话</li>
+<li>持久化</li>
+<li>滑动窗口</li>
+</ul>
+</li>
+</ul>
+<h3 id=基于-flink-的资讯场景实时数仓>基于 Flink 的资讯场景实时数仓</h3>
+<p><img src=https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/3989853951/p97864.png alt=基于Flink的资讯场景实时数仓></p>
+<p>如何将 Kafka 和 Flink 进行整合，通过消息队列 Kafka 版和实时计算 Flink 实现实时 ETL 和数据流。</p>
+<h2 id=参考资料>参考资料</h2>
+<p>[1] Alicloud: 基于Flink的资讯场景实时数仓</p>
+<br>
+<center> ·End· </center>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-fac9fad46e4b466f84d47455c4d1fb59>4 - Prometheus Practise</h1>
+<h2 id=背景>背景</h2>
+<p>为什么要自建 Promethues, 云服务商提供的挺好的。</p>
+<h2 id=名词解释>名词解释</h2>
+<p>刚接触, 还是很多新词汇</p>
+<table>
+<thead>
+<tr>
+<th>名词</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exportor</td>
+<td>用于向Prometheus Server暴露数据采集的endpoint，Prometheus轮训这些Exporter采集并且保存数据；</td>
+</tr>
+<tr>
+<td>ServiceMonitor</td>
+<td>a ServiceMonitor describes the set of targets to be monitored by prometheus.</td>
+</tr>
+<tr>
+<td>Prometheus Operator</td>
+<td>简单运行 Promethues 在 kubernetes 上，并保持 Kubenetes 本土化的配置选项。<a href=https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/design.md>Prometheus operator design</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id=operator>Operator</h3>
+<p>An Operator is an application-specific controller that extends the kubernetes API to create , configure, and manage instances of complex stateful applications on behalf of a kubernetes user.</p>
+<p>it builds upon the basic kubernetes resource and controller concepts but includes domain or application-specific knowledge to automate common taks.</p>
+<p><img src=https://coreos.com/sites/default/files/inline-images/Overview-etcd_0.png alt></p>
+<p>An Operator is software that encodes this domain knowledge and extends the kubernetes API through the third party resources mechanism, enabling users to create, configure, and manage applications.</p>
+<p>Operator 与 Controller 区别在于：<br> a Controller with the following characteristics qualify as an operator : <br> 1. Contains workload-specific knowledge <br> 2. Manages workload lifecycle <br> 3. Offers a CRD</p>
+<h3 id=prometheus>Prometheus</h3>
+<p>Monitoring Stacks consist of a collector, a time-series database to store metrics, and a visualization layer.</p>
+<p>A popular open-source stack is Prometheus, used along with Grafana as the visualization tool to create rich dashboards.</p>
+<p><img src=https://developer-blogs.nvidia.com/wp-content/uploads/2020/10/reference-prometheus-architecture.png alt="Reference Prometheus architecture."></p>
+<h3 id=设备插件--device-plugin>设备插件 device-plugin</h3>
+<p><a href=https://kubernetes.io/zh/docs/concepts/extend-kubernetes/compute-storage-net/device-plugins/>Kubernates Device Plugin</a> 为 Kubernetes 提供了一个设备插件框架，你可以用它来将硬件资源发布到 Kubelet。 好处有：</p>
+<ul>
+<li>供应商可以实现设备插件，手动部署或者 DaemonSet 来部署， 而不必定制 Kubernetes 本身的代码。目标设备可以是 GPU、高性能的 NIC、 FPGA、 InfiniBand 适配器。</li>
+</ul>
+<p><img src=https://developer-blogs.nvidia.com/wp-content/uploads/2020/10/gpu-telemetry.png alt="GPU Telemetry using dcgm-exporter in Kubernetes"></p>
+<p>上图说明一个问题： 通过 <code>device-plugin</code> 监控里的 <code>pod-resources socket</code>, 确定跟某一个 pod 相关联的设备信息。</p>
+<h2 id=监控指标>监控指标</h2>
+<p>GPU Grafana 面板配置： <a href=https://grafana.com/grafana/dashboards/11752>GPU NODES V2</a></p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DCGM_FI_DEV_FB_USED</td>
+<td>GPU 已用显存</td>
+</tr>
+<tr>
+<td>DCGM_FI_DEV_FB_FREE</td>
+<td>GPU 未用显存</td>
+</tr>
+<tr>
+<td>DCGM_FI_DEV_GPU_UTIL</td>
+<td>GPU 使用率</td>
+</tr>
+<tr>
+<td>DCGM_MEM_COPY_UTILIZATION</td>
+<td>见<a href=https://stackoverflow.com/questions/60521808/what-diff-nvidia-smi-dmon-between-nvidia-smi-for-memory-usage-metics> 内存利用率对比 </a></td>
+</tr>
+</tbody>
+</table>
+<h2 id=开始>开始</h2>
+<h3 id=使用-dcgmproftester>使用 dcgmproftester</h3>
+<p>Generating a load</p>
+<h2 id=有感>有感</h2>
+<ul>
+<li>K8s CRD 无处不在</li>
+</ul>
+<h2 id=faq>FAQ</h2>
+<ol>
+<li>DCGM_FI_DEV_FB_FREE 数值和实际的内存对不上的？
+<ul>
+<li>A: 使用的型号是T4系列，具体的型号是 <a href=https://www.alibabacloud.com/help/zh/doc-detail/108496.htm?#title-n0p-6ch-ma3>ecs.gn6i-c16g1.4xlarge</a>, GPU 显存为 16G， 系统内存为 62G。而 NVIDIA dcgm-exporter 中监控的指标 DCGM_FI_DEV_FB_USED 为 GPU 显存大小，系统的内存通过 node_memory_MemTotal_bytes、node_memory_Buffers_bytes、node_memory_Cached_bytes、node_memory_MemFree_bytes 指标（来自 <a href=https://grafana.com/grafana/dashboards/11752>GPU NODES V2</a> ) 来监控.</li>
+<li>A: 当在 GPU 环境下提到内存时，须要区分下说的是 GPU 显存还是系统内存。</li>
+</ul>
+</li>
+<li>DCGM_MEM_COPY_UTILIZATION 内存利用率，<a href=https://stackoverflow.com/questions/60521808/what-diff-nvidia-smi-dmon-between-nvidia-smi-for-memory-usage-metics> 内存利用率对比 </a>
+<ul>
+<li>Utilization = time over the past sample period / global (device) memory was being read or writted * 100%</li>
+</ul>
+</li>
+</ol>
+<h2 id=参考>参考</h2>
+<p><a href=https://developer.nvidia.com/blog/monitoring-gpus-in-kubernetes-with-dcgm/>Monitoring GPUs in Kubernetes with DCGM</a></p>
+<p><a href=https://coreos.com/blog/introducing-operators.html>Introducing Operators : Putting Operational Knowledge into Software .</a></p>
+<p><a href=https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/user-guides/getting-started.md>Promethues Operator User Guide</a></p>
+<p>Controllers and Operators, <a href=https://octetz.com/docs/2019/2019-10-13-controllers-and-operators/>https://octetz.com/docs/2019/2019-10-13-controllers-and-operators/</a></p>
+<p><a href=https://yunlzheng.gitbook.io/prometheus-book/>Promethues Book 中文 </a></p>
+<p><a href=https://github.com/Hyvi/gpu-monitoring-tools>NAIDIA GPU monitoring tools on Linux</a></p>
+<p><a href=https://docs.nvidia.com/datacenter/cloud-native/kubernetes/dcgme2e.html>Integrating GPU Telemetry into Kubernetes</a></p>
+<p><a href=https://blog.csdn.net/M2l0ZgSsVc7r69eFdTj/article/details/79124770>Promethues 动态发现 Target 和 Relabel 的应用</a></p>
+<p><a href=https://blog.csdn.net/u010953692/article/details/107143338>GPU-Nodes-Metrics 12027 设置</a></p>
+<p><br></p>
+<center> ·End· </center>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-668bdfc812447c5db1593be1d6716ec6>5 - Notes for Patterns of Enterprise Application</h1>
+<h2 id=数据源架构模式>数据源架构模式</h2>
+<h3 id=表数据入口-table-data-gateway>表数据入口 (Table Data GateWay)</h3>
+<p>表数据入口包含了用于访问单个表或视图的所有SQL，如选择、插入、更新、删除等。其他代码调用它的方法来实现所有与数据库的交互.</p>
+<p>每个方法都将输入参与映射为一个SQL调用 并在数据库连接上执行该语句。由于表数据入口用于数据读写，因此通常是无状态的。</p>
+<h3 id=行数据入口-row-data-gateway>行数据入口 (Row Data GateWay)</h3>
+<p>充当数据源中单条记录入口的对象。每行一个对象。</p>
+<h3 id=活动记录-active-record>活动记录 (Active Record)</h3>
+<p>一个对象，它包装数据库表或视图中某一行，封装数据库访问，并在这些数据上增加领域逻辑。</p>
+<p>本质是一个领域模型</p>
+<p>Pros</p>
+<ul>
+<li>容易创建、易于理解</li>
+</ul>
+<p>Cons</p>
+<ul>
+<li>要求对象的设计和数据库的设计紧耦合</li>
+<li>业务逻辑复杂时。</li>
+</ul>
+<h3 id=数据映射器data-mapper>数据映射器(Data Mapper)</h3>
+<p><img src=https://hyvi.github.io/blog-images/20201107/data-mapping.png alt></p>
+<p>在保持对象和数据库（以及映射器本身）彼此独立的情况下，在二者之间移动数据的一个映射层。</p>
+<p>对象和关系数据库用来组织数据的机制不同。对象的很多部分（如集合和继承）在关系数据库中不存在。</p>
+<h4 id=处理查找方法>处理查找方法</h4>
+<p>分离接口解决这一难题：从领域对象到数据映射器的依赖关系。利用领域代码把所有需要查找方法放到一个可以置于领域包中的接口类中。</p>
+<blockquote>
+<p>在一个包中定义接口，而在另一个与这个包分离的包中实现这个接口。</p>
+</blockquote>
+<h4 id=把数据映射到领域对象的域>把数据映射到领域对象的域</h4>
+<p>映射器需要访问领域对象中的域（属性）。这往往是个问题，因为需要一些公共方法支持领域逻辑不需要的映射器。???</p>
+<h4 id=基于元数据的映射>基于元数据的映射</h4>
+<p>如何将领域对象中的域映射到数据库列的信息。</p>
+<ul>
+<li>用显式代码实现，</li>
+<li>把元数据作为数据存储在类或单独的文件中。这就是元数据映射。
+<ul>
+<li>好处是映射器的所有变化通过数据处理，而不用更多的源代码，也不用代码生成或者反射程序。</li>
+</ul>
+</li>
+</ul>
+<p>Pros</p>
+<ul>
+<li>解耦数据库和领域对象</li>
+</ul>
+<p>Cons</p>
+<ul>
+<li>引入新的层次。</li>
+</ul>
+<h2 id=分布模式>分布模式</h2>
+<h3 id=远程模式remote-facade>远程模式（Remote Facade)</h3>
+<blockquote>
+<p>为细粒度对象提供粗粒度的外观来改进网络上的效率</p>
+</blockquote>
+<p><strong>一个远程外观是一个粗粒度的外观(facade)，它建立在大量的细粒度对象之上，所以细粒度对象都没有远程接口，并且远程外观不包括领域逻辑。 远程外观所要完成功能是把粗粒度的方法转化到底层的细粒度对象上。</strong></p>
+<p>在粗粒度对象和细粒度对象之间的一层薄薄的皮肤。</p>
+<pre tabindex=0><code class=language-plantuml data-lang=plantuml>@startuml
+participant a as &quot;an address facade&quot;
+participant b  as &quot;an address&quot; 
+[-&gt; a: getAddressData 
+a -&gt; b: getCity 
+a -&gt; b: getState
+a -&gt; b: getZip
+@enduml
+</code></pre><p>远程外观功能：</p>
+<ul>
+<li>提供一个粗粒度的接口</li>
+<li>提供安全检查</li>
+<li>事务控制： 开启一个事务，当做完许多工作之后提交事务。</li>
+</ul>
+<p><strong>远程外观没有领域逻辑</strong></p>
+<h3 id=数据传输对象data-transfer-object>数据传输对象（Data Transfer Object）</h3>
+<blockquote>
+<p>一个为了减少方法调用次数而在进程间传输数据的对象。</p>
+</blockquote>
+<p>数据传输对象的价值在于它允许你在一次调用中传输几部分的信息。</p>
+<p>数据传输对象通常不仅仅包含一个服务器对象。</p>
+<p>通常不能从领域模型中传输对象。原因有：</p>
+<ul>
+<li>对象常常在复杂的 web 中连接起来，并且能够序列化的话也很难</li>
+<li>你通常还不想在客户端看到领域对象类， 应该从领域对象中传输一个简单格式的数据。</li>
+</ul>
+<p>数据传输对象的常见格式有</p>
+<ul>
+<li>记录集， 它是一系列的表格记录。</li>
+<li>集合数据结构</li>
+</ul>
+<h4 id=使用时机>使用时机</h4>
+<ol>
+<li>当你需要在一个方法调用中在两个进程之间传输多个数据项，应使用数据传输对象模式。</li>
+<li>做为不同软件层中各种组件的通用数据源</li>
+</ol>
+<h4 id=faq>FAQ</h4>
+<ol>
+<li>
+<p>是用单一数据传输对象来处理整个交互，还是用不同的数据传输对象来处理不同的请求。</p>
+</li>
+<li>
+<p>是为请求房和发送方各自准备一个数据传输对象，还是用一个单一的数据传输对象来负责交付。</p>
+</li>
+</ol>
+<h2 id=离线并发模式>离线并发模式</h2>
+<p>乐观离线锁， 悲观离线锁，粗粒度锁，隐含锁</p>
+<h3 id=乐观离线锁>乐观离线锁</h3>
+<p>通过检查在会话读取一条记录后，没有其他的会话修改该数据来保证数据的一致性。</p>
+<h3 id=悲观离线锁>悲观离线锁</h3>
+<blockquote>
+<p>每次只允许一个业务事务访问数据以防止并发业务事务中的冲突</p>
+</blockquote>
+<h4 id=运用机制>运用机制</h4>
+<p>通过 3 步来实现悲观离线锁： 决定需要使用哪种锁类型，构建一个锁管理对象，定义业务事务使用锁的过程。</p>
+<p>锁类型有：</p>
+<ul>
+<li>exclusive write lock 独占写锁</li>
+<li>exclusive read lock 独占读锁</li>
+<li>read / write lock 读写锁</li>
+</ul>
+<h2 id=分布式锁>分布式锁</h2>
+<p>分布式环境下锁的全局唯一资源，使请求串行化，实际表现互斥锁，解决业务幂等问题。</p>
+<p>强一致性、服务本身高可用使最基本的需求，其他的比如支持自动续费，自动释放机制，高度抽象接入简单，可视化，可管理等。</p>
+<ul>
+<li>基于 Redis 缓存的分布式锁<sup>[1]</sup>
+<ul>
+<li>存在单点<strong>问题</strong>，一旦涉及到 redis 集群，就会出现重复加锁的情况。</li>
+<li>基于超时时间无法续租<strong>问题</strong>，随机数(fencing token<sup>[2]</sup>)解决了锁被其他任务释放的问题，但是还是无法解决超时导致的锁释放的问题。<strong>Redission</strong> 采用了 <code>Watch dog</code> 模式来解决这个问题的，具体是后台开启一个线程，每隔一定的时间去检查该锁 还有多久超时，然后给这个锁进行续租。</li>
+<li>异步主从同步<strong>问题</strong></li>
+</ul>
+</li>
+<li>基于存储层的可靠的解决方案，比如 zookeeper / ETCD</li>
+</ul>
+<h2 id=会话状态模式>会话状态模式</h2>
+<p>客户端会话模式、服务器会话模式、数据库会话模式</p>
+<p>当服务器会话状态也需要持久化时， 服务器会话状态和数据库会话状态之间区别是： <strong>是否将服务器会话状态中的数据转化为表格形式。</strong></p>
+<h2 id=参考>参考</h2>
+<p>[1] Somersames: <a href=https://somersames.xyz/2020/08/03/Redis%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E6%98%AF%E5%AE%8C%E7%BE%8E%E7%9A%84%E5%90%97%EF%BC%9F/>Redis 实现的分布式锁是完美的吗？</a></p>
+<p>[2] Martin Kleppmann: <a href=https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html>How to do distributed locking</a></p>
+<br>
+<center> ·End· </center>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-f56f85602f1c6d43b4eb2e67085e6fd8>6 - GPU 那些事儿</h1>
+<h2 id=概念解释>概念解释</h2>
+<h4 id=mapreduce>MapReduce</h4>
+<p>为离线批处理服务的模型，分成 Map 任务分发和 Reduce 结果收集两个阶段，能以相同方式处理不同数据来源的大数据作业。</p>
+<p>根据数据来源的不同和作业特点分为</p>
+<ul>
+<li>批计算</li>
+<li>流计算, 处理连续的大规模数据流，将无界的数据流划分成固定大小的有界批处理子集</li>
+<li>内存计算, 中间数据需要大量的迭代处理 ，把Map任务中的中间数据保存到内存中。</li>
+<li>图计算，有依赖关系的多个子任务的 MapReduce 迭代计算形式。</li>
+<li>交互计算, 对计算延迟敏感，或是包含多种计算模式的复杂作业。</li>
+</ul>
+<h4 id=spark-和-flink>Spark 和 Flink</h4>
+<p>大数据处理框架，提供基于 MapReduce 模式的批处理、流计算、内存计算和图计算等多种计算模式 ，来处理不同输入形式的大数据作业。</p>
+<h5 id=flink>Flink</h5>
+<p>虽然没有使用 Flink, 但是需要了解 Flink 能做什么。</p>
+<ul>
+<li>事件驱动型应用</li>
+<li>数据分析应用</li>
+<li>数据管道应用</li>
+</ul>
+<p>详细查看 <a href=https://flink.apache.org/zh/usecases.html>Flink 应用场景</a></p>
+<h5 id=spark>Spark</h5>
+<h4 id=bsp>BSP</h4>
+<p>并行计算模型中， 大同步并行模型，该模型可表示由多个超级步组成的计算过程。在每个超级步中各处理器执行局部计算，再完成点点数据同行，最后全局同步检查来确定所有处理器是否完成运算。</p>
+<h4 id=dot-模型>DOT 模型</h4>
+<p>在BSP基础上，研究者扩展可用于大数据计算计算模型。</p>
+<p>采用矩阵形式化描述大数据处理的计算和通信行为. 将计算过程分为三个层次： 数据层、操作层、转换层。</p>
+<h4 id=dota-模型>DOTA 模型</h4>
+<p>中科院徐志伟团队提出, 在原来的 DOT 模型基础上，增加聚合层（A-Layer）回合处理转移层的中间数据并且完成最终结果。</p>
+<h4 id=p-dot-模型>p-DOT 模型</h4>
+<p>该模型沿用 BSP 的思路把大数据计算任务视为 p 阶段的 DOT 模型。在多次迭代的计算阶段内，p-DOT 模型由数据层、计算层、通信层构成。</p>
+<h2 id=并行计算>并行计算</h2>
+<p>来自《并行计算》</p>
+<h2 id=mpi>MPI</h2>
+<p>MPI 是一个跨语言的通信协议，支持高效方便的点对点、广播和组播。</p>
+<p>MPI 属于 OSI 参考模型的第五层或者更高，他的实现可能通过传输层的 sockets 和 TCP 覆盖大部分的层。</p>
+<p>MPI 标准不断演化，MPI-1 模型不包括共享内存概念。</p>
+<p>MPI 有很多实现，例如 mpich 或者 openmpi</p>
+<h2 id=mps>MPS</h2>
+<p>The Multi-Process Service (MPS) is an alternative, binary-compatible implementation of the CUDA Application Programming Interface (API).</p>
+<p>The MPS runtime architecture is designed to transparently enable co-operative multi-process CUDA applications, typically MPI jobs, to utilize Hyper-Q capabilities on the latest NVIDIA (Kepler-based) GPUs.</p>
+<h2 id=kuberentes下-gpu-资源的使用>Kuberentes下 GPU 资源的使用</h2>
+<p><strong>在一个 1 GPU 上跑多个 Job?</strong>, 按照文章的思路是可以实现的。</p>
+<p>社区讨论</p>
+<ul>
+<li><a href=https://github.com/NVIDIA/k8s-device-plugin/issues/169>https://github.com/NVIDIA/k8s-device-plugin/issues/169</a></li>
+<li><a href=https://github.com/kubernetes/kubernetes/issues/52757>https://github.com/kubernetes/kubernetes/issues/52757</a></li>
+</ul>
+<p><a href=https://github.com/tkestack/gpu-manager>TKE 上实现 GPU Share</a> 从测试数据以及 GIGAStack 产品，这种方案在正式环境上run起来的</p>
+<ul>
+<li><a href=https://pokerfacesad.github.io/2020/02/07/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%E3%80%8AGaiaGPU%20Sharing%20GPUs%20in%20Container%20Clouds%E3%80%8B/>论文笔记《GaiaGPU：Sharing GPUs in Container Clouds》</a></li>
+<li><a href=https://cloud.tencent.com/developer/article/1389547>GaiaStack上的GPU虚拟化技术</a></li>
+<li><a href=https://ieeexplore.ieee.org/abstract/document/8672318>GaiaGPU: Sharing GPUs in Container Clouds 论文地址</a></li>
+<li><a href=https://cloud.tencent.com/developer/article/1496699>Kubernetes 多卡GPU使用和分析</a></li>
+</ul>
+<p><a href=https://github.com/AliyunContainerService/gpushare-scheduler-extender>GPU Sharing Scheduler Extender in Kubernetes</a> 阿里云上实现 GPU Share</p>
+<ul>
+<li><a href=https://www.alibabacloud.com/blog/gpu-sharing-scheduler-extender-now-supports-fine-grained-kubernetes-clusters_594926>GPU Sharing Scheduler Extender Now Supports Fine-Grained Kubernetes Clusters </a></li>
+<li><a href=https://github.com/AliyunContainerService/gpushare-scheduler-extender/blob/master/docs/designs/designs.md>GPU Sharing in Kubernetes</a> 阿里云共享 GPU 的设计。</li>
+</ul>
+<p><a href=https://github.com/NTHU-LSALAB/KubeShare>KubeShare - Share GPU between Pods in Kubernetes </a> 学校试验， 不确定在生产环境稳定运行。</p>
+<p><a href=https://docs.google.com/document/d/1mdgMQ8g7WmaI_XVVRrCvHPFPOMCm5LQD5JefgAh6N8g/edit>Supporting MIG in Kubernetes</a> k8s-device-plugin 从0.7.0版本开始，支持 MIG（Multi-Instance GPUs)</p>
+<ul>
+<li>release <a href=https://github.com/NVIDIA/k8s-device-plugin/tree/v0.7.0#enabling-gpu-support-in-kubernetes>https://github.com/NVIDIA/k8s-device-plugin/tree/v0.7.0#enabling-gpu-support-in-kubernetes</a></li>
+<li>社区讨论 <a href=https://github.com/NVIDIA/k8s-device-plugin/issues/180>https://github.com/NVIDIA/k8s-device-plugin/issues/180</a></li>
+</ul>
+<h3 id=gpu-虚拟化方案>GPU 虚拟化方案</h3>
+<p>想解决 GPU 资源合理分配问题，先将设备虚拟化。</p>
+<p><a href=https://cloud.tencent.com/developer/article/1496699>Kubernetes 多卡GPU使用和分析</a> 文章里将 GPU 节点先进行虚拟化，更改上报给 kubelet 的 DeviceID， 以及在 kubelet 调用 <code>Allocate()</code> 请求时将虚拟 DeviceID 转化为 对应的实际 DeviceID.</p>
+<p>[ GPU 虚拟化技术（四） - GPU 分片虚拟化 ]（http://cloud.it168.com/a2018/0611/3208/000003208253.shtml?1） 提到分片从两个维度来定义：</p>
+<ul>
+<li>是对 GPU 在时间片段上的划分，一个物理 GPU 的计算 engine 在几个 vGPU 之间共享，而调度时间片一般都在 1ms - 10ms 左右，</li>
+<li>是对 GPU 资源的划分，主要是指对 GPU 显存的划分，由于安全隔离的要求，每个 vGPU 独享分配给它的显存，不会与其他 vGPU 共享。</li>
+</ul>
+<p>该文章提到更深入的 GPU 分片技术框架。</p>
+<h3 id=gpu-非虚拟化方案>GPU 非虚拟化方案</h3>
+<p><em>todo</em></p>
+<h3 id=nvidia-gpu-operator>NVIDIA GPU OPERATOR</h3>
+<p>在 <a href=http://hyvi.github.io/docs/architecture/2020-11-06-prometheus-practise/#%E8%AE%BE%E5%A4%87%E6%8F%92%E4%BB%B6--device-plugin>Prometheus Proactise之设备插件 device-plugin</a> 提到 Kubernetes 下如何支持新的硬件。</p>
+<p>Configuring and Managing nodes with these hardware resources require configuration of multiple software components such as drivers, container runtimes or other libraries which are difficult and prone to errors.</p>
+<p>The Nvidia GPU Operator uses the operator framework within kubernetes to automate the management of all NVIDIA software components needed to provison GPU. These components include the NVIDIA drivers (to enable CUDA), Kubernetes device plugin for GPUs, the NVIDIA Container Toolkit, automatic node labelling using GFD, DCGM based monitoring and others.</p>
+<h2 id=参考>参考</h2>
+<p>[1] xtaohub.com: 一切靠自己的 MPI 框架</p>
+<p>[2] stackoverflow: How do I use Nvidia Multi-process Service (MPS) to run multiple non-MPI CUDA applications?</p>
+<p>[3] Enward: NVIDIA MPS总结</p>
+<p>[4] NVIDIA: 《CUDA_Multi_Process_Service_Overview》</p>
+<p><a href=https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html#getting-started>NVIDIA GPU OPERATOR</a></p>
+<p><a href=https://www.cnblogs.com/timlly/p/11471507.html#324-nvidia-kepler%E6%9E%B6%E6%9E%84>深入了解 GPU 硬件架构及运行机制</a> 非常全面的介绍</p>
+<p><a href=https://pop0726.github.io/bxjs/text/catalog/content1.htm>并行计算</a> 在线课程，必读</p>
+<p><a href>论文：面向大数据复杂应用的 GPU 协同计算模型</a></p>
+<p><a href=https://flink.apache.org/zh/usecases.html>Flink 应用场景</a></p>
+<p><br></p>
+<center> ·End· </center>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-2d72ba724658ec96a2ca935bd5c05ec1>7 - PlantUML + Archimate 记录</h1>
+<h2 id=背景>背景</h2>
+<p>画好一张图(能表达清楚内容)不容易，画出漂亮的的一张图更难。好的工具对于完成这件事已经完成一半，剩下另外一半需要作图者发挥了 。</p>
+<h2 id=工具>工具</h2>
+<ul>
+<li>PlantUML, PlantUML能记录所有的变更，也能转化为漂亮的图型.</li>
+<li>VS Code, 其中PlantUML的插件可以实时查看图形</li>
+<li>Archimate, 一套能解决各种架构图的成熟的方案, 覆盖非常多的Case</li>
+</ul>
+<h2 id=详细>详细</h2>
+<h2 id=参考>参考</h2>
+<ol>
+<li>
+<p>ArchiMate Cookbook, 在Kanmi APP里阅读</p>
+</li>
+<li>
+<p>ArchiMate 各种图介绍， <a href=https://www.hosiaisluoma.fi/blog/category/archimate/>https://www.hosiaisluoma.fi/blog/category/archimate/</a></p>
+</li>
+<li>
+<p>《企业架构建模 - ArchiMate 语言》 <a href=https://www.slideshare.net/zhoujg/archimate>https://www.slideshare.net/zhoujg/archimate</a></p>
+</li>
+<li>
+<p>TOGAF 学习， <a href=https://www.cnblogs.com/zhoujg/>https://www.cnblogs.com/zhoujg/</a></p>
+</li>
+<li>
+<p><a href=http://blog.ifjy.me/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/2016/07/16/PlantUML%E8%AF%AD%E6%B3%95%E9%80%9F%E6%9F%A5.html>PlantUML 语法速查手册</a></p>
+</li>
+<li>
+<p><a href=https://plantuml-documentation.readthedocs.io/en/latest/index.html>PlantUML 参数设置手册</a></p>
+</li>
+</ol>
+<p><br></p>
+<center> ·End· </center>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-e15158a326a1352554ba42fb66497f05>8 - Reliability Engineering 可用性工程</h1>
+<p>可用性工程到底指什么 ？ 当提到可用性建设的时候，其实是需要建设什么内容？</p>
+<h2 id=行业标杆>行业标杆</h2>
+<p>2019年的时候了解到Google SRE团队在建设的可靠性工程， 2019年百度对外公布其可用性工程建设的情况。</p>
+<h3 id=百度可用性功能建设>百度可用性功能建设</h3>
+<h4 id=可用性的问题>可用性的问题</h4>
+<h4 id=可用性工程的需求>可用性工程的需求</h4>
+<h4 id=可用性工程技术标准>可用性工程技术标准</h4>
+<ul>
+<li>预防故障发生能力</li>
+<li>程序
+代码、测试、变更规范</li>
+<li>操作
+操作规范，操作审计</li>
+<li>运营
+容量规划</li>
+<li>防攻击</li>
+<li>平台/第三方服务
+服务SLA</li>
+<li>基础设施
+基础设施SLA</li>
+<li>预防故障扩散能力</li>
+<li>故障快速发现能力</li>
+<li>故障定位止损能力</li>
+<li>灾难恢复能力</li>
+</ul>
+<h4 id=落地>落地</h4>
+<p>如何落地</p>
+<h2 id=参考>参考</h2>
+<ol>
+<li>百度服务可用性工程建设, 形成了一套可用性功能技术标准。
+<a href=https://www.infoq.cn/article/C4PddPgiGNFGTqD6pZAK>https://www.infoq.cn/article/C4PddPgiGNFGTqD6pZAK</a></li>
+</ol>
+<br>
+<center> ·End· </center>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-bf8ead2470cf57a8b5a58116a2b2600e>9 - About Cncf Projects</h1>
+<p>CNCF Project vs CNCF Member Project 这有什么区别？</p>
+<h2 id=projects>Projects</h2>
+<h3 id=opentelemetry>OpenTelemetry</h3>
+<p>OpenTelemetry 在遇到以下无法解决的问题情况下出现了。</p>
+<ul>
+<li>应用程序被锁定在特定解决方案的仪表中</li>
+<li>针对开源软件的特定解决方案的仪表基本上是不可能的</li>
+</ul>
+<p>于是需要设计一个可观测的系统来解决以上问题，在设计上需要满足基本的需求<sup>[4]</sup>：</p>
+<ul>
+<li>要求：独立的仪表(instrumentation，这个翻译总觉得怪异，)、遥测和分析</li>
+<li>要求：零依赖性</li>
+<li>要求：严格的后向兼容和长期支持</li>
+</ul>
+<h4 id=概念>概念</h4>
+<h5 id=信号-signal>信号 signal</h5>
+<p>不同类型的遥测，我们称之为<strong>信号</strong>，主要的信号是追踪</p>
+<p>OpenTelemetry 是一个跨领域的关注点(cross-cutting concern)</p>
+<p><img src=https://raw.githubusercontent.com/rootsongjc/cloud-native-library/master/content/opentelemetry-obervability/images/f5-1.png alt title="所有 OpenTelemetry 信号都建立在一个共享的上下文传播系统之上。其他的，非可观测性的交叉关注也可以使用上下文传播机制来通过分布式系统传输他们的数据。"></p>
+<h5 id=instrumentation>Instrumentation</h5>
+<p>仪表（在 《OpenTelemetry 可观测性的未来》这样翻译的）</p>
+<p>但是，来自谷歌：the particular instruments used in a piece of music / measuring instruments regarded collectively.</p>
+<h5 id=otlp>OTLP</h5>
+<p>OpenTelemetry protocol (OTLP)， 定义了 Open Telemetry 里 Tracing\Metrics\Logging 的 protobuf 的协议格式。 比如 <a href=https://github.com/open-telemetry/opentelemetry-proto/blob/main/opentelemetry/proto/trace/v1/trace.proto> Tracing </a></p>
+<h5 id=propagators-and-context>Propagators and Context</h5>
+<p>Propagators: Used to serialize and deserialize specific parts of telemetry data such as span context and Baggage in Spans.</p>
+<p>Traces can extend beyond a single process. This requires context propagation, a mechanism where identifiers for a trace are sent to remote processes.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-golang data-lang=golang><span style=color:#000>otel</span><span style=color:#000;font-weight:700>.</span><span style=color:#000>SetTextMapPropagator</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>propagation</span><span style=color:#000;font-weight:700>.</span><span style=color:#000>TraceContext</span><span style=color:#000;font-weight:700>{})</span>
+</code></pre></div><p><code>TextMapPropagator</code> injects values into and extracts values from carries as text.</p>
+<h5 id=carrier>Carrier</h5>
+<p>A carrier is the medium used by Propagators to read values from and write values to.</p>
+<h4 id=结合-newrelic-tracing-的实践>结合 Newrelic Tracing 的实践</h4>
+<p><a href=https://docs.newrelic.com/docs/integrations/open-source-telemetry-integrations/opentelemetry/opentelemetry-quick-start/> OpenTelemetry and Newrelic 结合 </a>, 中间通过 opentelemetry-go 来连接。</p>
+<p><img src=https://docs.newrelic.com/44724d5e137a64a9b9f426e1bcddc445/native_otlp.svg alt></p>
+<p>也可以通过 opentelemetry-collector (e.g. binary, sidecar, or daemonset). 方式来做。</p>
+<p><img src=https://docs.newrelic.com/2500a84a188882f4b0ecf1d270689112/native_otlp_with_collector.svg alt></p>
+<h4 id=结合-alibaba-tracing-analysisarms的实践>结合 Alibaba Tracing Analysis（ARMS）的实践</h4>
+<p><a href=https://www.alibabacloud.com/help/en/application-real-time-monitoring-service/latest/what-is-tracing-analysis>What is Tracing Analysis</a>， 从 Architecture 看是支持 Opentracing Basing SDK</p>
+<blockquote>
+<p>Tracing Analysis is compatible with SDKs from various open source communities and supports the OpenTracing standard.</p>
+</blockquote>
+<h3 id=apache-dolphinscheduler>Apache DolphinScheduler</h3>
+<p>A distributed and easy-to-extend visual workflow scheduler system, undergoing incubation at ASF.</p>
+<h3 id=megaease>MegaEase</h3>
+<p>开源、自主可控、低层本、高可用的 Cloud Native 平台</p>
+<ul>
+<li>服务编排和服务治理</li>
+<li>流量调度和流量管理</li>
+<li>应用服务观测性 & DevOps</li>
+<li>关键中间件运维及管理</li>
+<li>基础资源调度</li>
+</ul>
+<p><img src=https://megaease.com/imgs/cloud.native.stack.zh.png alt></p>
+<p><img src=https://megaease.com/imgs/cloud.native.arch.zh.png alt></p>
+<h2 id=参考>参考</h2>
+<ol>
+<li>
+<p><a href=https://juejin.im/post/5d3572c1e51d45776147620f>OpenTelemetry-可观察性的新时代 </a></p>
+</li>
+<li>
+<p><a href="https://landscape.cncf.io/project=member">CNCF 项目或者成员项目</a></p>
+</li>
+<li>
+<p>OpenTelemetry: Propagators API</p>
+</li>
+<li>
+<p>Ted Young，译者 Jimmy Song: OpenTelemetry可观察性指南</p>
+</li>
+<li>
+<p>Uptrace: OpenTelemetry instrumentations for Go</p>
+</li>
+</ol>
+<br>
+<center> ·End· </center>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-7aa640ebf687822b9a6f33bb0a4c11a2>10 - Microservice Arch 点点滴滴</h1>
+<p><img src=https://www.jrebel.com/sites/rebel/files/image/2020-04/sl9-1567597621813-min.jpg alt="image via: https://www.infoq.com/presentations/uber-microservices-distributed-tracing/"></p>
+<h2 id=pattern-microservice-architecture>Pattern: microservice architecture</h2>
+<p>&ldquo;An architectural style that structures an application as a set of deployable/executable units, a.k.a. services&rdquo;</p>
+<ul>
+<li>Highly maintainable and testable</li>
+<li>Minimal lead time (time from commit to deploy)</li>
+<li>Loosely coupled</li>
+<li>Independently deployable</li>
+<li>Implements a business capability</li>
+<li>Owned/developed/tested/deployed by a small team</li>
+</ul>
+<h2 id=行业架构最佳实践>行业架构最佳实践</h2>
+<p><a href=https://docs.oracle.com/en/solutions/oci-best-practices/index.html#GUID-5F2D2745-934E-409A-A7BA-D0976F727845>Best practices framework for Oracle Cloud Infrastructure</a> <em>TODO</em></p>
+<h2 id=行业架构分享>行业架构分享</h2>
+<p>不断更新行业的一些架构分享，进行分析总结。</p>
+<h3 id=designing-loosely-coupled-servicesslides>Designing loosely coupled services[Slides]</h3>
+<p>by Chris Richardson, 介绍了几种类型 coupling 及其缺点和如何设计 loosely coupled 微服务.</p>
+<p>Runtime coupling，订单服务需要等待客户服务返回时才给出响应，减少了可用性</p>
+<p>Design time coupling，当客户服务变化时，订单服务也跟着变化。减少了开发的独立性</p>
+<p>Minimizing design time coupling</p>
+<ul>
+<li>DRY</li>
+<li>Consume as little as possible</li>
+<li>Icebergs: expose as little as possible</li>
+<li>Using a database-per-service</li>
+</ul>
+<p>Reducing runtime coupling</p>
+<ul>
+<li><a href=#resilience-patterns---circuit-breaker>Use resilience patterns for synchronous communication</a></li>
+<li>Self-contained service</li>
+<li>Improving availability: replace service with module</li>
+<li>Use asynchronous messaging</li>
+<li>Improving availability: <a href=#resilience-patterns---sagas>sagas</a></li>
+<li>Improving availability: move responsibility + CQRS</li>
+</ul>
+<p>Avoiding infrastructure coupling</p>
+<ul>
+<li>Use private infrastructure: minimizes resource contention and blast radius</li>
+<li>Use &ldquo;Private&rdquo; message brokers</li>
+<li>Fault isolated swim lanes</li>
+</ul>
+<h2 id=模式-patterns>模式 PATTERNS</h2>
+<h3 id=data-management>Data Management</h3>
+<h4 id=database-per-microservice>Database per Microservice</h4>
+<h4 id=cqrs>CQRS</h4>
+<h4 id=event-sourcing>Event Sourcing</h4>
+<h4 id=materialized-view-patterns>Materialized View Patterns</h4>
+<p>Generate prepopulated views over the data in one or more data stores when the data isn&rsquo;t ideally formatted for required query operations. this can help support efficient querying and data extraction, and improve application performance.</p>
+<h5 id=context-and-problem>Context and problem</h5>
+<p>选择存储数据的方式跟数据本身的格式、数据大小、数据完整性以及所使用的存储种类， 但是，这样带来查询的不好的影响。比如当查询数据的子集时，必须取出所有的相关的数据，比如查询一些客户的订单概览</p>
+<h5 id=solution>Solution</h5>
+<p>为了支持高效率的查询，通用的解决办法是，提前生成数据视图（materializes the data in a format suited to the required results set.）
+<img src=https://docs.microsoft.com/en-us/azure/architecture/patterns/_images/materialized-view-pattern-diagram.png alt></p>
+<h3 id=messaging>Messaging</h3>
+<h3 id=design-and-implementation>Design and Implementation</h3>
+<h4 id=bff>BFF</h4>
+<h4 id=api-gateway>API GateWay</h4>
+<h4 id=strangler>Strangler</h4>
+<h4 id=consumer-driven-contract-tracing>Consumer-Driven Contract Tracing</h4>
+<h4 id=externalized-configuration>Externalized Configuration</h4>
+<h4 id=facilitators>Facilitators</h4>
+<p>Facilitators<sup>[5]</sup> are simple a new type that has access to the type you wished you had generic methods on.
+比如，如果你是 ORM framework 的设计者，想提供一些查询表格的方法。你提供了一个中间类型（Querier），这个中间类型允许你写一些 generic querying functions。</p>
+<h4 id=resilience-patterns---sagas>Resilience Patterns - Sagas</h4>
+<p><a href=https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/saga/saga> Saga distributed transactions </a>, a way to manage data consistency across microservices in distributed transaction scenarios。</p>
+<ol>
+<li>Choreography</li>
+<li>Orchestration.</li>
+</ol>
+<h4 id=resilience-patterns---circuit-breaker>Resilience Patterns - Circuit Breaker</h4>
+<p>" used to limit the amount of requests to a service based on configured thresholds &ndash; helping to prevent the service from being overloaded " &ndash; 断路器</p>
+<p>同时，通过监控多少个请求失败了，来阻止其他的请求进入到服务里</p>
+<p>CircuitBreaker 使用 sliding window 来存储和集合发生的请求。 可以选择 count-based 也可以选择 time-based。</p>
+<p><a href=https://github.com/rubyist/circuitbreaker>Circuit Breakers in Go</a> Golang语言的实现.</p>
+<p><img src=https://docs.microsoft.com/en-us/azure/architecture/patterns/_images/circuit-breaker-diagram.png alt="Image via: https://docs.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker"></p>
+<h4 id=resilience-patterns---bulkhead>Resilience Patterns - Bulkhead</h4>
+<p>" Isolates services and consumers via <strong>partitions</strong> &ldquo;, 舱壁模式, 在航运领域，舱壁是船的一部分，合上舱口后可以保护船的其他部分。</p>
+<ul>
+<li>SemophoreBulkhead, work well across a variety of threading and io models. it is based on a semaphore.</li>
+<li>ThreadPoolBulkhead, uses a bounded queue and a fixed thread pool.</li>
+</ul>
+<p>防止级联失败发生. 但对应用来说该模式增加了负担.</p>
+<p><img src=https://www.jrebel.com/sites/rebel/files/image/2020-04/image-jrebel-blog-microservices-performance-vector-7.jpg alt="image via: https://www.jrebel.com/blog/microservices-resilience-patterns"></p>
+<p>什么时候使用：</p>
+<ul>
+<li>Isolate resources used to consume a set of backend services, especially if the application can provide some level of functionality even when one of the services is not responding.</li>
+<li>Isolate critical consumers from standard consumers</li>
+<li>Prodect the application from cascading failures</li>
+</ul>
+<h4 id=request_id>Request_id</h4>
+<p><a href=https://medium.com/cstech/better-logging-approach-for-microservices-3cc2c45e7aaa>Better Logging Approach For Microservices</a> request_id在日志中打印，由请求方生成发起</p>
+<p>从<a href=#%E5%8F%82%E8%80%83>What is the X-REQUEST-ID http header?</a>说明来看，建议是client生成x-request-id.</p>
+<h4 id=resilience-patterns---ratelimiter>Resilience Patterns - RateLimiter</h4>
+<p>限流的基础算法</p>
+<ul>
+<li>漏桶算法
+<ul>
+<li>漏桶算法的实现往往依赖于队列，请求到达如果队列未满则直接放入队列，然后有一个处理器按照固定频率从队列头取出请求进行处理。 如果请求量大，则会导致队列满，那么新来的请求就会被抛弃。</li>
+</ul>
+</li>
+</ul>
+<p><img src=https://upload-images.jianshu.io/upload_images/623378-d8ca6373e1fbddae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 alt></p>
+<ul>
+<li>令牌桶算法
+<ul>
+<li>
+<p>一个存放固定容量令牌的桶，按照固定速率往桶里添加令牌。桶中存放的令牌数有最大上限，超出之后 就会被丢弃或拒绝。当流量或者网络请求到达时，每个请求都要获取一个令牌，如果能获取到，则直接处理，并且令牌桶删除一个令牌。如果获取不到，则该请求就要被限流，要么直接丢弃，要不再缓冲区等待。</p>
+</li>
+<li>
+<p>长期来看，所限制的请求速率的平均值等于 rate（每秒向桶添加令牌的速率r） 的值</p>
+</li>
+<li>
+<p>实际请求达到的速率为 M， 达到的最大速率为 M = b + r (其中b 为令牌桶的最大值)</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src=https://upload-images.jianshu.io/upload_images/623378-992f9c0b0ab82143.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240 alt></p>
+<br>
+<h2 id=参考>参考</h2>
+<p>What is the X-REQUEST-ID http header? <a href=https://stackoverflow.com/questions/25433258/what-is-the-x-request-id-http-header>https://stackoverflow.com/questions/25433258/what-is-the-x-request-id-http-header</a>)</p>
+<p>Resilience4j is a fault tolerance library designed for Java8 and functional programming <a href=https://github.com/resilience4j/resilience4j>https://github.com/resilience4j/resilience4j</a></p>
+<p>Azure Cloud Design Patterns, used in the cloud for building reliable, scalable, secure applications <a href=https://docs.microsoft.com/en-us/azure/architecture/patterns/index-patterns>https://docs.microsoft.com/en-us/azure/architecture/patterns/index-patterns</a></p>
+<center> ·End· </center>
+<p>.NET Microservices: Architecture for Containerized .NET Applications （PDF 在Kami 上）https://docs.microsoft.com/en-us/dotnet/architecture/microservices/</p>
+<p>[5] JBD: Generics facilitators in Go</p>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-2100c1911c9bb54654a9c137ab8c0dfa>11 - Big Data Arch</h1>
+<h2 id=背景>背景</h2>
+<h2 id=行业案例>行业案例</h2>
+<h3 id=腾讯游戏大数据应用>腾讯游戏大数据应用</h3>
+<p><a href="https://pan.baidu.com/disk/home#/all?vmode=list&path=%2F0%20%E6%9E%B6%E6%9E%84%E5%A4%A7%E4%BC%9A%E8%B5%84%E6%96%99%2FArchSummit%202015%20shenzhen%2F%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%83%8C%E5%90%8E%E7%9A%84%E4%BB%B7%E5%80%BC%E4%B8%93%E9%A2%98">大数据背后的价值 - 腾讯游戏大数据应用</a></p>
+<ul>
+<li>大数据落地应用 = 数据 + 系统 + 算法 + 应用场景</li>
+<li>腾讯游戏用户数据分层体系</li>
+<li>腾讯游戏数据处理系统架构</li>
+</ul>
+<h3 id=饿了么数据仓库治理及数据应用>饿了么数据仓库治理及数据应用</h3>
+<p><a href="https://pan.baidu.com/disk/home#/all?vmode=list&path=%2F0%20%E6%9E%B6%E6%9E%84%E5%A4%A7%E4%BC%9A%E8%B5%84%E6%96%99%2FArchSummit%202015%20shenzhen%2F%E5%A4%A7%E6%95%B0%E6%8D%AE%E8%83%8C%E5%90%8E%E7%9A%84%E4%BB%B7%E5%80%BC%E4%B8%93%E9%A2%98">大数据背后的价值 - 饿了么数据仓库治理及数据应用 </a></p>
+<h4 id=数据仓库的建设>数据仓库的建设</h4>
+<h5 id=标准化和规范化>标准化和规范化</h5>
+<h5 id=统一日志搜集框架>统一日志搜集框架</h5>
+<h4 id=原则>原则</h4>
+<ul>
+<li>主题划分</li>
+<li>数据一致性</li>
+<li>维度建设</li>
+</ul>
+<h4 id=todo>TODO</h4>
+<ul>
+<li>数据权限管理</li>
+<li>数据使用记录</li>
+<li>数据开放平台</li>
+</ul>
+<h3 id=uber-freight-carrier-metrics-with-near-real-time-analytics>Uber Freight Carrier Metrics With Near-Real-Time Analytics</h3>
+<p><img src=https://hyvi.github.io/blog-images/20220903/uber-freight-carrier-system-design.png alt="Uber Final System Design"></p>
+<p>目录</p>
+<ol>
+<li>Introduction</li>
+<li>How We Did It
+<ul>
+<li>Backend Requirement</li>
+<li>Potential Solution Considered</li>
+<li>Final System Design</li>
+<li>Data Schema</li>
+<li>Flink stateful Stream Process</li>
+<li>Hybrid Pinot Table</li>
+<li>Golang GRPC Service</li>
+</ul>
+</li>
+<li>Impact</li>
+<li>Conclusion</li>
+</ol>
+<h2 id=通用方案>通用方案</h2>
+<h3 id=存储读取写入>存储读取/写入</h3>
+<p><a href=https://zhuanlan.zhihu.com/p/113892824>Data Lake 系列： 关于 EMRFS S3 优化的提交程序，你了解吗</a> 文章与 FileOutputCommitter 进行了比较。</p>
+<p>同时在 <a href=https://github.com/rdblue/s3committer>github repo s3committer</a> 引出了 <a href=https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html> multi-part upload API </a> 技术，可以用于处理大文件上传慢的问题。</p>
+<p>但是对于小文件上传问题， 是否可以就并发上传就行了呢？ No</p>
+<p>方案： 压缩上传，上传完成后通过 <code>AWS Lambda</code> 来解压缩。 其中通过流（Stream）的方式解决 <em>Only 500MB of disk space per instance</em> 的限制<sup>[1]</sup>，但执行时间有15分钟的限制，对于超大文件还是有。</p>
+<h2 id=参考>参考</h2>
+<p>[1] John Paul Hayes: How to extract a HUGE zip file in an Amazon S3 bucket by using AWS Lambda and Python</p>
+<br>
+<center> ·End· </center>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-e5642f043cdf7d0f1ee9aebaedfc53db>12 - RPC vs Http</h1>
+<p>在评估 4G SDK 方案中，嵌入同事方案中使用 RPC 方案与服务器通信，让我感觉很奇怪，因为在我们的 web server 里通信一般都是 https 通信方式。</p>
+<h2 id=rpc>RPC</h2>
+<p>wikipedia&rsquo;s List of network protocols (OSI model)</p>
+<p>RPC 属于 Session Layer,</p>
+<h2 id=http-vs-rpc>HTTP vs RPC</h2>
+<p><img src=https://pic1.zhimg.com/80/v2-7d859132076fe279e570ffcd6e7545d8_720w.jpg alt></p>
+<p>rpc 是远端过程调用，其调用协议通常包含传输协议和序列化协议。</p>
+<p>传输协议包含：如著名的 [gRPC](grpc / grpc.io) 使用的 http2 协议，也有如 dubbo 一类的自定义报文的 tcp 协议。
+序列化协议包含：如基于文本编码的 xml json，也有二进制编码的 protobuf hessian 等。</p>
+<h2 id=http-长连接>HTTP 长连接</h2>
+<p>在参考<sup>[2]</sup> 中提到 httpServer 怎么处理长连接的： httpServer 创建一个 goroutine，更确切的说，是为了为一个新的 tcp 连接去创建一个 goroutine， 详细参考文章的源码。</p>
+<h2 id=compare-grpc-services-with-http-apis>Compare gRPC services with HTTP APIs</h2>
+<p>gRPC is designed for HTTP/2, vs HTTP 1.x:</p>
+<ul>
+<li>binary framing and compression.</li>
+<li>Multiplexing of multiple HTTP/2 calls over a single TCP connection. Multiplexing eliminates <a href=#head-of-line-blocking>head-of-line-blocking</a></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>gRPC</th>
+<th>HTTP APIs with JSON</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contract</td>
+<td>Required (<code>.proto</code>)</td>
+<td>Optional (OpenAPI)</td>
+</tr>
+<tr>
+<td>Protocol</td>
+<td>HTTP/2</td>
+<td>HTTP</td>
+</tr>
+<tr>
+<td>Payload</td>
+<td><a href=#performance>Protobuf (small, binary)</a></td>
+<td>JSON (large, human readable)</td>
+</tr>
+<tr>
+<td>Prescriptiveness</td>
+<td><a href=#strict-specification>Strict specification</a></td>
+<td>Loose. Any HTTP is valid.</td>
+</tr>
+<tr>
+<td>Streaming</td>
+<td><a href=#streaming>Client, server, bi-directional</a></td>
+<td>Client, server</td>
+</tr>
+<tr>
+<td>Browser support</td>
+<td><a href=#limited-browser-support>No (requires grpc-web)</a></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>Transport (TLS)</td>
+<td>Transport (TLS)</td>
+</tr>
+<tr>
+<td>Client code-generation</td>
+<td><a href=#code-generation>Yes</a></td>
+<td>OpenAPI + third-party tooling</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>表格来自 <a href=https://docs.microsoft.com/en-us/aspnet/core/grpc/comparison>https://docs.microsoft.com/en-us/aspnet/core/grpc/comparison</a></p>
+</blockquote>
+<h3 id=head-of-line-blocking>Head-of-line Blocking</h3>
+<blockquote>
+<p>详细描述了HOL <a href=https://engineering.cred.club/head-of-line-hol-blocking-in-http-1-and-http-2-50b24e9e3372>https://engineering.cred.club/head-of-line-hol-blocking-in-http-1-and-http-2-50b24e9e3372</a></p>
+</blockquote>
+<p>Key Points:</p>
+<ul>
+<li>Frame</li>
+<li>Message</li>
+<li>Stream</li>
+</ul>
+<p>The HOL Blocking issue is resolved at the HTTP layer in HTTP/2, but it now moves to the TCP layer.</p>
+<p>HTTP/3 or QUIC solves HOL Blocking at TCP layer by leveraging UDP instead of TCP as the transport protocol.</p>
+<h2 id=参考>参考</h2>
+<ol>
+<li>
+<p>既然有 http，为什么还要 RPC 调用？
+<a href=https://www.zhihu.com/question/41609070>https://www.zhihu.com/question/41609070</a></p>
+</li>
+<li>
+<p>Golang httpServer 对 KeepAlive 长连接的处理方式
+<a href=https://blog.csdn.net/jeffrey11223/article/details/81222774>https://blog.csdn.net/jeffrey11223/article/details/81222774</a></p>
+</li>
+</ol>
+<br>
+<center> ·End· </center>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-8838bdb6c8ad83f16e730d71b934e97a>13 - GCP Study</h1>
+<h2 id=问题>问题</h2>
+<p><em>场景一</em>
+用户 在客户端 A 上传了数据到<code>数据处理服务 X</code>，并对数据进行了处理，得到<code>处理结果</code>
+用户 在客户端 B 上能够获取<code>数据处理服务 X</code>的<code>处理结果</code>
+( <code>数据处理服务 X</code> 对于此用户来说是透明的 )</p>
+<p><em>场景二</em>
+数据运营管理平台，用户登录后在直接访问各个服务数据 API 的时候需要鉴权。</p>
+<h2 id=名词解释>名词解释</h2>
+<p><em>API 表面 (API surface)</em>
+API 的公共接口 。API surface 包含各种方法，以及这些方法中使用的参数和返回类型。</p>
+<p><em>Service Management</em>
+Google Cloud 基础架构服务， 创建并管理 API 和服务。</p>
+<p><em>Extensible Service Proxy(ESP)</em>
+基于 NGINX 的服务代理，类似 Isto Service Mesh 方式。</p>
+<h2 id=cloud-endpoints-架构>Cloud endpoints 架构</h2>
+<p>它给出了 API 管理系统，通过 ESP 或 Endpoints Frameworks 提供
+<a href=https://cloud.google.com/endpoints/docs/frameworks/frameworks-extensible-service-proxy#endpoints_frameworks>比较可扩展服务代理和 Endpoints Frameworks</a></p>
+<h3 id=esp-可扩展服务代理>ESP 可扩展服务代理</h3>
+<p><img src="https://cloud.google.com/endpoints/docs/images/endpoints-architecture.png?hl=zh-cn" alt=endpoint-introduce></p>
+<p>供给侧：</p>
+<ol>
+<li>配置 endpoints: 在 OpenAPI 配置文件中描述 API Surface 并配置 Endpoints 功能（例如 API 密钥或者身份验证规则）</li>
+<li>部署 endpoints 配置：定义的 API 后，使用 <code>Cloud SDK</code> 将其部署到 Service Managerment.</li>
+<li>部署 API 后端： 将 ESP 和 API 后端部署到受支持的 Google Cloud 后端，例如 Compoute Engine。ESP 会与 Endpoints 后端服务协同运作，以在运行时保护和监控您的 API。</li>
+</ol>
+<p><img src="https://cloud.google.com/endpoints/docs/images/endpoints_arch.png?hl=zh-cn" alt="Endpoints auchitect"></p>
+<p>组件：</p>
+<ul>
+<li>ESP</li>
+<li>Service Control</li>
+<li>Cloud SDK</li>
+<li>Google Cloud Console</li>
+</ul>
+<p><img src="https://cloud.google.com/endpoints/docs/images/endpoints_kube.png?hl=zh-cn" alt="K8S ESP"></p>
+<p>这张图更清晰了给出 endpoints 的架构</p>
+<h3 id=endpoints-frameworks>Endpoints Frameworks</h3>
+<p>如果需要开发一个基于 GCP 上的 Restful 服务，需要使用 Endpoint Frameworks, 它解决了什么问题？
+内置了一个 API 网关，拦截所有请求并执行所有必要的检查（例如身份验证），然后再将请求转发到 API 后端。后端响应后，会收集遥测数据并进行报告。</p>
+<p><img src=https://cloud.google.com/endpoints/docs/images/frameworks-architecture.png alt="Endpoints Frameworks"></p>
+<p>如下功能都在 Endpoints Management 里面完成。</p>
+<ul>
+<li>身份验证</li>
+<li>API 密钥</li>
+<li>监控</li>
+<li>日志</li>
+<li>配额</li>
+<li>开发者门户
+<ul>
+<li><a href=https://cloud.google.com/endpoints/docs/images/frameworks-architecture.png>示例</a> Google cloud endpoints 从 openapi 文件 解析并展示 API 页面。我们 API 平台 可以参考下。</li>
+</ul>
+</li>
+</ul>
+<p><a href=https://github.com/cloudendpoints/endpoints-python> A python framework for building RESTful APIs on Google App Engine</a>
+<a href=https://github.com/GoogleCloudPlatform/go-endpoints>Cloud Endpoint for Go</a> 已经 DEPRECATED，但是有借鉴的意义。</p>
+<h3 id=实践>实践</h3>
+<p>选择身份验证方式在 endpoints 中实践身份验证。<a href=https://cloud.google.com/endpoints/docs/frameworks/python/authentication-method>Cloud Endpoints 身份验证和 API 密钥</a></p>
+<h2 id=identity-and-security>Identity and security</h2>
+<h3 id=authentication>Authentication</h3>
+<ul>
+<li>None</li>
+<li>API key
+<ul>
+<li>Identifies your project using a simple API key to check quota（限额） and access</li>
+<li>API 密钥用于识别正在调用API的调用方项目（应用或网站），而身份验证令牌用于识别正在使用应用或者网站的用户（人员）</li>
+<li>API 密钥的用途
+<ul>
+<li><strong>项目识别</strong> - 识别正在调用相应API的应用或项目</li>
+<li><strong>项目授权</strong> - 检查调用方应用是否拥有API的权限，以及是否已在其他项目中启用API</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>OAuth Client ID（以最终用户身份进行身份验证）
+requests user consent（同意） so your app can acces the user&rsquo;s data
+<ul>
+<li>你需要代表应用的最终用户访问资源，如您的应用需要访问应用用户的 Google BigQuery 的数据集</li>
+<li>你需要以用户身份而非作为你的应用进行身份认证。</li>
+<li>两个用途
+<ul>
+<li><strong>用户身份验证</strong> - 安全的验证调用方用户的真实的身份是否与宣称的一致</li>
+<li><strong>用户授权</strong> - 检查用户是否应具备发出此请求的权限</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Service account
+Enables server-to-server, app-level authentication using robot account</li>
+</ul>
+<p>GCP API 使用 OAuth 2.0 协议进行用户账号和服务账号的身份验证。 OAuth2.0 身份验证过程确定<code>主账号</code>和应用</p>
+<ul>
+<li>用户账号 作为 <code>Google 账号</code>进行管理</li>
+<li>服务账号 由 Cloud IAM 管理， 代表非人类用户。</li>
+</ul>
+<p>哪种适合，查看 <a href=https://cloud.google.com/docs/authentication#authentication_strategies> Authentication strategies </a></p>
+<blockquote>
+<p>API 密钥用于识别项目，身份验证用于识别用户</p>
+</blockquote>
+<blockquote>
+<p>API密钥是不安全的； 由于客户端通常可以访问API密钥，因此API密钥容易被他人窃取。密钥被窃取后，由于没有到期时间，因此可以无限期的使用，除非项目所有者撤销密钥或者重新生成密钥，API 密钥的安全性没有身份验证令牌高。</p>
+</blockquote>
+<h3 id=实践-1>实践</h3>
+<p><a href=https://cloud.google.com/endpoints/docs/quickstart-endpoints>Cloud EndPoints 快速入门</a> 实践文档。
+<a href=https://github.com/GoogleCloudPlatform/endpoints-quickstart>点击查看示例仓库地址</a> 案例代码</p>
+<p>心得</p>
+<ul>
+<li>当增加 API 密钥和限流的功能时，不需要更改后端服务任何代码</li>
+<li>API 的监控通过 Google Cloud Console 来查看，非常方便。</li>
+</ul>
+<h2 id=分析>分析</h2>
+<p>针对场景一</p>
+<ol>
+<li>客户端有自己的业务后台服务，客户端 A 的业务后台服务 A，简称”后台 A“， 客户端 B 则简称”后台 B“， 那么后台 A、B 访问<code>数据处理服务 X</code>属于 server-to-server 的方式来进行身份认证的。缺点是应用级的鉴权。
+<a href=https://cloud.google.com/dataprep/docs/concepts/cross-bq-datasets>访问跨项目 BigQuery 数据集</a>
+<a href=https://stackoverflow.com/questions/35479025/cross-project-management-using-service-account>Cross project management using service account</a></li>
+</ol>
+<ul>
+<li>给后台 A 创建 Service-Account A, 并授予<code>数据处理服务 X</code>的资源创建、计算、查看角色</li>
+<li>给后台 B 创建 Service-Account B, 并授予<code>数据处理服务 X</code>的资源查看、计算角色</li>
+<li><del>问题是 两个 service-account 之间资源理应是隔离的，没办法解决同一用户获得数据的问题。</del></li>
+<li>在 Console 中将 Service-Account B 添加到后台 A，并赋予查看、计算角色</li>
+</ul>
+<ol start=2>
+<li>客户端没有自己的业务后台服务
+在 google cloud 里，Firebase 解决移动端用户身份验证
+Firebase 用户认证和 IAM 的结合？</li>
+</ol>
+<ul>
+<li>客户端 A 开发在同一登录 Congnito 中创建 Service-Account A, 并授予<code>数据处理服务 X</code>的资源创建、计算、查看角色</li>
+<li>用户在客户端 A 使用 Congito 登录后，根据 Service-Account A 生成 STS Token，返回给客户端 A</li>
+<li>客户端 A 使用 STS Token 直接访问<code>数据处理服务 X</code>， 进行资源的创建，计算，查看</li>
+<li>客户端 B 开发也在 Congnito 中创建 Service-Account B, 并授予<code>数据处理服务 X</code>的资源查看、计算角色</li>
+<li>用户在客户端 B 使用 Congito 登录后，根据 Service-Account B 生成 STS Token，返回给客户端 B</li>
+<li>客户端 B 使用 STS Token 直接访问<code>数据处理服务 X</code>， 进行资源的创建，计算，查看
+用户访问的资源是隔离的。怎么处理？</li>
+</ul>
+<p>针对场景二</p>
+<ol>
+<li>使用 OAuth Client ID 方式登录
+”以最终用户身份进行身份验证“
+<em>你的应用如何验证用户身份，Google Cloud 使用的 firebase 身份验证</em>
+以下步骤为实现无后台的数据运营平台。</li>
+</ol>
+<ul>
+<li>完成服务 X 的上线，服务 X 需要接入数据运营平台，通过 IAM 并对用户 A 授予所有资源的查看权限。</li>
+<li>用户 A 通过 OAuth2.0 登录后，提示他需要哪些服务的权限（Auth Scope），</li>
+<li>进入”服务 X"，通过查询服务 X 的资源，并展示。</li>
+</ul>
+<h2 id=参考>参考</h2>
+<ol>
+<li>
+<p>Cloud EndPoints 简介
+<a href="https://cloud.google.com/endpoints/docs/openapi/about-cloud-endpoints?hl=zh-cn">https://cloud.google.com/endpoints/docs/openapi/about-cloud-endpoints?hl=zh-cn</a></p>
+</li>
+<li>
+<p>Cloud Endpoints 架构概览
+<a href="https://cloud.google.com/endpoints/docs/images/endpoints_arch.png?hl=zh-cn">https://cloud.google.com/endpoints/docs/images/endpoints_arch.png?hl=zh-cn</a></p>
+</li>
+<li>
+<p>Cross project management using serivce account
+<a href=https://stackoverflow.com/questions/35479025/cross-project-management-using-service-account>https://stackoverflow.com/questions/35479025/cross-project-management-using-service-account</a></p>
+</li>
+<li>
+<p>以最终用户身份进行身份验证
+<a href=https://cloud.google.com/docs/authentication/end-user>https://cloud.google.com/docs/authentication/end-user</a></p>
+</li>
+<li>
+<p>使用 firebase 在 App Engine 上对用户进行身份验证
+<a href=https://cloud.google.com/appengine/docs/standard/python/authenticating-users-firebase-appengine#managing-user-data-in-datastore>https://cloud.google.com/appengine/docs/standard/python/authenticating-users-firebase-appengine#managing-user-data-in-datastore</a>
+例子比较简单，并没有结合 IAM 来实现权限控制。</p>
+</li>
+<li>
+<p>IBM OAuth 2.0 工作流程
+<a href=https://www.ibm.com/support/knowledgecenter/zh/SSPREK_9.0.2/com.ibm.isam.doc/config/concept/con_oauth20_workflow.html#con_oauth20_workflow>https://www.ibm.com/support/knowledgecenter/zh/SSPREK_9.0.2/com.ibm.isam.doc/config/concept/con_oauth20_workflow.html#con_oauth20_workflow</a></p>
+</li>
+<li>
+<p>《OAuth 2.0 实战》
+百度网盘 -> 我的文档, 在Kami上阅读</p>
+</li>
+<li>
+<p>[认证 & 授权]
+<a href=https://www.cnblogs.com/linianhui/category/929878.html>https://www.cnblogs.com/linianhui/category/929878.html</a></p>
+</li>
+<li>
+<p>[OIDC in Action] 详细流程展示OIDC过程
+<a href=https://www.cnblogs.com/linianhui/category/1121078.html>https://www.cnblogs.com/linianhui/category/1121078.html</a></p>
+</li>
+<li>
+<p>sample for oidc 上面文档的代码
+<a href=https://github.com/linianhui/oidc.example>https://github.com/linianhui/oidc.example</a></p>
+</li>
+<li>
+<p>Identity Server 4 - Hybird Flow - MVC 客户端身份认证
+<a href=https://www.cnblogs.com/cgzl/p/9253667.html>https://www.cnblogs.com/cgzl/p/9253667.html</a>
+<a href=https://www.cnblogs.com/cgzl/tag/OAuth2/>https://www.cnblogs.com/cgzl/tag/OAuth2/</a></p>
+</li>
+</ol>
+<br>
+<center> ·End· </center>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-bdde9cbfd9f8eeac0cd39a3b3b3d14fb>14 - 限流的那些事</h1>
+<h2 id=背景>背景</h2>
+<p>限制 API 的请求数量是网络安全的一部分，大量的 API 请求导致高负载。
+在学习 rudr 过程中也提到 rate limiting 可以做为 trait， 那么使用起来非常方便，业务开发并不需要关心限流逻辑。</p>
+<h2 id=glossary>Glossary</h2>
+<p><strong>traffic shaping</strong></p>
+<p>packet are delayed until they conform</p>
+<p><strong>traffic policing</strong></p>
+<p>non-conforming packets may be discarded(dropped) or may be reduced in priority.</p>
+<h2 id=what-and-the-importance>What and The Importance</h2>
+<h3 id=what-is-api-rate-limiting>What Is API Rate Limiting</h3>
+<p>集群流控： 集群流量不均匀导致总体限流效果不佳的问题，仅靠单机纬度去限制的话无法精准限制总体流量。</p>
+<h3 id=best-practices-for-api-rate-limiting>Best Practices For API Rate Limiting</h3>
+<h3 id=how-to-throttle-api-calls>How to Throttle API Calls</h3>
+<h3 id=three-methods-of-implementing-api-rate-limiting>Three Methods of Implementing API Rate-Limiting</h3>
+<h4 id=adaptive-system-protection-系统自适应限流>Adaptive System Protection （系统自适应限流）</h4>
+<ul>
+<li>Load 自适应</li>
+<li>CPU usage</li>
+<li>平均 RT</li>
+<li>并发线程数</li>
+<li>入口 QPS</li>
+</ul>
+<h4 id=request-queues>Request Queues</h4>
+<h4 id=throttling>Throttling</h4>
+<p>API Used by setting up a temporary state, allowing the API to assess each request</p>
+<h4 id=rate-limiting-algorithms>Rate-limiting Algorithms</h4>
+<p><strong>Leaky Bucket</strong></p>
+<ul>
+<li>as a meter，与 Token bucket 算法互为 mirror，
+<ul>
+<li>Token bucket 固定的 rate 增加 token；而另外一个是 固定的 rate 漏水</li>
+<li>Token bucket 请求从桶中获取 token, 获取不到时则限流；而另外一个是往漏斗中滴水，滴满时则限流。</li>
+</ul>
+</li>
+<li>as a queue，用于匀速排队的方式严格控制请求通过的间隔时间。</li>
+</ul>
+<p><strong>Fixed Window</strong></p>
+<p><strong>Sliding Log</strong></p>
+<p><strong>Sliding Window</strong></p>
+<h2 id=rate-limiting-影响>Rate Limiting 影响</h2>
+<h2 id=参考>参考</h2>
+<ol>
+<li>
+<p>Everything You need to Know About API Rate Limiting
+<a href=https://nordicapis.com/everything-you-need-to-know-about-api-rate-limiting/>https://nordicapis.com/everything-you-need-to-know-about-api-rate-limiting/</a></p>
+</li>
+<li>
+<p>Sentinel: 集群流控，https://github.com/alibaba/Sentinel/wiki/集群流控
+<br></p>
+</li>
+</ol>
+<center> ·End· </center>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-10107dc58f8047d96fa3f1b7f95bb88e>15 - 微服务架构下Deloyment最佳方式探讨</h1>
+<h2 id=背景>背景</h2>
+<p>服务的升级和重构上线，跟服务如何平滑的部署、流量迁移有着密不可分的关系。</p>
+<h2 id=参考>参考</h2>
+<p><a href=https://docs.flagger.app/how-it-works>Flagger</a><br>
+Flagger is a Kubernetes operator that automates the promotion of canary deployments using Istio, Linkerd, App Mesh, Nginx, Contour or Gloo routing for traffic shifting and prometheus metrics for canary analysis.</p>
+<br>
+<center> ·End· </center>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-b4073f3719895d9f503707326b40ca07>16 - Cloud Computing Service Modeling</h1>
+<h2 id=简介>简介</h2>
+<p>2020年需要重新思考架构模型，我们以怎样的方式对外提供服务，是Service， 一起看下有哪些Service吧</p>
+<h2 id=service-model>Service Model</h2>
+<p>常见的应该有Iaas(Host)、Paas(Build)、Saas(Consume)、Faas, 而在这边文章"Future of Cloud Computing Architectrue"里提到的Service更多类型</p>
+<p><img src=https://hyvi.github.io/blog-images/20200102/Future%20of%20Cloud%20Computing%20Stack.png alt="Cloud Computing Stack"></p>
+<p>每一种提供了不同的灵活性和控制，如下图：</p>
+<p><img src=https://hyvi.github.io/blog-images/20211002/5-layer-diagram.png alt="Saas vs Paas vs Iaas Service Model"></p>
+<h3 id=function-as-a-service-todo>Function-as-a-service TODO</h3>
+<h3 id=software-as-a-service>Software-as-a-Service</h3>
+<p>The Saas model 为你的业务提供基于云的web应用的访问能力，无须install new infrastructure</p>
+<h4 id=the-twelve-factor-app>The Twelve-Factor APP</h4>
+<p><a href=https://12factor.net/>https://12factor.net/</a> 为提供Saas服务提供了方法论:</p>
+<ul>
+<li>使用标准化流程自动配置</li>
+<li>和操作系统之间尽可能的划清界限，在各个系统中提供<strong>最大的可移植性</strong></li>
+<li>适合<strong>部署</strong>在现代的<strong>云计算平台</strong>， 从而在服务器和系统管理方面节省资源</li>
+<li>将开发环境和生产环境的差异降至最低，并使用持续交付实施敏捷开发。</li>
+<li>可以在工具、架构和开发流程不发生明显变化的前提下实现扩展。</li>
+</ul>
+<h4 id=身份认真和授权-todo>身份认真和授权 TODO</h4>
+<p>License Model for Saas or alias &ldquo;Sass License&rdquo;, 感觉类似“<a href=https://aws.amazon.com/cn/cognito/dev-resources/>AWS cognito</a>”<br>
+vs IAM</p>
+<p><a href=https://aws.amazon.com/cn/blogs/china/aws-kms-enables-secure-data-encryption-across-tenants/>文章展示了AWS各个服务之间的交互逻辑</a></p>
+<h3 id=platform-as-a-service>Platform-as-a-service</h3>
+<p>With this model, a third-party vendor provides your business with a platform upon which your business can develop and run application.</p>
+<h3 id=infrastructure-as-a-service>Infrastructure-as-a-service</h3>
+<p>allow your business to have complete, scalable control over the management and customization of your infrastructure .</p>
+<h2 id=patterns-in-microservice>Patterns in microservice</h2>
+<p><img src=https://res.infoq.com/articles/architecture-trends-2020/en/resources/1Architecture-2020-Q2-1587042627643.jpg alt="architecture trends 2020"></p>
+<h3 id=eda>EDA</h3>
+<p><img src=https://miro.medium.com/max/468/1*YPhljs4qcqtN08dA54fdwA.png alt="Service composition - anit pattern"></p>
+<ul>
+<li>tightly coupled, because the calling service needs to know the URL payload and related detail of the service it calls</li>
+<li>a change in functionality require a coordinated effort between multiple teams</li>
+</ul>
+<p><img src=https://miro.medium.com/max/1166/1*TtaEDXMTFpPqHj0a-7lxiw.png alt="Event notifications and event-driven architectures"></p>
+<h3 id=asyncapi-todo>AsyncAPI #TODO</h3>
+<h3 id=data-architecture>Data Architecture</h3>
+<h4 id=data-mesh>Data Mesh</h4>
+<blockquote>
+<p>the next enterprise data platform architecture is in the convergence of Distributed Domain Driven Architecture, Self-serve Platform Design, and Product Thinking with Data<sup>[5]</sup>.
+&mdash; Zhamak Dehghani</p>
+</blockquote>
+<h4 id=data-gateways>Data Gateways</h4>
+<p>somewhat like API gateways but focus on the data aspect.</p>
+<h3 id=policy-as-code-todo>Policy as Code #TODO</h3>
+<h3 id=designing-for-___>Designing for ___</h3>
+<h4 id=designing-for-resilience>Designing for resilience</h4>
+<h4 id=designing-for-abservability>Designing for abservability</h4>
+<h4 id=designing-for-portability>Designing for portability</h4>
+<p>whether that’s for multi-cloud or hybrid-cloud. In most cases, there are no reasons for architects to design for the lowest common denominator to enable true multi-cloud portability or avoiding vendor lock-in.</p>
+<h4 id=designing-for-sustainability>Designing for sustainability</h4>
+<p>This is emerging because people are realizing the software industry is responsible for a level of carbon usage comparable to the aviation industry<sup>[6]</sup>.</p>
+<h3 id=dapr>Dapr</h3>
+<div style=position:relative;padding-bottom:56.25%;height:0;overflow:hidden>
+<iframe src=https://www.youtube.com/embed/eJCu6a-x9uo style=position:absolute;top:0;left:0;width:100%;height:100%;border:0 allowfullscreen title="Nark Russinovich: The Future of Cloud Natvie Applications with Open Application Model and Dapr"></iframe>
+</div>
+<p>It is describing as a set of"microservice building blocks for cloud and edge" also is meant to be agnostic</p>
+<blockquote>
+<p>Dapr is completely platform agnostic, meaning you can run your applications locally, on any Kubernetes cluster, and other hosting environments that Dapr integrates with. This enables developers to build microservice applications that can run on both the cloud and edge with no code changes,"</p>
+</blockquote>
+<p><img src=https://github.com/dapr/dapr/raw/master/img/overview.png alt="Dapr is a portable, event-driven, runtime for building distributed applications across cloud and edge."></p>
+<h4 id=dapr-building-blocks>Dapr building blocks</h4>
+<ul>
+<li>Service Invocation</li>
+<li>State management</li>
+<li>Plubish and subscribe messaging between services</li>
+<li>Event driven resource bindings</li>
+<li>Virtual actors &ndash; A pattern for stateless and stateful objects that make concurrency simple with method and state encapsulation. Dapr provides many capabilities in its virtual actor runtime including concurrency, state, life-cycle management for actor activation/deactivation and timers and reminders to wake up actors<sup>[7]</sup>.</li>
+<li>Distributed tracing between services</li>
+<li>Resillency</li>
+</ul>
+<h4 id=sidecar-architecture-and-supported-infrastructures>Sidecar architecture and supported infrastructures</h4>
+<p>Dapr exposes its APIs as a sidecar architecture, either as a container or as a process, not requiring the application code to include any Dapr runtime code.</p>
+<p><img src=https://cloudblogs.microsoft.com/uploads/prod/2019/10/overview-sidecar.png alt="Dapr running as a side-car process"></p>
+<h4 id=multi-cloud-open-components-bindings-pub-sub-state-from-azure-aws-gcp>Multi-Cloud, open components (bindings, pub-sub, state) from Azure, AWS, GCP</h4>
+<p>Dapr is completely platform agnostic, meaning you can run your applications locally, on any Kubernetes cluster, and other hosting environments that Dapr integrates with. This enables developers to build microservice applications that can run on both the cloud and edge with no code changes.</p>
+<h4 id=dapr-和-service-mesh-的区别>Dapr 和 Service-Mesh 的区别</h4>
+<p><img src=https://docs.dapr.io/images/service-mesh.png alt="service-mesh vs dapr"></p>
+<p>共同点：</p>
+<ul>
+<li>基于 mTLS 加密的服务到服务的安全通信</li>
+<li>服务到服务的度量指标收集</li>
+<li>服务度到服务的分布式跟踪</li>
+<li>故障重试恢复能力</li>
+</ul>
+<p>Dapr 以开发者为中心，提供了通过了名称进行服务发现和调用的方式。Dapr 还提供了其他应用级的构建块，如状态管理、发布/订阅、参与者等</p>
+<h2 id=principles-in-microservice>Principles in Microservice</h2>
+<ol>
+<li>Create an organizational model that provide independence and antonomy to teams</li>
+<li>services are independently deployable</li>
+<li>services are independently scalable</li>
+<li>they do not have a single point of failure - only degradation</li>
+<li>the design employ asynchronous communication between services</li>
+<li>no shared functionality , code or data exists in the system .</li>
+<li>Component are easy to understand and the are small services with boundary</li>
+</ol>
+<h2 id=思考>思考</h2>
+<p>接触到“AWS解决方案架构师”，负责企业客户应用在AWS的架构咨询和设计。在微服务架构设计，数据库等领域有丰富的经验。<br>
+是技术产品还是技术架构师呢？ 那AWS这些云产品由什么位置来规划的？<br>
+是技术架构师又偏技术业务，这是云服务架构师的之路, 最后做技术架构咨询。</p>
+<h2 id=todo>TODO</h2>
+<p>[ ] 企业软件架构模式，见kami app</p>
+<h2 id=参考>参考</h2>
+<p>[1] <a href=https://www.sjsu.edu/people/robert.chun/courses/CS247/s4/I.pdf>Futrue of Cloud Computing Architecture.pdf</a></p>
+<p>[2] IBM: IaaS vs. PaaS vs. SaaS, Understand and compare the three most popular cloud computing service models</p>
+<p>[3] InfoQ: Software Architecture and Design InfoQ Trends Report—April 2020</p>
+<p>[4] InfoQ 趋势报告：架构和设计领域技术演变详解 2019</p>
+<p>[5] Zhamak Dehghani: How to Move Beyond a Monolithic Data Lake to a Distributed Data Mesh</p>
+<p>[6] Thomas Betts, Holly Cummins: Software Architecture and Design InfoQ Trends Report &ndash; April 2021</p>
+<p>[7] Microsoft Open Source Blog: Announcing Distributed Application Runtime (Dapr), an open source project to make it easier for every developer to build microservice applications</p>
+<br>
+<center> ·End· </center>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-47077e68da976692ff337a00dcb67e20>17 - 控制资源的访问权限</h1>
+<p>这是一个最好的时代，也是一个最焦虑的时代，如果你停滞不前，时代抛弃你的时候，连一句再见都不会说。</p>
+<h2 id=what>What</h2>
+<p>Identity & Access Mangement, 身份验证以及访问控制，一种对资源提供可控安全的访问解决方案。
+用来控制对 AWS 资源的访问权限，把资源 (Resouuce) 上的操作 (Action) 授权给谁 (identity)</p>
+<p><img src=https://docs.aws.amazon.com/zh_cn/IAM/latest/UserGuide/images/intro-diagram%20_policies_800.png alt="IAM: https://docs.aws.amazon.com/zh_cn/IAM/latest/UserGuide/intro-structure.html"></p>
+<p>图中三种 <a href=https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html>Authorization</a>，看完这个链接，不止 three type :</p>
+<ul>
+<li>Identity-based polices
+To provide your users with permission to access the AWS resource in their own account
+<ul>
+<li>Managed policy （托管策略）
+<ul>
+<li>AWS Managed policy,</li>
+<li>Customer managed policy,</li>
+</ul>
+</li>
+<li>inline policy（内联策略）: embedded in an IAM identity(a user, group, or role)</li>
+</ul>
+</li>
+<li>Resource-based polices
+Popular for granting cross-account access, Resource-based policies are <strong>inline only</strong>, not managed</li>
+<li>Other polices
+Should be used carefully</li>
+</ul>
+<p>Q: 这三种跟 Policy 的三种类型有什么区别？
+A: 下面三种隶属于 Identity-based policy, 详细见：<a href=https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html>Identity-Based Policies</a></p>
+<h2 id=how>How</h2>
+<ul>
+<li>如何优雅的定义 Resource</li>
+<li>如何优雅的定义 Action</li>
+<li>Identity</li>
+<li>Policy</li>
+</ul>
+<h3 id=resource>Resource</h3>
+<p>AWS 给出的答案是： ARN（AWS Resource Namespace), ARN 是一个命名规则，用于无歧义的对 AWS 的资源进行命名。</p>
+<p><a href=https://docs.aws.amazon.com/zh_cn/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html#api-gateway-calling-api-permissions>AWS 针对调用 API 的许可控制。 </a> 对 API 许可的资源格式定义非常全面，值得借鉴</p>
+<h3 id=identity>Identity</h3>
+<p>User, Group, Roles
+<img src=https://hyvi.github.io/blog-images/20191130/IAM-Identity.webp alt></p>
+<h3 id=action>Action</h3>
+<p>Action 也就是针对 AWS 上的服务提供的 API。
+Condition Context Keys，是 AWS IAM 中支持的一个功能。即在定义 Policy 时可以使用一些变量，支持复杂的表达式。</p>
+<h3 id=policy--todo>Policy TODO</h3>
+<p><a href=https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html>Policies Type</a>, 详细描述有哪些 Policy 种类，几乎覆盖大部分的场景</p>
+<ul>
+<li>Identity-based policies</li>
+<li>Resource-based policies</li>
+<li>Permissions boundaries</li>
+<li>Organizations SCPS</li>
+<li>Accss control lists(ACLs)</li>
+<li>Session Policies</li>
+</ul>
+<p>用来描述授权策略的一种描述语言，用于描述谁在 xx 条件下对 xx 资源具有 xx 操作。 组成如下：</p>
+<ul>
+<li>
+<p>“Version”</p>
+</li>
+<li>
+<p>Statement： 具体策略的内容，可以是一个或者多个</p>
+<ul>
+<li>Effect: Allow 或者 Deny</li>
+<li>Action: 具体操作，参见 <a href=http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actionsconditions.html>AWS Service Actions and Condition Context Keys for Use in IAM Policies.</a></li>
+<li>Resource: 具体的资源</li>
+</ul>
+</li>
+</ul>
+<p>一个 identity 所有的多个 Policy 会发生冲突，IAM 采用的策略可以概括为 8 个字： ~凡事声明， 一票否决~</p>
+<ul>
+<li>凡事声明： 默认情况下， Resource 是禁止访问的，只有显式声明了对资源的 Allow 权限，才允许访问。</li>
+<li>一票否决： 即便是有 Policy 开启了 Allow, 一旦其他的 Policy 中出现对 Resource 的 Deny 声明，一律 Deny</li>
+</ul>
+<h4 id=open-policy-agent>Open Policy Agent</h4>
+<p><a href=https://segmentfault.com/a/1190000022753560>入门： Open Policy Agent:简化了微服务授权</a></p>
+<ul>
+<li>OPA定义一套DSL语言rego,</li>
+<li>上文中提到微服务架构下借助nginx实现权限控制的一种方式</li>
+</ul>
+<p><a href=https://github.com/NewbMiao/opa-koans>OPA 入门系列</a></p>
+<p>中文资料</p>
+<h2 id=iam-实践-todo>IAM 实践 TODO</h2>
+<p>AWS IAM is supporting a role-based access control(RBAC), paradigm by defining permissions within policies and attaching those to applicable principlas(IAM users and roles)</p>
+<p>besides supporting both identity- and resource- based policies, IAM has alway supported aspects of attribute-based access control(ABAC) via the optional condition policy element and &ldquo;expressions in which you use condition operators(equal, less than, etc.) to match the condition in the policy against values in the request&rdquo;, such as IP address or time of day.</p>
+<p>furthermore it has supported authorization based on tags.</p>
+<h2 id=implement--todo>Implement TODO</h2>
+<p><del>怎么实现这个系统，以及各个系统怎么接入</del>
+当我继续深入了解<code>IAM</code>，接触到一个全新的概念<code>零安全架构</code>，来源于 Google Enterprise Security <a href=https://cloud.google.com/beyondcorp/#researchPapers>BeyondCorp: a new approach to enterprise security</a>, 同时同行也在实践这个方案，比如中通安全 <a href=https://www.secrss.com/articles/6752>中通下一步的 IAM 架构设计</a>,
+接下来需要充分对这个架构的理解。</p>
+<p>各个系统依赖于这个 IAM 权限控制系统，要实现的话两步走：</p>
+<ul>
+<li>怎么实现这个系统
+<ul>
+<li>基于 <a href=https://github.com/ory/hydra>hydra</a> 来实现 OAuth2.0 和 OIDC</li>
+<li>基于 keto，参考实现权限系统</li>
+</ul>
+</li>
+<li>各个系统怎么接入</li>
+</ul>
+<p>所有服务以一种语言实现， IAM 的功能作为 SDK 的方式集成在服务之中，SDK 依赖弹性伸缩的数据服务，辅以上层负载均衡依照 AK 将请求路由到不同的分区，以期保证性能的同时，达到更高的灵活度。</p>
+<h3 id=hydra>hydra</h3>
+<p>拉取hydra代码， 本地启动服务:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker-compose -f quickstart.yml -f quickstart-postgres.yml up --build
+</code></pre></div><h2 id=todo>TODO</h2>
+<ul>
+<li><input disabled type=checkbox> 细读 <a href=https://cloud.google.com/beyondcorp/>BeyondCorp: A new approuch to enterprise security</a></li>
+<li><input checked disabled type=checkbox> 细读<a href=https://www.secrss.com/articles/6752>浅谈助力零信任安全架构的云 IAM 设计</a> 理解整个系统的架构</li>
+<li><input disabled type=checkbox> 细读 <a href=https://www.authlete.com/resources/templates/sequence-diagrams/>Sequence diagrams of OAuth 2.0 in Authelete</a></li>
+</ul>
+<h2 id=参考>参考</h2>
+<p><a href=https://www.jianshu.com/p/f59745ae7fad> AWS IAM 从入门再到入门 </a> 提到一些有用的工具</p>
+<p><a href=https://segmentfault.com/a/1190000013437169> IAM 身份验证以及访问控制 </a> 提到临时访问凭证的方案。</p>
+<p><a href=https://yq.aliyun.com/articles/67180> 阿里云 RAM 策略整理 </a> 对 Policy 详细的讲解。对于“RAM 角色身份的授权策策略检查逻辑” 最后两步不是很理解。为什么“检查 RAM 角色所属的主账号是否有授权”， 以及检查“该资源是否支持跨账号 ACL 许可” ？</p>
+<p><a href=http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/pdf/ram-intro-cn-zh-2016-09-26.pdf> 阿里云 访问控制 pdf 文件 </a> 产品简介，了解 RAM-User 和 RAM-Role 的定义。</p>
+<p><a href="https://blog.csdn.net/bob_dadoudou/article/details/24718653?utm_source=tuicool&utm_medium=referral"> Restful Api 的访问控制方式</a></p>
+<p><a href=https://www.geek-share.com/detail/2664431666.html> 当前国内外云计算平台的访问控制机制分析</a> 图挂了。</p>
+<p><a href=https://www.aqniu.com/learn/37733.html>零信任的 5W1H</a> 解释什么是零信任。回答了这个概念。</p>
+<p><a href=https://cloudacademy.com/blog/amazon-cognito-manage-mobile-data/>Amazon Cognito allow secure authentication in a world where mobile apps are regularly being accessed by individuals using multiple smart devices</a> 资源怎么被 APP 使用。</p>
+<p><a href=https://juejin.im/entry/5af3b1dcf265da0b7f449041>贝壳找房权限服务的探索和实践</a> 贝壳找房权限服务的实践分享</p>
+<p><a href=https://www.infoq.com/news/2019/02/iam-tags-attribute-based-access/>AWS Identity and Access Management Gains Tags and Attribute-Based Access Control</a>
+2019.2.8 IAM 这一发布表示 Support the ability to embrace attribue-based access control (ABAC) and match aws resources with IAM principals dynamically to &ldquo;simplify permissions management at scale&rdquo;</p>
+<p><a href=https://medium.com/@darutk>Takahiko Kawasaki</a> Co-founder and representative director of Authlete, Inc., working as a software engineer since 1997. 图做的非常清晰.</p>
+<br>
+<center> ·End· </center>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-7c70474ebd4af8181781d9e1091fabc7>18 - APM资料整理</h1>
+<h2 id=背景>背景</h2>
+<p>NewRelic工作上使用、到Sentry接入所有应用，是时候需要对这些资料进行系统化的梳理。随着深入了解这些工具，APM出现在视线里，究竟什么是APM，它的来龙去脉是怎样的呢， 它解决了什么问题（或者目的是什么）？这篇文章根据自己检索到资料，对这些问题进行阐述</p>
+<h2 id=名词解释>名词解释</h2>
+<ul>
+<li>管理模型</li>
+</ul>
+<h2 id=apm>APM</h2>
+<p>Application Performance Management的缩写, “应用性能管理”，由Gartner归纳抽象出的一个管理模型。<br>
+APM模型中一共分五个层次：<br>
+<img src=http://static.oschina.net/uploads/space/2015/0403/095747_t0Na_118000.jpg alt></p>
+<h3 id=end-user-experience>End User Experience</h3>
+<p>首先关注的是终端用户对应用性能的真实体验。目的是帮助管理者准备、详尽地了解真实用户体验是什么样子。</p>
+<h3 id=runtime-application-architecture>Runtime Application Architecture</h3>
+<p>应用架构映射，目的是解决企业应用架构黑盒或灰盒的现状。</p>
+<ul>
+<li>应用的完整架构</li>
+<li>单词请求的应用架构</li>
+</ul>
+<h3 id=business-transactions>Business Transactions</h3>
+<p>应用事务分析<br>
+GA大量的埋点，怎么做到不需要修改任何一行代码，我们并可以对应用取得的数据分析应用事务</p>
+<ul>
+<li>确定上下文的事务操作，是同一个用户</li>
+<li>确定所有事务操作的每一个步骤，是唯一一个动作</li>
+</ul>
+<h3 id=deep-dive-component-monitoring>Deep Dive Component Monitoring</h3>
+<p>深度应用诊断，</p>
+<ul>
+<li>在不修改用户代码的前提下，取得代码运行时性能数据</li>
+<li>终端用户数据、运行时性能数据、数据指标数据、服务运行指标数据，有效关联</li>
+<li>有太多的关注点，怎么方便的部署采集端</li>
+<li>不影响原应用的性能。</li>
+</ul>
+<h3 id=analytics--reporting>Analytics / Reporting</h3>
+<ul>
+<li>处理数据要及时，必要时要做到实时的处理，问题可能随时都会发生；</li>
+<li>数据的分析报告要准确 ，大量的数据本身无价值的，按照无业务模型进行分析、预测才能有其价值体现。</li>
+</ul>
+<h2 id=vs-sentry>VS Sentry</h2>
+<p>“错误日志监控”也可称为“业务逻辑监控”，旨在对业务系统运行过程中产生的错误日志进行收集归纳和监控告警。<br>
+就是“APM应用性能监控”。 但又与APM不同，APM系统主要注重应用层的行为分析， 收集到更多是运营方向的数据。<br>
+而 Sentry所做是收集应用底层代码的奔溃信息，便于排查代码异常。简单来说，排障工具！<br>
+Sentry解决的问题：</p>
+<ul>
+<li>无法第一时间感知错误</li>
+<li>错误信息的获取相对低效</li>
+<li>日志的处理方式不灵活</li>
+<li>监控覆盖面有限</li>
+</ul>
+<p>Sentry 是一个现代化的错误日志记录和聚合平台，支持所有的主流开发语言和平台，并提供了现代化UI。</p>
+<h2 id=参考>参考</h2>
+<p><a href=https://my.oschina.net/ciogao/blog/395520>什么是真正的APM</a><br>
+<a href=http://www.sohu.com/a/162399042_733939>运维开发实践——基于Sentry搭建错误日志监控系统 </a></p>
+<br>
+<center> ·End· </center>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-f25771a1b9a619a9f87799d92a815e2a>19 - API Trend 现状</h1>
+<h2 id=graphql>GraphQL</h2>
+<p>2012年 facebook内部开发，2015年公开公布，2018年 GraphQL项目转移到新成立的GraphQL基金会。<br>
+有利有弊, 对于简单的API并不是好的选择。</p>
+<ul>
+<li>避免服务器大量冗余数据的返回</li>
+<li>不能有效利用查询结构的web缓存</li>
+<li>带来的灵活性和丰富性的同时 增加了复杂度</li>
+</ul>
+<p><a href=https://github.blog/2016-09-14-the-github-graphql-api/>The GitHub GraphQL API</a> 采用GraphQL API解决两大问题：</p>
+<ol>
+<li>scalability, 一次性同时提供客户端需要的信息，而不是像RESTFul API那样重复的请求几次获取需要的数据</li>
+<li>Collect some meta-information about our endpoint 给不同endpoint不同的OAuth权限范围，更灵活的分页，只获取用户需要的数据.</li>
+</ol>
+<h2 id=open-apiswagger-api>OPEN API(Swagger API)</h2>
+<p>OPEN API 从Swagger API 2.0发展而来<br>
+<a href=https://www.programmableweb.com/news/whats-difference-between-rest-and-swagger/analysis/2018/08/06>What&rsquo;s the difference between Swagger and REST</a></p>
+<blockquote>
+<p>the net result is that OAS(OPEN API Spec) is considered to be a standard specification for describing REST APIS. not just for developers to consume, it is also intended for usage by software .</p>
+</blockquote>
+<p>是什么，一大特点</p>
+<blockquote>
+<p>Versus older architectural styles, the specifics of the REST architectural style — their simplicity, their elegance, and their ability to rely on existing standard networking protocols like the one that makes the World Wide Web work (aka the &ldquo;Hypertext Transfer Protocol&rdquo; or &ldquo;HTTP&rdquo;) — have made it one of the more enduring and popular architectural styles for networkable APIs. This is one reason that REST APIs are sometimes also called &ldquo;Web APIs.&rdquo; Although it is not a requirement, most REST APIs rely on HTTP (the Web&rsquo;s official protocol) to perform their magic.</p>
+</blockquote>
+<p>这里解释REST架构API 为什么被称为 “Web API”</p>
+<h2 id=restful-api>Restful API</h2>
+<p><a href=http://www.ruanyifeng.com/blog/2014/05/restful_api.html>RESTFul API设计指南</a><br>
+前端设备与后端进行通信，导致API架构的流行，甚至出现“API First”的思想。<br>
+RESTFul API是目前比较成熟的一套互联网应用程序的API设计理论。</p>
+<blockquote>
+<p>协议<br>
+域名<br>
+版本<br>
+路径<br>
+HTTP动词<br>
+过滤信息<br>
+状态码<br>
+错误处理<br>
+返回结果<br>
+Hypermedia API<br>
+其他</p>
+</blockquote>
+<h3 id=rest-api-backword-compatibility>Rest API backword compatibility</h3>
+<ul>
+<li>Tests</li>
+<li>Always add parameters</li>
+<li>Do not make optional parameters be mandatory</li>
+<li>Always add additional HTTP response code returned by the API</li>
+<li>Never delete or modify existing HTTP Response code behavior</li>
+<li>Change URLs wisely</li>
+</ul>
+<h2 id=wsdlweb-services-description-language->WSDL(Web Services Description Language )</h2>
+<p>网络服务描述语言</p>
+<blockquote>
+<p>are complimentary to other older but still deeply entrenched networkable API architecture like &ldquo;remote procedure call " or &ldquo;RPC "</p>
+</blockquote>
+<p>VS REST API</p>
+<blockquote>
+<p>OAS is complimentary to the REST architectural style</p>
+</blockquote>
+<h2 id=参考>参考</h2>
+<ol>
+<li>How to maintain Rest API backward compatibility?
+<a href=https://zubialevich.blogspot.com/2018/09/backward-compatibility.html>https://zubialevich.blogspot.com/2018/09/backward-compatibility.html</a></li>
+</ol>
+<br>
+<center> ·End· </center>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-20b4d397434e7dd72c0f3ae6fd7e12da>20 - API 兼容性设计</h1>
+<h2 id=简介>简介</h2>
+<p>向后兼容的一般目标是： 服务升级到新的minor版本或者patch后客户端不应该被破坏</p>
+<h2 id=名词解释>名词解释</h2>
+<h3 id=source-compatibility>Source Compatibility</h3>
+<p>code that compiled against version X of an API will also compile against version Y .</p>
+<h3 id=binary-compatibility>Binary Compatibility</h3>
+<p>code that compiled against version X of an API will run correctly in an environment that has version Y of the same API.</p>
+<h2 id=向后兼容性的改变>向后兼容性的改变</h2>
+<ul>
+<li>为API服务添加一个API接口</li>
+<li>为API接口添加一个方法</li>
+<li>为方法添加一个HTTP绑定</li>
+<li>为请求消息添加一个字段</li>
+<li>为响应消息添加一个字段</li>
+<li>为枚举类型添加一个值</li>
+<li>添加output-only的资源字段</li>
+</ul>
+<h2 id=不向后兼容的更改>不向后兼容的更改</h2>
+<ul>
+<li>删除或重命名一个服务，字段或者枚举值</li>
+<li>更改HTTP绑定</li>
+<li>更改某个字段类型</li>
+<li>更改资源名称格式</li>
+<li>修改已有请求的可见性</li>
+<li>在HTTP定义中改变URL格式</li>
+<li>在资源消息中添加读/写字段</li>
+</ul>
+<h2 id=参考>参考</h2>
+<p><a href=https://segmentfault.com/a/1190000009157548#articleHeader14> Google API 设计指南 - 兼容性 </a><br>
+<a href=https://developers.google.com/youtube/compatibility_guidelines> Backward Compatibility Guidelines </a><br>
+<a href=https://google-cloud.gitbook.io/api-design-guide/> API Gesign Guide </a> Google针对网络API的通用设计指南<br>
+<a href=https://github.com/kijiproject/wiki/wiki/API-Compatibility-v2> API Compatibility v2</a></p>
+<br>
+<center> ·End· </center>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-b3dd446295c046b0254b164fdf051efc>21 - Web API Spec管理平台</h1>
+<h2 id=背景>背景</h2>
+<p>后台服务对外最重要的是提供API接口，上百上千的接口，怎么保持一种规范/约束，才能让接口在创建、更新、废弃生命周期中是有据可循的呢？</p>
+<ul>
+<li>接口的创建是按照什么规范?</li>
+<li>接口的更新是对业务方无影响或者影响非常小的？</li>
+<li>接口的废弃是怎样的方式？</li>
+</ul>
+<h2 id=调研>调研</h2>
+<h3 id=业界解决方案>业界解决方案</h3>
+<h4 id=apiary>apiary</h4>
+<ul>
+<li>Support API Blueprint\Swagger API</li>
+</ul>
+<blockquote>
+<p>DNA for your API &mdash; powerful, open sourced and developer-friendly. The ease of Markdown combined with the power of automated mock server , tests, validations, proxies, and code samples in your language bindings</p>
+</blockquote>
+<ul>
+<li>Server Mock</li>
+<li>Documentation</li>
+<li>Traffic Inpspector</li>
+</ul>
+<h4 id=mulesofthttpswwwmulesoftcomplatformapimanager><a href=https://www.mulesoft.com/platform/api/manager>MuleSoft</a></h4>
+<p>the most widely used integration platform</p>
+<p>总结： 有接口管理、实时使用数据指标、流量突变告警、</p>
+<h4 id=apimatichttpswwwapimaticio><a href=https://www.apimatic.io/>APIMATIC</a></h4>
+<ul>
+<li>instant SDK, Code Samples, Test Cases</li>
+<li>Continuous Code Generation</li>
+<li>API Transformer</li>
+</ul>
+<p>总结： 其中代码生成、持续的代码生成、API转换都是非常需要的功能。</p>
+<h4 id=apigee-cloudgooglecomapigee><a href=cloud.google.com/apigee>Apigee </a></h4>
+<p>google提供跨云环境的API管理</p>
+<ul>
+<li>Web API Design</li>
+<li>Mastering Full Lifecycle API</li>
+<li>Management with Analytics</li>
+<li>Securing APIs in the Age of Connected Experiences</li>
+</ul>
+<p>总结： 基本上满足文章开头的三个问题。</p>
+<h4 id=kong>Kong</h4>
+<p>介绍很少</p>
+<h4 id=其他>其他</h4>
+<ul>
+<li><a href=www.apigility.org>apigility </a></li>
+<li><a href=#>Falcon</a> Python web framework</li>
+<li><a href=#>Amazon API Gateway</a> traffic management, authorization and access control, monitoring and API version management</li>
+<li><a href=speccy.io>SPECCY</a> a handy toolkit for OpenAPI, with a linter to enforce quality rules, documention rendering and resolution</li>
+</ul>
+<h3 id=公司解决方案>公司解决方案</h3>
+<h2 id=结论>结论</h2>
+<h3 id=一期>一期</h3>
+<p>API生命周期管理：API新建和显示（For Humans, For Machines），API使用，API弃用，版本管理，授权与访问控制</p>
+<h4 id=todo-list>TODO LIST</h4>
+<h3 id=二期>二期</h3>
+<p>API的健康状态管理： API流量、API错误率等。打通与APM之间的数据。</p>
+<h4 id=todo-list-1>TODO LIST</h4>
+<h3 id=三期>三期</h3>
+<p>支持更多的功能： API在线编写， API不规范的提示，API调式，API MOCK，API自动测试，代码生成（SDK和sample）</p>
+<ul>
+<li>Traffic Inspector<br>
+提供代理方式，开发者可以把数据发送到调试代理上，通过比对数据和协议内容，来定位问题。<a href=apiary.io>想法来自 apiary.io</a></li>
+</ul>
+<h4 id=todo-list-2>TODO LIST</h4>
+<h2 id=参考>参考</h2>
+<p><a href=https://mathieu.fenniak.net/the-api-checklist/>The Web API Checklist &ndash; 43 Things To Think About When Designing, Testing, and Releasing your API</a><br>
+<a href=https://www.cnblogs.com/weidagang2046/archive/2011/06/04/idempotence.html>理解HTTP幂等性</a><br>
+<a href=http://design.apievangelist.com>API EVANGELIST</a><br>
+<a href=https://apiblueprint.org>API Blueprint</a><br>
+<a href=https://www.how2shout.com/tools/free-open-source-tools-api-creation-management-testing.html#comments>13 Free & Open Source Tools For API Creation, Management & Testing</a></p>
+<br>
+<center> ·End· </center>
+</div>
+<div class=td-content style=page-break-before:always>
+<h1 id=pg-e0db42a0d9b10d2a3a014e76ddeeccd1>22 - 迁移线上服务方案</h1>
+<h2 id=背景>背景</h2>
+<p>迁移服务器或者服务升级的事情时，需要对使用方来说是无感知的<br>
+那怎么做到新旧代码或者新旧服务的平稳过渡呢？ 根据不同的情况具体的方案也是不一样的。</p>
+<h2 id=调研>调研</h2>
+<p>对各大公司进行做服务升级或者迁移的方案学习。吸取有用的方案。</p>
+<h3 id=模拟客户端的请求前端做灰度上线>模拟客户端的请求，前端做灰度上线</h3>
+<p>部署新旧服务， 完成AB测试， 灰度上线<br>
+数据库数据怎么解决的？</p>
+<h2 id=可行的方案>可行的方案</h2>
+<p>结合目前的我们的基础设施，可执行的方案。</p>
+<h2 id=最佳实践>最佳实践</h2>
+<p>最后，我们的最佳实践是什么，我们实践后的总结</p>
+<h2 id=参考>参考</h2>
+<p><a href=https://hyvi.github.io>记一次从Rails直Golang的接口迁移</a>
+<br></p>
+<center> ·End· </center>
+</div>
+</main>
+</div>
+</div>
+<footer class="bg-dark py-5 row d-print-none">
+<div class="container-fluid mx-sm-5">
+<div class=row>
+<div class="col-6 col-sm-4 text-xs-center order-sm-2">
+</div>
+<div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+</div>
+<div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+<small class=text-white>&copy; 2022 Elon All Rights Reserved</small>
+<small class=ml-1><a href=https://policies.google.com/privacy target=_blank rel=noopener>隐私政策</a></small>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js integrity=sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF crossorigin=anonymous></script>
+<script src=/js/main.min.3b172c13b62c2bea8b1c9d2599cddc8cf89718a92d792c680871c81ba43d8c85.js integrity="sha256-OxcsE7YsK+qLHJ0lmc3cjPiXGKkteSxoCHHIG6Q9jIU=" crossorigin=anonymous></script>
+</body>
+</html>

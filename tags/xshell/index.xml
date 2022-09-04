@@ -1,0 +1,26 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Elon`s Blog – xshell</title><link>https://hyvi.github.io/tags/xshell/</link><description>Recent content in xshell on Elon`s Blog</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://hyvi.github.io/tags/xshell/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: fencview.vim + xshell + vim + 各种中文编码问题</title><link>https://hyvi.github.io/docs/tool/2013-08-13-xshell_vim_encoding/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/tool/2013-08-13-xshell_vim_encoding/</guid><description>
+&lt;p>c++ 老代码都不是utf-8编码，估计是gb2312或gbk编码，而javascript是utf-8编码&lt;br>
+咋办？&lt;br>
+vim中只设置过&lt;br>
+&amp;ldquo;set encoding=gb2312 termencoding=utf-8 &amp;ldquo;fileencoding=gbk&lt;/p>
+&lt;p>不同编码文件，怎么通过一个设置来搞定呢？ 疑惑！！！&lt;br>
+以前碰到不同文件后缀名能用不同的高亮，不同的格式化。 &lt;br>
+按此逻辑。。。&lt;br>
+不同的文件编码可以用不同的配置咯。&lt;/p>
+&lt;p>google 就如上帝！！！&lt;/p>
+&lt;p>发现了 &lt;a href="http://edyfox.codecarver.org/html/vim_fileencodings_detection.html">http://edyfox.codecarver.org/html/vim_fileencodings_detection.html&lt;/a>&lt;br>
+最后提到了统一解决办法 fencview.vim&lt;/p>
+&lt;p>杜绝眼高手低：搞起&lt;/p>
+&lt;p>一个小时&amp;hellip;&lt;br>
+两个小时&amp;hellip;&lt;br>
+搞定&lt;/p>
+&lt;ol>
+&lt;li>下载插件：fencview&lt;/li>
+&lt;li>配置.vimrc&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#000">encoding&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>utf-8
+&lt;span style="color:#204a87">set&lt;/span> &lt;span style="color:#000">termencoding&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>utf-8 &lt;span style="color:#4e9a06">&amp;#34;fileencoding=utf-8
+&lt;/span>&lt;span style="color:#4e9a06">set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+&lt;/span>&lt;span style="color:#4e9a06">let g:fencview_autodetect=1
+&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&lt;/span>&lt;span style="color:#204a87">let&lt;/span> g:fencview_auto_patterns&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;*&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>最后一行注释掉： 因为不注释javascript 文件不高亮。&lt;/p></description></item></channel></rss>

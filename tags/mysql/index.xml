@@ -1,0 +1,96 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Elon`s Blog – MYSQL</title><link>https://hyvi.github.io/tags/mysql/</link><description>Recent content in MYSQL on Elon`s Blog</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://hyvi.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Daily 1127 MYSQL</title><link>https://hyvi.github.io/docs/daily/2017-11-27-daily-1127/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-11-27-daily-1127/</guid><description>
+&lt;p>&lt;a href="https://www.awaimai.com/1578.html">选择性复制表数据&lt;/a> 这个可, 数据库批量处理必备&lt;/p>
+&lt;h2 id="亿级数据库设计">亿级数据库设计&lt;/h2>
+&lt;p>详细见 &lt;a href="https://article.itxueyuan.com/7JAoD">千万级汇总查询优化&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://cloud.tencent.com/developer/article/1456270">基于Mysql数据库亿级数据的设计&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>Mysql 单标可以存储10亿级的数据，但这个时候性能非常，项目中大量的实验证明，Mysql单表容量在500万左右，性能处于最佳状态。&lt;/p>
+&lt;/blockquote>
+&lt;p>一张表无法搞定，那么&lt;/p>
+&lt;h3 id="解决办法">解决办法&lt;/h3>
+&lt;h4 id="分区">分区&lt;/h4>
+&lt;p>根据&lt;strong>查询索引列&lt;/strong>将单表进行分区，当然这些变化对应用层是无法感知的。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>分区类型&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Range 分区&lt;/td>
+&lt;td>根据数值范围，根据时间区间或 ID 区间来切分&lt;/td>
+&lt;td>较多&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>List 分区&lt;/td>
+&lt;td>离散值集合&lt;/td>
+&lt;td>较少&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Hash 分区&lt;/td>
+&lt;td>根据数值取模&lt;/td>
+&lt;td>较多&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>KEY 分区&lt;/td>
+&lt;td>KEY 分区支持 text 和 BLOB， KEY 分区不允许用用户自定义的表达式分区。&lt;/td>
+&lt;td>较少&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;ul>
+&lt;li>Hash 分区，基于给定的分区个数，将数据分配到不同的分区。例如会员表的这种表。 HASH 分区只能针对整数进 HASH，对于非整形的字段只能通过表达式将其转换为整数。&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>如果基于绑定编号（ID）来做range或者list分区，绑定编号没有实际的业务含义，无法通过它进行查询， 因此，我们剩下了HASH分区和Key分区，HASH分区仅支持int类型的列的分区，且是其中的一列。 如果基于绑定的时间列进行分区，查询依然很慢。基于搜索列来进行分区，可以保证查询的速度。&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="分库">分库&lt;/h4>
+&lt;p>垂直分库：根据业务的耦合性，将关联度低的不同表存储在不同的数据库，以达到资源的饱和利用率。这样每个微服务系统使用独立的一个数据库。&lt;/p>
+&lt;h4 id="分表">分表&lt;/h4>
+&lt;p>分表分为水平分表和垂直分表（也能避免跨页问题）&lt;sup>[7]&lt;/sup>。&lt;/p>
+&lt;blockquote>
+&lt;p>MySQL 底层是通过数据页存储的，一条记录占用空间过大会导致跨页，造成额外的性能开销。另外数据库以行为单位将数据加载到内存中，这样表中字段长度较短且访问频率较高，内存能加载更多的数据，命中率更高，减少了磁盘IO，从而提升了数据库性能。&lt;/p>
+&lt;/blockquote>
+&lt;p>在业务层增加一张业务和数据存储的表之间的关系表，比如在此方案&lt;sup>[4]&lt;/sup>中增加了 &lt;strong>设备-动态数据关系表（表名t_device_table_map）&lt;/strong> 来存储设备和动态数据表的关系。&lt;/p>
+&lt;p>最后，梳理下分表 VS 分区&lt;/p>
+&lt;ul>
+&lt;li>分区就是水平分表的数据库实现版本，水平分表的优点是可以将单张表的数据切分到多个服务器上，每个服务器具有相应的库和子表。&lt;/li>
+&lt;li>分区只是一张表中的数据和索引的存储位置发生变化，分表是真实的有多套表的配置文件&lt;/li>
+&lt;li>分区没法突破数据库层面，而分表可以将子表分配在同一个库中，也可以分配在不同的库中。&lt;/li>
+&lt;/ul>
+&lt;h4 id="nosqlnewsql-todo">NoSql/NewSql #TODO&lt;/h4>
+&lt;h2 id="index-scan-vs-bitmap-scan-vs-sequuentianl-scan">Index scan vs Bitmap scan vs Sequuentianl scan&lt;/h2>
+&lt;p>PostgreSQL will first scan the index and compile those rows / blocks, which are needed at the end of the scan. Then PostgreSQL will take this list and go to the table to really fetch those rows. The beauty is that this mechanism even works if you are using more than just one index.&lt;sup>[1]&lt;/sup>&lt;/p>
+&lt;p>&lt;img src="https://www.cybertec-postgresql.com/wp-content/uploads/2018/01/03_PostgreSQL-Bitmap-scan.jpg" alt="PostgreSQL Bitmap-scan">&lt;/p>
+&lt;h2 id="联合索引">联合索引&lt;/h2>
+&lt;p>回表，在执行计划中，table access by index rowid 代表是回表动作。&lt;/p>
+&lt;p>联合索引的理解&lt;sup>[6]&lt;/sup>: 联合索引结构也是 B+Tree，即按照第一个关键字进行索引，然后在叶子节点上按照第一个关键字、第二个关键字、第三个关键字&amp;hellip;进行排序。&lt;/p>
+&lt;p>最左原则。&lt;/p>
+&lt;p>如何设计之一： 等值查询中，查询条件a返回的条目比较多，查询条件b返回的条目比较多，而同时查询a、b返回的条目比较少，那么适合建立联合索引；&lt;/p>
+&lt;p>如何设计之二： 等值查询、范围查询，等值查询的列建在前、范围查询的列建在后。&lt;/p>
+&lt;h2 id="其他">其他&lt;/h2>
+&lt;p>导出数据库&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">mysqldump -u root -p news &amp;gt; news.sql
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="http://sunnyingit.github.io/book/section_python/SQLalchemy-session.html">sqlalchemy session&lt;/a> 详细介绍sqlalchemy session 几种状态，以及最佳实践。&lt;/p>
+&lt;h2 id="docker">Docker&lt;/h2>
+&lt;p>&lt;a href="https://docs.docker.com/engine/reference/commandline/rm/">docker 使用&lt;/a> docker 命令使用&lt;/p>
+&lt;p>Docker: Are you trying to connect to a TLS-enabled daemon without TLS?&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo docker images
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>export save 区别&lt;/p>
+&lt;p>&lt;a href="https://docs.docker.com/engine/reference/commandline/export/">docker export&lt;/a> Export a container’s filesystem as a tar archive&lt;br>
+&lt;a href="http://www.jianshu.com/p/8408e06b7273">Docker images导出和导入&lt;/a> 实践&lt;/p>
+&lt;h2 id="bash">BASH&lt;/h2>
+&lt;p>tar 压缩文件夹，exclude排除文件&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">tar --exclude&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;./folder1&amp;#39;&lt;/span>--exclude&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;./folder&amp;#39;&lt;/span> --exclude&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;./upload/folder2&amp;#39;&lt;/span> -zcvf /backup/filename.tgz .
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://cn.vuejs.org/v2/guide/render-function.html">VUE 渲染函数&lt;/a>&lt;/p>
+&lt;h2 id="参考">参考&lt;/h2>
+&lt;p>[1] Hans-Jürgen Schönig: POSTGRESQL INDEXING: INDEX SCAN VS. BITMAP SCAN VS. SEQUENTIAL SCAN (BASICS)&lt;/p>
+&lt;p>[2] zhanlijun 的博客园: 位图索引:原理（BitMap index）&lt;/p>
+&lt;p>[3] Markus Winand: Pagination Done the Right Way(PPT)&lt;/p>
+&lt;p>[4] Chaexsy 掘金: MySql 数据库分表分区实践&lt;/p>
+&lt;p>[5] 茶谪仙 掘金： 数据库分区一篇就透了&lt;/p>
+&lt;p>[6] houbb: 数据库索引-07-联合索引&lt;/p>
+&lt;p>[7] PHP 架构师布乐： Mysql 的分区/分库/分表总结&lt;/p></description></item></channel></rss>

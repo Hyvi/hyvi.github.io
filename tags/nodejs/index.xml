@@ -1,0 +1,14 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Elon`s Blog – nodejs</title><link>https://hyvi.github.io/tags/nodejs/</link><description>Recent content in nodejs on Elon`s Blog</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://hyvi.github.io/tags/nodejs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: nodejs</title><link>https://hyvi.github.io/docs/javascript/2012-11-21-nodejs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/javascript/2012-11-21-nodejs/</guid><description>
+&lt;h2 id="done">DONE&lt;/h2>
+&lt;ol>
+&lt;li>用c++写node本地插件，&lt;a href="https://github.com/joyent/node/tree/master/test/addons/hello-world">hello-world&lt;/a>. 编译构建使用&lt;a href="https://github.com/TooTallNate/node-gyp">node-gyp&lt;/a>
+其中对c++代码不太熟悉，好难懂的样子，回头学习下&lt;em>TODO&lt;/em>&lt;/li>
+&lt;li>性能测试，群里聊到Siege， brenchmark.js， ab(apache benchmark)&lt;/li>
+&lt;li>&lt;a href="https://speakerdeck.com/hunvreus/api-plus-static-clients">API + Static Clients&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>对cors技术解决方案&lt;/li>
+&lt;li>对session实现的技术方案&lt;/li>
+&lt;/ul>
+&lt;h2 id="todo">TODO&lt;/h2>
+&lt;p>&lt;a href="http://weibo.com/1880082254/z5KR7zF4t?type=repost">CMD vs AMD&lt;/a> 理解CommonJS与RequireJS&lt;/p></description></item></channel></rss>

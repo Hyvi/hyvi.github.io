@@ -1,0 +1,776 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Elon`s Blog – Daily</title><link>https://hyvi.github.io/categories/daily/</link><description>Recent content in Daily on Elon`s Blog</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://hyvi.github.io/categories/daily/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Daily 10/16</title><link>https://hyvi.github.io/docs/daily/2017-10-16-daily-1016/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-10-16-daily-1016/</guid><description>
+&lt;h2 id="学习">学习&lt;/h2>
+&lt;h3 id="uuid">UUID&lt;/h3>
+&lt;p>&lt;a href="https://github.com/simongong/js-stackoverflow-highest-votes/blob/master/questions1-10/how-to-create-a-UUID-in-javascript.md">How to create a GUID / UUID in Javascript?&lt;/a> 很全面的UUID资料&lt;/p>
+&lt;h3 id="vue-统一的数据请求接口">VUE 统一的数据请求接口&lt;/h3>
+&lt;p>&lt;a href="https://github.com/vuejs/vuex/blob/dev/examples/shopping-cart/api/shop.js">shop.js&lt;/a> 接口案例 &lt;a href="https://vuex.vuejs.org/zh-cn/structure.html">项目结构&lt;/a>&lt;/p>
+&lt;h3 id="web">Web&lt;/h3>
+&lt;p>&lt;a href="https://www.zhihu.com/question/24918722">html5 控制 andorid端 input输入框 不弹出输入法？&lt;/a> 前端input 不弹输入框&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#a40000">）&lt;/span>&lt;span style="color:#000">onfocus&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;this.blur();&amp;#39;&lt;/span>
+&lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#a40000">）&lt;/span>&lt;span style="color:#000">readOnly&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;readOnly&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://stackoverflow.com/questions/41097909/dynamic-component-click-event-in-vue">Dynamic component click event in Vue&lt;/a> 动态组件添加click事件，使用&lt;code>@click.native&lt;/code>&lt;/p>
+&lt;p>&lt;a href="http://justcoding.iteye.com/blog/2032627">所不知的 CSS ::before 和 ::after 伪元素用法&lt;/a> 多看几次&lt;code>TODO&lt;/code>&lt;/p>
+&lt;p>&lt;a href="http://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/">去除inline-block元素间间距的N种方&lt;/a> 两个元素之间没有任何元素，却有空格的解决办法，是inline-block本身存在的问题&lt;/p>
+&lt;p>&lt;a href="https://github.com/evrone/postcss-px-to-viewport">postcss&lt;/a> postcss-px-to-viewport 解决设计稿到代码的像素的转化 &lt;code>TODO&lt;/code>没有webpack加入方式&lt;/p>
+&lt;p>&lt;a href="https://www.w3cplus.com/css/vw-for-layout.html">再聊移动端页面的适配&lt;/a> 移动页面的适配最新解决方式&lt;/p>
+&lt;p>&lt;a href="https://www.w3cplus.com/css/the-important-css-declaration-how-and-when-to-use-it.html">如何和何时使用CSS的!important&lt;/a> 解释了为什么使用 !important&lt;/p>
+&lt;p>&lt;a href="http://light7.org/examples/">light7&lt;/a> 优秀的移动端框架&lt;/p>
+&lt;p>&lt;a href="http://cubic-bezier.com/#.72,.17,.44,.54">cubic&lt;/a> 很酷 &lt;code>TODO&lt;/code>&lt;/p>
+&lt;p>&lt;a href="https://github.com/purifycss/purifycss">purifycss&lt;/a> 去掉无用的css&lt;/p>
+&lt;p>&lt;a href="https://github.com/sagalbot/vue-select/tree/master/docs/components">vue select&lt;/a> 下拉选项vue集成&lt;/p>
+&lt;p>&lt;a href="https://github.com/vum-team/vum">vue demo&lt;/a> 结构清晰，耦合很小&lt;/p>
+&lt;p>&lt;a href="https://github.com/innofed/ufe-spec">团队编码规范&lt;/a> 参考学习&lt;/p>
+&lt;h3 id="vtiger">Vtiger&lt;/h3>
+&lt;p>&lt;a href="https://wiki.vtiger.com/index.php/Webservices_tutorials#API_Call_characterstics">vtiger Webservice tutorials&lt;/a> api修改crm数据&lt;/p></description></item><item><title>Docs: Daily 10/18</title><link>https://hyvi.github.io/docs/daily/2017-10-18-daily-1018/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-10-18-daily-1018/</guid><description>
+&lt;h2 id="学习">学习&lt;/h2>
+&lt;h3 id="eslint">Eslint&lt;/h3>
+&lt;p>&lt;a href="https://eslint.org/docs/rules/quotes">enforce the consistent use of either backticks, double, or single quotes&lt;/a> 禁用quotes规则，在文件头&lt;/p>
+&lt;pre tabindex="0">&lt;code>/* eslint-disable quotes */
+&lt;/code>&lt;/pre></description></item><item><title>Docs: Daily 10/19 三个月</title><link>https://hyvi.github.io/docs/daily/2017-10-19-daily-1019-/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-10-19-daily-1019-/</guid><description>
+&lt;h2 id="学习">学习&lt;/h2>
+&lt;h3 id="webpack-express-配置proxy-http---https-修改header参数">webpack express 配置proxy (http -&amp;gt; https), 修改header参数&lt;/h3>
+&lt;p>webpack dev环境下使用中间件&lt;a href="https://github.com/chimurai/http-proxy-middleware">http=proxy-middleware&lt;/a>&lt;br>
+通过配置参数&lt;em>option.onProxyReq&lt;/em>来设置&lt;/p>
+&lt;pre tabindex="0">&lt;code>function onProxyReq(proxyReq, req, res) {
+// add custom header to request
+proxyReq.setHeader('x-added', 'foobar');
+// or log the req
+}
+&lt;/code>&lt;/pre>&lt;p>&lt;a href="https://github.com/nodejitsu/node-http-proxy/blob/master/examples/http/proxy-http-to-https.js">node-http-proxy&lt;/a> 很多代理的示例，参考用&lt;/p>
+&lt;pre tabindex="0">&lt;code>httpProxy.createProxyServer({
+target: 'https://google.com',
+agent : https.globalAgent,
+headers: {
+host: 'google.com'
+}
+}).listen(8011);
+&lt;/code>&lt;/pre>&lt;p>&lt;a href="https://github.com/nodejitsu/node-http-proxy#setup-a-stand-alone-proxy-server-with-proxy-request-header-re-writing">https-&amp;gt;http 或者 https-&amp;gt;https&lt;/a> 配示例&lt;/p>
+&lt;h3 id="qs">Qs&lt;/h3>
+&lt;p>&lt;code>qs&lt;/code> 处理http参数的库，用上了很方便&lt;/p>
+&lt;h3 id="vue">Vue&lt;/h3>
+&lt;p>编程式的导航&lt;/p>
+&lt;pre tabindex="0">&lt;code>router.push({ path: 'home' })
+&lt;/code>&lt;/pre>&lt;p>自定义指令&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#8f5902;font-style:italic">// 注册一个全局自定义指令 v-focus
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span>&lt;span style="color:#000">Vue&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">directive&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;focus&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// 当绑定元素插入到 DOM 中。
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">inserted&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">function&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">el&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// 聚焦元素
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000">el&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">focus&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#000;font-weight:bold">})&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="eslint">ESLint&lt;/h3>
+&lt;p>&lt;a href="http://eslint.cn/docs/rules/">Rules&lt;/a>&lt;/p>
+&lt;h3 id="css-切图">CSS 切图&lt;/h3>
+&lt;p>&lt;a href="https://segmentfault.com/a/1190000009709719">页面制作（切图）第一章&lt;/a> 从sketch切图&lt;/p>
+&lt;p>&lt;a href="http://www.infoq.com/cn/articles/netease-ios-vision-to-app#anch136359">从视觉到App：网易有钱iOS项目切图与适配实践&lt;/a> 这个项目过程，谁做什么事情很清楚&lt;/p>
+&lt;p>&lt;a href="http://www.uisdc.com/sketch-canvas-smaller">为何sketch预置画布尺寸比真实分辨率小？&lt;/a> md再看&lt;/p>
+&lt;p>&lt;a href="https://jinlong.github.io/2015/05/24/css-retina-hairlines/">Retina屏的移动设备如何实现真正1px的线？&lt;/a> &lt;code>TODO&lt;/code>&lt;/p>
+&lt;p>&lt;a href="https://github.com/modood/Administrative-divisions-of-China">中华人民共和国行政区划：省份、城市、区县、乡镇（街道）&lt;/a> 很齐全呀&lt;/p></description></item><item><title>Docs: Daily 10/24</title><link>https://hyvi.github.io/docs/daily/2017-10-24-daily-1024/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-10-24-daily-1024/</guid><description>
+&lt;h2 id="学习">学习&lt;/h2>
+&lt;h3 id="vue">Vue&lt;/h3>
+&lt;p>[form validation表单验证](&lt;a href="https://www.zhihu.com/question/37099220">https://www.zhihu.com/question/37099220&lt;/a>） 使用va.js 方便验证&lt;/p>
+&lt;p>&lt;a href="https://cn.vuejs.org/v2/guide/custom-directive.html#%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0">自定义指令&lt;/a> 各种参数说明&lt;/p>
+&lt;h3 id="csshtml">CSS+HTML&lt;/h3>
+&lt;p>&lt;a href="http://yijiebuyi.com/blog/957bfb7468d2cc53d72ddebc2b5d39d3.html">HTML5页面滑动到最底部触发内容加载 javascript实现&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>文档高度 这是整个页面的高度
+可视窗口高度 这是你看到的浏览器可视屏幕高度
+滚动条滚动高度 滚动条下滑过的高度&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;a href="http://blog.163.com/prevBlogPerma.do?host=zctya&amp;amp;srl=12091782010321346288&amp;amp;mode=prev">CSS: 解决Div float后，父Div无法高度自适应的问题 &lt;/a> 使用clear:both解决&lt;/p>
+&lt;h3 id="js">js&lt;/h3>
+&lt;p>箭头函数没有它自己的this值，箭头函数内的this值继承自外围作用域。&lt;br>
+&lt;a href="http://www.infoq.com/cn/articles/es6-in-depth-arrow-functions">深入浅出ES6（七）：箭头函数 Arrow Functions&lt;/a>&lt;/p></description></item><item><title>Docs: Daily 10/30</title><link>https://hyvi.github.io/docs/daily/2017-10-30-daily-1031/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-10-30-daily-1031/</guid><description>
+&lt;h2 id="学习">学习&lt;/h2>
+&lt;h3 id="vue">Vue&lt;/h3>
+&lt;p>vue中input绑定回车事件&lt;/p>
+&lt;pre tabindex="0">&lt;code>@keyup.13=&amp;quot;search&amp;quot;
+&lt;/code>&lt;/pre>&lt;p>&lt;a href="http://www.cnblogs.com/lzrabbit/archive/2011/10/23/2221643.html">javascript 验证身份的有效性&lt;/a>&lt;/p>
+&lt;h3 id="css">CSS&lt;/h3>
+&lt;p>&lt;code>:first-child&lt;/code> 使用:first-child伪类时一定要保证前面没有兄弟节点，把h1去掉就可以；或者使用div包住article，然后css：div article:first-child&lt;/p>
+&lt;p>&lt;a href="http://www.cnblogs.com/lovesueee/p/4618454.html">移动端高清、多屏适配方案&lt;/a> 1)Retina下图片高清问题, 2)retina下，border: 1px问题,3)多屏适配布局问题,&lt;/p>
+&lt;h3 id="python">python&lt;/h3>
+&lt;p>python 命令行传参，避免敏感信息硬编码在代码中&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">argparse&lt;/span>
+&lt;span style="color:#000">parser&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">argparse&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">ArgumentParser&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">description&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;Process some integers.&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">parser&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">add_argument&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;integers&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">metavar&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;N&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#204a87">type&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87">int&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">nargs&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;+&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#000">help&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;an integer for the accumulator&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">args&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">parser&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">parse_args&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>split 第一个参数默认值、所有的空字符(空格、换行（\n)、制表符(\t), 第二个参数表示分隔次数&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87">str&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;Line1-abcdef &lt;/span>&lt;span style="color:#4e9a06">\n&lt;/span>&lt;span style="color:#4e9a06">Line2-abc &lt;/span>&lt;span style="color:#4e9a06">\n&lt;/span>&lt;span style="color:#4e9a06">Line4-abcd&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;span style="color:#204a87">print&lt;/span> &lt;span style="color:#204a87">str&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span> &lt;span style="color:#000;font-weight:bold">);&lt;/span>
+&lt;span style="color:#204a87">print&lt;/span> &lt;span style="color:#204a87">str&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">split&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39; &amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span> &lt;span style="color:#000;font-weight:bold">);&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>  
+&lt;a href="http://python3-cookbook.readthedocs.io/zh_CN/latest/c02/p08_regexp_for_multiline_partterns.html">多行匹配模式&lt;/a>&lt;br>
+这个问题很典型的出现在当你用点(.)去匹配任意字符的时候，忘记了点(.)不能匹配换行符的事实。&lt;br>
+re.compile() 函数接受一个标志参数叫 re.DOTALL&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#000">comment&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">re&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">compile&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">r&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;/\*(.*?)\*/&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">re&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">DOTALL&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="gerrit">Gerrit&lt;/h3>
+&lt;p>&lt;a href="http://gotgit.readthedocs.io/en/latest/05-git-server/055-gerrit.html">Gerrit代码审核服务器&lt;/a> 详细的文章介绍
+&lt;a href="http://whjgithub.github.io/2015/07/22/2015-07-22-225035/">Gerrit代码审查-简介&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/14789666/import-repository-from-git-to-gerrit">git仓库导入到gerrit&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>I imported many GIT projects to gerrit, the easiest way I found was to copy the xy.git Directory of the git repository to the directory where gerrit deposits the git repos. After restart of gerrit process the new project is in the list of new projects and you can edit description and access rights.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/30503447/gerrit-admin-does-not-have-access-database-capability">Gerrit内置数据库H2访问权限修改&lt;/a>
+修改project.config文件&lt;/p>
+&lt;pre tabindex="0">&lt;code>[capability]
+accessDatabase = group Administrators
+&lt;/code>&lt;/pre>&lt;p>&lt;a href="http://lipeng1667.github.io/2017/01/18/gerrit-guide/">Gerrit工作流程及使用手册&lt;/a> 介绍gerrit安装http&lt;/p>
+&lt;p>&lt;a href="http://www.vogella.com/tutorials/Gerrit/article.html#gerritsetup_repository">Gerrit英文学习资料&lt;/a>&lt;/p>
+&lt;h3 id="git">GIT&lt;/h3>
+&lt;p>修改远程仓库地址：&lt;/p>
+&lt;pre tabindex="0">&lt;code>git remote set-url origin [url]
+&lt;/code>&lt;/pre></description></item><item><title>Docs: Daily 11/03</title><link>https://hyvi.github.io/docs/daily/2017-11-03-daily-1103/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-11-03-daily-1103/</guid><description>
+&lt;h2 id="学习">学习&lt;/h2>
+&lt;h3 id="command-t">command-t&lt;/h3>
+&lt;p>mac 上command-t 依赖的ruby 的版本与vim的版本不一样：&lt;/p>
+&lt;ul>
+&lt;li>vim安装通过brew来安装的，依赖的brew中的ruby&lt;/li>
+&lt;li>command-t生成Makefile文件的时候依赖系统环境下ruby&lt;/li>
+&lt;li>系统环境下ruby根据$path路径查找:/usr/local/bin;/usr/bin等等&lt;/li>
+&lt;li>通过软链接brew下的ruby版本号到/usr/local/bin目录下即可，修改系统环境下ruby版本&lt;/li>
+&lt;li>重新编译，开始享受vim下查找文件的便利吧&lt;/li>
+&lt;/ul>
+&lt;h3 id="gerrit">Gerrit&lt;/h3>
+&lt;p>&lt;a href="http://zengestudy.blog.51cto.com/1702365/1774176">Gerrit 权限控制详细介绍&lt;/a> forge author,和 forge committer这个有用&lt;/p></description></item><item><title>Docs: Daily 1104</title><link>https://hyvi.github.io/docs/daily/2017-11-06-daily-1104/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-11-06-daily-1104/</guid><description>
+&lt;h2 id="学习">学习&lt;/h2>
+&lt;h3 id="gerrit">Gerrit&lt;/h3>
+&lt;p>&lt;a href="http://zengestudy.blog.51cto.com/1702365/1774176"> 5、Gerrit权限控制&lt;/a> 详细的权限控制&lt;br>
+&lt;a href="http://www.vogella.com/tutorials/Gerrit/article.html#gerrit_problems">Gerrit code review - Tutorial&lt;/a> 留着慢慢看吧&lt;/p>
+&lt;h3 id="python">Python&lt;/h3>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/18176733/python-xml-pretty-print-not-working">python xml pretty print not working&lt;/a> 配置xml字符解析&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">
+&lt;span style="color:#000">mport&lt;/span> &lt;span style="color:#000">StringIO&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">lxml.etree&lt;/span> &lt;span style="color:#204a87;font-weight:bold">as&lt;/span> &lt;span style="color:#000">etree&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">prettify&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">xml_text&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;&amp;#34;&amp;#34;Pretty prints xml.&amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;span style="color:#000">parser&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">etree&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">XMLParser&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">remove_blank_text&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">True&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">file_obj&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">StringIO&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">StringIO&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">xml_text&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">tree&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">etree&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">parse&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">file_obj&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">parser&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000">etree&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">tostring&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">tree&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">pretty_print&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">True&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="web">Web&lt;/h3>
+&lt;p>&lt;a href="https://docs.docker.com/engine/installation/#supported-platforms">页面anchor随着内容变化&lt;/a> 这个很有必要，当内容太长的时候&lt;/p></description></item><item><title>Docs: Daily 1127 MYSQL</title><link>https://hyvi.github.io/docs/daily/2017-11-27-daily-1127/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-11-27-daily-1127/</guid><description>
+&lt;p>&lt;a href="https://www.awaimai.com/1578.html">选择性复制表数据&lt;/a> 这个可, 数据库批量处理必备&lt;/p>
+&lt;h2 id="亿级数据库设计">亿级数据库设计&lt;/h2>
+&lt;p>详细见 &lt;a href="https://article.itxueyuan.com/7JAoD">千万级汇总查询优化&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://cloud.tencent.com/developer/article/1456270">基于Mysql数据库亿级数据的设计&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>Mysql 单标可以存储10亿级的数据，但这个时候性能非常，项目中大量的实验证明，Mysql单表容量在500万左右，性能处于最佳状态。&lt;/p>
+&lt;/blockquote>
+&lt;p>一张表无法搞定，那么&lt;/p>
+&lt;h3 id="解决办法">解决办法&lt;/h3>
+&lt;h4 id="分区">分区&lt;/h4>
+&lt;p>根据&lt;strong>查询索引列&lt;/strong>将单表进行分区，当然这些变化对应用层是无法感知的。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>分区类型&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>使用频率&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>Range 分区&lt;/td>
+&lt;td>根据数值范围，根据时间区间或 ID 区间来切分&lt;/td>
+&lt;td>较多&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>List 分区&lt;/td>
+&lt;td>离散值集合&lt;/td>
+&lt;td>较少&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Hash 分区&lt;/td>
+&lt;td>根据数值取模&lt;/td>
+&lt;td>较多&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>KEY 分区&lt;/td>
+&lt;td>KEY 分区支持 text 和 BLOB， KEY 分区不允许用用户自定义的表达式分区。&lt;/td>
+&lt;td>较少&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;ul>
+&lt;li>Hash 分区，基于给定的分区个数，将数据分配到不同的分区。例如会员表的这种表。 HASH 分区只能针对整数进 HASH，对于非整形的字段只能通过表达式将其转换为整数。&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>如果基于绑定编号（ID）来做range或者list分区，绑定编号没有实际的业务含义，无法通过它进行查询， 因此，我们剩下了HASH分区和Key分区，HASH分区仅支持int类型的列的分区，且是其中的一列。 如果基于绑定的时间列进行分区，查询依然很慢。基于搜索列来进行分区，可以保证查询的速度。&lt;/p>
+&lt;/blockquote>
+&lt;h4 id="分库">分库&lt;/h4>
+&lt;p>垂直分库：根据业务的耦合性，将关联度低的不同表存储在不同的数据库，以达到资源的饱和利用率。这样每个微服务系统使用独立的一个数据库。&lt;/p>
+&lt;h4 id="分表">分表&lt;/h4>
+&lt;p>分表分为水平分表和垂直分表（也能避免跨页问题）&lt;sup>[7]&lt;/sup>。&lt;/p>
+&lt;blockquote>
+&lt;p>MySQL 底层是通过数据页存储的，一条记录占用空间过大会导致跨页，造成额外的性能开销。另外数据库以行为单位将数据加载到内存中，这样表中字段长度较短且访问频率较高，内存能加载更多的数据，命中率更高，减少了磁盘IO，从而提升了数据库性能。&lt;/p>
+&lt;/blockquote>
+&lt;p>在业务层增加一张业务和数据存储的表之间的关系表，比如在此方案&lt;sup>[4]&lt;/sup>中增加了 &lt;strong>设备-动态数据关系表（表名t_device_table_map）&lt;/strong> 来存储设备和动态数据表的关系。&lt;/p>
+&lt;p>最后，梳理下分表 VS 分区&lt;/p>
+&lt;ul>
+&lt;li>分区就是水平分表的数据库实现版本，水平分表的优点是可以将单张表的数据切分到多个服务器上，每个服务器具有相应的库和子表。&lt;/li>
+&lt;li>分区只是一张表中的数据和索引的存储位置发生变化，分表是真实的有多套表的配置文件&lt;/li>
+&lt;li>分区没法突破数据库层面，而分表可以将子表分配在同一个库中，也可以分配在不同的库中。&lt;/li>
+&lt;/ul>
+&lt;h4 id="nosqlnewsql-todo">NoSql/NewSql #TODO&lt;/h4>
+&lt;h2 id="index-scan-vs-bitmap-scan-vs-sequuentianl-scan">Index scan vs Bitmap scan vs Sequuentianl scan&lt;/h2>
+&lt;p>PostgreSQL will first scan the index and compile those rows / blocks, which are needed at the end of the scan. Then PostgreSQL will take this list and go to the table to really fetch those rows. The beauty is that this mechanism even works if you are using more than just one index.&lt;sup>[1]&lt;/sup>&lt;/p>
+&lt;p>&lt;img src="https://www.cybertec-postgresql.com/wp-content/uploads/2018/01/03_PostgreSQL-Bitmap-scan.jpg" alt="PostgreSQL Bitmap-scan">&lt;/p>
+&lt;h2 id="联合索引">联合索引&lt;/h2>
+&lt;p>回表，在执行计划中，table access by index rowid 代表是回表动作。&lt;/p>
+&lt;p>联合索引的理解&lt;sup>[6]&lt;/sup>: 联合索引结构也是 B+Tree，即按照第一个关键字进行索引，然后在叶子节点上按照第一个关键字、第二个关键字、第三个关键字&amp;hellip;进行排序。&lt;/p>
+&lt;p>最左原则。&lt;/p>
+&lt;p>如何设计之一： 等值查询中，查询条件a返回的条目比较多，查询条件b返回的条目比较多，而同时查询a、b返回的条目比较少，那么适合建立联合索引；&lt;/p>
+&lt;p>如何设计之二： 等值查询、范围查询，等值查询的列建在前、范围查询的列建在后。&lt;/p>
+&lt;h2 id="其他">其他&lt;/h2>
+&lt;p>导出数据库&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">mysqldump -u root -p news &amp;gt; news.sql
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="http://sunnyingit.github.io/book/section_python/SQLalchemy-session.html">sqlalchemy session&lt;/a> 详细介绍sqlalchemy session 几种状态，以及最佳实践。&lt;/p>
+&lt;h2 id="docker">Docker&lt;/h2>
+&lt;p>&lt;a href="https://docs.docker.com/engine/reference/commandline/rm/">docker 使用&lt;/a> docker 命令使用&lt;/p>
+&lt;p>Docker: Are you trying to connect to a TLS-enabled daemon without TLS?&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo docker images
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>export save 区别&lt;/p>
+&lt;p>&lt;a href="https://docs.docker.com/engine/reference/commandline/export/">docker export&lt;/a> Export a container’s filesystem as a tar archive&lt;br>
+&lt;a href="http://www.jianshu.com/p/8408e06b7273">Docker images导出和导入&lt;/a> 实践&lt;/p>
+&lt;h2 id="bash">BASH&lt;/h2>
+&lt;p>tar 压缩文件夹，exclude排除文件&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">tar --exclude&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;./folder1&amp;#39;&lt;/span>--exclude&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;./folder&amp;#39;&lt;/span> --exclude&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;./upload/folder2&amp;#39;&lt;/span> -zcvf /backup/filename.tgz .
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://cn.vuejs.org/v2/guide/render-function.html">VUE 渲染函数&lt;/a>&lt;/p>
+&lt;h2 id="参考">参考&lt;/h2>
+&lt;p>[1] Hans-Jürgen Schönig: POSTGRESQL INDEXING: INDEX SCAN VS. BITMAP SCAN VS. SEQUENTIAL SCAN (BASICS)&lt;/p>
+&lt;p>[2] zhanlijun 的博客园: 位图索引:原理（BitMap index）&lt;/p>
+&lt;p>[3] Markus Winand: Pagination Done the Right Way(PPT)&lt;/p>
+&lt;p>[4] Chaexsy 掘金: MySql 数据库分表分区实践&lt;/p>
+&lt;p>[5] 茶谪仙 掘金： 数据库分区一篇就透了&lt;/p>
+&lt;p>[6] houbb: 数据库索引-07-联合索引&lt;/p>
+&lt;p>[7] PHP 架构师布乐： Mysql 的分区/分库/分表总结&lt;/p></description></item><item><title>Docs: Daily 1208</title><link>https://hyvi.github.io/docs/daily/2017-12-08-daily-1208/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-12-08-daily-1208/</guid><description>
+&lt;h2 id="学习">学习&lt;/h2>
+&lt;h3 id="docker">Docker&lt;/h3>
+&lt;p>&lt;a href="https://runnable.com/docker/docker-compose-networking">docker 网络&lt;/a> 得仔细学习～，使用自定义的网络,&amp;ndash;link不生效，有依赖的docker容器启动时
+提示没办法找到服务&lt;/p>
+&lt;p>&lt;a href="https://github.com/docker/compose/issues/982">Setting mac address for container&lt;/a> docker还可以固定mac地址，mac地址都有了安全很重要&lt;/p>
+&lt;p>&lt;a href="https://www.poftut.com/get-docker-container-ip-mac-address/">How To Get Docker Container Ip and Mac Address&lt;/a> 查询ip地址与mac地址&lt;/p>
+&lt;p>&lt;a href="https://gerrit.googlesource.com/docker-gerrit/">docker 下部署gerrit&lt;/a> 这个非常方便，一键搞定&lt;/p>
+&lt;h3 id="积累">积累&lt;/h3>
+&lt;p>几十个tab下来都是docker的内容，最近被docker折腾的死去活来，要固定ip，要固定mac地址, 最后还是因为网络无办法访问取消了。&lt;/p>
+&lt;p>开始改bug&lt;/p>
+&lt;h3 id="感情">感情&lt;/h3>
+&lt;p>压力山大&lt;/p></description></item><item><title>Docs: Daily 2021/11/01 Postive Discipline</title><link>https://hyvi.github.io/docs/daily/2021-11-01-positive-discipline/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2021-11-01-positive-discipline/</guid><description>
+&lt;h2 id="正面管教的原则">正面管教的原则&lt;/h2>
+&lt;h3 id="正面管教构成的要素">正面管教构成的要素&lt;/h3>
+&lt;ul>
+&lt;li>相互尊重&lt;/li>
+&lt;li>理解行为背后的信念&lt;/li>
+&lt;li>理解孩子的发展和适龄行为。&lt;/li>
+&lt;li>有效的沟通&lt;/li>
+&lt;li>能教给孩子技能的管教&lt;/li>
+&lt;li>专注于解决方案，而非惩罚&lt;/li>
+&lt;li>鼓励&lt;/li>
+&lt;li>孩子在感觉更好时才会做的更好。&lt;/li>
+&lt;/ul>
+&lt;h3 id="应当避免的管教方式">应当避免的管教方式&lt;/h3>
+&lt;p>如果你在对孩子大声喊叫或说教，请停下来。如果你在孩子的屁股或打手心，请停下来。如果你在试图通过威胁、警告、贿赂或说教让孩子顺从，请停下来。 所有这些方式都是不尊重的，并且会导致孩子的怀疑、羞愧、内疚，不仅在当时，而且包括未来。&lt;/p>
+&lt;h3 id="孩子真正需要的是什么">孩子真正需要的是什么？&lt;/h3>
+&lt;ol>
+&lt;li>归属感（情感联结）&lt;/li>
+&lt;li>个人的力量和自主（有能力）&lt;/li>
+&lt;li>社会和人生技能（有贡献）&lt;/li>
+&lt;li>和善而坚定的指导，教给孩子的技能的管教（以尊严和尊重的方式）&lt;/li>
+&lt;/ol></description></item><item><title>Docs: Daily 2022/01/13</title><link>https://hyvi.github.io/docs/daily/2022-01-13-daily/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2022-01-13-daily/</guid><description>
+&lt;p>PPT 养成日记&lt;/p>
+&lt;p>写PPT还是非常耗时的, 一张 PPT 已经修改了100多个版本了。&lt;/p>
+&lt;p>那如何写好每一张 PPT 呢？ 就是如何制作一张漂亮的网页一样。&lt;/p>
+&lt;h2 id="配色">配色&lt;/h2>
+&lt;h2 id="内容框架">内容框架&lt;/h2>
+&lt;h2 id="每一张-ppt-的构图">每一张 PPT 的构图&lt;/h2>
+&lt;p>这里有很多模版可以参考，比如 slide team 上虽然是收费的，但是上面的画图思路很值得学习。&lt;/p>
+&lt;h2 id="参考">参考&lt;/h2>
+&lt;p>[1] PPT 作图思路 &lt;a href="https://www.slideteam.net/">https://www.slideteam.net/&lt;/a>&lt;/p></description></item><item><title>Docs: Daily 5/31</title><link>https://hyvi.github.io/docs/daily/2017-05-31-daily-5-30/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-05-31-daily-5-30/</guid><description>
+&lt;h3 id="此时">此时&lt;/h3>
+&lt;p>今天是2017年前半年最后一天了，时间真快，过年前大家还在说2017年要实现什么目标，可是我真的没离目标靠近了多少，真伤感。偶尔我真的大叫一声释放下此时的压力。&lt;/p>
+&lt;h3 id="此事">此事&lt;/h3>
+&lt;p>事业：1、办公家具事情在开年出现几次问题，其中最大问题是工厂发出的货是次品，让我产生想退出办公家具贸易，做自己的产品，从而把控生产质量与包装，减少售后；2、做外贸树脂产品、现在一个月出几单实在让人头疼，接下来走多平台多流量；3、WISH一个店铺因为发货太慢每况愈下，其他店铺正在审核或在上架产品。4、 偶尔又想去上班、今天试着让微信朋友投了一份简历出去。5、每天工作到6-7点就感觉要去跑步锻炼了，不然头晕。&lt;br>
+感情：事业压力大，偶尔不想去碰感情的事情，回头一想年纪也算大了，得抓紧时间了&lt;/p>
+&lt;h3 id="以后">以后&lt;/h3>
+&lt;p>选产品上架出单，不断学习，或工作或继续外贸内贸，感觉后者几率大一些，加油呀！&lt;/p></description></item><item><title>Docs: Daily 6/1</title><link>https://hyvi.github.io/docs/daily/2017-06-01-daily/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-06-01-daily/</guid><description>
+&lt;h3 id="流水账">流水账&lt;/h3>
+&lt;p>今天上午完成30个产品上传，舒爽！明天坚持30个&amp;hellip;&lt;br>
+下午胡思乱想网络传真服务的事情：是否进入做：&lt;/p>
+&lt;ol>
+&lt;li>一个月销售额4万，成本一万，月赚3万。&lt;/li>
+&lt;li>传真是个没落行业，市场需要就那么大，再进去做顶多做到一半的市场，2万！才两万！除去成本没剩多少了&lt;/li>
+&lt;li>以最低的成本找人一起做这个服务。&lt;/li>
+&lt;/ol>
+&lt;p>打包发货开关贴，包装跟产品一样重量，要减重减重减重&lt;br>
+晚上加班制作视频，还是不太熟练Ulead Video Studio 11，摸索摸索。明天正确把视频做出来，接下来拍照开关贴
+回来俯卧撑，涡轮推，倒立，洗澡睡觉&lt;br>
+嘴角上火，吃粽子吃多了，饮食乱了。&lt;/p>
+&lt;h4 id="六一快乐一去不复返的时间--看了别人上川岛的露营照片景真是美等着忙完就去">六一快乐，一去不复返的时间 | 看了别人上川岛的露营照片，景真是美，等着，忙完就去&lt;/h4>
+&lt;h2 id="多年以后回想此时此情此事">多年以后回想此时此情此事&lt;/h2></description></item><item><title>Docs: Daily 6/3</title><link>https://hyvi.github.io/docs/daily/2017-06-03-daily-63/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-06-03-daily-63/</guid><description>
+&lt;h3 id="ulead-video-studio-视频中音频处理">Ulead Video Studio 视频中音频处理&lt;/h3>
+&lt;p>今天抽空对视频的声音进行优化：整个视频由图片以及拍摄的视频组成，当播放从图片到录制视频之间，
+声音是突然地从无到有过程，感觉很不协调，正常应该是从无开始、声音慢慢变大、到最大持续、最后随着结束慢慢变小、最后没有声音的过程。而Ulead Video Studio中&lt;code>fade in&lt;/code> &amp;amp; &lt;code>fade out&lt;/code> 很好的处理这个需求，而且可以调整声音变化的快慢&lt;br>
+总算认真学习了《会声会影 11 教学影片大纲：第三单元 影片剪接与素材调整》 这个课程真的很实用，
+台湾课程，非常赞，再学习其他单元（为了打开MDF、MDS文件，也是找遍了大半个百度，也算值了，教程这么好）&lt;br>
+视频制作告一段落！&lt;/p>
+&lt;h3 id="计划">计划&lt;/h3>
+&lt;p>&lt;strong>亚马逊平台&lt;/strong>：开2-3款树脂产品&lt;br>
+&lt;strong>WISH平台&lt;/strong>： 继续每天30款产品上架（MD今天偷懒了，明天继续)&lt;br>
+&lt;strong>淘宝平台&lt;/strong>：家具产品&lt;/p></description></item><item><title>Docs: Daily 9/11</title><link>https://hyvi.github.io/docs/daily/2017-09-11-daily-911/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-09-11-daily-911/</guid><description>
+&lt;h2 id="学习">学习&lt;/h2>
+&lt;h3 id="nerdtree">NERDTree&lt;/h3>
+&lt;p>隐藏指定后缀名的文件&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#000">let&lt;/span> &lt;span style="color:#000">NERDTreeIgnore&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;\.pyc$&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="ctrlsf">Ctrlsf&lt;/h3>
+&lt;p>In CtrlSF Window:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>O&lt;/code> - Like &lt;code>Enter&lt;/code> but always leave CtrlSF window opening.&lt;/li>
+&lt;li>&lt;code>t&lt;/code> - Like &lt;code>Enter&lt;/code> but open file in a new tab.&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code>nnoremap &amp;lt;C-F&amp;gt;t :CtrlSFToggle&amp;lt;CR&amp;gt;
+inoremap &amp;lt;C-F&amp;gt;t &amp;lt;Esc&amp;gt;:CtrlSFToggle&amp;lt;CR&amp;gt;
+&lt;/code>&lt;/pre>&lt;h3 id="command-t">Command-t&lt;/h3>
+&lt;p>检索出文件，需要在新的split window打开文件&lt;/p>
+&lt;pre tabindex="0">&lt;code>&amp;lt;C-CR&amp;gt; open the selected file in a new split window
+&amp;lt;C-s&amp;gt; open the selected file in a new split window
+&amp;lt;C-v&amp;gt; open the selected file in a new vertical split window
+&amp;lt;C-t&amp;gt; open the selected file in a new tab
+&lt;/code>&lt;/pre>&lt;h3 id="vim">vim&lt;/h3>
+&lt;h4 id="split">split&lt;/h4>
+&lt;ul>
+&lt;li>&lt;code>Ctrl-w =&lt;/code> resize 所有的窗口一样大小&lt;/li>
+&lt;li>&lt;code>Ctrl-w |&lt;/code> 宽度最大化&lt;/li>
+&lt;li>&lt;code>Ctrl-w _&lt;/code> 高度最大化&lt;/li>
+&lt;/ul>
+&lt;h4 id="search">search&lt;/h4>
+&lt;pre tabindex="0">&lt;code>:noh
+&lt;/code>&lt;/pre>&lt;p>turn off highlighting util the next search&lt;/p>
+&lt;h3 id="ycm">ycm&lt;/h3>
+&lt;p>选择快捷键&lt;/p>
+&lt;pre tabindex="0">&lt;code>let g:ycm_key_list_select_completion = ['&amp;lt;TAB&amp;gt;', '&amp;lt;Down&amp;gt;']
+&lt;/code>&lt;/pre>&lt;h3 id="sqlachemy">SQLachemy&lt;/h3>
+&lt;p>&lt;a href="https://bitbucket.org/zzzeek/pycon2014_atmcraft/src/f50cbe745a19?at=master">atmcraft&lt;/a> model 目录下的meta是做什么用的&lt;/p>
+&lt;h3 id="tornado">Tornado&lt;/h3>
+&lt;p>&lt;a href="https://github.com/puentesarrin/selene/tree/44bb9ef98627a2b581dca9fe78dab6852472b8ff">selene&lt;/a> 案例学习，集成数据库monogoDB异步查询 &lt;code>代码阅读&lt;/code>&lt;br>
+&lt;a href="https://github.com/no13bus/ohmyrepo">ohmyrepo&lt;/a> 简单的案例，集成了Cache。 &lt;code>代码阅读&lt;/code>&lt;/p></description></item><item><title>Docs: Daily 9/12</title><link>https://hyvi.github.io/docs/daily/2017-09-12-daily-912/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-09-12-daily-912/</guid><description>
+&lt;h2 id="学习">学习&lt;/h2>
+&lt;h3 id="bash-history">Bash History&lt;/h3>
+&lt;p>修改命令记录数量&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">HISTFILESIZE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">10000&lt;/span>
+&lt;span style="color:#204a87">export&lt;/span> &lt;span style="color:#000">HISTSIZE&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">1000&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="mac-terminal-tab">MAC Terminal TAB&lt;/h3>
+&lt;p>tab切换快捷键
+&lt;code>Command + shit + {&lt;/code>或&lt;code>Command + Shit + ←&lt;/code> 向左切换&lt;br>
+&lt;code>Command + shit + }&lt;/code>或&lt;code>Command + Shit + →&lt;/code> 向左切换&lt;/p>
+&lt;h3 id="gerrit">Gerrit&lt;/h3>
+&lt;p>&lt;code>gerrit query&lt;/code> Query the change database &lt;a href="https://git.eclipse.org/r/Documentation/cmd-query.html">gerrit query&lt;/a>&lt;br>
+&lt;a href="https://stackoverflow.com/questions/22264533/obtain-the-latest-refspec-on-a-gerrit-change">gerrit query : Obtain the latest refspec on a Gerrit Change&lt;/a> 详细讲解gerrit query&lt;br>
+&lt;code>gerrit stream-events&lt;/code> 提交事件&lt;br>
+&lt;a href="https://gerrit-review.googlesource.com/Documentation/cmd-stream-events.html">gerrit stream-events&lt;/a> Provides a portal into the major events occurring on the server, outputting activity data in real-time to the client. Events are filtered by the caller’s access permissions, ensuring the caller only receives events for changes they can view on the web, or in the project repository.&lt;/p>
+&lt;h3 id="git">GIT&lt;/h3>
+&lt;h4 id="git_ssh_command">GIT_SSH_COMMAND&lt;/h4>
+&lt;p>用于git ssh链接访问仓库时，默认设置&lt;br>
+&lt;a href="https://git-scm.com/docs/git#git-codeGITSSHCOMMANDcode">GIT_SSH_COMMAND&lt;/a> $GIT_SSH_COMMAND takes precedence over $GIT_SSH, and is interpreted by the shell, which allows additional arguments to be included.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#000">GIT_SSH_COMMAND&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;ssh -i %s&amp;#39;&lt;/span> git fetch
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="fetch_head">FETCH_HEAD&lt;/h4>
+&lt;p>&lt;a href="https://ruby-china.org/topics/4768">FETCH_HEAD&lt;/a> 指的是: 某个branch在服务器上的最新状态'. 每一个执行过fetch操作的项目&amp;rsquo;都会存在一个FETCH_HEAD列表, 这个列表保存在 .git/FETCH_HEAD 文件中, 其中每一行对应于远程服务器的一个分支. 当前分支指向的FETCH_HEAD, 就是这个文件第一行对应的那个分支.&lt;/p>
+&lt;h3 id="vim">Vim&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-vim" data-lang="vim">&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">set&lt;/span> &lt;span style="color:#000">wrap&lt;/span> &lt;span style="color:#8f5902;font-style:italic">&amp;#34;设置自动换行&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>&lt;span style="color:#000">set&lt;/span> &lt;span style="color:#000">nowrap&lt;/span> &lt;span style="color:#8f5902;font-style:italic">&amp;#34;设置不自动换行&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="python">Python&lt;/h3>
+&lt;p>&lt;code>rfind&lt;/code> returns the last index whre the substring is found, or -1 if no such index exists&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87">str&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">rfind&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87">str&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">beg&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span> &lt;span style="color:#000">end&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87">len&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">string&lt;/span>&lt;span style="color:#000;font-weight:bold">))&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>获取当前时间的时间戳&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87">int&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">time&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">time&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Daily 9/13</title><link>https://hyvi.github.io/docs/daily/2017-09-13-daily-913/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-09-13-daily-913/</guid><description>
+&lt;h2 id="学习">学习&lt;/h2>
+&lt;h3 id="python">Python&lt;/h3>
+&lt;h4 id="super">super&lt;/h4>
+&lt;p>&lt;a href="https://laike9m.com/blog/li-jie-python-super,70/">理解 Python super&lt;/a> 不要一说到 super 就想到父类！super 指的是 MRO 中的下一个类！&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">Root&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87">object&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">__init__&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#204a87">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;this is Root&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">B&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">Root&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">__init__&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#204a87">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;enter B&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic"># print(self) # this will print &amp;lt;__main__.D object at 0x...&amp;gt;&lt;/span>
+&lt;span style="color:#204a87">super&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">B&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">__init__&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#204a87">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;leave B&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">C&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">Root&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">__init__&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#204a87">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;enter C&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87">super&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">C&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">__init__&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#204a87">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;leave C&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">D&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">B&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">C&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">pass&lt;/span>
+&lt;span style="color:#000">d&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">D&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#204a87">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">d&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">__class__&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">__mro__&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="mixin">mixin&lt;/h4>
+&lt;p>&lt;a href="http://www.jianshu.com/p/933a22ac0eb7">Python mixin模式&lt;/a> Python的Mixin模式可以通过多继承的方式来实现&lt;/p>
+&lt;h3 id="vim">Vim&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-vim" data-lang="vim">&lt;span style="color:#204a87;font-weight:bold">let&lt;/span> &lt;span style="color:#000">g&lt;/span>:&lt;span style="color:#000">UltiSnipsExpandTrigger&lt;/span>&lt;span style="color:#000;font-weight:bold">=&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&amp;lt;c-j&amp;gt;&amp;#34;&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://github.com/sirver/ultisnips">ultisnips&lt;/a> 自动完成跟YCM的&lt;code>&amp;lt;tab&amp;gt;&lt;/code>快捷键冲突&lt;br>
+&lt;a href="http://mednoter.com/UltiSnips.html">UltiSnips 让 Vim 飞起来&lt;/a> vim snippets详细设置过程&lt;/p>
+&lt;h3 id="andoid">Andoid&lt;/h3>
+&lt;p>&lt;a href="https://looksok.wordpress.com/2014/07/12/compile-gradle-project-with-another-project-as-a-dependency/">Compile gradle project with another project as a dependency&lt;/a> 编译两个独立的项目，需要制定依赖的路径&lt;br>
+&lt;a href="https://docs.gradle.org/current/userguide/dependency_management.html">Dependency Management&lt;/a> Gradle依赖&lt;/p></description></item><item><title>Docs: Daily 9/14</title><link>https://hyvi.github.io/docs/daily/2017-09-14-daily-914/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-09-14-daily-914/</guid><description>
+&lt;h2 id="学习">学习&lt;/h2>
+&lt;h3 id="vue">Vue&lt;/h3>
+&lt;p>&lt;a href="https://github.com/Andiedie/vue-history-api-fallback">vue-history-api-fallback&lt;/a> 解决url中包含句的问题&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#000">history&lt;/span>&lt;span style="color:#000;font-weight:bold">({&lt;/span>
+&lt;span style="color:#000">router&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#000">disableDotRule&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">true&lt;/span>
+&lt;span style="color:#000;font-weight:bold">});&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="webpack">webpack&lt;/h3>
+&lt;p>利用&lt;code>historyApiFallback&lt;/code>选项，可以重写url&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#000">historyApiFallback&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">rewrites&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// shows views/landing.html as the landing page
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">from&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">/^\/$/&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">to&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;/views/landing.html&amp;#39;&lt;/span> &lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// shows views/subpage.html for all routes starting with /subpage
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">from&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">/^\/subpage/&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">to&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;/views/subpage.html&amp;#39;&lt;/span> &lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;span style="color:#8f5902;font-style:italic">// shows views/404.html on all other pages
+&lt;/span>&lt;span style="color:#8f5902;font-style:italic">&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">from&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">/./&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">to&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;/views/404.html&amp;#39;&lt;/span> &lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;span style="color:#000;font-weight:bold">],&lt;/span>
+&lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="javascript">Javascript&lt;/h3>
+&lt;p>&lt;code>import&lt;/code> &lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">用法&lt;/a> used to import functions, objects, or primitives which are defined in and exported by an external module, script, or the like.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">defaultMember&lt;/span> &lt;span style="color:#000">from&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;module-name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">as&lt;/span> &lt;span style="color:#000">name&lt;/span> &lt;span style="color:#000">from&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;module-name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">member&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#000">from&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;module-name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">member&lt;/span> &lt;span style="color:#000">as&lt;/span> &lt;span style="color:#000">alias&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#000">from&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;module-name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">member1&lt;/span> &lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">member2&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#000">from&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;module-name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">member1&lt;/span> &lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">member2&lt;/span> &lt;span style="color:#000">as&lt;/span> &lt;span style="color:#000">alias2&lt;/span> &lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000;font-weight:bold">[...]&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#000">from&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;module-name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">defaultMember&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span> &lt;span style="color:#000">member&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span> &lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000;font-weight:bold">[...]&lt;/span> &lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#000;font-weight:bold">}&lt;/span> &lt;span style="color:#000">from&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;module-name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">defaultMember&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">*&lt;/span> &lt;span style="color:#000">as&lt;/span> &lt;span style="color:#000">name&lt;/span> &lt;span style="color:#000">from&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;module-name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;module-name&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="tornado">Tornado&lt;/h3>
+&lt;p>&lt;a href="http://www.nowamagic.net/academy/part/13/325/">Python与Tornado&lt;/a> 一个系列 抽时间通读 &lt;code>#TODO&lt;/code>&lt;/p>
+&lt;h3 id="python">Python&lt;/h3>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/1549801/differences-between-isinstance-and-type-in-python">Differences between isinstance() and type() in python&lt;/a> isinstance与type&lt;/p>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/6159900/correct-way-to-write-line-to-file-in-python">Correct way to write line to file in Python&lt;/a> print也可以写入文件里&lt;/p></description></item><item><title>Docs: Daily 9/18</title><link>https://hyvi.github.io/docs/daily/2017-09-18-daily-918/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-09-18-daily-918/</guid><description>
+&lt;h2 id="学习">学习&lt;/h2>
+&lt;h3 id="redis">redis&lt;/h3>
+&lt;p>&lt;a href="https://segmentfault.com/a/1190000005052628">Redis持久化-RDB与AOF&lt;/a> 同一个redis实例可以配置两种持久化方案&lt;br>
+&lt;a href="https://www.douban.com/group/topic/15516593/">Redis 查询所有的key&lt;/a> 查询所有的key&lt;br>
+&lt;a href="https://segmentfault.com/a/1190000002906345">Redis持久化&lt;/a> redis持久化两种方式的对比&lt;/p>
+&lt;h3 id="python-重命令">python 重命令&lt;/h3>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/8735312/how-to-change-folder-names-in-python">os.rename&lt;/a> How to change folder names in python?&lt;/p>
+&lt;h3 id="vim">Vim&lt;/h3>
+&lt;p>&lt;a href="http://973797893.blog.51cto.com/3057158/1725780">mac vim 配置文件&lt;/a> mac vim 记住上次打开的位置&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-vim" data-lang="vim">&lt;span style="color:#000">set&lt;/span> &lt;span style="color:#000">viminfo&lt;/span>&lt;span style="color:#000;font-weight:bold">=&lt;/span>&amp;#39;&lt;span style="color:#0000cf;font-weight:bold">10&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>\&amp;#34;&lt;span style="color:#0000cf;font-weight:bold">100&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>:&lt;span style="color:#0000cf;font-weight:bold">20&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>%&lt;span style="color:#000;font-weight:bold">,&lt;/span>&lt;span style="color:#000">n&lt;/span>&lt;span style="color:#000;font-weight:bold">~&lt;/span>/.&lt;span style="color:#000">viminfo&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">au&lt;/span> &lt;span style="color:#000">BufReadPost&lt;/span> * &lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">line&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&amp;#39;\&amp;#34;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">|&lt;/span>&lt;span style="color:#204a87;font-weight:bold">if&lt;/span> &lt;span style="color:#000">line&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;&amp;#39;\&amp;#34;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;=&lt;/span> &lt;span style="color:#000">line&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;$&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)|&lt;/span>&lt;span style="color:#000">exe&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;norm &amp;#39;\&amp;#34;&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)|&lt;/span>&lt;span style="color:#204a87;font-weight:bold">else&lt;/span>&lt;span style="color:#000;font-weight:bold">|&lt;/span>&lt;span style="color:#000">exe&lt;/span> &lt;span style="color:#4e9a06">&amp;#34;norm $&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">|&lt;/span>&lt;span style="color:#204a87;font-weight:bold">endif&lt;/span>&lt;span style="color:#000;font-weight:bold">|&lt;/span>&lt;span style="color:#204a87;font-weight:bold">endif&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="http://www.cnblogs.com/ifantastic/p/3524751.html">vim 语法高亮&lt;/a> 对于大文件，语法高亮&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-vim" data-lang="vim">&lt;span style="color:#000">syn&lt;/span> &lt;span style="color:#000">sync&lt;/span> &lt;span style="color:#000">fromstart&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="http://www.dreamxu.com/books/vim/plugin/youcompleteme.html">vim YCM插件自动补全比较慢的解决办法&lt;/a> 第三个字母开始自动完成提示&lt;/p>
+&lt;p>&lt;a href="http://blog.jobbole.com/58978/">vim YCM跳转到定义跳转到申明&lt;/a> 使用往前跳和往后跳的快捷键为Ctrl+O以及Ctrl+I。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-vim" data-lang="vim">&lt;span style="color:#000">nnoremap&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">leader&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000">gl&lt;/span> :&lt;span style="color:#000">YcmCompleter&lt;/span> &lt;span style="color:#000">GoToDeclaration&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">CR&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">nnoremap&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">leader&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000">gf&lt;/span> :&lt;span style="color:#000">YcmCompleter&lt;/span> &lt;span style="color:#000">GoToDefinition&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">CR&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;span style="color:#a40000">&lt;/span>&lt;span style="color:#000">nnoremap&lt;/span> &lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">leader&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#000">gg&lt;/span> :&lt;span style="color:#000">YcmCompleter&lt;/span> &lt;span style="color:#000">GoToDefinitionElseDeclaration&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;lt;&lt;/span>&lt;span style="color:#000">CR&lt;/span>&lt;span style="color:#000;font-weight:bold">&amp;gt;&lt;/span>&lt;span style="color:#a40000">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="http://www.cnblogs.com/jianyungsun/archive/2011/02/14/1954057.html">vim bookmark&lt;/a> 字母书签的功能&lt;/p>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/1527784/what-is-vim-recording-and-how-can-it-be-disabled"> &lt;strong>[vim recording]&lt;/strong> What is vim recording and how can it be disabled?&lt;/a> 偶尔按错键，导致左下角出现&amp;rsquo;recording @q&amp;rsquo;等字样&lt;/p>
+&lt;h3 id="javascript">javascript&lt;/h3>
+&lt;p>&lt;a href="https://github.com/marcuswestin/WebViewJavascriptBridge">IOS webview 与js通信方案&lt;/a> 跟java代码有点区别，不能统一吗&lt;/p>
+&lt;p>&lt;a href="https://github.com/webpack/webpack-dev-server/issues/147">Server can&amp;rsquo;t be accessed via IP&lt;/a> webpack-server如何配置通过IP访问&lt;/p>
+&lt;h3 id="python-序列化与反序列化">python 序列化与反序列化&lt;/h3>
+&lt;p>&lt;a href="https://docs.python.org/2/library/pickle.html">pickle — Python object serialization¶&lt;/a> 用于redis cache 缓存&lt;/p>
+&lt;h3 id="confluence">confluence&lt;/h3>
+&lt;p>这个跟jira如何协作的？&lt;/p></description></item><item><title>Docs: Daily 9/21</title><link>https://hyvi.github.io/docs/daily/2017-09-21-daily-918/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-09-21-daily-918/</guid><description>
+&lt;h2 id="学习">学习&lt;/h2>
+&lt;h3 id="python-unittest-tornado">python unittest tornado&lt;/h3>
+&lt;p>&lt;a href="https://github.com/puentesarrin/selene/blob/master/test/test_handlers.py">test_handlers.py 案例代码&lt;/a> selene项目测试案例&lt;/p>
+&lt;p>&lt;a href="https://gist.github.com/didip/867589">request_handler_test.py 案例代码&lt;/a> 设置项目根目录、父类构建&lt;/p>
+&lt;p>&lt;a href="https://www.rddoc.com/doc/Tornado-4.4.2/testing/">tornado.testing —单元测试支持异步代码&lt;/a> 支持异步测试&lt;/p>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/18285947/how-to-use-a-test-tornado-server-handler-that-authenticates-a-user-via-a-secure">How to use a test tornado server handler that authenticates a user via a secure cookie&lt;/a> mock cookie&lt;/p>
+&lt;p>&lt;a href="https://docs.python.org/2/library/unittest.html">命令行下执行单个unittest&lt;/a> 更多的参数&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">python -m unittest test_module1 test_module2
+python -m unittest test_module.TestClass
+python -m unittest test_module.TestClass.test_method
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://emptysqua.re/blog/tornado-unittesting-eventually-correct/">setup 使用，初始化数据&lt;/a> &lt;code>TODO&lt;/code>&lt;/p>
+&lt;p>&lt;a href="https://github.com/bootandy/tornado_sample/tree/master/sample">tornado sample&lt;/a> 有接口测试的项目&lt;/p>
+&lt;p>&lt;a href="http://pyunit.sourceforge.net/pyunit_cn.html#WHERE">python unittest文档&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://gxnotes.com/article/79239.html">python unittest执行顺序问题&lt;/a> 字母的顺序执行&lt;/p>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/26323090/how-to-mock-get-current-user-in-tornado-for-unittest">python mock handler&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">class&lt;/span> &lt;span style="color:#000">MyUT&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">tornado&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">testing&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">AsyncHTTPTestCase&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">get_app&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#000">settings&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;template_path&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;../../../templates&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;cookie_secret&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;secret&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;login_url&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;/admin/login&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#4e9a06">&amp;#34;debug&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">True&lt;/span>
+&lt;span style="color:#000;font-weight:bold">}&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">return&lt;/span> &lt;span style="color:#000">Application&lt;/span>&lt;span style="color:#000;font-weight:bold">([&lt;/span>
+&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">r&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;/admin/create/super&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">handlers&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">CreateSuperUserHandler&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">],&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">**&lt;/span>&lt;span style="color:#000">settings&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">def&lt;/span> &lt;span style="color:#000">testGet&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#000;font-weight:bold">):&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">with&lt;/span> &lt;span style="color:#000">mock&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">patch&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">object&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">handlers&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">CreateSuperUserHandler&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;get_current_user&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#204a87;font-weight:bold">as&lt;/span> &lt;span style="color:#000">m&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">m&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">return_value&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">{}&lt;/span>
+&lt;span style="color:#000">response&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">fetch&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;/admin/create/super&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#204a87">print&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">response&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">body&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#3465a4">self&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">assertGreater&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">response&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">body&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">index&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;create&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://segmentfault.com/a/1190000002965620">mock handler更详细的例子&lt;/a> patch和patch.object 使用&lt;/p>
+&lt;h3 id="python">Python&lt;/h3>
+&lt;p>&lt;a href="https://www.polarxiong.com/archives/Python-%E6%93%8D%E4%BD%9Cdict%E6%97%B6%E9%81%BF%E5%85%8D%E5%87%BA%E7%8E%B0KeyError%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95.html">操作dict时避免出现KeyError的几种方法&lt;/a> 使用get方法更好&lt;br>
+&lt;a href="https://stackoverflow.com/questions/18176602/how-to-get-name-of-exception-that-was-caught-in-python">How to get name of exception that was caught in Python?&lt;/a> 获取异常的的类名&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">try&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#000">foo&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">bar&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">except&lt;/span> &lt;span style="color:#c00;font-weight:bold">Exception&lt;/span> &lt;span style="color:#204a87;font-weight:bold">as&lt;/span> &lt;span style="color:#000">exception&lt;/span>&lt;span style="color:#000;font-weight:bold">:&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">assert&lt;/span> &lt;span style="color:#204a87">type&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">exception&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">__name__&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;NameError&amp;#39;&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">assert&lt;/span> &lt;span style="color:#000">exception&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">__class__&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">__name__&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">==&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;NameError&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://stackoverflow.com/questions/27155819/delete-a-key-and-value-from-an-ordereddict">删除dict里面的元素&lt;/a> use &lt;code>del&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">from&lt;/span> &lt;span style="color:#000">collections&lt;/span> &lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">OrderedDict&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">dct&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">OrderedDict&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">dct&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;a&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">dct&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;b&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">dct&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;c&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">dct&lt;/span>
+&lt;span style="color:#000">OrderedDict&lt;/span>&lt;span style="color:#000;font-weight:bold">([(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;a&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;b&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">2&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;c&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">)])&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#204a87;font-weight:bold">del&lt;/span> &lt;span style="color:#000">dct&lt;/span>&lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;b&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span> &lt;span style="color:#000">dct&lt;/span>
+&lt;span style="color:#000">OrderedDict&lt;/span>&lt;span style="color:#000;font-weight:bold">([(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;a&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">1&lt;/span>&lt;span style="color:#000;font-weight:bold">),&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;c&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#0000cf;font-weight:bold">3&lt;/span>&lt;span style="color:#000;font-weight:bold">)])&lt;/span>
+&lt;span style="color:#ce5c00;font-weight:bold">&amp;gt;&amp;gt;&amp;gt;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="http://www.runoob.com/python/python-object.html">python面向对象&lt;/a> 入门级介绍 &lt;code>TODO&lt;/code>&lt;/p>
+&lt;p>&lt;a href="http://blog.csdn.net/business122/article/details/7541486">python set 集合操做&lt;/a> 比如删除某个元素 set.remove(key)&lt;/p>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/5631624/how-to-get-exit-code-when-using-python-subprocess-communicate-method">subprocess returncode&lt;/a> 什么时候为0&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#204a87;font-weight:bold">import&lt;/span> &lt;span style="color:#000">subprocess&lt;/span> &lt;span style="color:#204a87;font-weight:bold">as&lt;/span> &lt;span style="color:#000">sp&lt;/span>
+&lt;span style="color:#000">child&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">sp&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Popen&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">openRTSP&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">+&lt;/span> &lt;span style="color:#000">opts&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">split&lt;/span>&lt;span style="color:#000;font-weight:bold">(),&lt;/span> &lt;span style="color:#000">stdout&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#000">sp&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">PIPE&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000">streamdata&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">child&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">communicate&lt;/span>&lt;span style="color:#000;font-weight:bold">()[&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">0&lt;/span>&lt;span style="color:#000;font-weight:bold">]&lt;/span>
+&lt;span style="color:#000">rc&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">child&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">.&lt;/span>&lt;span style="color:#000">returncode&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="tornado">Tornado&lt;/h3>
+&lt;p>&lt;a href="http://www.jianshu.com/p/3d20a092588d">Tornado异步与延迟任务&lt;/a> Tornado异步通俗易懂的教程&lt;br>
+&lt;a href="http://tornado-zh.readthedocs.io/zh/latest/guide/coroutines.html">协程&lt;/a> 官方文档 难懂&lt;br>
+&lt;a href="http://strawhatfy.github.io/2015/07/22/Tornado.gen/">tornado.gen源码解析&lt;/a> &lt;code>TODO&lt;/code>&lt;/p>
+&lt;h3 id="git">GIT&lt;/h3>
+&lt;pre tabindex="0">&lt;code>*
+!.gitignore
+&lt;/code>&lt;/pre>&lt;p>&lt;a href="https://segmentfault.com/a/1190000006866280">git中如何提交空目录&lt;/a> 空文件&lt;/p>
+&lt;p>&lt;a href="https://github.com/geeeeeeeeek/git-recipes/wiki/5.2-%E4%BB%A3%E7%A0%81%E5%9B%9E%E6%BB%9A%EF%BC%9AReset%E3%80%81Checkout%E3%80%81Revert-%E7%9A%84%E9%80%89%E6%8B%A9">git 提交撤销&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">git reset HEAD~2
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Daily 9/22</title><link>https://hyvi.github.io/docs/daily/2017-09-22-daily-922/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-09-22-daily-922/</guid><description>
+&lt;h2 id="学习">学习&lt;/h2>
+&lt;h3 id="项目">项目&lt;/h3>
+&lt;p>项目周报的编写参考confluence里面的优秀的周报日志，&lt;code>TODO&lt;/code>&lt;br>
+模版如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-markdown" data-lang="markdown">&lt;span style="color:#800080;font-weight:bold">### 本周工作
+&lt;/span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>---
+&lt;span style="color:#204a87;font-weight:bold">1.&lt;/span> 学习vue
+&lt;span style="color:#204a87;font-weight:bold">2.&lt;/span> 完成登录页面开发
+...
+&lt;span style="color:#800080;font-weight:bold">### 下周计划
+&lt;/span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>---
+&lt;span style="color:#204a87;font-weight:bold">1.&lt;/span> 继续学习vue
+&lt;span style="color:#204a87;font-weight:bold">2.&lt;/span> 继续完成登录页面开发
+&lt;span style="color:#800080;font-weight:bold">### issues
+&lt;/span>&lt;span style="color:#800080;font-weight:bold">&lt;/span>---
+&lt;span style="color:#204a87;font-weight:bold">-&lt;/span> 我觉得我们团队棒棒哒，就是女生少了一点
+&lt;span style="color:#204a87;font-weight:bold">-&lt;/span> webpack的打包时间越来越长，我们可以考虑优化它
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="vue">VUE&lt;/h3>
+&lt;p>合作的同事去了其他部门，我开始接口VUE开发工作，然后问题来了
+&lt;a href="https://cn.vuejs.org/v2/api/#watch">Watch 对比更改前的值oldValue&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#000">a&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#204a87;font-weight:bold">function&lt;/span> &lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">val&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">oldVal&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">console&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">log&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;new: %s, old: %s&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">val&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">oldVal&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
+&lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="vim">Vim&lt;/h3>
+&lt;p>&lt;a href="https://github.com/posva/vim-vue">vim-vue 下vue文件居然高亮了前部分&lt;/a>&lt;/p>
+&lt;pre tabindex="0">&lt;code>autocmd FileType vue syntax sync fromstart
+&lt;/code>&lt;/pre>&lt;p>加上上面的配置就可以了&lt;/p>
+&lt;p>支持NERDCommenter的解决办法。&lt;/p>
+&lt;pre tabindex="0">&lt;code>let g:ft = ''
+function! NERDCommenter_before()
+if &amp;amp;ft == 'vue'
+let g:ft = 'vue'
+let stack = synstack(line('.'), col('.'))
+if len(stack) &amp;gt; 0
+let syn = synIDattr((stack)[0], 'name')
+if len(syn) &amp;gt; 0
+exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+endif
+endif
+endif
+endfunction
+function! NERDCommenter_after()
+if g:ft == 'vue'
+setf vue
+let g:ft = ''
+endif
+endfunction
+&lt;/code>&lt;/pre>&lt;h3 id="codepenio">Codepen.io&lt;/h3>
+&lt;p>在线编辑代码，可见即可得，学习的好工具，支持zencoding&lt;br>
+&lt;em>login in by github&lt;/em>&lt;/p>
+&lt;h3 id="css">CSS&lt;/h3>
+&lt;p>&lt;a href="https://coolshell.cn/articles/6840.html">布局&lt;/a> 40个教程、技巧、例子和最佳实践&lt;/p>
+&lt;p>&lt;a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html">css Flex&lt;/a> flex布局，项目中用到比较多&lt;/p>
+&lt;h3 id="javascript">javascript&lt;/h3>
+&lt;p>&lt;a href="http://www.ruanyifeng.com/blog/2015/07/monad.html">Monad&lt;/a> 这是个什么鬼，第一次听说 还是无意中看到 &lt;code>TODO&lt;/code>&lt;/p>
+&lt;h3 id="processon">processon&lt;/h3>
+&lt;p>流程图的好工具在线的&lt;br>
+已经开始使用了，简简单单画了三个图，太强大了。&lt;/p></description></item><item><title>Docs: Daily 9/25 #vpn</title><link>https://hyvi.github.io/docs/daily/2017-09-25-daily-925-vpn/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-09-25-daily-925-vpn/</guid><description>
+&lt;h2 id="学习">学习&lt;/h2>
+&lt;h3 id="supervisor">Supervisor&lt;/h3>
+&lt;p>&lt;a href="http://supervisord.org">Supervisor&lt;/a> 是一个用 Python 写的进程管理工具，可以很方便的用来启动、重启、关闭进程（不仅仅是 Python 进程）。除了对单个进程的控制，还可以同时启动、关闭多个进程，比如很不幸的服务器出问题导致所有应用程序都被杀死，此时可以用 supervisor 同时启动所有应用程序而不是一个一个地敲命令启动。&lt;br>
+&lt;a href="http://liyangliang.me/posts/2015/06/using-supervisor/">Supervisor 中文文档&lt;/a>&lt;/p>
+&lt;h3 id="screen">Screen&lt;/h3>
+&lt;p>&lt;a href="http://easwy.com/blog/archives/display-window-list-on-title-bar-and-status-bar-of-screen/">在标题和状态栏中显示Screen的窗口名称&lt;/a>&lt;/p>
+&lt;pre tabindex="0">&lt;code>caption always &amp;quot;%{= kw}%-w%{= kG}%{+b}[%n %t]%{-b}%{= kw}%+w %=%d %M %0c %{g}%H%{-}&amp;quot;
+&lt;/code>&lt;/pre>&lt;h3 id="vpn">Vpn&lt;/h3>
+&lt;p>今天vpn可以看720P视频奇怪，接下来要做的事情是测试vpn速度，保证vpn24小时速度稳定&lt;/p></description></item><item><title>Docs: Daily 9/27 Git 相关知识点</title><link>https://hyvi.github.io/docs/daily/2017-09-27-daily-927/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-09-27-daily-927/</guid><description>
+&lt;h2 id="学习">学习&lt;/h2>
+&lt;h3 id="bash-history">Bash history&lt;/h3>
+&lt;p>编辑文件&lt;code>.bash_profile&lt;/code>&lt;/p>
+&lt;pre tabindex="0">&lt;code>HISTFILESIZE=100000
+&lt;/code>&lt;/pre>&lt;p>重启下终端，看看~/.bash_history 是不是就可以存储更多的历史命令了。&lt;/p>
+&lt;h3 id="git-tag">Git tag&lt;/h3>
+&lt;p>补打标签&lt;/p>
+&lt;pre tabindex="0">&lt;code>git tag -a v1.2 9fceb02
+&lt;/code>&lt;/pre>&lt;p>分享标签&lt;/p>
+&lt;pre tabindex="0">&lt;code>git push origin [tagname]
+&lt;/code>&lt;/pre>&lt;h3 id="git-stash">Git stash&lt;/h3>
+&lt;p>多个分支共享 stash list, 为什么&lt;code>git stash apply&lt;/code>时不区分分支。&lt;/p>
+&lt;blockquote>
+&lt;p>今天碰到的一问题，&lt;code>git stash&lt;/code>完美解决问题： 我在 dev 分支上更改了一个小 bug，我需要把这个升级到线上，但是 dev 分支上正在进行项目 A 的开发很久了，没办法直接把 dev 上线，怎么办？ 只有先&lt;code>git stash&lt;/code>储藏起来，然后切换分支，通过&lt;code>git stash apply&lt;/code> 应用到切换后的分支即可，然后把提交，上线新分支。切换回 dev 继续开发项目 A&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="git-checkout-revert-reset">Git checkout revert reset&lt;/h3>
+&lt;p>&lt;a href="https://github.com/geeeeeeeeek/git-recipes/wiki/5.2-%E4%BB%A3%E7%A0%81%E5%9B%9E%E6%BB%9A%EF%BC%9AReset%E3%80%81Checkout%E3%80%81Revert-%E7%9A%84%E9%80%89%E6%8B%A9">代码回滚：Reset、Checkout、Revert 的选择&lt;/a> 好详细的介绍&lt;/p>
+&lt;p>&lt;a href="https://github.com/geeeeeeeeek/git-recipes/wiki/5.1-%E4%BB%A3%E7%A0%81%E5%90%88%E5%B9%B6%EF%BC%9AMerge%E3%80%81Rebase-%E7%9A%84%E9%80%89%E6%8B%A9">代码合并：Merge、Rebase 的选择&lt;/a> git rebase 黄金法则&lt;/p>
+&lt;blockquote>
+&lt;p>有没有别人正在这个分支上工作？&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="git-rebase">Git rebase&lt;/h3>
+&lt;p>&lt;a href="https://blog.yorkxin.org/2011/07/29/git-rebase">Git-rebase 小筆記&lt;/a> 介绍各种 rebase 详细技巧&lt;/p>
+&lt;p>&lt;a href="https://github.com/doggy8088/Learn-Git-in-30-days/blob/master/zh-tw/23.md">修正 commit 過的版本歷史紀錄 Part 5&lt;/a> 实战 Rebase 能做的事&lt;/p>
+&lt;h3 id="git-tree">Git tree&lt;/h3>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/1064361/unable-to-show-a-git-tree-in-terminal"> show a Git tree in terminal &lt;/a>&lt;/p>
+&lt;pre tabindex="0">&lt;code>git log --graph --oneline --all
+&lt;/code>&lt;/pre>&lt;p>配置 git tree&lt;/p>
+&lt;pre tabindex="0">&lt;code>git config --global alias.tree &amp;quot;log --graph --decorate --pretty=oneline --abbrev-commit&amp;quot;
+&lt;/code>&lt;/pre>&lt;h3 id="git-push--f">Git push -f&lt;/h3>
+&lt;p>&lt;a href="http://www.bysocket.com/?p=926">Git 回滚远程版本&lt;/a> 真的想不到这个都可以，太强大了&lt;/p>
+&lt;pre tabindex="0">&lt;code>git log
+git reset --soft ${commit-id}
+git stash
+git push -f
+&lt;/code>&lt;/pre>&lt;h3 id="git-log">Git log&lt;/h3>
+&lt;p>一直以来对于 git log &amp;ndash;graph 有一种似懂非懂的感觉。
+&lt;a href="http://gitbook.liuhui998.com/3_4.html">来自 Git Community Book 中文版 - 查看历史 - Git 日志&lt;/a> 提到&lt;code>日志排序&lt;/code>的几种&lt;/p>
+&lt;ul>
+&lt;li>逆时间顺序 (reverse chronological)： 默认情况下为这种方式&lt;/li>
+&lt;li>拓扑顺序 (&amp;ndash;topo-order): 子提交在他们的福提交前显示，这种方式会看到”开发线“(development lines) 都会集合在一起&lt;/li>
+&lt;li>提交日期顺序&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>Talk is cheap，Show me the code or money~&lt;/p>
+&lt;/blockquote></description></item><item><title>Docs: Daily 9/5</title><link>https://hyvi.github.io/docs/daily/2017-09-05-daily-95/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-09-05-daily-95/</guid><description>
+&lt;p>一直要做的事情：知识的系统化梳理&lt;br>
+LP生气了，换了微信头像，发了朋友圈，哽咽几下，而我说了一堆话，不知道有没有用&lt;/p>
+&lt;ul>
+&lt;li>vue+webpack重构了整个项目，明天上线新系统，工作上事情很多,做不完的工作,学不完的知识（系统化多重要）
+&lt;ul>
+&lt;li>工作上的发展方向是怎样的，这个问题一直不想，TMCD！&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>贸易上的事情进展太慢了
+&lt;ul>
+&lt;li>Amazon上产品&lt;/li>
+&lt;li>开模新产品&lt;/li>
+&lt;li>产品包装：产品尺寸定做包装&lt;/li>
+&lt;li>发货还是个问题，FBA&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>说了一句话：“我对自己也不满意” ，英文翻译过去应该是&amp;rsquo;fuck yourself, or What'.&lt;br>
+睡觉，长叹一口气！&lt;/p></description></item><item><title>Docs: Daily 9/6</title><link>https://hyvi.github.io/docs/daily/2017-09-05-daily-96/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-09-05-daily-96/</guid><description>
+&lt;h3 id="感情">感情&lt;/h3>
+&lt;p>关进了小黑(la)屋(hei)&lt;/p>
+&lt;p>过了2个小时，出来了！上次也是关了几个小时。&lt;br>
+生气了一会就自我恢复了。&lt;/p>
+&lt;h3 id="工作">工作&lt;/h3>
+&lt;p>新系统顺利上线了&lt;/p>
+&lt;h3 id="学习">学习&lt;/h3>
+&lt;p>&lt;a href="https://hughfdjackson.com/javascript/why-curry-helps/"> Curry 编程&lt;/a> Currying is the process of turning a function that expects multiple parameters into one that, when supplied fewer parameters, returns a new function that awaits the remaining ones.&lt;/p>
+&lt;p>&lt;a href="http://ramdajs.com/">Ramda.js&lt;/a> A practical functional library for JavaScript programmers.&lt;/p></description></item><item><title>Docs: Daily 9/8</title><link>https://hyvi.github.io/docs/daily/2017-09-08-daily-98/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-09-08-daily-98/</guid><description>
+&lt;h3 id="学习">学习&lt;/h3>
+&lt;br />
+#### Python时间处理
+[Python dateutil](https://dateutil.readthedocs.io/en/stable/index.html) 非常强大的时间处理，对这种数据'Fri, 21 Jul 2017 14:42:50 +0800'轻易解析
+[strftime](http://strftime.org/) 最详细的时间格式说明
+[3.15 字符串转换为日期](http://python3-cookbook.readthedocs.io/zh_CN/latest/c03/p15_convert_strings_into_datetimes.html)官网文档datetime.strptime
+```python
+date.today().strftime(u'%Y年%m月%d日'.encode('utf-8')).decode('utf-8')
+```
+&lt;br />
+#### EMAIL收发邮件
+[官网email](https://docs.python.org/2/library/email-examples.html)发送邮件的详细例子
+[POP3收取邮件](https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001408244819215430d726128bf4fa78afe2890bec57736000) 详细教程
+[Reply to email using python 3.4](https://stackoverflow.com/questions/31433633/reply-to-email-using-python-3-4)回复邮件的代码
+[邮件解析](http://blog.donews.com/limodou/archive/2004/12/30/220588.aspx) 编码问题
+[邮件详细解析](http://www.cnblogs.com/zixuan-zhang/p/3402821.html) 这个更详细
+&lt;br />
+&lt;br />
+#### PYTHON GIT
+[pygit2](http://www.pygit2.org/merge.html) python api for git
+&lt;br />
+### 生活
+周日去香港徒步，16公里</description></item><item><title>Docs: 从Jekyll到hugo, 迁移Github Pages</title><link>https://hyvi.github.io/docs/tool/2019-07-08-blog-based-hugo/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/tool/2019-07-08-blog-based-hugo/</guid><description>
+&lt;h2 id="背景">背景&lt;/h2>
+&lt;p>&lt;strong>原因&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>观察到一些技术blog把评论和github issue同步了(gitalk)，这个很赞。&lt;/li>
+&lt;li>后来想到还有一个原因：原来的主题真不好看（跟写blog关系不大呀)，强迫症犯了。&lt;/li>
+&lt;/ul>
+&lt;p>于是想在jekyll搭建的blog下增加这种评论，按照教程操作。理应是一两个小时的事情，而因为GWF和Mac下Ruby环境的折腾一个大晚上。&lt;br>
+一觉后，不应浪费时间在这些网络问题上，blog主要是思考、怎么写、怎么表达。&lt;br>
+于是选择hugo来迁移Blog。&lt;/p>
+&lt;h2 id="实践">实践&lt;/h2>
+&lt;p>完全参考 &lt;a href="https://mogeko.me/2018/018/">使用 Hugo + GitHub Pages 搭建个人博客&lt;/a>&lt;br>
+连风格也完全一(lan)样(ren)。。。&lt;br>
+一天搭建完&lt;/p>
+&lt;h2 id="后续">后续&lt;/h2>
+&lt;p>hugo有很多有趣的功能，比如shortcode, 前段时间一直想通过shortcode让blog支持流程图和思维导图&lt;br>
+&lt;strong>好处&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>现有的工具(xmind, 百度脑图等)生成，然后导出图片, 若更新图中内容时会比较麻烦.&lt;br>
+目前想到简单的办法是将xmind的源文件和图片同名保存, 更新图片内容，更新源文件的同时，导出同名的图片并覆盖.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>坏处&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>如果后续迁移到其他Blog架构，会出现因为不支持shortcode显示导致页面显示流程的代码。&lt;/li>
+&lt;/ul>
+&lt;p>结论：能不用shortcode的情况，换其他表达方式。&lt;/p></description></item><item><title>Docs: 又是一年最长假-国庆 Daily 9/29</title><link>https://hyvi.github.io/docs/daily/2017-09-29-daily-929/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://hyvi.github.io/docs/daily/2017-09-29-daily-929/</guid><description>
+&lt;h2 id="生活">生活&lt;/h2>
+&lt;p>国庆长假对于工作的人真是长假! 回！&lt;/p>
+&lt;h2 id="学习">学习&lt;/h2>
+&lt;h3 id="vim">Vim&lt;/h3>
+&lt;p>&lt;a href="http://vim.wikia.com/wiki/Switching_case_of_characters">Switching case of characters&lt;/a> 还是官网文档比较给力&lt;/p>
+&lt;h3 id="javascript">Javascript&lt;/h3>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/4994201/is-object-empty">Is object empty? &lt;/a> JS中如何判断一个空的对象&lt;/p>
+&lt;p>Array最后一个元素&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">args&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#204a87;font-weight:bold">new&lt;/span> &lt;span style="color:#204a87">Array&lt;/span>&lt;span style="color:#000;font-weight:bold">([&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;www&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">],[&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;phpernote&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">],[&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;com&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">]);&lt;/span>
+&lt;span style="color:#000">alert&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">args&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">pop&lt;/span>&lt;span style="color:#000;font-weight:bold">());&lt;/span>&lt;span style="color:#8f5902;font-style:italic">//com
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="正则表达式">正则表达式&lt;/h3>
+&lt;p>&lt;a href="http://www.vaikan.com/regular-expression-to-match-string-not-containing-a-word/">不匹配的问题&lt;/a>&lt;/p>
+&lt;pre tabindex="0">&lt;code>^((?!hede).)*$
+&lt;/code>&lt;/pre>&lt;h3 id="webpack">Webpack&lt;/h3>
+&lt;p>修改dev server的根目录&lt;/p>
+&lt;pre tabindex="0">&lt;code>devServer: {
+contentBase: path.join(__dirname, &amp;quot;dist&amp;quot;),
+compress: true,
+port: 9000
+}
+&lt;/code>&lt;/pre>&lt;p>当js文件名webpack打包生成的时候，不能写死在html中，如何让js文件自动加入到html文件中&lt;/p>
+&lt;p>&lt;code>HtmlWebpackPlugin&lt;/code> 插件解决了这个问题&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">HtmlWebpackPlugin&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000">require&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#39;html-webpack-plugin&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">);&lt;/span>
+&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">webpackConfig&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">entry&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;index.js&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#000">output&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
+&lt;span style="color:#000">path&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000">__dirname&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">+&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;/dist&amp;#39;&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span>
+&lt;span style="color:#000">filename&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#4e9a06">&amp;#39;index_bundle.js&amp;#39;&lt;/span>
+&lt;span style="color:#000;font-weight:bold">},&lt;/span>
+&lt;span style="color:#000">plugins&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">:&lt;/span> &lt;span style="color:#000;font-weight:bold">[&lt;/span>&lt;span style="color:#204a87;font-weight:bold">new&lt;/span> &lt;span style="color:#000">HtmlWebpackPlugin&lt;/span>&lt;span style="color:#000;font-weight:bold">()]&lt;/span>
+&lt;span style="color:#000;font-weight:bold">};&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://github.com/jantimon/html-webpack-plugin">github 项目地址&lt;/a>&lt;/p>
+&lt;h3 id="vue">VUE&lt;/h3>
+&lt;p>Vue.js 带来的良好的开发模式：模板，数据绑定，组件化，自动化，资源统一化&lt;/p>
+&lt;p>&lt;a href="http://blog.csdn.net/lihongxun945/article/details/51841072">vue-mobile - 一个基于VUE的UI框架&lt;/a>&lt;/p></description></item></channel></rss>
