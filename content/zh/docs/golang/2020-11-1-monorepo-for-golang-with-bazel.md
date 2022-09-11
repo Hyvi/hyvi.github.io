@@ -23,7 +23,10 @@ description:
 ## 新概念
 
 ### Bazel
-> Bazel is an open-source build and test tool similar to Make, Maven, and Gradle. It uses a human-readable, high-level build language. Bazel supports projects in multiple languages and builds outputs for multiple platforms. Bazel supports large codebases across multiple repositories, and large numbers of users.
+> Bazel is an open-source build and test tool similar to Make, Maven, and Gradle. 
+> It uses a human-readable, high-level build language. 
+> Bazel supports projects in multiple languages and builds outputs for multiple platforms.
+> Bazel supports large codebases across multiple repositories, and large numbers of users.
 
 ### Rule 
 >A rule defines a series of actions that Bazel performs on inputs to produce a set of outputs.
@@ -33,12 +36,15 @@ rule_go 为 golang 编写的 rules。
 对 Rule 进一步的了解，学习如何编写 rule，资料入口: rule_go 的作者系列文档： [A simple set of Go rules for Bazel, used for learning and experimentation.](https://github.com/jayconrod/rules_go_simple)
 
 ### Gazelle 
-> Gazelle is a build file generator for Bazel projects. It can create new BUILD.bazel files for a project that follows language conventions, and it can update existing build files to include new sources, dependencies, and options. Gazelle natively supports Go and protobuf, 
+> Gazelle is a build file generator for Bazel projects. It can create new BUILD.bazel files for a project that follows language conventions,
+> and it can update existing build files to include new sources, dependencies, and options. Gazelle natively supports Go and protobuf, 
 
 ## 实践 
 《Create Go Monorepo with Go-modules and Bazel》
 
 Example: https://github.com/PxyUp/go_monorepo 
+
+给 go-present 仓库加上 bazel 构建 monorepo 仓库管理方式
 
 ### Gazelle 使用
 ```
