@@ -51,7 +51,7 @@
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; 站内搜索…" aria-label=站内搜索… autocomplete=off data-offline-search-index-json-src=/offline-search-index.162ddd56e30b021e2da4f41d2115d234.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; 站内搜索…" aria-label=站内搜索… autocomplete=off data-offline-search-index-json-src=/offline-search-index.2b2e28350a4c2cd99e920e09df9abdd9.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -185,7 +185,10 @@
 <h2 id=新概念>新概念</h2>
 <h3 id=bazel>Bazel</h3>
 <blockquote>
-<p>Bazel is an open-source build and test tool similar to Make, Maven, and Gradle. It uses a human-readable, high-level build language. Bazel supports projects in multiple languages and builds outputs for multiple platforms. Bazel supports large codebases across multiple repositories, and large numbers of users.</p>
+<p>Bazel is an open-source build and test tool similar to Make, Maven, and Gradle.
+It uses a human-readable, high-level build language.
+Bazel supports projects in multiple languages and builds outputs for multiple platforms.
+Bazel supports large codebases across multiple repositories, and large numbers of users.</p>
 </blockquote>
 <h3 id=rule>Rule</h3>
 <blockquote>
@@ -195,11 +198,13 @@
 <p>对 Rule 进一步的了解，学习如何编写 rule，资料入口: rule_go 的作者系列文档： <a href=https://github.com/jayconrod/rules_go_simple>A simple set of Go rules for Bazel, used for learning and experimentation.</a></p>
 <h3 id=gazelle>Gazelle</h3>
 <blockquote>
-<p>Gazelle is a build file generator for Bazel projects. It can create new BUILD.bazel files for a project that follows language conventions, and it can update existing build files to include new sources, dependencies, and options. Gazelle natively supports Go and protobuf,</p>
+<p>Gazelle is a build file generator for Bazel projects. It can create new BUILD.bazel files for a project that follows language conventions,
+and it can update existing build files to include new sources, dependencies, and options. Gazelle natively supports Go and protobuf,</p>
 </blockquote>
 <h2 id=实践>实践</h2>
 <p>《Create Go Monorepo with Go-modules and Bazel》</p>
 <p>Example: <a href=https://github.com/PxyUp/go_monorepo>https://github.com/PxyUp/go_monorepo</a></p>
+<p>给 go-present 仓库加上 bazel 构建 monorepo 仓库管理方式</p>
 <h3 id=gazelle-使用>Gazelle 使用</h3>
 <pre tabindex=0><code>bazel run //:gazelle
 </code></pre><p>疑惑点：</p>
