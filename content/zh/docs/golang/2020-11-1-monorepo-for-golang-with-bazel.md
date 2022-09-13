@@ -33,7 +33,13 @@ description:
 
 rule_go 为 golang 编写的 rules。
 
-对 Rule 进一步的了解，学习如何编写 rule，资料入口: rule_go 的作者系列文档： [A simple set of Go rules for Bazel, used for learning and experimentation.](https://github.com/jayconrod/rules_go_simple)
+对 Rule 进一步的了解，学习如何编写 rule，资料入口：rule_go 的作者系列文档： [A simple set of Go rules for Bazel, used for learning and experimentation.](https://github.com/jayconrod/rules_go_simple)
+
+#### repository rule 
+解决依赖于安装在本机上的 toolchain，这样如果不同的开发者需要在本地上安装 toolchain。 
+一旦 toolchain 不一样的时候，构建出来的结果不一样。于是，通过 repository rule 来下载 go toolchain 和生成 custom build file. 
+
+a repository rule, a special function that can be used in a WORKSPACE file to define an external WORKSPACE.
 
 ### Gazelle 
 > Gazelle is a build file generator for Bazel projects. It can create new BUILD.bazel files for a project that follows language conventions,
