@@ -51,7 +51,7 @@
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; 站内搜索…" aria-label=站内搜索… autocomplete=off data-offline-search-index-json-src=/offline-search-index.2b2e28350a4c2cd99e920e09df9abdd9.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; 站内搜索…" aria-label=站内搜索… autocomplete=off data-offline-search-index-json-src=/offline-search-index.297ae66a4aacae41209804430a7f48e7.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -195,7 +195,11 @@ Bazel supports large codebases across multiple repositories, and large numbers o
 <p>A rule defines a series of actions that Bazel performs on inputs to produce a set of outputs.</p>
 </blockquote>
 <p>rule_go 为 golang 编写的 rules。</p>
-<p>对 Rule 进一步的了解，学习如何编写 rule，资料入口: rule_go 的作者系列文档： <a href=https://github.com/jayconrod/rules_go_simple>A simple set of Go rules for Bazel, used for learning and experimentation.</a></p>
+<p>对 Rule 进一步的了解，学习如何编写 rule，资料入口：rule_go 的作者系列文档： <a href=https://github.com/jayconrod/rules_go_simple>A simple set of Go rules for Bazel, used for learning and experimentation.</a></p>
+<h4 id=repository-rule>repository rule</h4>
+<p>解决依赖于安装在本机上的 toolchain，这样如果不同的开发者需要在本地上安装 toolchain。
+一旦 toolchain 不一样的时候，构建出来的结果不一样。于是，通过 repository rule 来下载 go toolchain 和生成 custom build file.</p>
+<p>a repository rule, a special function that can be used in a WORKSPACE file to define an external WORKSPACE.</p>
 <h3 id=gazelle>Gazelle</h3>
 <blockquote>
 <p>Gazelle is a build file generator for Bazel projects. It can create new BUILD.bazel files for a project that follows language conventions,
