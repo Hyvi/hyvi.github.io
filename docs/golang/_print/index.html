@@ -51,7 +51,7 @@
 </ul>
 </div>
 <div class="navbar-nav d-none d-lg-block">
-<input type=search class="form-control td-search-input" placeholder="&#xf002; 站内搜索…" aria-label=站内搜索… autocomplete=off data-offline-search-index-json-src=/offline-search-index.297ae66a4aacae41209804430a7f48e7.json data-offline-search-base-href=/ data-offline-search-max-results=10>
+<input type=search class="form-control td-search-input" placeholder="&#xf002; 站内搜索…" aria-label=站内搜索… autocomplete=off data-offline-search-index-json-src=/offline-search-index.e9d545e2ea02ca60a7ebca6e579ceb74.json data-offline-search-base-href=/ data-offline-search-max-results=10>
 </div>
 </nav>
 </header>
@@ -177,10 +177,20 @@
 <p>微服务面临的问题是大量的 repo（成百上千）， 尤其在依赖库的管理、规范的落地，非常麻烦困难。</p>
 <p>需求点</p>
 <ul>
+<li>Avoid depending on the host system
+<ul>
+<li>使用相同的 Go distribition</li>
+</ul>
+</li>
+<li>Try to stay reproducible and deterministic
+<ul>
 <li>使用同一的 go.mod 来管理依赖</li>
+</ul>
+</li>
 <li>在不同的应用里可以服用共同的代码块</li>
 <li>可以执行单个应用的测试也可以执行所有应用的测试</li>
 <li>可以构建单个应用或者所有的应用</li>
+<li>构建时间短，可以复用已经构建好的 artifacts</li>
 </ul>
 <h2 id=新概念>新概念</h2>
 <h3 id=bazel>Bazel</h3>
