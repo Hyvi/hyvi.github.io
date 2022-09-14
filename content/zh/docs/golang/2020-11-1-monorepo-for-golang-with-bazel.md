@@ -15,10 +15,14 @@ description:
 微服务面临的问题是大量的 repo（成百上千）， 尤其在依赖库的管理、规范的落地，非常麻烦困难。
 
 需求点
-- 使用同一的 go.mod 来管理依赖
+- Avoid depending on the host system
+    - 使用相同的 Go distribition
+- Try to stay reproducible and deterministic 
+    - 使用同一的 go.mod 来管理依赖
 - 在不同的应用里可以服用共同的代码块
 - 可以执行单个应用的测试也可以执行所有应用的测试
 - 可以构建单个应用或者所有的应用
+- 构建时间短，可以复用已经构建好的 artifacts
 
 ## 新概念
 
