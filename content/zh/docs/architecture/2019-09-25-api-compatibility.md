@@ -45,9 +45,9 @@ code that compiled against version X of an API will run correctly in an environm
 [ Backward Compatibility Guidelines ](https://developers.google.com/youtube/compatibility_guidelines)  
 [ API Gesign Guide ](https://google-cloud.gitbook.io/api-design-guide/) Google针对网络API的通用设计指南  
 [ API Compatibility v2](https://github.com/kijiproject/wiki/wiki/API-Compatibility-v2) 
+[ Stripe With versioning ][1], 解决版本、文档、变更问题。
 
-
-
+[1]: https://stripe.com/blog/api-versioning
 
 <br>
 
