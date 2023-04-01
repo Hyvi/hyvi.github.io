@@ -51,6 +51,8 @@ layout: docs
 
 - **[zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)**  命令使用多了，这个很方便
 
+- **[raycast]()**  类似 Alfred
+
 ### 💻 开发工具
 - **[Nvim](https://github.com/Hyvi/dotfiles)**  比几年前整 vim 容易多了，最重要是的一个 mac~~（之前用 gvim)~~省了好多折腾时间
 
