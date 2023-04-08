@@ -1,5 +1,3 @@
----
-title: "资源 「USEFUL LINKS」"
 linkTitle: Tools
 menu:
   main:
@@ -18,7 +16,6 @@ layout: docs
 
 [我的代码](https://bitbucket.org) 所有私有代码上传到网络上
 
-[我的资源]( https://springsunday.net/ ) 电影、音乐资源
 ## 硬件工具
 ### 电脑及配件
 - **Macbook Pro 2018** 
@@ -28,7 +25,8 @@ layout: docs
 - **Iphone 6 Plus** 用于另外一个手机号，短信/电话转发到 Iphone X 里
 
 ### 耳机音箱
-- **Jabra Elite 65** 用于跑步、开会
+- **Jabra Elite 65** 基本上停止使用了
+- **HUAWEI FreeBuds 4E** 上下班等日常使用
 - **有线耳机** 
 
 ### 存储设备
@@ -39,19 +37,17 @@ layout: docs
 
 
 ### 🔧 实用工具
+
+- **[raycast]()**  类似 Alfred, 搜索文件时不如 Spotlight Search，不如检索系统的图片，输入“身份证”，后者可以检索出相册中的身份证文件
+
 - **[BetterTouchTool](https://folivora.ai)**  已买了 Standard License，将 Magic Mouse 上也可以“TAP TO CLICK”
 
 - **[Retangle](https://github.com/rxhanson/Rectangle)**  Move and resize windows with ease，经常使用到
 
 - **[Snipaste for Mac](https://zh.snipaste.com/)**  Snipaste 是一个简单但强大的截图工具，也可以让你将截图贴回到屏幕上！
 
-- **[Clouder](https://chrome.google.com/webstore/detail/clouder/fjblekdlcidmadghbofmenknaegldcic)**  把图片上传到云端的存储的工具，公司把其他盘关闭了。
-
-- **[fig]()**  Fig adds IDE-style autocomplete to your existing terminal.
-
 - **[zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)**  命令使用多了，这个很方便
 
-- **[raycast]()**  类似 Alfred
 
 ### 💻 开发工具
 - **[Nvim](https://github.com/Hyvi/dotfiles)**  比几年前整 vim 容易多了，最重要是的一个 mac~~（之前用 gvim)~~省了好多折腾时间
@@ -77,7 +73,9 @@ layout: docs
 - **[cheat.sh](https://github.com/chubin/cheat.sh)**  the only cheat sheet you need
 
 ### 🎵 影音娱乐
-- **[cmus](https://cmus.github.io/)**  命令行下播放音乐
+- **[Plex]()** 使用 Mac mini 在家庭局域网中搭建服务器，通过 Cloudfare / Frps 方式来穿透。
+
+- **[Transmission](https://transmissionbt.com)** 下载种子文件的电影/音乐等
 
 ### 📁 文件管理
 
@@ -89,12 +87,20 @@ layout: docs
 - **[1Password]()** 在手机/电脑端同步所有的密码
 
 ### 📝 记录工具
-- ~~**[Trello](https://trello.com)** 目标管理、项目管理、计划管理工具，缺点是没有本地保存，断网情况下出现内容丢失.~~
-- **[Notion](https://notion.so)** 种草了 Notion 新工具，取代了 Trello，更好用, 但是日历没办法同步到 iCal 里，需要自己创建
+- **[Notion + ical4notion](https://notion.so)** 种草了 Notion 新工具，取代了 Trello，更好用, 目标/任务管理和日常文字记录, 实时检索非常方便。缺点有，缺少图片OCR检索，缺少对 pdf 等文档的检索。
+
 
 ### 📱 手机 APP
 
 ## 废弃的利器
+~~[Trello](https://trello.com) 目标管理、项目管理、计划管理工具，缺点是没有本地保存，断网情况下出现内容丢失.~~
+
+~~[cmus](https://cmus.github.io/)  命令行下播放音乐~~
+
+~~[Clouder](https://chrome.google.com/webstore/detail/clouder/fjblekdlcidmadghbofmenknaegldcic)  把图片上传到云端的存储的工具，公司把其他盘关闭了。被 Plex 替代~~
+
+~~[fig]()  Fig adds IDE-style autocomplete to your existing terminal.~~
+
 ~~[repl.it](repl.it) 各种语言在线的 IDE. 支持 VIM 模式、支持自动补全~~
 
 ~~[Synergy](https://github.com/symless/synergy-core) 在 Mac 编译命令运行方式，很少出现问题，在 synergyc 客户端侧结合 supervisor 使用感觉更丝滑。~~
@@ -116,12 +122,5 @@ layout: docs
 
 ~~[Sublime SFTP Usage](https://wbond.net/sublime_packages/sftp/usage) 多看下手册会发现神奇的功能，比如 Monitoring files 功能~~
 
-## Books
-见百度脑图各个技术点书籍收集目录下的书本
 
-[Exploring ES6](http://exploringjs.com/es6.html) es6 很详细的书籍
-
-[Interactive vim tutorial](http://www.openvim.com/tutorial.html) 在线学习 vim 基础命令，没事可以上去操作下，温故知新
-
-[Python 教程](https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000) 罗列基础学习知识，根据目录来学习
 
